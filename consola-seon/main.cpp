@@ -3,8 +3,8 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    consola_seon w;
-    w.show();
-    return a.exec();
+    QApplication app(argc, argv);
+    consola_seon ventana_principal;
+    ventana_principal.showMaximized();
+    return app.exec();
 }

@@ -26,10 +26,6 @@ class configuracion {
     struct trama_seon {
 
     };
-    
-    struct pupitre {
-
-    };
 
 public:
     configuracion();

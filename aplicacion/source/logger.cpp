@@ -1,12 +1,13 @@
 #include <aplicacion/include/logger.h>
 
-using namespace seon::aplicacion;
 
 // stl
 #include <iostream>
 
 // utiles
 #include <utiles/include/FuncionesString.h>
+
+namespace seon::aplicacion {
 
 herramientas::log::Logger * logger::log = NULL;
 
@@ -52,3 +53,5 @@ void logger::critico(const std::string &  mensaje)
 {
     log->critico(mensaje);
 }
+
+};
