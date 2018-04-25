@@ -1,5 +1,8 @@
 #pragma once
 
+// stl
+#include <string>
+
 namespace seon::aplicacion {
 
 class configuracion {
@@ -27,10 +30,24 @@ class configuracion {
 
     };
 
+    struct logger {
+        std::string path;
+    };
+
 public:
     configuracion();
+    configuracion(const std::string & path_configuracion);
     virtual ~configuracion();
 
+    bool levantar(const std::string & path_configuracion);
+
+    gui gui;
+    video video;
+    gps gps;
+    pupitre pupitre;
+    pulsadores pulsadores;
+    trama_seon trama_seon;
+    logger logger;
 };
 
 };
