@@ -12,5 +12,8 @@ public:
     consola_seon(QWidget *parent = Q_NULLPTR);
 
 private:
+
+    void setear_inicio();
+
     Ui::consola_seonClass ui;
 };

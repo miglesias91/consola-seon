@@ -12,6 +12,10 @@ administrador::administrador() {
 }
 
 administrador::~administrador() {
+
+    logger::info("CIERRE CONSOLA");
+
+    herramientas::log::AdministradorLog::liberarTodo();
 }
 
 void administrador::iniciar(const std::string & path_configuracion) {
@@ -24,6 +28,7 @@ void administrador::iniciar(const std::string & path_configuracion) {
     }
 
     logger::iniciar(this->configuracion.logger.path);
+    logger::info("INICIO CONSOLA");
 }
 
 

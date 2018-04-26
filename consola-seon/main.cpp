@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
     // inicio aplicacion
     seon::aplicacion::administrador admin;
-
+    admin.iniciar("configuracion.json");
 
     // inicio video
 

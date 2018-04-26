@@ -22,6 +22,8 @@ bool configuracion::levantar(const std::string & path_configuracion)
     herramientas::utiles::FuncionesSistemaArchivos::leer(path_configuracion, contenido_configuracion);
 
     herramientas::utiles::Json configuracion_json(contenido_configuracion);
+    
+    this->logger.path = configuracion_json.getAtributoValorString("config_log");
 
     return true;
 }
