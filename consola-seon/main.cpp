@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
     admin.iniciar("configuracion.json");
 
     // inicio video
+    //seon::video::camara camara(placa_de_video);
 
     QApplication app(argc, argv);
     consola_seon ventana_principal;

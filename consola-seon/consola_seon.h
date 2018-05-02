@@ -1,6 +1,8 @@
 #pragma once
 
+// qt
 #include <QtWidgets/QMainWindow>
+#include <QtMultimedia/qmediaplayer.h>
 
 #include "ui_consola_seon.h"
 
@@ -16,4 +18,7 @@ private:
     void setear_inicio();
 
     Ui::consola_seonClass ui;
+
+    // atributos
+    QMediaPlayer reproductor;
 };

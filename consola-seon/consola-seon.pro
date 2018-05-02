@@ -4,16 +4,31 @@
 
 TEMPLATE = app
 TARGET = consola-seon
-DESTDIR = ../Win32/Debug
+DESTDIR = ../Win32/Release
 QT += core gui multimedia widgets multimediawidgets
-CONFIG += debug
+CONFIG += release
 DEFINES += WIN64 QT_DLL QT_MULTIMEDIA_LIB QT_MULTIMEDIAWIDGETS_LIB QT_WIDGETS_LIB
 INCLUDEPATH += ./GeneratedFiles \
     . \
-    ./GeneratedFiles/$(ConfigurationName)
+    $(qt-dir)5.9.1/msvc2015/include \
+    ./GeneratedFiles/$(ConfigurationName) \
+    $(qt-dir)5.9.1/msvc2015/include/QtCore \
+    $(qt-dir)5.9.1/msvc2015/include/QtGui \
+    $(qt-dir)5.9.1/msvc2015/include/QtANGLE \
+    $(qt-dir)5.9.1/msvc2015/include/QtMultimedia \
+    $(qt-dir)5.9.1/msvc2015/include/QtMultimediaWidgets \
+    $(qt-dir)5.9.1/msvc2015/include/QtWidgets \
+    $(SolutionDir) \
+    $(repos)spdlog/include
+LIBS += -L"$(SolutionDir)Release" \
+    -L"$(qt-dir)5.9.1/msvc2015/lib" \
+    -L"$(repos-git)herramientas_desarrollo/Release" \
+    -llog \
+    -lutiles \
+    -laplicacion
 DEPENDPATH += .
 MOC_DIR += ./GeneratedFiles/$(ConfigurationName)
-OBJECTS_DIR += debug
+OBJECTS_DIR += release
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
 include(consola-seon.pri)
