@@ -1,0 +1,77 @@
+{
+    "tramas" :
+    {
+        "gps" :
+        {
+            "serial" : 
+            {
+                "puerto" : 8080,
+                "baudrate" : 1000,
+                "paridad" : "",
+                "bit" : ""
+            },
+            "busqueda" : "",
+            "bidireccional" : true,
+            "largo" : 1234,
+            "sincro" : 
+            {
+                "encabezado" : 1,
+                "cola" : 1
+            }
+        },
+        "pupitre" :
+        {
+            "serial" : 
+            {
+                "puerto" : 8081,
+                "baudrate" : 1000,
+                "paridad" : "",
+                "bit" : ""
+            },
+            "busqueda" : "",
+            "bidireccional" : true,
+            "largo" : 1234,
+            "sincro" : 
+            {
+                "encabezado" : 1,
+                "cola" : 1
+            }
+        },
+        "pulsadores" :
+        {
+            "serial" : 
+            {
+                "puerto" : 8082,
+                "baudrate" : 1000,
+                "paridad" : "",
+                "bit" : ""
+            },
+            "busqueda" : "",
+            "bidireccional" : true,
+            "largo" : 1234,
+            "sincro" : 
+            {
+                "encabezado" : 1,
+                "cola" : 1
+            }
+        },
+        "seon" :
+        {
+            "serial" : 
+            {
+                "puerto" : 8083,
+                "baudrate" : 1000,
+                "paridad" : "",
+                "bit" : ""
+            },
+            "busqueda" : "",
+            "bidireccional" : true,
+            "largo" : 1234,
+            "sincro" : 
+            {
+                "encabezado" : 1,
+                "cola" : 1
+            }
+        }
+    }
+}

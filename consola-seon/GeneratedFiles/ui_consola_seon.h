@@ -141,7 +141,7 @@ public:
         widget_superior = new QWidget(frame);
         widget_superior->setObjectName(QStringLiteral("widget_superior"));
         widget_superior->setGeometry(QRect(130, 110, 626, 70));
-        widget_superior->setAutoFillBackground(true);
+        widget_superior->setAutoFillBackground(false);
         widget_superior->setStyleSheet(QStringLiteral(""));
         panel_superior = new QHBoxLayout(widget_superior);
         panel_superior->setSpacing(6);
@@ -467,7 +467,7 @@ public:
 
         widget_latera = new QWidget(frame);
         widget_latera->setObjectName(QStringLiteral("widget_latera"));
-        widget_latera->setGeometry(QRect(0, 40, 101, 532));
+        widget_latera->setGeometry(QRect(0, 40, 117, 548));
         layout_lateral = new QVBoxLayout(widget_latera);
         layout_lateral->setSpacing(6);
         layout_lateral->setContentsMargins(11, 11, 11, 11);

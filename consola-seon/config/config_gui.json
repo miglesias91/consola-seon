@@ -1,0 +1,62 @@
+{
+    "gui" :
+    {
+        "area_video" : 
+        {
+            "ancho" : 0,
+            "alto" : 0,
+            "x" : 0,
+            "y" : 0
+        },
+        "panel_superior" : 
+        {
+            "ancho" : 0,
+            "alto" : 0,
+            "x" : 0,
+            "y" : 0
+        },
+        "panel_lateral" : 
+        {
+            "ancho" : 0,
+            "alto" : 0,
+            "x" : 0,
+            "y" : 0
+        },
+        "elementos" :
+        [
+            {
+                "id" : 0,
+                "color_1" : { "nombre" : "rojo", "r" : 255, "g" : 0, "b" : 0 },
+                "color_2" : { "nombre" : "azul", "r" : 0, "g" : 0, "b" : 255 },
+                "ancho" : 0,
+                "alto" : 0,
+                "x" : 0,
+                "y" : 0,
+                "nombre" : "camara",
+                "id_padre" : 100
+            },
+            {
+                "id" : 1,
+                "color_1" : { "nombre" : "verde", "r" : 0, "g" : 255, "b" : 0 },
+                "color_2" : { "nombre" : "azul", "r" : 0, "g" : 0, "b" : 255 },
+                "ancho" : 0,
+                "alto" : 0,
+                "x" : 0,
+                "y" : 0,
+                "nombre" : "pantalla",
+                "id_padre" : 100
+            },
+            {
+                "id" : 2,
+                "color_1" : { "nombre" : "blanco", "r" : 255, "g" : 255, "b" : 255 },
+                "color_2" : { "nombre" : "rojo", "r" : 255, "g" : 0, "b" : 0 },
+                "ancho" : 0,
+                "alto" : 0,
+                "x" : 0,
+                "y" : 0,
+                "nombre" : "zoom",
+                "id_padre" : 100
+            }
+        ]
+    }
+}
