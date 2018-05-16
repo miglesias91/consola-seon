@@ -1,77 +1,74 @@
 {
-    "tramas" :
+    "gps" :
     {
-        "gps" :
+        "serial" : 
         {
-            "serial" : 
-            {
-                "puerto" : 8080,
-                "baudrate" : 1000,
-                "paridad" : "",
-                "bit" : ""
-            },
-            "busqueda" : "",
-            "bidireccional" : true,
-            "largo" : 1234,
-            "sincro" : 
-            {
-                "encabezado" : 1,
-                "cola" : 1
-            }
+            "puerto" : 8080,
+            "baudrate" : 1000,
+            "paridad" : "",
+            "bit" : "0"
         },
-        "pupitre" :
+        "busqueda" : "0",
+        "bidireccional" : true,
+        "largo" : 1234,
+        "sincro" : 
         {
-            "serial" : 
-            {
-                "puerto" : 8081,
-                "baudrate" : 1000,
-                "paridad" : "",
-                "bit" : ""
-            },
-            "busqueda" : "",
-            "bidireccional" : true,
-            "largo" : 1234,
-            "sincro" : 
-            {
-                "encabezado" : 1,
-                "cola" : 1
-            }
+            "encabezado" : 1,
+            "cola" : 1
+        }
+    },
+    "pupitre" :
+    {
+        "serial" : 
+        {
+            "puerto" : 8081,
+            "baudrate" : 1000,
+            "paridad" : "0",
+            "bit" : "0"
         },
-        "pulsadores" :
+        "busqueda" : "0",
+        "bidireccional" : true,
+        "largo" : 1234,
+        "sincro" : 
         {
-            "serial" : 
-            {
-                "puerto" : 8082,
-                "baudrate" : 1000,
-                "paridad" : "",
-                "bit" : ""
-            },
-            "busqueda" : "",
-            "bidireccional" : true,
-            "largo" : 1234,
-            "sincro" : 
-            {
-                "encabezado" : 1,
-                "cola" : 1
-            }
+            "encabezado" : 1,
+            "cola" : 1
+        }
+    },
+    "pulsadores" :
+    {
+        "serial" : 
+        {
+            "puerto" : 8082,
+            "baudrate" : 1000,
+            "paridad" : "0",
+            "bit" : "0"
         },
-        "seon" :
+        "busqueda" : "0",
+        "bidireccional" : true,
+        "largo" : 1234,
+        "sincro" : 
         {
-            "serial" : 
-            {
-                "puerto" : 8083,
-                "baudrate" : 1000,
-                "paridad" : "",
-                "bit" : ""
-            },
-            "busqueda" : "",
-            "bidireccional" : true,
-            "largo" : 1234,
-            "sincro" : 
-            {
-                "encabezado" : 1,
-                "cola" : 1
-            }
+            "encabezado" : 1,
+            "cola" : 1
+        }
+    },
+    "seon" :
+    {
+        "serial" : 
+        {
+            "puerto" : 8083,
+            "baudrate" : 1000,
+            "paridad" : "0",
+            "bit" : "0"
+        },
+        "busqueda" : "0",
+        "bidireccional" : true,
+        "largo" : 1234,
+        "sincro" : 
+        {
+            "encabezado" : 1,
+            "cola" : 1
         }
     }
 }

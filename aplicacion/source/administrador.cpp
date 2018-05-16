@@ -8,14 +8,13 @@
 
 namespace seon::aplicacion {
 
-administrador::administrador() {
-}
+administrador::administrador() {}
 
 administrador::~administrador() {
 
     logger::info("CIERRE CONSOLA");
 
-    herramientas::log::AdministradorLog::liberarTodo();
+    logger::liberar();
 }
 
 void administrador::iniciar(const std::string & path_configuracion) {
@@ -27,8 +26,11 @@ void administrador::iniciar(const std::string & path_configuracion) {
         throw;
     }
 
-    logger::iniciar(this->configuracion.logger.path);
-    logger::info("INICIO CONSOLA");
+    if (this->configuracion.logger.activado) {
+        logger::iniciar(this->configuracion.logger.path.u8string());
+        logger::info("INICIO CONSOLA");
+        logger::debug(this->configuracion.detallado());
+    }
 }
 
 

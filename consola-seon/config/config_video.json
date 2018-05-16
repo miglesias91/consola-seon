@@ -1,42 +1,39 @@
 {
-    "video" :
+    "resolucion" : 
     {
-        "resolucion" : 
-        {
-            "ancho" : 1024,
-            "alto" : 860
-        },
-        "canal" : 0,
-        "fps" : 60,
-        "render" : 0,
-        "reticula_mayor" : 
-        {
-            "ancho" : 0,
-            "alto" : 0,
-            "ancho_linea" : 0,
-            "id" : 0
-        },
-        "reticula_media" : 
-        {
-            "ancho" : 0,
-            "alto" : 0,
-            "ancho_linea" : 0,
-            "id" : 0
-        },
-        "reticula_menor" : 
-        {
-            "ancho" : 0,
-            "alto" : 0,
-            "ancho_linea" : 0,
-            "id" : 0
-        },
-        "testigo" :
-        {
-            "ancho" : 0,
-            "alto" : 0,
-            "ancho_linea" : 0,
-            "x_default" : 0,
-            "y_default" : 0
-        }
+        "ancho" : 1024,
+        "alto" : 860
+    },
+    "canal" : 0,
+    "fps" : 60,
+    "render" : 0,
+    "reticula_mayor" : 
+    {
+        "ancho" : 0,
+        "alto" : 0,
+        "ancho_linea" : 0,
+        "id" : 0
+    },
+    "reticula_media" : 
+    {
+        "ancho" : 0,
+        "alto" : 0,
+        "ancho_linea" : 0,
+        "id" : 0
+    },
+    "reticula_menor" : 
+    {
+        "ancho" : 0,
+        "alto" : 0,
+        "ancho_linea" : 0,
+        "id" : 0
+    },
+    "testigo" :
+    {
+        "ancho" : 0,
+        "alto" : 0,
+        "ancho_linea" : 0,
+        "x_default" : 0,
+        "y_default" : 0
     }
 }

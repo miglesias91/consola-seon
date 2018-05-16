@@ -10,6 +10,8 @@ public:
 
     static void iniciar(const std::string & config_log);
 
+    static void liberar();
+
     // GETTERS
 
     // SETTERS
@@ -31,6 +33,7 @@ private:
     virtual ~logger();
 
     static herramientas::log::Logger * log;
+    static bool activado;
     
 };
 

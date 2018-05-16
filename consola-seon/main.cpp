@@ -5,8 +5,10 @@
 #include <aplicacion/include/administrador.h>
 
 // vld
-#ifdef DEBUG | _DEBUG
+#if defined(DEBUG) || defined(_DEBUG)
+
 #include <vld.h>
+
 #endif
 
 int main(int argc, char *argv[])

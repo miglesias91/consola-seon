@@ -16,6 +16,7 @@ public:
 
     void iniciar(const std::string & path_configuracion);
 
+
 private:
 
     configuracion configuracion;
