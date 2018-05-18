@@ -1,6 +1,13 @@
 // In a Catch project with multiple files, dedicate one file to compile the
 // source code of Catch itself and reuse the resulting object file for linking.
 
+// vld
+#if defined(DEBUG) || defined(_DEBUG)
+
+#include <vld.h>
+
+#endif
+
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
 

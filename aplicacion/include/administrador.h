@@ -16,10 +16,10 @@ public:
 
     void iniciar(const std::string & path_configuracion);
 
+    configuracion configuracion;
 
 private:
 
-    configuracion configuracion;
 };
 
 };

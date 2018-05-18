@@ -26,17 +26,17 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -76,6 +76,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(repos-git)herramientas_desarrollo;$(repos)rapidjson\include;$(repos)spdlog\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <EnableModules>false</EnableModules>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;DEBUG;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -94,6 +99,10 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <EnableModules>false</EnableModules>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(repos-git)herramientas_desarrollo;$(repos)rapidjson\include;$(repos)spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -115,6 +124,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\administrador.h" />
+    <ClInclude Include="include\camara.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\administrador.cpp" />
+    <ClCompile Include="source\camara.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

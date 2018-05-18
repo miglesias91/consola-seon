@@ -1730,20 +1730,17 @@ color: rgb(250, 250, 0);</string>
      </item>
     </layout>
    </widget>
-   <zorder>frame_testigo_video</zorder>
-   <zorder>frame_datos_gps</zorder>
-   <zorder>frame_datos_plataforma</zorder>
-   <zorder>frame_testigo_modo</zorder>
-   <zorder>frame_testigo_zoom</zorder>
-   <zorder>frame_testigo_foco</zorder>
-   <zorder>frame_testigo_pantalla</zorder>
-   <zorder>frame_datos_blanco</zorder>
-   <zorder>frame_referencia_estab</zorder>
-   <zorder>frame_testigo_ventana_optica</zorder>
-   <zorder>frame_testigo_camara</zorder>
-   <zorder>frame_testigo_enganche</zorder>
-   <zorder>frame_enganche</zorder>
-   <zorder>lbl_enganche</zorder>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>110</y>
+      <width>160</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout"/>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

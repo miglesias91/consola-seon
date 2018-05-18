@@ -15,19 +15,19 @@ bool configuracion::levantar(const std::string & path_configuracion)
 
     herramientas::utiles::Json configuracion_json(contenido_configuracion);
     
-    this->tramas.levantar(configuracion_json.getAtributoValorString("config_tramas"));
-    this->gui.levantar(configuracion_json.getAtributoValorString("config_gui"));
-    this->video.levantar(configuracion_json.getAtributoValorString("config_video"));
+    this->config_tramas.levantar(configuracion_json.getAtributoValorString("config_tramas"));
+    this->config_gui.levantar(configuracion_json.getAtributoValorString("config_gui"));
+    this->config_video.levantar(configuracion_json.getAtributoValorString("config_video"));
 
     std::string path_config_log = configuracion_json.getAtributoValorString("config_log");
-    herramientas::utiles::FuncionesSistemaArchivos::leer(path_config_log, this->logger.detallado);
+    herramientas::utiles::FuncionesSistemaArchivos::leer(path_config_log, this->config_logger.detallado);
 
-    herramientas::utiles::Json json_config_log(this->logger.detallado);
+    herramientas::utiles::Json json_config_log(this->config_logger.detallado);
 
-    this->logger.activado = json_config_log.getAtributoValorBool("activado");
+    this->config_logger.activado = json_config_log.getAtributoValorBool("activado");
 
-    if (this->logger.activado) {
-        this->logger.path = path_config_log;
+    if (this->config_logger.activado) {
+        this->config_logger.path = path_config_log;
     }
 
     return true;
@@ -37,10 +37,10 @@ std::string configuracion::detallado()
 {
     return
         "## CONFIGURACION ##\n"
-        "LOG: " + this->logger.path.u8string() + "\n" + this->logger.detallado + "\n" +
-        "GUI: " + this->gui.path.u8string() + "\n" + this->gui.detallado + "\n" +
-        "TRAMAS: " + this->tramas.path.u8string() + "\n" + this->tramas.detallado + "\n" +
-        "VIDEO: " + this->video.path.u8string() + "\n" + this->video.detallado + "\n"
+        "LOG: " + this->config_logger.path.u8string() + "\n" + this->config_logger.detallado + "\n" +
+        "GUI: " + this->config_gui.path.u8string() + "\n" + this->config_gui.detallado + "\n" +
+        "TRAMAS: " + this->config_tramas.path.u8string() + "\n" + this->config_tramas.detallado + "\n" +
+        "VIDEO: " + this->config_video.path.u8string() + "\n" + this->config_video.detallado + "\n"
         ;
 }
 

@@ -1,9 +1,6 @@
 #include "consola_seon.h"
 #include <QtWidgets/QApplication>
 
-// aplicacion
-#include <aplicacion/include/administrador.h>
-
 // vld
 #if defined(DEBUG) || defined(_DEBUG)
 
@@ -11,14 +8,24 @@
 
 #endif
 
+// aplicacion
+#include <aplicacion/include/administrador.h>
+
+// video
+#include <video/include/administrador.h>
+
 int main(int argc, char *argv[])
 {
     // inicio aplicacion
-    seon::aplicacion::administrador admin;
-    admin.iniciar("configuracion.json");
+    seon::aplicacion::administrador admin_aplicacion;
+    admin_aplicacion.iniciar("configuracion.json");
 
     // inicio video
     //seon::video::camara camara(placa_de_video);
+    std::string directorio_ejecutable = std::experimental::filesystem::current_path().u8string();
+
+    seon::video::administrador admin_video(admin_aplicacion.configuracion.config_video);
+    admin_video.iniciar(directorio_ejecutable + "\\oficina.mp4");
 
     QApplication app(argc, argv);
     consola_seon ventana_principal;

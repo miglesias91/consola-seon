@@ -79,11 +79,11 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>false</EnableModules>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <PreprocessorDefinitions>DEBUG;WIN32;_WINDOWS;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir);$(repos)googletest\googletest\include;$(repos)Catch2\single_include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)\Debug;$(repos)googletest\googletest\build_x86\Debug;$(repos)opencv\build_msvc\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Debug;$(repos)opencv\build_msvc\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opencv_video341d.lib;opencv_videoio341d.lib;opencv_imgcodecs341d.lib;opencv_imgproc341d.lib;opencv_core341d.lib;opencv_highgui341d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

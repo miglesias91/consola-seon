@@ -10,12 +10,14 @@
 #include <utiles/include/FuncionesSistemaArchivos.h>
 #include <utiles/include/Json.h>
 
+typedef uint64_t big_uint;
+typedef uint32_t uint;
+
 namespace seon::aplicacion {
 
 class configuracion {
 
-    typedef uint64_t big_uint;
-    typedef uint32_t uint;
+public:
 
     // generales
 
@@ -305,7 +307,6 @@ class configuracion {
         std::string detallado;
     };
 
-public:
     configuracion();
     configuracion(const std::string & path_configuracion);
     virtual ~configuracion();
@@ -314,10 +315,12 @@ public:
 
     std::string detallado();
 
-    gui gui;
-    video video;
-    tramas tramas;
-    logger logger;
+    gui config_gui;
+    video config_video;
+    tramas config_tramas;
+    logger config_logger;
+
+private:
 };
 
 };

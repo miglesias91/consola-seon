@@ -12,7 +12,7 @@ administrador::administrador() {}
 
 administrador::~administrador() {
 
-    logger::info("CIERRE CONSOLA");
+    logger::info("CIERRE ADMIN APLICACION");
 
     logger::liberar();
 }
@@ -26,11 +26,13 @@ void administrador::iniciar(const std::string & path_configuracion) {
         throw;
     }
 
-    if (this->configuracion.logger.activado) {
-        logger::iniciar(this->configuracion.logger.path.u8string());
-        logger::info("INICIO CONSOLA");
+    if (this->configuracion.config_logger.activado) {
+        logger::iniciar(this->configuracion.config_logger.path.u8string());
+        logger::info("INICIO ADMIN APLICACION");
         logger::debug(this->configuracion.detallado());
     }
+
+    
 }
 
 

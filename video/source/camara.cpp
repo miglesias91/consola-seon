@@ -1,35 +1,43 @@
+#include <video/include/camara.h>
 
 // stl
 #include <iostream>
-#include <filesystem>
-
-// catch2
-#include <catch.hpp>
 
 // opencv
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
 
-TEST_CASE("video", "stream_camara")
-{
-    // Create a VideoCapture object and open the input file
-    // If the input is the web camera, pass 0 instead of the video file name
+// aplicacion
+#include <aplicacion/include/logger.h>
 
-    std::string directorio_ejecutable = std::experimental::filesystem::current_path().u8string();
+namespace seon::video {
 
-    cv::VideoCapture cap(directorio_ejecutable + "\\oficina.mp4");
+camara::camara(big_uint ancho, big_uint alto, uint fps) : alto(alto), ancho(ancho), fps(fps) {
+
+    std::stringstream mensaje;
+    
+    mensaje << "camara iniciada:\n ancho: " << this->ancho << " - alto: "<< this->alto << " - fps: " + this->fps << ".";
+
+    aplicacion::logger::info(mensaje.str());
+}
+
+camara::~camara() {
+
+    aplicacion::logger::info("cierre camara");
+}
+
+void camara::filmar(const std::string & path_video) {
+
+    aplicacion::logger::info("inicio filmacion: " + path_video);
+
+    cv::VideoCapture cap(path_video);
 
     // Check if camera opened successfully
     if (!cap.isOpened()) {
         std::cout << "Error opening video stream or file" << std::endl;
         return;
     }
-
-    cap.set(CV_CAP_PROP_FPS, 1.0f);
-    double fps = cap.get(CV_CAP_PROP_FPS);
-    double height = cap.get(CV_CAP_PROP_FRAME_HEIGHT);
-    double width = cap.get(CV_CAP_PROP_FRAME_WIDTH);
 
     while (1) {
 
@@ -55,6 +63,8 @@ TEST_CASE("video", "stream_camara")
 
     // Closes all the frames
     cv::destroyAllWindows();
+}
 
-    REQUIRE(1);
+
+
 }
