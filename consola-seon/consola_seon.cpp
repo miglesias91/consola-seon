@@ -15,20 +15,17 @@ consola_seon::consola_seon(QWidget *parent)
     // seteo incio
     this->setear_inicio();
 
-    //this->ui.widget_superior->setWindowFlags(Qt::FramelessWindowHint);
-
-    //this->ui.widget_superior->setAttribute(Qt::WA_TranslucentBackground);
-    //this->ui.widget_superior->setAttribute(Qt::WA_NoSystemBackground);
-    //this->ui.widget_superior->setAttribute(Qt::WA_PaintOnScreen, false);
-
-
     // muestro video
-    QVideoWidget * video = new QVideoWidget(this->ui.frame);
+    QVideoWidget * video = new QVideoWidget(this->ui.panel_central);
 
     this->reproductor.setVideoOutput(video);
-    video->resize(QSize(this->ui.frame->size().width(), this->ui.frame->size().height()));
-    
-    //this->ui.widget_video->addWidget(video);
+
+    unsigned long long int w = this->ui.panel_central->size().width();
+    w = this->ui.panel_central->width();
+    unsigned long long int h = this->ui.panel_central->size().height();
+    h = this->ui.panel_central->height();
+
+    video->resize(QSize(1024, 860));
 
     this->reproductor.setMedia(QUrl("oficina.mp4"));
     this->reproductor.play();
