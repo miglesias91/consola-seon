@@ -1,6 +1,6 @@
 {
 	"config_log" : "config/config_log.json",
 	"config_gui" : "config/config_gui.json",
-	"config_tramas" : "config/config_tramas.json",
+	"config_comunicacion" : "config/config_comunicacion.json",
 	"config_video" : "config/config_video.json"
 }
