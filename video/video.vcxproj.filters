@@ -21,12 +21,18 @@
     <ClInclude Include="include\camara.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="include\vista.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\administrador.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="source\camara.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="source\vista.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

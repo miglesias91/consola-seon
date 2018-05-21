@@ -25,10 +25,11 @@ int main(int argc, char *argv[])
     std::string directorio_ejecutable = std::experimental::filesystem::current_path().u8string();
 
     seon::video::administrador admin_video(admin_aplicacion.configuracion.config_video);
-    admin_video.iniciar(directorio_ejecutable + "\\oficina.mp4");
+    admin_video.entrada(directorio_ejecutable + "\\oficina.mp4");
 
     QApplication app(argc, argv);
-    consola_seon ventana_principal;
+    consola_seon ventana_principal(&admin_video);
     ventana_principal.showMaximized();
+
     return app.exec();
 }

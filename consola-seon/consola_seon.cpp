@@ -4,33 +4,24 @@
 #include <memory>
 
 // qt
-#include <qgraphicsvideoitem.h>
-#include <qsizepolicy.h>
+#include <qpushbutton.h>
 
-consola_seon::consola_seon(QWidget *parent)
-    : QMainWindow(parent)
+consola_seon::consola_seon(seon::video::administrador * admin_video, QWidget *parent)
+    : admin_video(admin_video), video(admin_video), QMainWindow(parent)
 {
     ui.setupUi(this);
 
     // seteo incio
     this->setear_inicio();
 
-    // muestro video
-    QVideoWidget * video = new QVideoWidget(this->ui.panel_central);
+    // conecto signals con slots
+    QObject::connect(this->ui.boton, &QPushButton::released, this, &consola_seon::comenzar_filmacion);
 
-    this->reproductor.setVideoOutput(video);
+    this->video.hijo_de(this->ui.panel_central);
+}
 
-    unsigned long long int w = this->ui.panel_central->size().width();
-    w = this->ui.panel_central->width();
-    unsigned long long int h = this->ui.panel_central->size().height();
-    h = this->ui.panel_central->height();
-
-    video->resize(QSize(1024, 860));
-
-    this->reproductor.setMedia(QUrl("oficina.mp4"));
-    this->reproductor.play();
-
-    video->lower();
+consola_seon::~consola_seon() {
+    //delete this->video;
 }
 
 void consola_seon::setear_inicio()
@@ -66,4 +57,19 @@ void consola_seon::setear_inicio()
     // testigo zoom
     this->ui.lbl_zoom_apagado->hide();
     this->ui.lbl_zoom_estrecho->hide();
+}
+
+void consola_seon::comenzar_filmacion()
+{
+    this->video.iniciar();
+}
+
+void consola_seon::dibujar_fotograma(QImage imagen) {
+
+    //if (!imagen.isNull()) {
+    //    this->ui.label->setAlignment(Qt::AlignCenter);
+    //    this->ui.label->setPixmap(QPixmap::fromImage(imagen).scaled(this->ui.label->size(), Qt::KeepAspectRatio, Qt::FastTransformation));
+    //}
+
+    //emit imagen_procesada();
 }

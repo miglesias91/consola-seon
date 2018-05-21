@@ -6,6 +6,7 @@
 // opencv
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
 #include <opencv2/videoio.hpp>
 
 // aplicacion
@@ -17,17 +18,21 @@ camara::camara(big_uint ancho, big_uint alto, uint fps) : alto(alto), ancho(anch
 
     std::stringstream mensaje;
     
-    mensaje << "camara iniciada:\n ancho: " << this->ancho << " - alto: "<< this->alto << " - fps: " + this->fps << ".";
+    mensaje << "camara iniciada:\n ancho: " << this->ancho << " - alto: " << this->alto << " - fps: " << this->fps << ".";
 
     aplicacion::logger::info(mensaje.str());
 }
 
 camara::~camara() {
 
+    if (this->hilo_filmacion.joinable()) {
+        this->hilo_filmacion.join();
+    }
+
     aplicacion::logger::info("cierre camara");
 }
 
-void camara::filmar(const std::string & path_video) {
+void camara::filmar(const std::string & path_video, vista * vista_video) {
 
     aplicacion::logger::info("inicio filmacion: " + path_video);
 
@@ -50,9 +55,20 @@ void camara::filmar(const std::string & path_video) {
             break;
 
         // Display the resulting frame
-        cv::imshow("Frame", frame);
+        //cv::imshow("Frame", frame);
+        
+        big_uint tamanio = frame.total() * frame.elemSize();
 
-        // Press  ESC on keyboard to exit
+        if (3 == frame.channels()) {
+            cv::Mat RGBframe;
+            cv::cvtColor(frame, RGBframe, CV_BGR2RGB);
+            vista_video->mostrar(RGBframe.data, RGBframe.cols, RGBframe.rows, RGBframe.channels(), tamanio);
+        }
+        else {
+            vista_video->mostrar(frame.data, frame.cols, frame.rows, frame.channels(), tamanio);
+        }
+
+        // Press ESC on keyboard to exit
         char c = (char)cv::waitKey(25);
         if (c == 27)
             break;
@@ -63,6 +79,8 @@ void camara::filmar(const std::string & path_video) {
 
     // Closes all the frames
     cv::destroyAllWindows();
+
+
 }
 
 

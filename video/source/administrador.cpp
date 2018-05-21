@@ -9,18 +9,32 @@
 namespace seon::video {
 
 administrador::administrador(seon::aplicacion::configuracion::video configuracion)
-    : configuracion(configuracion) , camara_video(configuracion.resolucion.ancho, configuracion.resolucion.alto, configuracion.fps) {}
+    : configuracion(configuracion) , camara_video(configuracion.resolucion.ancho, configuracion.resolucion.alto, configuracion.fps), vista_video(nullptr) {
+
+    aplicacion::logger::info("INICIO ADMIN VIDEO");
+}
 
 administrador::~administrador() {
 
     aplicacion::logger::info("CIERRE ADMIN VIDEO");
 }
 
-void administrador::iniciar(const std::string & path_video) {
+void administrador::iniciar() {
 
-    aplicacion::logger::info("INICIO ADMIN VIDEO");
+    this->camara_video.filmar(this->path_video, this->vista_video);
+}
 
-    this->camara_video.filmar(path_video);
+void administrador::entrada(const std::string & path_video) {
+    this->path_video = path_video;
+}
+
+std::string administrador::entrada()
+{
+    return this->path_video;
+}
+
+void administrador::salida(vista * vista) {
+    this->vista_video = vista;
 }
 
 
