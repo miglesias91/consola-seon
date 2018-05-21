@@ -6,6 +6,9 @@
 
 #include "ui_consola_seon.h"
 
+// aplicacion
+#include <aplicacion/include/configuracion.h>
+
 // video
 #include <video/include/administrador.h>
 #include <video/include/vista.h>
@@ -22,7 +25,7 @@ signals:
     void imagen_procesada();
 
 public:
-    consola_seon(seon::video::administrador * admin_video, QWidget *parent = Q_NULLPTR);
+    consola_seon(seon::video::administrador * admin_video, seon::aplicacion::configuracion::gui config_gui, QWidget *parent = Q_NULLPTR);
     virtual ~consola_seon();
 
 private:
@@ -37,6 +40,8 @@ private:
 
     // atributos
     seon::video::administrador * admin_video;
+
+    seon::aplicacion::configuracion::gui config_gui;
 
     video_opencv video;
 };

@@ -6,8 +6,8 @@
 // qt
 #include <qpushbutton.h>
 
-consola_seon::consola_seon(seon::video::administrador * admin_video, QWidget *parent)
-    : admin_video(admin_video), video(admin_video), QMainWindow(parent)
+consola_seon::consola_seon(seon::video::administrador * admin_video, seon::aplicacion::configuracion::gui config_gui, QWidget *parent)
+    : admin_video(admin_video), video(admin_video), config_gui(config_gui), QMainWindow(parent)
 {
     ui.setupUi(this);
 
@@ -17,7 +17,20 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, QWidget *pa
     // conecto signals con slots
     QObject::connect(this->ui.boton, &QPushButton::released, this, &consola_seon::comenzar_filmacion);
 
+    // seteo las propiedades de gui
     this->video.hijo_de(this->ui.panel_central);
+    this->video.tamanio(this->config_gui.area_video.tamanio.ancho, this->config_gui.area_video.tamanio.alto);
+    this->video.posicion(this->config_gui.area_video.posicion.x, this->config_gui.area_video.posicion.y);
+
+    this->ui.panel_lateral->resize(this->config_gui.panel_lateral.tamanio.ancho, this->config_gui.panel_lateral.tamanio.alto);
+    this->ui.panel_lateral->move(this->config_gui.panel_lateral.posicion.x, this->config_gui.panel_lateral.posicion.y);
+    this->ui.panel_lateral->raise();
+
+    this->ui.panel_superior->resize(this->config_gui.panel_superior.tamanio.ancho, this->config_gui.panel_superior.tamanio.alto);
+    this->ui.panel_superior->move(this->config_gui.panel_superior.posicion.x, this->config_gui.panel_superior.posicion.y);
+    this->ui.panel_superior->raise();
+
+    this->ui.boton->raise();
 }
 
 consola_seon::~consola_seon() {

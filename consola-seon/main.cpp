@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     admin_video.entrada(directorio_ejecutable + "\\oficina.mp4");
 
     QApplication app(argc, argv);
-    consola_seon ventana_principal(&admin_video);
+    consola_seon ventana_principal(&admin_video, admin_aplicacion.configuracion.config_gui);
     ventana_principal.showMaximized();
 
     return app.exec();

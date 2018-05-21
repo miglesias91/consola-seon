@@ -23,7 +23,7 @@ class Capture : public QObject {
         QBasicTimer m_timer;
     QScopedPointer<cv::VideoCapture> m_videoCapture;
 public:
-    Capture(QObject * parent = {}) : QObject(parent), path_archivo("") {}
+    Capture(uint fps = 30, QObject * parent = {}) : fps_captura(fps), QObject(parent), path_archivo("") {}
 
     void entrada(const std::string path_video) {
         this->path_archivo = path_video;
@@ -42,13 +42,17 @@ public:
             }
         }
         if (m_videoCapture->isOpened()) {
-            m_timer.start(30, this);
+            m_timer.start(this->fps_captura, this);
             emit started();
         }
     }
 
     Q_SLOT void stop() { m_timer.stop(); }
     Q_SIGNAL void matReady(const cv::Mat &);
+
+    void fps(uint fps_captura) {
+        this->fps_captura = fps_captura;
+    };
 
 private:
     void timerEvent(QTimerEvent * ev) {
@@ -61,6 +65,7 @@ private:
         emit matReady(frame);
     }
 
+    uint fps_captura;
     std::string path_archivo;
 };
 
@@ -127,7 +132,9 @@ public:
 
         if (!m_img.isNull()) qDebug() << "Viewer dropped frame!";
         m_img = img;
-        if (m_img.size() != size()) setFixedSize(m_img.size());
+        if (m_img.size() != size()) {
+            setFixedSize(m_img.size());
+        }
         update();
     }
 };
@@ -145,6 +152,10 @@ public:
 
     void hijo_de(QWidget * padre);
 
+    void tamanio(uint ancho, uint alto);
+    void posicion(uint x, uint y);
+    void fps(uint fps_video);
+
 private:
 
     seon::video::administrador * admin_video;
@@ -153,4 +164,6 @@ private:
     Capture capturador;
     Converter convertidor;
     Thread hilo_convertidor, hilo_capturador;
+
+    uint fps_video;
 };

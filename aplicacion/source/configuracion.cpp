@@ -15,7 +15,7 @@ bool configuracion::levantar(const std::string & path_configuracion)
 
     herramientas::utiles::Json configuracion_json(contenido_configuracion);
     
-    this->config_tramas.levantar(configuracion_json.getAtributoValorString("config_tramas"));
+    this->config_tramas.levantar(configuracion_json.getAtributoValorString("config_comunicacion"));
     this->config_gui.levantar(configuracion_json.getAtributoValorString("config_gui"));
     this->config_video.levantar(configuracion_json.getAtributoValorString("config_video"));
 
@@ -39,7 +39,7 @@ std::string configuracion::detallado()
         "## CONFIGURACION ##\n"
         "LOG: " + this->config_logger.path.u8string() + "\n" + this->config_logger.detallado + "\n" +
         "GUI: " + this->config_gui.path.u8string() + "\n" + this->config_gui.detallado + "\n" +
-        "TRAMAS: " + this->config_tramas.path.u8string() + "\n" + this->config_tramas.detallado + "\n" +
+        "COMUNICACION: " + this->config_tramas.path.u8string() + "\n" + this->config_tramas.detallado + "\n" +
         "VIDEO: " + this->config_video.path.u8string() + "\n" + this->config_video.detallado + "\n"
         ;
 }
