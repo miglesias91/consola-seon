@@ -132,7 +132,7 @@ public:
         consola_seonClass->setWindowOpacity(1);
         panel_central = new QWidget(consola_seonClass);
         panel_central->setObjectName(QStringLiteral("panel_central"));
-        panel_central->setMaximumSize(QSize(887, 688));
+        panel_central->setMaximumSize(QSize(1920, 1080));
         boton = new QPushButton(panel_central);
         boton->setObjectName(QStringLiteral("boton"));
         boton->setGeometry(QRect(210, 610, 75, 23));

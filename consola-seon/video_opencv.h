@@ -1,5 +1,10 @@
 #pragma once
 
+// stl
+#include <thread>
+#include <condition_variable>
+#include <mutex>
+
 // qt
 #include <QtWidgets>
 #include <qabstractvideosurface.h>
@@ -18,30 +23,44 @@
 
 Q_DECLARE_METATYPE(cv::Mat)
 
-class Capture : public QObject {
+class capturador : public QObject {
     Q_OBJECT
+
+
+    struct fotograma_opencv {
+        cv::Mat fotograma;
+        bool eliminado = false;
+    };
+
         QBasicTimer m_timer;
-    QScopedPointer<cv::VideoCapture> m_videoCapture;
+    QScopedPointer<cv::VideoCapture> ptr_capturador;
 public:
-    Capture(uint fps = 30, QObject * parent = {}) : fps_captura(fps), QObject(parent), path_archivo("") {}
+    capturador(int codec, uint fps_captura, uint fps_grabadora, uint ancho, uint alto, QObject * parent = {})
+        : codec(codec), fps_captura(fps_captura), fps_grabadora(fps_grabadora), ancho(ancho), alto(alto), QObject(parent), path_archivo_entrada(""), path_archivo_salida("") {}
+
+    virtual ~capturador() {};
 
     void entrada(const std::string path_video) {
-        this->path_archivo = path_video;
+        this->path_archivo_entrada = path_video;
+    }
+
+    void salida(const std::string path_video) {
+        this->path_archivo_salida = path_video;
     }
 
     Q_SIGNAL void started();
 
     Q_SLOT void start(int cam = {}) {
-        if (!m_videoCapture) {
+        if (!this->ptr_capturador) {
 
-            if (this->path_archivo.empty()) {
-                m_videoCapture.reset(new cv::VideoCapture(cam));
+            if (this->path_archivo_entrada.empty()) {
+                ptr_capturador.reset(new cv::VideoCapture(cam));
             }
             else {
-                m_videoCapture.reset(new cv::VideoCapture(this->path_archivo));
+                ptr_capturador.reset(new cv::VideoCapture(this->path_archivo_entrada));
             }
         }
-        if (m_videoCapture->isOpened()) {
+        if (ptr_capturador->isOpened()) {
             m_timer.start(this->fps_captura, this);
             emit started();
         }
@@ -58,18 +77,20 @@ private:
     void timerEvent(QTimerEvent * ev) {
         if (ev->timerId() != m_timer.timerId()) return;
         cv::Mat frame;
-        if (!m_videoCapture->read(frame)) { // Blocks until a new frame is ready
+        if (!this->ptr_capturador->read(frame)) { // Blocks until a new frame is ready
             m_timer.stop();
             return;
         }
+
         emit matReady(frame);
     }
 
-    uint fps_captura;
-    std::string path_archivo;
+    int codec;
+    uint fps_captura, fps_grabadora, ancho, alto;
+    std::string path_archivo_entrada, path_archivo_salida;
 };
 
-class Converter : public QObject {
+class convertidor : public QObject {
     Q_OBJECT
         QBasicTimer m_timer;
     cv::Mat m_frame;
@@ -78,19 +99,25 @@ class Converter : public QObject {
     static void matDeleter(void* mat) { delete static_cast<cv::Mat*>(mat); }
 
     void queue(const cv::Mat & frame) {
-        if (!m_frame.empty()) qDebug() << "Converter dropped frame!";
+        if (!m_frame.empty()) {
+            qDebug() << "Converter dropped frame!";
+        }
         m_frame = frame;
         if (!m_timer.isActive()) m_timer.start(0, this);
     }
 
-    void process(cv::Mat frame) {
-        cv::resize(frame, frame, cv::Size(), 0.3, 0.3, cv::INTER_AREA);
-        cv::cvtColor(frame, frame, CV_BGR2RGB);
+    void process(const cv::Mat & frame) {
 
-        const QImage image(frame.data, frame.cols, frame.rows, frame.step, QImage::Format_RGB888, &matDeleter, new cv::Mat(frame));
+        cv::Mat copia_frame = frame;
+        cv::resize(copia_frame, copia_frame, cv::Size(), 0.3, 0.3, cv::INTER_AREA);
+        cv::cvtColor(copia_frame, copia_frame, CV_BGR2RGB);
 
-        Q_ASSERT(image.constBits() == frame.data);
+        const QImage image(copia_frame.data, copia_frame.cols, copia_frame.rows, copia_frame.step, QImage::Format_RGB888 , &matDeleter, new cv::Mat(copia_frame));
+
+        Q_ASSERT(image.constBits() == copia_frame.data);
         
+        copia_frame.release();
+
         emit imageReady(image);
     }
 
@@ -102,38 +129,43 @@ class Converter : public QObject {
     }
 
 public:
-    explicit Converter(QObject * parent = nullptr) : QObject(parent) {}
+    explicit convertidor(QObject * parent = nullptr) : QObject(parent) {}
 
     void setProcessAll(bool all) { m_processAll = all; }
 
     Q_SIGNAL void imageReady(const QImage &);
 
     Q_SLOT void processFrame(const cv::Mat & frame) {
-        if (m_processAll) process(frame); else queue(frame);
+        if (m_processAll) {
+            process(frame);
+        }
+        else {
+            queue(frame);
+        }
     }
 };
 
-class ImageViewer : public QWidget {
+class visor_imagen : public QWidget {
     Q_OBJECT
-        QImage m_img;
+        QImage imagen_qt;
     void paintEvent(QPaintEvent *) {
 
         QPainter p(this);
-        p.drawImage(0, 0, m_img);
+        p.drawImage(0, 0, imagen_qt);
 
-        m_img = {};
+        imagen_qt = {};
     }
 public:
-    ImageViewer(QWidget * parent = nullptr) : QWidget(parent) {
+    visor_imagen(QWidget * parent = nullptr) : QWidget(parent) {
         setAttribute(Qt::WA_OpaquePaintEvent);
     }
 
     Q_SLOT void setImage(const QImage & img) {
 
-        if (!m_img.isNull()) qDebug() << "Viewer dropped frame!";
-        m_img = img;
-        if (m_img.size() != size()) {
-            setFixedSize(m_img.size());
+        if (!imagen_qt.isNull()) qDebug() << "Viewer dropped frame!";
+        imagen_qt = img;
+        if (imagen_qt.size() != size()) {
+            setFixedSize(imagen_qt.size());
         }
         update();
     }
@@ -160,10 +192,11 @@ private:
 
     seon::video::administrador * admin_video;
  
-    ImageViewer vista;
-    Capture capturador;
-    Converter convertidor;
-    Thread hilo_convertidor, hilo_capturador;
+    visor_imagen vista;
+    capturador capturador_video;
+    convertidor convertidor_fotograma;
+
+    Thread hilo_convertidor, hilo_capturador, hilo_grabador;
 
     uint fps_video;
 };

@@ -33,8 +33,14 @@ std::string administrador::entrada()
     return this->path_video;
 }
 
-void administrador::salida(vista * vista) {
-    this->vista_video = vista;
+std::string administrador::salida()
+{
+    return this->path_salida;
+}
+
+void administrador::salida(const std::string & path_salida) {
+
+    this->path_salida = path_salida;
 }
 
 

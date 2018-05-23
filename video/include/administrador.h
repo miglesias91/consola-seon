@@ -24,15 +24,18 @@ public:
 
     std::string entrada();
 
-    void salida(vista * vista);
+    std::string salida();
 
-private:
+    void salida(const std::string & path_salida);
 
     seon::aplicacion::configuracion::video configuracion;
+
+private:
 
     camara camara_video;
     vista * vista_video;
     std::string path_video;
+    std::string path_salida;
 };
 
 };

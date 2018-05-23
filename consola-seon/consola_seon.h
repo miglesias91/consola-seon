@@ -8,6 +8,7 @@
 
 // aplicacion
 #include <aplicacion/include/configuracion.h>
+#include <aplicacion/include/logger.h>
 
 // video
 #include <video/include/administrador.h>

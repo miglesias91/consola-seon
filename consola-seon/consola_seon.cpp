@@ -34,6 +34,7 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::aplic
 }
 
 consola_seon::~consola_seon() {
+    seon::aplicacion::logger::info("cerrando consola.");
     //delete this->video;
 }
 
@@ -74,6 +75,7 @@ void consola_seon::setear_inicio()
 
 void consola_seon::comenzar_filmacion()
 {
+    seon::aplicacion::logger::info("filmacion iniciada.");
     this->video.iniciar();
 }
 
