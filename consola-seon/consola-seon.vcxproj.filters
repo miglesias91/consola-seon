@@ -2,10 +2,19 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="consola_seon.cpp">
+    <ClCompile Include="source\convertidor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="video_opencv.cpp">
+    <ClCompile Include="source\consola_seon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\capturador.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\video_opencv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\visor_imagen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,10 +41,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="consola_seon.h">
+    <QtMoc Include="include\capturador.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="video_opencv.h">
+    <QtMoc Include="include\consola_seon.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\convertidor.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\visor_imagen.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -51,5 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="consola-seon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\video_opencv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

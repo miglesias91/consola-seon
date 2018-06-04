@@ -1,4 +1,4 @@
-#include <consola-seon/video_opencv.h>
+#include <consola-seon/include/video_opencv.h>
 
 video_opencv::video_opencv(seon::video::administrador * admin_video, QWidget * padre)
     : admin_video(admin_video), vista(padre),
