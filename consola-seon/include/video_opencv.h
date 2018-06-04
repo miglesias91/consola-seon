@@ -47,9 +47,9 @@ private:
 
     seon::video::administrador * admin_video;
  
-    visor_imagen vista;
-    capturador capturador_video;
-    convertidor convertidor_fotograma;
+    gui::visor_imagen vista;
+    gui::capturador capturador_video;
+    gui::convertidor convertidor_fotograma;
 
     Thread hilo_convertidor, hilo_capturador, hilo_grabador;
 

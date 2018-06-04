@@ -225,8 +225,8 @@ public:
     // tramas
 
     struct serial {
-        uint puerto, baudrate;
-        std::string paridad;
+        uint baudrate;
+        std::string puerto, paridad;
         std::bitset<1> bit;
     };
 
@@ -239,7 +239,7 @@ public:
         void levantar(herramientas::utiles::Json * json) {
             herramientas::utiles::Json *  json_serial = json->getAtributoValorJson("serial");
 
-            this->serial.puerto = json_serial->getAtributoValorUint("puerto");
+            this->serial.puerto = json_serial->getAtributoValorString("puerto");
             this->serial.baudrate = json_serial->getAtributoValorUint("baudrate");
             this->serial.paridad = json_serial->getAtributoValorString("paridad");
             this->serial.bit = std::bitset<1>(json_serial->getAtributoValorString("bit"));
@@ -265,7 +265,7 @@ public:
         sincro sincro;
     };
 
-    struct tramas {
+    struct comunicacion {
 
         void levantar(const std::string & path_configuracion) {
             this->path = path_configuracion;
@@ -317,7 +317,7 @@ public:
 
     gui config_gui;
     video config_video;
-    tramas config_tramas;
+    comunicacion config_comunicacion;
     logger config_logger;
 
 private:

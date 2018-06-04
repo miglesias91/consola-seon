@@ -15,7 +15,7 @@
 #include <video/include/vista.h>
 
 // consola seon
-#include <consola-seon/video_opencv.h>
+#include <consola-seon/include/video_opencv.h>
 
 class consola_seon : public QMainWindow
 {

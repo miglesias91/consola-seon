@@ -5,7 +5,7 @@ namespace gui {
 capturador::capturador(int codec, uint fps_captura, uint fps_grabadora, uint ancho, uint alto, QObject * parent = {})
     : codec(codec), fps_captura(fps_captura), fps_grabadora(fps_grabadora), ancho(ancho), alto(alto), QObject(parent), path_archivo_entrada(""), path_archivo_salida("") {}
 
-~capturador::capturador() {};
+capturador::~capturador() {};
 
 void capturador::entrada(const std::string path_video) {
     this->path_archivo_entrada = path_video;
@@ -15,7 +15,7 @@ void capturador::salida(const std::string path_video) {
     this->path_archivo_salida = path_video;
 }
 
-void capturador::start(int cam = {}) {
+void capturador::empezar(int cam = {}) {
     if (!this->ptr_capturador) {
 
         if (this->path_archivo_entrada.empty()) {
@@ -27,11 +27,11 @@ void capturador::start(int cam = {}) {
     }
     if (ptr_capturador->isOpened()) {
         m_timer.start(this->fps_captura, this);
-        emit started();
+        emit empezado();
     }
 }
 
-void capturador::stop() {
+void capturador::detener() {
     m_timer.stop();
 }
 
@@ -47,7 +47,7 @@ void capturador::timerEvent(QTimerEvent * ev) {
         return;
     }
 
-    emit matReady(frame);
+    emit mat_lista(frame);
 }
 
 }

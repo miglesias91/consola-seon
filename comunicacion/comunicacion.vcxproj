@@ -76,6 +76,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)rapidjson\include;$(repos)spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <EnableModules>false</EnableModules>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -94,6 +99,11 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)rapidjson\include;$(repos)spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <EnableModules>false</EnableModules>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -115,6 +125,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\administrador.h" />
+    <ClInclude Include="include\serial.h" />
+    <ClInclude Include="include\trama.h" />
+    <ClInclude Include="include\trama_gps.h" />
+    <ClInclude Include="include\trama_pulsadores.h" />
+    <ClInclude Include="include\trama_pupitre.h" />
+    <ClInclude Include="include\trama_seon.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\administrador.cpp" />
+    <ClCompile Include="source\serial.cpp" />
+    <ClCompile Include="source\trama_gps.cpp" />
+    <ClCompile Include="source\trama_pulsadores.cpp" />
+    <ClCompile Include="source\trama_pupitre.cpp" />
+    <ClCompile Include="source\trama_seon.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

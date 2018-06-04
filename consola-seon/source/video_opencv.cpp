@@ -19,14 +19,14 @@ video_opencv::video_opencv(seon::video::administrador * admin_video, QWidget * p
     this->convertidor_fotograma.moveToThread(&this->hilo_convertidor);
     //this->grabador_video.moveToThread(&this->hilo_grabador);
 
-    QObject::connect(&this->capturador_video, &capturador::matReady, &this->convertidor_fotograma, &convertidor::processFrame);
+    QObject::connect(&this->capturador_video, &gui::capturador::matReady, &this->convertidor_fotograma, &gui::convertidor::processFrame);
     //QObject::connect(&this->capturador_video, &capturador::matReady, &this->grabador_video, &grabador::processFrame);
 
-    QObject::connect(&this->convertidor_fotograma, &convertidor::imageReady, &this->vista, &visor_imagen::setImage);
+    QObject::connect(&this->convertidor_fotograma, &gui::convertidor::imageReady, &this->vista, &gui::visor_imagen::setear_imagen);
 
     this->vista.show();
 
-    QObject::connect(&this->capturador_video, &capturador::started, []() { qDebug() << "capture started"; });
+    QObject::connect(&this->capturador_video, &gui::capturador::started, []() { qDebug() << "capture started"; });
     this->capturador_video.entrada(this->admin_video->entrada());
     this->capturador_video.salida(this->admin_video->salida());
 }
@@ -36,11 +36,13 @@ video_opencv::~video_opencv() {
 }
 
 void video_opencv::iniciar() {
+
     QMetaObject::invokeMethod(&this->capturador_video, "start");
     //QMetaObject::invokeMethod(&this->grabador_video, "start");
 }
 
 void video_opencv::hijo_de(QWidget * padre) {
+
     this->vista.setParent(padre);
 }
 

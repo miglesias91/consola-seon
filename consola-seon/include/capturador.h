@@ -27,11 +27,11 @@ public:
     void entrada(const std::string path_video);
     void salida(const std::string path_video);
 
-    Q_SIGNAL void started();
-    Q_SIGNAL void matReady(const cv::Mat &);
+    Q_SIGNAL void empezado();
+    Q_SIGNAL void mat_lista(const cv::Mat &);
 
-    Q_SLOT void start(int cam = {});
-    Q_SLOT void stop();
+    Q_SLOT void empezar(int cam = {});
+    Q_SLOT void detener();
 
     void fps(uint fps_captura);
 
