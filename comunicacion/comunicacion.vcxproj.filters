@@ -28,19 +28,19 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="include\trama.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\tramas</Filter>
     </ClInclude>
     <ClInclude Include="include\trama_gps.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\tramas</Filter>
     </ClInclude>
     <ClInclude Include="include\trama_pulsadores.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\tramas</Filter>
     </ClInclude>
     <ClInclude Include="include\trama_pupitre.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\tramas</Filter>
     </ClInclude>
     <ClInclude Include="include\trama_seon.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\tramas</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -51,16 +51,16 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="source\trama_gps.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\tramas</Filter>
     </ClCompile>
     <ClCompile Include="source\trama_pulsadores.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\tramas</Filter>
     </ClCompile>
     <ClCompile Include="source\trama_pupitre.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\tramas</Filter>
     </ClCompile>
     <ClCompile Include="source\trama_seon.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\tramas</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

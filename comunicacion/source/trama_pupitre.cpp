@@ -8,18 +8,20 @@
 
 namespace seon::comunicacion {
 
-trama_pupitre::trama_pupitre(const std::string & tira_de_datos) {
+trama_pupitre::trama_pupitre() : trama() {}
 
-    aplicacion::logger::info("inicio serial " + this->configuracion.serial.puerto);
+trama_pupitre::trama_pupitre(const std::string & tira_de_datos) {
+    this->setear(tira_de_datos);
 }
 
 trama_pupitre::~trama_pupitre() {
 
-    aplicacion::logger::info("cierre serial " + this->configuracion.serial.puerto);
 }
 
 bool trama_pupitre::setear(const std::string & tira_de_datos) {
 
+    this->trama::setear(tira_de_datos);
+    return true;
 }
 
 

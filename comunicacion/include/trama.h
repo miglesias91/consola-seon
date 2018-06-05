@@ -9,10 +9,12 @@ class trama {
 
 public:
 
-    trama();
-    virtual ~trama();
+    trama() : tira_de_datos("") {};
+    virtual ~trama() {};
 
-    bool setear(const std::string & tira_de_datos);
+    virtual bool setear(const std::string & tira_de_datos) { this->tira_de_datos = tira_de_datos; return true; };
+
+    std::string tira_de_datos;
 
 private:
 };

@@ -2,7 +2,7 @@
 
 namespace gui {
 
-visor_imagen::visor_imagen(QWidget * parent = nullptr) : QWidget(parent) {
+visor_imagen::visor_imagen(QWidget * parent) : QWidget(parent) {
     setAttribute(Qt::WA_OpaquePaintEvent);
 }
 

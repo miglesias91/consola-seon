@@ -1,4 +1,4 @@
-#include "consola_seon.h"
+#include <consola-seon/include/consola_seon.h>
 #include <QtWidgets/QApplication>
 
 // vld

@@ -18,14 +18,21 @@ class SERIAL {
 
 public:
 
+    SERIAL();
     SERIAL(const seon::aplicacion::configuracion::trama & configuracion);
     virtual ~SERIAL();
+
+    bool datos_disponibles();
+
+    size_t escribir(const std::string & tira_de_datos);
 
     size_t leer(std::string & tira_de_datos);
     size_t esperar_y_leer(std::string & tira_de_datos);
 
-    bool recibir(trama * trama);
-    bool esperar_y_recibir(trama * trama);
+    bool enviar(trama * trama_a_enviar);
+
+    bool recibir(trama * trama_recibida);
+    bool esperar_y_recibir(trama * trama_recibida);
 
 private:
 

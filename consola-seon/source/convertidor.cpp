@@ -2,7 +2,7 @@
 
 namespace gui {
 
-convertidor::convertidor(QObject * parent = nullptr) : QObject(parent) {}
+convertidor::convertidor(QObject * parent) : QObject(parent) {}
 
 void convertidor::procesar_todo(bool procesar_todo_fotograma) {
     this->procesar_todo_fotograma = procesar_todo_fotograma;

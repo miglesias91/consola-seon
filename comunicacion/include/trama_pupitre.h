@@ -6,16 +6,20 @@
 // aplicacion
 #include <aplicacion/include/configuracion.h>
 
+// comunicacion
+#include <comunicacion/include/trama.h>
+
 namespace seon::comunicacion {
 
-class trama_pupitre {
+class trama_pupitre : public trama {
 
 public:
 
-    trama_pupitre(const seon::aplicacion::configuracion::trama & configuracion);
+    trama_pupitre();
+    trama_pupitre(const std::string & tira_de_datos);
     virtual ~trama_pupitre();
 
-    bool setear(const std::string & tira_de_datos);
+    virtual bool setear(const std::string & tira_de_datos);
 
 private:
 

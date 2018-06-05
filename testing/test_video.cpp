@@ -11,7 +11,7 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
 
-TEST_CASE("video", "stream_camara")
+TEST_CASE("video", "stream_camara[.]")
 {
     // Create a VideoCapture object and open the input file
     // If the input is the web camera, pass 0 instead of the video file name

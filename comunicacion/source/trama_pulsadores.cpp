@@ -8,18 +8,20 @@
 
 namespace seon::comunicacion {
 
-trama_pulsadores::trama_pulsadores(const std::string & tira_de_datos) {
+trama_pulsadores::trama_pulsadores() : trama() {}
 
-    aplicacion::logger::info("inicio serial " + this->configuracion.serial.puerto);
+trama_pulsadores::trama_pulsadores(const std::string & tira_de_datos) {
+    this->setear(tira_de_datos);
 }
 
 trama_pulsadores::~trama_pulsadores() {
 
-    aplicacion::logger::info("cierre serial " + this->configuracion.serial.puerto);
 }
 
 bool trama_pulsadores::setear(const std::string & tira_de_datos) {
 
+    this->trama::setear(tira_de_datos);
+    return true;
 }
 
 
