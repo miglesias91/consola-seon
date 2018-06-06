@@ -174,6 +174,40 @@ public:
         posicion por_default;
     };
 
+    struct entrada_video {
+
+        void levantar(herramientas::utiles::Json * json) {
+
+            herramientas::utiles::Json * json_resolucion = json->getAtributoValorJson("resolucion");
+            this->resolucion.levantar(json_resolucion);
+            delete json_resolucion;
+
+            this->fps = json->getAtributoValorUint("fps");
+            this->path = json->getAtributoValorString("entrada");
+        }
+
+        tamanio resolucion;
+        uint32_t fps;
+        std::string path;
+    };
+
+    struct salida_video {
+        
+        void levantar(herramientas::utiles::Json * json) {
+
+            herramientas::utiles::Json * json_resolucion = json->getAtributoValorJson("resolucion");
+            this->resolucion.levantar(json_resolucion);
+            delete json_resolucion;
+
+            this->fps = json->getAtributoValorUint("fps");
+            this->path = json->getAtributoValorString("salida");
+        }
+
+        tamanio resolucion;
+        uint32_t fps;
+        std::string path;
+    };
+
     struct video {
 
         void levantar(const std::string & path_configuracion) {
@@ -182,12 +216,19 @@ public:
 
             herramientas::utiles::Json configuracion_json(this->detallado);
 
-            herramientas::utiles::Json * json_resolucion = configuracion_json.getAtributoValorJson("resolucion");
-            this->resolucion.levantar(json_resolucion);
-            delete json_resolucion;
+            herramientas::utiles::Json * json_filmacion = configuracion_json.getAtributoValorJson("filmacion");
+            this->filmacion.levantar(json_filmacion);
+            delete json_filmacion;
+
+            herramientas::utiles::Json * json_grabacion = configuracion_json.getAtributoValorJson("grabacion");
+            this->grabacion.levantar(json_grabacion);
+            delete json_grabacion;
+
+            //herramientas::utiles::Json * json_resolucion = configuracion_json.getAtributoValorJson("resolucion");
+            //this->resolucion.levantar(json_resolucion);
+            //delete json_resolucion;
 
             this->canal = configuracion_json.getAtributoValorUint("canal");
-            this->fps = configuracion_json.getAtributoValorUint("fps");
             this->render = modo(configuracion_json.getAtributoValorUint("render"));
 
             herramientas::utiles::Json * json_reticula = nullptr;
@@ -212,10 +253,11 @@ public:
             delete json_testigo;
         }
 
-        tamanio resolucion;
-        uint canal, fps;
-        reticula mayor, menor, media;
+        entrada_video filmacion;
+        salida_video grabacion;
+        uint canal;
         modo render;
+        reticula mayor, menor, media;
         testigo testigo;
 
         std::string detallado;

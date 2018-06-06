@@ -2,22 +2,28 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="source\convertidor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\consola_seon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\capturador.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\filmacion</Filter>
     </ClCompile>
-    <ClCompile Include="source\video_opencv.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="source\convertidor_captura.cpp">
+      <Filter>Source Files\filmacion</Filter>
     </ClCompile>
-    <ClCompile Include="source\visor_imagen.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="source\convertidor_grabado.cpp">
+      <Filter>Source Files\grabacion</Filter>
     </ClCompile>
     <ClCompile Include="source\grabador.cpp">
+      <Filter>Source Files\grabacion</Filter>
+    </ClCompile>
+    <ClCompile Include="source\filmacion_opencv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\visor_filmacion.cpp">
+      <Filter>Source Files\filmacion</Filter>
+    </ClCompile>
+    <ClCompile Include="source\grabacion_opencv.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -42,21 +48,39 @@
       <Extensions>ui</Extensions>
       <ParseFiles>true</ParseFiles>
     </Filter>
+    <Filter Include="Header Files\filmacion">
+      <UniqueIdentifier>{e35a0e96-7554-4e7d-9c19-dca341b7e36c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\grabacion">
+      <UniqueIdentifier>{3f80196d-dff6-4175-b03b-ee2e551cd7f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\filmacion">
+      <UniqueIdentifier>{695ce4a1-da93-4993-a871-a94ab9be7176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\grabacion">
+      <UniqueIdentifier>{560dc432-5419-40ef-9a89-41bed2f54f29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="include\capturador.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="include\consola_seon.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="include\convertidor.h">
-      <Filter>Header Files</Filter>
+    <QtMoc Include="include\capturador.h">
+      <Filter>Header Files\filmacion</Filter>
     </QtMoc>
-    <QtMoc Include="include\visor_imagen.h">
-      <Filter>Header Files</Filter>
+    <QtMoc Include="include\convertidor_captura.h">
+      <Filter>Header Files\filmacion</Filter>
+    </QtMoc>
+    <QtMoc Include="include\convertidor_grabado.h">
+      <Filter>Header Files\grabacion</Filter>
     </QtMoc>
     <QtMoc Include="include\grabador.h">
+      <Filter>Header Files\grabacion</Filter>
+    </QtMoc>
+    <QtMoc Include="include\visor_filmacion.h">
+      <Filter>Header Files\filmacion</Filter>
+    </QtMoc>
+    <QtMoc Include="include\grabacion_opencv.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -74,7 +98,7 @@
     <ResourceCompile Include="consola-seon.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\video_opencv.h">
+    <ClInclude Include="include\filmacion_opencv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

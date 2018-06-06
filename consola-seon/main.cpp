@@ -21,12 +21,11 @@ int main(int argc, char *argv[])
     admin_aplicacion.iniciar("configuracion.json");
 
     // inicio video
-    //seon::video::camara camara(placa_de_video);
     std::string directorio_ejecutable = std::experimental::filesystem::current_path().u8string();
 
     seon::video::administrador admin_video(admin_aplicacion.configuracion.config_video);
     //admin_video.entrada(directorio_ejecutable + "\\video-de-prueba.mp4");
-    admin_video.salida(directorio_ejecutable + "\\salida.avi");
+    //admin_video.salida(directorio_ejecutable + "\\salida.avi");
 
     QApplication app(argc, argv);
     consola_seon ventana_principal(&admin_video, admin_aplicacion.configuracion.config_gui);

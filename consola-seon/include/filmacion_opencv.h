@@ -20,25 +20,24 @@
 
 // consola-seon
 #include <consola-seon/include/capturador.h>
-#include <consola-seon/include/convertidor.h>
-#include <consola-seon/include/visor_imagen.h>
+#include <consola-seon/include/convertidor_captura.h>
+#include <consola-seon/include/visor_filmacion.h>
 
 // idea e implementacion sacada de este posteo:
 // https://stackoverflow.com/questions/21246766/how-to-efficiently-display-opencv-video-in-qt/21253353#21253353
 
-class Thread final : public QThread { public: ~Thread() { quit(); wait(); } };
+class thread_filmacion final : public QThread { public: ~thread_filmacion() { quit(); wait(); } };
 
-class video_opencv
+class filmacion_opencv
 {
 
 public:
-    video_opencv(seon::video::administrador * admin_video, QWidget * padre = nullptr);
-    virtual ~video_opencv();
+    filmacion_opencv(seon::video::administrador * admin_video, QWidget * padre = nullptr);
+    virtual ~filmacion_opencv();
     
     void iniciar();
 
     void hijo_de(QWidget * padre);
-    void layout(QLayout * layout);
 
     void tamanio(uint ancho, uint alto);
     void posicion(uint x, uint y);
@@ -48,11 +47,11 @@ private:
 
     seon::video::administrador * admin_video;
  
-    gui::visor_imagen vista;
+    gui::visor_filmacion vista;
     gui::capturador capturador_video;
-    gui::convertidor convertidor_fotograma;
+    gui::convertidor_captura convertidor_fotograma;
 
-    Thread hilo_convertidor, hilo_capturador, hilo_grabador;
+    thread_filmacion hilo_convertidor, hilo_capturador;
 
     uint fps_video;
 };

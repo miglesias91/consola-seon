@@ -1,16 +1,16 @@
-#include <consola-seon/include/convertidor.h>
+#include <consola-seon/include/convertidor_captura.h>
 
 namespace gui {
 
-convertidor::convertidor(uint32_t ancho, uint32_t alto, QObject * parent) : tamanio_video(ancho, alto), QObject(parent) {}
+convertidor_captura::convertidor_captura(uint32_t ancho, uint32_t alto, QObject * parent) : tamanio_video(ancho, alto), QObject(parent) {}
 
-void convertidor::procesar_todo(bool procesar_todo_fotograma) {
+void convertidor_captura::procesar_todo(bool procesar_todo_fotograma) {
     this->procesar_todo_fotograma = procesar_todo_fotograma;
 }
 
-void convertidor::procesar_fotograma(const cv::Mat & frame) {
+void convertidor_captura::convertir_fotograma(const cv::Mat & frame) {
     if (this->procesar_todo_fotograma) {
-        this->procesar(frame);
+        this->convertir(frame);
     }
     else {
         this->encolar(frame);
@@ -18,11 +18,11 @@ void convertidor::procesar_fotograma(const cv::Mat & frame) {
 }
 
 
-void convertidor::destruidor_mat(void* mat) {
+void convertidor_captura::destruidor_mat(void* mat) {
     delete static_cast<cv::Mat*>(mat);
 }
 
-void convertidor::encolar(const cv::Mat & frame) {
+void convertidor_captura::encolar(const cv::Mat & frame) {
     if (!m_frame.empty()) {
         qDebug() << "Converter dropped frame!";
     }
@@ -30,7 +30,7 @@ void convertidor::encolar(const cv::Mat & frame) {
     if (!m_timer.isActive()) m_timer.start(0, this);
 }
 
-void convertidor::procesar(const cv::Mat & frame) {
+void convertidor_captura::convertir(const cv::Mat & frame) {
 
     cv::Mat copia_frame = frame;
     cv::resize(copia_frame, copia_frame, this->tamanio_video, 1.0, 1.0, cv::INTER_LINEAR);
@@ -45,9 +45,11 @@ void convertidor::procesar(const cv::Mat & frame) {
     emit imagen_lista(image);
 }
 
-void convertidor::timerEvent(QTimerEvent * ev) {
+void convertidor_captura::timerEvent(QTimerEvent * ev) {
+    
     if (ev->timerId() != m_timer.timerId()) return;
-    procesar(m_frame);
+
+    convertir(m_frame);
     m_frame.release();
     m_timer.stop();
 }

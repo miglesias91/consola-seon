@@ -7,9 +7,11 @@
 #include <qpushbutton.h>
 
 consola_seon::consola_seon(seon::video::administrador * admin_video, seon::aplicacion::configuracion::gui config_gui, QWidget *parent)
-    : admin_video(admin_video), video(admin_video), config_gui(config_gui),
-    grabador_video(admin_video->salida(), 30, admin_video->configuracion.resolucion.ancho, admin_video->configuracion.resolucion.alto),
-    grabacion_activada(false), QMainWindow(parent)
+    : admin_video(admin_video),
+    config_gui(config_gui),
+    filmacion(admin_video), 
+    grabacion(admin_video),
+    QMainWindow(parent)
 {
     ui.setupUi(this);
 
@@ -20,10 +22,12 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::aplic
     QObject::connect(this->ui.btn_filmar, &QPushButton::released, this, &consola_seon::comenzar_filmacion);
     QObject::connect(this->ui.btn_grabar, &QPushButton::released, this, &consola_seon::comenzar_grabacion);
 
+    QObject::connect(this, &consola_seon::screenshot_listo, &this->grabacion, &grabacion_opencv::imagen_lista);
+
     // seteo las propiedades de gui
-    this->video.hijo_de(this->ui.panel_central);
-    this->video.tamanio(this->config_gui.area_video.tamanio.ancho, this->config_gui.area_video.tamanio.alto);
-    this->video.posicion(this->config_gui.area_video.posicion.x, this->config_gui.area_video.posicion.y);
+    this->filmacion.hijo_de(this->ui.panel_central);
+    this->filmacion.tamanio(this->config_gui.area_video.tamanio.ancho, this->config_gui.area_video.tamanio.alto);
+    this->filmacion.posicion(this->config_gui.area_video.posicion.x, this->config_gui.area_video.posicion.y);
 
     this->ui.panel_lateral->resize(this->config_gui.panel_lateral.tamanio.ancho, this->config_gui.panel_lateral.tamanio.alto);
     this->ui.panel_lateral->move(this->config_gui.panel_lateral.posicion.x, this->config_gui.panel_lateral.posicion.y);
@@ -35,13 +39,11 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::aplic
 
     this->ui.btn_filmar->raise();
     this->ui.btn_grabar->raise();
-
-
 }
 
 consola_seon::~consola_seon() {
 
-    this->grabacion_activada = false;
+    this->timer.stop();
     seon::aplicacion::logger::info("cerrando consola.");
 }
 
@@ -83,27 +85,27 @@ void consola_seon::setear_inicio()
 void consola_seon::comenzar_filmacion()
 {
     seon::aplicacion::logger::info("filmacion iniciada.");
-    this->video.iniciar();
+    this->filmacion.iniciar();
 }
 
 void consola_seon::comenzar_grabacion() {
 
-    this->hilo_grabador.start(QThread::Priority::HighPriority);
-    this->grabador_video.moveToThread(&this->hilo_grabador);
+    seon::aplicacion::logger::info("filmacion iniciada.");
+    this->grabacion.iniciar();
 
-    grabacion_activada = true;
-    QWidget * panel_central = this->ui.panel_central;
-
-    QtConcurrent::run([this]() {
-
-        while (this->grabacion_activada) {
-
-            this->ui.panel_central->grab().toImage();
-
-            this->grabador_video.fotograma_listo(this->ui.panel_central->grab().toImage());
-
-            QThread::msleep(1000 / 30); // 30 fps.
-        }
-
-    });
+    this->timer.start((1000 / this->admin_video->configuracion.grabacion.fps), this);
 }
+
+void consola_seon::timerEvent(QTimerEvent * ev) {
+
+    if (ev->timerId() != this->timer.timerId()) return;
+
+    QScreen * screen = QGuiApplication::primaryScreen();
+    if (const QWindow *window = windowHandle())
+        screen = window->screen();
+    if (!screen)
+        return;
+    
+    emit screenshot_listo(screen->grabWindow(this->ui.panel_central->winId()).toImage());
+}
+

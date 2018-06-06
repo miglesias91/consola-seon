@@ -8,11 +8,11 @@
 
 namespace gui {
 
-class visor_imagen : public QWidget {
+class visor_filmacion : public QWidget {
     Q_OBJECT
 
 public:
-    visor_imagen(QWidget * parent = nullptr);
+    visor_filmacion(QWidget * parent = nullptr);
 
     Q_SLOT void setear_imagen(const QImage & img);
 

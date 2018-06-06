@@ -14,17 +14,17 @@
 
 namespace gui {
 
-class convertidor : public QObject {
+class convertidor_captura : public QObject {
     Q_OBJECT
 
 public:
-    explicit convertidor(uint32_t ancho = 0, uint32_t alto = 0, QObject * parent = nullptr);
+    explicit convertidor_captura(uint32_t ancho = 0, uint32_t alto = 0, QObject * parent = nullptr);
 
     void procesar_todo(bool procesar_todo_fotograma);
 
     Q_SIGNAL void imagen_lista(const QImage &);
 
-    Q_SLOT void procesar_fotograma(const cv::Mat & frame);
+    Q_SLOT void convertir_fotograma(const cv::Mat & frame);
 
 private:
 
@@ -37,7 +37,7 @@ private:
 
     void encolar(const cv::Mat & frame);
 
-    void procesar(const cv::Mat & frame);
+    void convertir(const cv::Mat & frame);
 
     void timerEvent(QTimerEvent * ev);
 };

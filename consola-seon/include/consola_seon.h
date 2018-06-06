@@ -16,8 +16,8 @@
 #include <video/include/vista.h>
 
 // consola seon
-#include <consola-seon/include/video_opencv.h>
-#include <consola-seon/include/grabador.h>
+#include <consola-seon/include/filmacion_opencv.h>
+#include <consola-seon/include/grabacion_opencv.h>
 
 class consola_seon : public QMainWindow
 {
@@ -25,13 +25,14 @@ class consola_seon : public QMainWindow
 
 signals:
 
-    void imagen_procesada();
+    void screenshot_listo(const QImage & screenshot);
 
 public:
     consola_seon(seon::video::administrador * admin_video, seon::aplicacion::configuracion::gui config_gui, QWidget *parent = Q_NULLPTR);
     virtual ~consola_seon();
 
 private:
+    Ui::consola_seonClass ui;
 
     void setear_inicio();
 
@@ -39,16 +40,16 @@ private:
 
     void comenzar_grabacion();
 
-    Ui::consola_seonClass ui;
 
     // atributos
     seon::video::administrador * admin_video;
 
     seon::aplicacion::configuracion::gui config_gui;
 
-    video_opencv video;
+    filmacion_opencv filmacion;
 
-    Thread hilo_grabador;
-    gui::grabador grabador_video;
-    bool grabacion_activada;
+    grabacion_opencv grabacion;
+
+    QBasicTimer timer;
+    void timerEvent(QTimerEvent * evento);
 };

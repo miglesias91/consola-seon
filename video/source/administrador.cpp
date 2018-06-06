@@ -9,7 +9,7 @@
 namespace seon::video {
 
 administrador::administrador(seon::aplicacion::configuracion::video configuracion)
-    : configuracion(configuracion) , camara_video(configuracion.resolucion.ancho, configuracion.resolucion.alto, configuracion.fps), vista_video(nullptr) {
+    : configuracion(configuracion) , camara_video(configuracion.filmacion.resolucion.ancho, configuracion.filmacion.resolucion.alto, configuracion.filmacion.fps), vista_video(nullptr) {
 
     aplicacion::logger::info("INICIO ADMIN VIDEO");
 }

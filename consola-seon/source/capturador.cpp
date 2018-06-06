@@ -1,24 +1,28 @@
 #include <consola-seon/include/capturador.h>
 
+// stl
+#include <experimental/filesystem>
+
 namespace gui {
 
-capturador::capturador(uint fps_captura, uint ancho, uint alto, QObject * parent)
-    : fps_captura(fps_captura), ancho(ancho), alto(alto), QObject(parent), path_archivo_entrada("") {}
+capturador::capturador(const std::string path_entrada, uint fps_captura, QObject * parent)
+    : path_entrada(path_entrada), fps_captura(fps_captura), QObject(parent) {}
 
 capturador::~capturador() {};
 
-void capturador::entrada(const std::string path_video) {
-    this->path_archivo_entrada = path_video;
+void capturador::entrada(const std::string path_entrada) {
+    this->path_entrada = path_entrada;
 }
 
-void capturador::empezar(int cam) {
+void capturador::iniciar(int cam) {
     if (!this->ptr_capturador) {
 
-        if (this->path_archivo_entrada.empty()) {
+        if (this->path_entrada.empty()) {
             ptr_capturador.reset(new cv::VideoCapture(cam));
         }
         else {
-            ptr_capturador.reset(new cv::VideoCapture(this->path_archivo_entrada));
+            std::string directorio_ejecutable = std::experimental::filesystem::current_path().u8string();
+            ptr_capturador.reset(new cv::VideoCapture(directorio_ejecutable + "\\" + this->path_entrada));
         }
     }
     if (ptr_capturador->isOpened()) {

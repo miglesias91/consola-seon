@@ -1,11 +1,27 @@
 {
-    "resolucion" : 
+    "filmacion" :
     {
-        "ancho" : 800,
-        "alto" : 600
+        "resolucion" : 
+        {
+            "ancho" : 800,
+            "alto" : 600
+        },
+        "fps" : 30,
+        "entrada" : "video-de-prueba.mp4"
+
     },
+    "grabacion" :
+    {
+        "resolucion" : 
+        {
+            "ancho" : 1920,
+            "alto" : 1080
+        },
+        "fps" : 30,
+        "salida" : "salida.avi"
+    },
+
     "canal" : 0,
-    "fps" : 30,
     "render" : 0,
     "reticula_mayor" : 
     {
