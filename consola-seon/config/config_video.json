@@ -1,11 +1,11 @@
 {
     "resolucion" : 
     {
-        "ancho" : 1920,
-        "alto" : 1080
+        "ancho" : 800,
+        "alto" : 600
     },
     "canal" : 0,
-    "fps" : 60,
+    "fps" : 30,
     "render" : 0,
     "reticula_mayor" : 
     {

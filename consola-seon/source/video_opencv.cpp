@@ -2,7 +2,8 @@
 
 video_opencv::video_opencv(seon::video::administrador * admin_video, QWidget * padre)
     : admin_video(admin_video), vista(padre),
-    capturador_video(CV_FOURCC('P', 'I', 'M', '1'), admin_video->configuracion.fps, 30, admin_video->configuracion.resolucion.ancho, admin_video->configuracion.resolucion.alto)
+    convertidor_fotograma(admin_video->configuracion.resolucion.ancho, admin_video->configuracion.resolucion.alto),
+    capturador_video(admin_video->configuracion.fps, admin_video->configuracion.resolucion.ancho, admin_video->configuracion.resolucion.alto)
     {
 
     this->vista.lower();
@@ -28,7 +29,6 @@ video_opencv::video_opencv(seon::video::administrador * admin_video, QWidget * p
 
     QObject::connect(&this->capturador_video, &gui::capturador::empezado, []() { qDebug() << "capture started"; });
     this->capturador_video.entrada(this->admin_video->entrada());
-    this->capturador_video.salida(this->admin_video->salida());
 }
 
 video_opencv::~video_opencv() {
@@ -37,13 +37,18 @@ video_opencv::~video_opencv() {
 
 void video_opencv::iniciar() {
 
-    QMetaObject::invokeMethod(&this->capturador_video, "start");
+    QMetaObject::invokeMethod(&this->capturador_video, "empezar");
     //QMetaObject::invokeMethod(&this->grabador_video, "start");
 }
 
 void video_opencv::hijo_de(QWidget * padre) {
 
     this->vista.setParent(padre);
+}
+
+void video_opencv::layout(QLayout * layout) {
+
+    layout->addWidget(&this->vista);
 }
 
 void video_opencv::tamanio(uint ancho, uint alto) {

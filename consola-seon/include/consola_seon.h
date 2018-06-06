@@ -3,6 +3,7 @@
 // qt
 #include <QtWidgets/QMainWindow>
 #include <QtMultimedia/qmediaplayer.h>
+#include <QtConcurrent/qtconcurrentrun.h>
 
 #include "ui_consola_seon.h"
 
@@ -16,6 +17,7 @@
 
 // consola seon
 #include <consola-seon/include/video_opencv.h>
+#include <consola-seon/include/grabador.h>
 
 class consola_seon : public QMainWindow
 {
@@ -35,7 +37,7 @@ private:
 
     void comenzar_filmacion();
 
-    void dibujar_fotograma(QImage imagen);
+    void comenzar_grabacion();
 
     Ui::consola_seonClass ui;
 
@@ -45,4 +47,8 @@ private:
     seon::aplicacion::configuracion::gui config_gui;
 
     video_opencv video;
+
+    Thread hilo_grabador;
+    gui::grabador grabador_video;
+    bool grabacion_activada;
 };

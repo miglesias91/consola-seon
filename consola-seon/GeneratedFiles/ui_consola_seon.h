@@ -29,7 +29,7 @@ class Ui_consola_seonClass
 {
 public:
     QWidget *panel_central;
-    QPushButton *boton;
+    QPushButton *btn_filmar;
     QWidget *panel_lateral;
     QVBoxLayout *layout_lateral;
     QFrame *frame_testigo_ventana_optica;
@@ -122,20 +122,23 @@ public:
     QFrame *linea_referencia_estable;
     QLabel *lbl_imu_prob;
     QLabel *lbl_octans;
+    QWidget *widget_video;
+    QVBoxLayout *layout_video;
+    QPushButton *btn_grabar;
 
     void setupUi(QMainWindow *consola_seonClass)
     {
         if (consola_seonClass->objectName().isEmpty())
             consola_seonClass->setObjectName(QStringLiteral("consola_seonClass"));
-        consola_seonClass->resize(887, 688);
+        consola_seonClass->resize(887, 655);
         consola_seonClass->setMaximumSize(QSize(887, 688));
         consola_seonClass->setWindowOpacity(1);
         panel_central = new QWidget(consola_seonClass);
         panel_central->setObjectName(QStringLiteral("panel_central"));
         panel_central->setMaximumSize(QSize(1920, 1080));
-        boton = new QPushButton(panel_central);
-        boton->setObjectName(QStringLiteral("boton"));
-        boton->setGeometry(QRect(210, 610, 75, 23));
+        btn_filmar = new QPushButton(panel_central);
+        btn_filmar->setObjectName(QStringLiteral("btn_filmar"));
+        btn_filmar->setGeometry(QRect(210, 610, 75, 23));
         panel_lateral = new QWidget(panel_central);
         panel_lateral->setObjectName(QStringLiteral("panel_lateral"));
         panel_lateral->setGeometry(QRect(10, 30, 160, 532));
@@ -879,7 +882,22 @@ public:
 
         layout_superior->addWidget(frame_referencia_estab);
 
+        widget_video = new QWidget(panel_central);
+        widget_video->setObjectName(QStringLiteral("widget_video"));
+        widget_video->setGeometry(QRect(0, 0, 500, 500));
+        layout_video = new QVBoxLayout(widget_video);
+        layout_video->setSpacing(6);
+        layout_video->setContentsMargins(11, 11, 11, 11);
+        layout_video->setObjectName(QStringLiteral("layout_video"));
+        btn_grabar = new QPushButton(panel_central);
+        btn_grabar->setObjectName(QStringLiteral("btn_grabar"));
+        btn_grabar->setGeometry(QRect(60, 610, 75, 23));
         consola_seonClass->setCentralWidget(panel_central);
+        widget_video->raise();
+        btn_filmar->raise();
+        panel_lateral->raise();
+        panel_superior->raise();
+        btn_grabar->raise();
 
         retranslateUi(consola_seonClass);
 
@@ -889,7 +907,7 @@ public:
     void retranslateUi(QMainWindow *consola_seonClass)
     {
         consola_seonClass->setWindowTitle(QApplication::translate("consola_seonClass", "consola_seon", Q_NULLPTR));
-        boton->setText(QApplication::translate("consola_seonClass", "PushButton", Q_NULLPTR));
+        btn_filmar->setText(QApplication::translate("consola_seonClass", "filmar", Q_NULLPTR));
         lbl_ventana_optica->setText(QApplication::translate("consola_seonClass", "VENTANA \303\223PTICA", Q_NULLPTR));
         lbl_optica_lava->setText(QApplication::translate("consola_seonClass", "LAVA", Q_NULLPTR));
         lbl_optica_limpia->setText(QApplication::translate("consola_seonClass", "LIMPIA", Q_NULLPTR));
@@ -942,6 +960,7 @@ public:
         lbl_referencia_estab->setText(QApplication::translate("consola_seonClass", "REFERENCIA ESTAB", Q_NULLPTR));
         lbl_imu_prob->setText(QApplication::translate("consola_seonClass", "IMU PROP.", Q_NULLPTR));
         lbl_octans->setText(QApplication::translate("consola_seonClass", "OCTANS", Q_NULLPTR));
+        btn_grabar->setText(QApplication::translate("consola_seonClass", "grabar", Q_NULLPTR));
     } // retranslateUi
 
 };

@@ -18,7 +18,7 @@ class convertidor : public QObject {
     Q_OBJECT
 
 public:
-    explicit convertidor(QObject * parent = nullptr);
+    explicit convertidor(uint32_t ancho = 0, uint32_t alto = 0, QObject * parent = nullptr);
 
     void procesar_todo(bool procesar_todo_fotograma);
 
@@ -30,6 +30,7 @@ private:
 
     QBasicTimer m_timer;
     cv::Mat m_frame;
+    cv::Size tamanio_video;
     bool procesar_todo_fotograma = true;
 
     static void destruidor_mat(void* mat);

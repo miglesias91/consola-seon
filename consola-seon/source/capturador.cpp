@@ -2,17 +2,13 @@
 
 namespace gui {
 
-capturador::capturador(int codec, uint fps_captura, uint fps_grabadora, uint ancho, uint alto, QObject * parent)
-    : codec(codec), fps_captura(fps_captura), fps_grabadora(fps_grabadora), ancho(ancho), alto(alto), QObject(parent), path_archivo_entrada(""), path_archivo_salida("") {}
+capturador::capturador(uint fps_captura, uint ancho, uint alto, QObject * parent)
+    : fps_captura(fps_captura), ancho(ancho), alto(alto), QObject(parent), path_archivo_entrada("") {}
 
 capturador::~capturador() {};
 
 void capturador::entrada(const std::string path_video) {
     this->path_archivo_entrada = path_video;
-}
-
-void capturador::salida(const std::string path_video) {
-    this->path_archivo_salida = path_video;
 }
 
 void capturador::empezar(int cam) {
@@ -26,7 +22,7 @@ void capturador::empezar(int cam) {
         }
     }
     if (ptr_capturador->isOpened()) {
-        m_timer.start(this->fps_captura, this);
+        m_timer.start((1000 / this->fps_captura), this);
         emit empezado();
     }
 }

@@ -38,6 +38,7 @@ public:
     void iniciar();
 
     void hijo_de(QWidget * padre);
+    void layout(QLayout * layout);
 
     void tamanio(uint ancho, uint alto);
     void posicion(uint x, uint y);

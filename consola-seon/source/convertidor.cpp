@@ -2,7 +2,7 @@
 
 namespace gui {
 
-convertidor::convertidor(QObject * parent) : QObject(parent) {}
+convertidor::convertidor(uint32_t ancho, uint32_t alto, QObject * parent) : tamanio_video(ancho, alto), QObject(parent) {}
 
 void convertidor::procesar_todo(bool procesar_todo_fotograma) {
     this->procesar_todo_fotograma = procesar_todo_fotograma;
@@ -33,7 +33,7 @@ void convertidor::encolar(const cv::Mat & frame) {
 void convertidor::procesar(const cv::Mat & frame) {
 
     cv::Mat copia_frame = frame;
-    cv::resize(copia_frame, copia_frame, cv::Size(), 0.3, 0.3, cv::INTER_AREA);
+    cv::resize(copia_frame, copia_frame, this->tamanio_video, 1.0, 1.0, cv::INTER_LINEAR);
     cv::cvtColor(copia_frame, copia_frame, CV_BGR2RGB);
 
     const QImage image(copia_frame.data, copia_frame.cols, copia_frame.rows, copia_frame.step, QImage::Format_RGB888, &this->destruidor_mat, new cv::Mat(copia_frame));

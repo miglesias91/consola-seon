@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>887</width>
-    <height>688</height>
+    <height>655</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -29,7 +29,7 @@
      <height>1080</height>
     </size>
    </property>
-   <widget class="QPushButton" name="boton">
+   <widget class="QPushButton" name="btn_filmar">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -39,7 +39,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>filmar</string>
     </property>
    </widget>
    <widget class="QWidget" name="panel_lateral" native="true">
@@ -1713,6 +1713,35 @@ border-left: 0px;</string>
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="widget_video" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>500</width>
+      <height>500</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="layout_video"/>
+   </widget>
+   <widget class="QPushButton" name="btn_grabar">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>610</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>grabar</string>
+    </property>
+   </widget>
+   <zorder>widget_video</zorder>
+   <zorder>btn_filmar</zorder>
+   <zorder>panel_lateral</zorder>
+   <zorder>panel_superior</zorder>
+   <zorder>btn_grabar</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

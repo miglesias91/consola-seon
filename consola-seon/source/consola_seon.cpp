@@ -7,7 +7,9 @@
 #include <qpushbutton.h>
 
 consola_seon::consola_seon(seon::video::administrador * admin_video, seon::aplicacion::configuracion::gui config_gui, QWidget *parent)
-    : admin_video(admin_video), video(admin_video), config_gui(config_gui), QMainWindow(parent)
+    : admin_video(admin_video), video(admin_video), config_gui(config_gui),
+    grabador_video(admin_video->salida(), 30, admin_video->configuracion.resolucion.ancho, admin_video->configuracion.resolucion.alto),
+    grabacion_activada(false), QMainWindow(parent)
 {
     ui.setupUi(this);
 
@@ -15,7 +17,8 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::aplic
     this->setear_inicio();
 
     // conecto signals con slots
-    QObject::connect(this->ui.boton, &QPushButton::released, this, &consola_seon::comenzar_filmacion);
+    QObject::connect(this->ui.btn_filmar, &QPushButton::released, this, &consola_seon::comenzar_filmacion);
+    QObject::connect(this->ui.btn_grabar, &QPushButton::released, this, &consola_seon::comenzar_grabacion);
 
     // seteo las propiedades de gui
     this->video.hijo_de(this->ui.panel_central);
@@ -30,12 +33,16 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::aplic
     this->ui.panel_superior->move(this->config_gui.panel_superior.posicion.x, this->config_gui.panel_superior.posicion.y);
     this->ui.panel_superior->raise();
 
-    this->ui.boton->raise();
+    this->ui.btn_filmar->raise();
+    this->ui.btn_grabar->raise();
+
+
 }
 
 consola_seon::~consola_seon() {
+
+    this->grabacion_activada = false;
     seon::aplicacion::logger::info("cerrando consola.");
-    //delete this->video;
 }
 
 void consola_seon::setear_inicio()
@@ -79,12 +86,24 @@ void consola_seon::comenzar_filmacion()
     this->video.iniciar();
 }
 
-void consola_seon::dibujar_fotograma(QImage imagen) {
+void consola_seon::comenzar_grabacion() {
 
-    //if (!imagen.isNull()) {
-    //    this->ui.label->setAlignment(Qt::AlignCenter);
-    //    this->ui.label->setPixmap(QPixmap::fromImage(imagen).scaled(this->ui.label->size(), Qt::KeepAspectRatio, Qt::FastTransformation));
-    //}
+    this->hilo_grabador.start(QThread::Priority::HighPriority);
+    this->grabador_video.moveToThread(&this->hilo_grabador);
 
-    //emit imagen_procesada();
+    grabacion_activada = true;
+    QWidget * panel_central = this->ui.panel_central;
+
+    QtConcurrent::run([this]() {
+
+        while (this->grabacion_activada) {
+
+            this->ui.panel_central->grab().toImage();
+
+            this->grabador_video.fotograma_listo(this->ui.panel_central->grab().toImage());
+
+            QThread::msleep(1000 / 30); // 30 fps.
+        }
+
+    });
 }

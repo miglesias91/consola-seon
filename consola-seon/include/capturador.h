@@ -20,12 +20,11 @@ class capturador : public QObject {
     Q_OBJECT
 
 public:
-    capturador(int codec, uint fps_captura, uint fps_grabadora, uint ancho, uint alto, QObject * parent = {});
+    capturador(uint fps_captura, uint ancho, uint alto, QObject * parent = {});
 
     virtual ~capturador();
 
     void entrada(const std::string path_video);
-    void salida(const std::string path_video);
 
     Q_SIGNAL void empezado();
     Q_SIGNAL void mat_lista(const cv::Mat &);
@@ -47,9 +46,8 @@ private:
 
     void timerEvent(QTimerEvent * ev);
 
-    int codec;
-    uint fps_captura, fps_grabadora, ancho, alto;
-    std::string path_archivo_entrada, path_archivo_salida;
+    uint fps_captura, ancho, alto;
+    std::string path_archivo_entrada;
 };
 
 }

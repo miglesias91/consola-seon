@@ -127,6 +127,7 @@
     <ClCompile Include="source\consola_seon.cpp" />
     <ClCompile Include="source\convertidor.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="source\grabador.cpp" />
     <ClCompile Include="source\video_opencv.cpp" />
     <ClCompile Include="source\visor_imagen.cpp" />
   </ItemGroup>
@@ -143,6 +144,12 @@
     <ResourceCompile Include="consola-seon.rc" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="include\grabador.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DEBUG;UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_MULTIMEDIAWIDGETS_LIB;QT_WIDGETS_LIB</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_MULTIMEDIAWIDGETS_LIB;QT_WIDGETS_LIB</Define>
+    </QtMoc>
     <ClInclude Include="include\video_opencv.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
       <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DEBUG;UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_MULTIMEDIAWIDGETS_LIB;QT_WIDGETS_LIB</Define>

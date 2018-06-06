@@ -6,7 +6,7 @@ visor_imagen::visor_imagen(QWidget * parent) : QWidget(parent) {
     setAttribute(Qt::WA_OpaquePaintEvent);
 }
 
-Q_SLOT void visor_imagen::setear_imagen(const QImage & img) {
+void visor_imagen::setear_imagen(const QImage & img) {
 
     if (!imagen_qt.isNull()) qDebug() << "Viewer dropped frame!";
     imagen_qt = img;
