@@ -22,7 +22,7 @@ void capturador::iniciar(int cam) {
         }
         else {
             std::string directorio_ejecutable = std::experimental::filesystem::current_path().u8string();
-            ptr_capturador.reset(new cv::VideoCapture(directorio_ejecutable + "\\" + this->path_entrada));
+            ptr_capturador.reset(new cv::VideoCapture(directorio_ejecutable + "\\" + this->path_entrada, cv::CAP_FFMPEG));
         }
     }
     if (ptr_capturador->isOpened()) {

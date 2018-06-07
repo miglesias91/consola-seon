@@ -90,7 +90,7 @@ void consola_seon::comenzar_filmacion()
 
 void consola_seon::comenzar_grabacion() {
 
-    seon::aplicacion::logger::info("filmacion iniciada.");
+    seon::aplicacion::logger::info("grabacion iniciada.");
     this->grabacion.iniciar();
 
     this->timer.start((1000 / this->admin_video->configuracion.grabacion.fps), this);

@@ -11,14 +11,15 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
 
-TEST_CASE("video", "stream_camara[.]")
+TEST_CASE("video", "stream_camara")
 {
     // Create a VideoCapture object and open the input file
     // If the input is the web camera, pass 0 instead of the video file name
 
     std::string directorio_ejecutable = std::experimental::filesystem::current_path().u8string();
 
-    cv::VideoCapture cap(directorio_ejecutable + "\\oficina.mp4");
+    cv::VideoCapture cap(directorio_ejecutable + "\\oficina.mp4", cv::CAP_FFMPEG);
+    cv::VideoWriter grabador(directorio_ejecutable + "\\salida.mp4", cv::CAP_FFMPEG, cv::VideoWriter::fourcc('F', 'M', 'P', '4'), 30, cv::Size(cap.get(cv::CAP_PROP_FRAME_WIDTH), cap.get(cv::CAP_PROP_FRAME_HEIGHT)));
 
     // Check if camera opened successfully
     if (!cap.isOpened()) {
@@ -35,7 +36,8 @@ TEST_CASE("video", "stream_camara[.]")
 
         cv::Mat frame;
         // Capture frame-by-frame
-        cap >> frame;
+        //cap >> frame;
+        cap.read(frame);
 
         // If the frame is empty, break immediately
         if (frame.empty())
@@ -43,6 +45,8 @@ TEST_CASE("video", "stream_camara[.]")
 
         // Display the resulting frame
         cv::imshow("Frame", frame);
+
+        grabador.write(frame);
 
         // Press  ESC on keyboard to exit
         char c = (char)cv::waitKey(25);
