@@ -17,8 +17,9 @@
             "ancho" : 1920,
             "alto" : 1080
         },
-        "fps" : 30,
-        "salida" : "salida_camara.mp4"
+        "fps" : 15,
+        "carpeta" : "ejercicios",
+        "formato" : "mp4"
     },
 
     "canal" : 0,

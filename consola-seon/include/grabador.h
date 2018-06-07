@@ -18,11 +18,9 @@ class grabador : public QObject {
     Q_OBJECT
 
 public:
-    grabador(const std::string & path_salida, uint fps_grabadora, uint ancho, uint alto, int codec = cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), QObject * parent = {});
+    grabador(const std::string & formato, const std::string & carpeta, uint fps_grabadora, uint ancho, uint alto, int codec = cv::VideoWriter::fourcc('F', 'M', 'P', '4'), QObject * parent = {});
 
     virtual ~grabador();
-
-    void salida(const std::string path_video);
 
     Q_SIGNAL void empezado();
 
@@ -37,7 +35,7 @@ private:
 
     int codec;
     uint fps_grabador, ancho, alto;
-    std::string path_salida;
+    std::string formato, carpeta;
 };
 
 }

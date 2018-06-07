@@ -9,6 +9,10 @@
 
 // comunicacion
 #include <comunicacion/include/serial.h>
+#include <comunicacion/include/trama_gps.h>
+#include <comunicacion/include/trama_pulsadores.h>
+#include <comunicacion/include/trama_pupitre.h>
+#include <comunicacion/include/trama_seon.h>
 
 namespace seon::comunicacion {
 
@@ -20,11 +24,16 @@ public:
 
     void iniciar();
 
+    void recibir(trama_gps & trama);
+    void recibir(trama_pulsadores & trama);
+    void recibir(trama_pupitre & trama);
+    void recibir(trama_seon & trama);
+
     void esperar_trama(const std::string & nombre_trama, trama * trama_recibida);
 
-private:
-
     seon::aplicacion::configuracion::comunicacion configuracion;
+
+private:
 
     std::unordered_map<std::string, SERIAL*> comunicaciones;
 };

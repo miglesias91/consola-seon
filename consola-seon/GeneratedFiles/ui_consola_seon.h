@@ -18,6 +18,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
@@ -125,6 +126,20 @@ public:
     QWidget *widget_video;
     QVBoxLayout *layout_video;
     QPushButton *btn_grabar;
+    QWidget *widget_comunicaciones;
+    QVBoxLayout *layout_comunicaciones;
+    QHBoxLayout *layout_gps;
+    QLabel *lbl_gps;
+    QLineEdit *lineedit_gps;
+    QHBoxLayout *layout_pupitre;
+    QLabel *lbl_pupitre;
+    QLineEdit *lineedit_pupitre;
+    QHBoxLayout *layout_pulsadores;
+    QLabel *lbl_pulsadores;
+    QLineEdit *lineedit_pulsadores;
+    QHBoxLayout *layout_seon;
+    QLabel *lbl_seon;
+    QLineEdit *lineedit_seon;
 
     void setupUi(QMainWindow *consola_seonClass)
     {
@@ -892,12 +907,90 @@ public:
         btn_grabar = new QPushButton(panel_central);
         btn_grabar->setObjectName(QStringLiteral("btn_grabar"));
         btn_grabar->setGeometry(QRect(60, 610, 75, 23));
+        widget_comunicaciones = new QWidget(panel_central);
+        widget_comunicaciones->setObjectName(QStringLiteral("widget_comunicaciones"));
+        widget_comunicaciones->setGeometry(QRect(670, 240, 141, 88));
+        widget_comunicaciones->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        layout_comunicaciones = new QVBoxLayout(widget_comunicaciones);
+        layout_comunicaciones->setSpacing(0);
+        layout_comunicaciones->setContentsMargins(11, 11, 11, 11);
+        layout_comunicaciones->setObjectName(QStringLiteral("layout_comunicaciones"));
+        layout_comunicaciones->setContentsMargins(0, 0, 0, 0);
+        layout_gps = new QHBoxLayout();
+        layout_gps->setSpacing(0);
+        layout_gps->setObjectName(QStringLiteral("layout_gps"));
+        layout_gps->setContentsMargins(-1, 0, 0, -1);
+        lbl_gps = new QLabel(widget_comunicaciones);
+        lbl_gps->setObjectName(QStringLiteral("lbl_gps"));
+
+        layout_gps->addWidget(lbl_gps);
+
+        lineedit_gps = new QLineEdit(widget_comunicaciones);
+        lineedit_gps->setObjectName(QStringLiteral("lineedit_gps"));
+
+        layout_gps->addWidget(lineedit_gps);
+
+
+        layout_comunicaciones->addLayout(layout_gps);
+
+        layout_pupitre = new QHBoxLayout();
+        layout_pupitre->setSpacing(0);
+        layout_pupitre->setObjectName(QStringLiteral("layout_pupitre"));
+        layout_pupitre->setContentsMargins(-1, -1, -1, 0);
+        lbl_pupitre = new QLabel(widget_comunicaciones);
+        lbl_pupitre->setObjectName(QStringLiteral("lbl_pupitre"));
+
+        layout_pupitre->addWidget(lbl_pupitre);
+
+        lineedit_pupitre = new QLineEdit(widget_comunicaciones);
+        lineedit_pupitre->setObjectName(QStringLiteral("lineedit_pupitre"));
+
+        layout_pupitre->addWidget(lineedit_pupitre);
+
+
+        layout_comunicaciones->addLayout(layout_pupitre);
+
+        layout_pulsadores = new QHBoxLayout();
+        layout_pulsadores->setSpacing(0);
+        layout_pulsadores->setObjectName(QStringLiteral("layout_pulsadores"));
+        layout_pulsadores->setContentsMargins(-1, -1, -1, 0);
+        lbl_pulsadores = new QLabel(widget_comunicaciones);
+        lbl_pulsadores->setObjectName(QStringLiteral("lbl_pulsadores"));
+
+        layout_pulsadores->addWidget(lbl_pulsadores);
+
+        lineedit_pulsadores = new QLineEdit(widget_comunicaciones);
+        lineedit_pulsadores->setObjectName(QStringLiteral("lineedit_pulsadores"));
+
+        layout_pulsadores->addWidget(lineedit_pulsadores);
+
+
+        layout_comunicaciones->addLayout(layout_pulsadores);
+
+        layout_seon = new QHBoxLayout();
+        layout_seon->setSpacing(0);
+        layout_seon->setObjectName(QStringLiteral("layout_seon"));
+        layout_seon->setContentsMargins(-1, -1, -1, 0);
+        lbl_seon = new QLabel(widget_comunicaciones);
+        lbl_seon->setObjectName(QStringLiteral("lbl_seon"));
+
+        layout_seon->addWidget(lbl_seon);
+
+        lineedit_seon = new QLineEdit(widget_comunicaciones);
+        lineedit_seon->setObjectName(QStringLiteral("lineedit_seon"));
+
+        layout_seon->addWidget(lineedit_seon);
+
+
+        layout_comunicaciones->addLayout(layout_seon);
+
         consola_seonClass->setCentralWidget(panel_central);
         widget_video->raise();
         btn_filmar->raise();
         panel_lateral->raise();
         panel_superior->raise();
         btn_grabar->raise();
+        widget_comunicaciones->raise();
 
         retranslateUi(consola_seonClass);
 
@@ -961,6 +1054,10 @@ public:
         lbl_imu_prob->setText(QApplication::translate("consola_seonClass", "IMU PROP.", Q_NULLPTR));
         lbl_octans->setText(QApplication::translate("consola_seonClass", "OCTANS", Q_NULLPTR));
         btn_grabar->setText(QApplication::translate("consola_seonClass", "grabar", Q_NULLPTR));
+        lbl_gps->setText(QApplication::translate("consola_seonClass", "gps", Q_NULLPTR));
+        lbl_pupitre->setText(QApplication::translate("consola_seonClass", "pupitre", Q_NULLPTR));
+        lbl_pulsadores->setText(QApplication::translate("consola_seonClass", "pulsadores", Q_NULLPTR));
+        lbl_seon->setText(QApplication::translate("consola_seonClass", "seon", Q_NULLPTR));
     } // retranslateUi
 
 };

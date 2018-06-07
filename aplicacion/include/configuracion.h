@@ -200,12 +200,13 @@ public:
             delete json_resolucion;
 
             this->fps = json->getAtributoValorUint("fps");
-            this->path = json->getAtributoValorString("salida");
+            this->formato = json->getAtributoValorString("formato");
+            this->carpeta = json->getAtributoValorString("carpeta");
         }
 
         tamanio resolucion;
         uint32_t fps;
-        std::string path;
+        std::string formato, carpeta;
     };
 
     struct video {
@@ -223,10 +224,6 @@ public:
             herramientas::utiles::Json * json_grabacion = configuracion_json.getAtributoValorJson("grabacion");
             this->grabacion.levantar(json_grabacion);
             delete json_grabacion;
-
-            //herramientas::utiles::Json * json_resolucion = configuracion_json.getAtributoValorJson("resolucion");
-            //this->resolucion.levantar(json_resolucion);
-            //delete json_resolucion;
 
             this->canal = configuracion_json.getAtributoValorUint("canal");
             this->render = modo(configuracion_json.getAtributoValorUint("render"));

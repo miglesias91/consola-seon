@@ -34,10 +34,28 @@ void administrador::iniciar() {
     this->comunicaciones["seon"] = comunicacion_seon;
 }
 
+void administrador::recibir(trama_gps & trama) {
+
+    this->comunicaciones["gps"]->recibir(&trama);
+}
+
+void administrador::recibir(trama_pulsadores & trama) {
+
+    this->comunicaciones["pulsadores"]->recibir(&trama);
+}
+
+void administrador::recibir(trama_pupitre & trama) {
+    this->comunicaciones["pupitre"]->recibir(&trama);
+}
+
+void administrador::recibir(trama_seon & trama) {
+
+    this->comunicaciones["seon"]->recibir(&trama);
+}
+
 void administrador::esperar_trama(const std::string & nombre_trama, trama * trama_recibida) {
 
-    this->comunicaciones[nombre_trama]->esperar_y_recibir(trama_recibida);
-
+    this->comunicaciones[nombre_trama]->recibir(trama_recibida);
 }
 
 

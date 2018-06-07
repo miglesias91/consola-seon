@@ -26,6 +26,9 @@
     <ClCompile Include="source\grabacion_opencv.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\comunicador.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resource Files">
@@ -81,6 +84,9 @@
       <Filter>Header Files\filmacion</Filter>
     </QtMoc>
     <QtMoc Include="include\grabacion_opencv.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\comunicador.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

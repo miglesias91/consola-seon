@@ -6,11 +6,12 @@
 // qt
 #include <qpushbutton.h>
 
-consola_seon::consola_seon(seon::video::administrador * admin_video, seon::aplicacion::configuracion::gui config_gui, QWidget *parent)
+consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comunicacion::administrador * admin_comunicacion, seon::aplicacion::configuracion::gui config_gui, QWidget *parent)
     : admin_video(admin_video),
     config_gui(config_gui),
     filmacion(admin_video), 
     grabacion(admin_video),
+    comu(admin_comunicacion),
     QMainWindow(parent)
 {
     ui.setupUi(this);
@@ -23,6 +24,11 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::aplic
     QObject::connect(this->ui.btn_grabar, &QPushButton::released, this, &consola_seon::comenzar_grabacion);
 
     QObject::connect(this, &consola_seon::screenshot_listo, &this->grabacion, &grabacion_opencv::imagen_lista);
+
+    QObject::connect(&this->comu, &comunicador::nuevo_mensaje_gps, this, &consola_seon::mostrar_mensaje_gps);
+    QObject::connect(&this->comu, &comunicador::nuevo_mensaje_pulsadores, this, &consola_seon::mostrar_mensaje_pulsadores);
+    QObject::connect(&this->comu, &comunicador::nuevo_mensaje_pupitre, this, &consola_seon::mostrar_mensaje_pupitre);
+    QObject::connect(&this->comu, &comunicador::nuevo_mensaje_seon, this, &consola_seon::mostrar_mensaje_seon);
 
     // seteo las propiedades de gui
     this->filmacion.hijo_de(this->ui.panel_central);
@@ -39,10 +45,14 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::aplic
 
     this->ui.btn_filmar->raise();
     this->ui.btn_grabar->raise();
+    this->ui.widget_comunicaciones->raise();
+
+    this->comu.iniciar_comunicaciones();
 }
 
 consola_seon::~consola_seon() {
 
+    this->comu.cortar();
     this->timer.stop();
     seon::aplicacion::logger::info("cerrando consola.");
 }
@@ -80,6 +90,26 @@ void consola_seon::setear_inicio()
     // testigo zoom
     this->ui.lbl_zoom_apagado->hide();
     this->ui.lbl_zoom_estrecho->hide();
+}
+
+void consola_seon::mostrar_mensaje_gps(const seon::comunicacion::trama_gps & trama) {
+
+    this->ui.lineedit_gps->setText(trama.tira_de_datos.c_str());
+}
+
+void consola_seon::mostrar_mensaje_pupitre(const seon::comunicacion::trama_pupitre & trama) {
+
+    this->ui.lineedit_pupitre->setText(trama.tira_de_datos.c_str());
+}
+
+void consola_seon::mostrar_mensaje_pulsadores(const seon::comunicacion::trama_pulsadores & trama) {
+
+    this->ui.lineedit_pulsadores->setText(trama.tira_de_datos.c_str());
+}
+
+void consola_seon::mostrar_mensaje_seon(const seon::comunicacion::trama_seon & trama) {
+
+    this->ui.lineedit_seon->setText(trama.tira_de_datos.c_str());
 }
 
 void consola_seon::comenzar_filmacion()
