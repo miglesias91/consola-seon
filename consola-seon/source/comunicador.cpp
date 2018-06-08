@@ -13,7 +13,7 @@ comunicador::comunicador(seon::comunicacion::administrador * admin_comunicacion,
 
 comunicador::~comunicador() {}
 
-void comunicador::iniciar_comunicaciones() {
+void comunicador::iniciar() {
 
     this->admin_comunicacion->iniciar();
 

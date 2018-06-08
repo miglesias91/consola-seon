@@ -7,7 +7,7 @@
             "alto" : 600
         },
         "fps" : 30,
-        "entrada" : ""
+        "entrada" : "video-de-prueba.mp4"
 
     },
     "grabacion" :
@@ -17,7 +17,7 @@
             "ancho" : 1920,
             "alto" : 1080
         },
-        "fps" : 15,
+        "fps" : 30,
         "carpeta" : "ejercicios",
         "formato" : "mp4"
     },

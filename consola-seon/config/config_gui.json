@@ -23,37 +23,22 @@
     "elementos" :
     [
         {
-            "id" : 0,
+            "id" : "lbl_video",
             "color_primario" : { "nombre" : "rojo", "r" : 255, "g" : 0, "b" : 0 },
             "color_secundario" : { "nombre" : "azul", "r" : 0, "g" : 0, "b" : 255 },
-            "ancho" : 0,
-            "alto" : 0,
-            "x" : 0,
-            "y" : 0,
-            "nombre" : "camara",
-            "id_padre" : 100
+            "texto" : "VIDEILLO"
         },
         {
-            "id" : 1,
+            "id" : "lbl_zoom",
+            "color_primario" : { "nombre" : "azul", "r" : 0, "g" : 0, "b" : 255 },
+            "color_secundario" : { "nombre" : "azul", "r" : 0, "g" : 0, "b" : 255 },
+            "texto" : "ZOOMAKIO"
+        },
+        {
+            "id" : "lbl_foco",
             "color_primario" : { "nombre" : "verde", "r" : 0, "g" : 255, "b" : 0 },
             "color_secundario" : { "nombre" : "azul", "r" : 0, "g" : 0, "b" : 255 },
-            "ancho" : 0,
-            "alto" : 0,
-            "x" : 0,
-            "y" : 0,
-            "nombre" : "pantalla",
-            "id_padre" : 100
-        },
-        {
-            "id" : 2,
-            "color_primario" : { "nombre" : "blanco", "r" : 255, "g" : 255, "b" : 255 },
-            "color_secundario" : { "nombre" : "rojo", "r" : 255, "g" : 0, "b" : 0 },
-            "ancho" : 0,
-            "alto" : 0,
-            "x" : 0,
-            "y" : 0,
-            "nombre" : "zoom",
-            "id_padre" : 100
+            "texto" : "FOQUEIRO"
         }
     ]
 }

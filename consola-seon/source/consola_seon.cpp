@@ -17,7 +17,7 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
     ui.setupUi(this);
 
     // seteo incio
-    this->setear_inicio();
+    this->configurar_gui();
 
     // conecto signals con slots
     QObject::connect(this->ui.btn_filmar, &QPushButton::released, this, &consola_seon::comenzar_filmacion);
@@ -47,7 +47,7 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
     this->ui.btn_grabar->raise();
     this->ui.widget_comunicaciones->raise();
 
-    this->comu.iniciar_comunicaciones();
+    this->comu.iniciar();
 }
 
 consola_seon::~consola_seon() {
@@ -57,7 +57,7 @@ consola_seon::~consola_seon() {
     seon::aplicacion::logger::info("cerrando consola.");
 }
 
-void consola_seon::setear_inicio()
+void consola_seon::configurar_gui()
 {
     // testigo pantalla
     this->ui.lbl_pantalla_barrido->hide();
@@ -90,6 +90,19 @@ void consola_seon::setear_inicio()
     // testigo zoom
     this->ui.lbl_zoom_apagado->hide();
     this->ui.lbl_zoom_estrecho->hide();
+
+    std::for_each(this->config_gui.elementos.begin(), this->config_gui.elementos.end(),
+        [this](seon::aplicacion::configuracion::elemento elemento)
+    {
+        QLabel * etiqueta = this->ui.panel_central->findChild<QLabel*>(elemento.id.c_str());
+        if (etiqueta) {
+            etiqueta->setText(elemento.texto.c_str());
+            etiqueta->setStyleSheet(("background-color: rgb(" + elemento.color_primario.rgb() + ");").c_str());
+        }
+        else {
+            seon::aplicacion::logger::advertencia("El elemento con id '" + elemento.id + "' no existe.");
+        }
+    });
 }
 
 void consola_seon::mostrar_mensaje_gps(const seon::comunicacion::trama_gps & trama) {
@@ -123,7 +136,7 @@ void consola_seon::comenzar_grabacion() {
     seon::aplicacion::logger::info("grabacion iniciada.");
     this->grabacion.iniciar();
 
-    this->timer.start((1000 / this->admin_video->configuracion.grabacion.fps), this);
+    this->timer.start((1000 / (this->admin_video->configuracion.grabacion.fps + 10)), this);
 }
 
 void consola_seon::timerEvent(QTimerEvent * ev) {

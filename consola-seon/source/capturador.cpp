@@ -26,7 +26,7 @@ void capturador::iniciar(int cam) {
         }
     }
     if (ptr_capturador->isOpened()) {
-        m_timer.start((1000 / this->fps_captura), this);
+        m_timer.start((1000 / (this->fps_captura + 10)), this);
         emit empezado();
     }
 }

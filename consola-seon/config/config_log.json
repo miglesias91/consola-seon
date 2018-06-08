@@ -1,5 +1,5 @@
 {
-    "activado" : true,
+    "activado" : false,
     "log" :
     {
         "nombre" : "consola-seon",

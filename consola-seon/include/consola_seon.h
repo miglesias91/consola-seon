@@ -41,7 +41,7 @@ public:
 private:
     Ui::consola_seonClass ui;
 
-    void setear_inicio();
+    void configurar_gui();
 
     void comenzar_filmacion();
 

@@ -3,7 +3,7 @@
     {
         "serial" : 
         {
-            "puerto" : "COM1",
+            "puerto" : "COM9",
             "baudrate" : 56700,
             "paridad" : "",
             "bit" : "0"

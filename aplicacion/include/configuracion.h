@@ -57,6 +57,10 @@ public:
             this->b = json->getAtributoValorUint("b");
         }
 
+        std::string rgb() {
+            return std::to_string(r) + "," + std::to_string(g) + "," + std::to_string(b);
+        }
+
         std::string nombre;
         unsigned char r, g, b;
     };
@@ -69,6 +73,9 @@ public:
 
             herramientas::utiles::Json * json_color = nullptr;
 
+            this->id = json->getAtributoValorString("id");
+            this->texto = json->getAtributoValorString("texto");
+
             json_color = json->getAtributoValorJson("color_primario");
             this->color_primario.levantar(json_color);
             delete json_color;
@@ -76,22 +83,10 @@ public:
             json_color = json->getAtributoValorJson("color_secundario");
             this->color_secundario.levantar(json_color);
             delete json_color;
-
-            this->recuadro.posicion.x = json->getAtributoValorUint("x");
-            this->recuadro.posicion.y = json->getAtributoValorUint("y");
-            this->recuadro.tamanio.ancho = json->getAtributoValorUint("ancho");
-            this->recuadro.tamanio.alto = json->getAtributoValorUint("alto");
-
-            this->nombre = json->getAtributoValorString("nombre");
-            this->id = json->getAtributoValorUint("id");
-            this->id_padre = json->getAtributoValorUint("id_padre");
         }
 
-        big_uint id, id_padre;
-        std::string nombre;
-        ventana recuadro;
-        color color_primario;
-        color color_secundario;
+        std::string id, texto;
+        color color_primario, color_secundario;
     };
 
     struct gui {

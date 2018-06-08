@@ -28,7 +28,7 @@ public:
 
     void cortar();
 
-    void iniciar_comunicaciones();
+    void iniciar();
 
     void iniciar_comunicacion_gps();
     void iniciar_comunicacion_pulsadores();
