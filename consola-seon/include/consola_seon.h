@@ -23,6 +23,9 @@
 #include <consola-seon/include/grabacion_opencv.h>
 #include <consola-seon/include/comunicador.h>
 
+// consola
+#include <consola-seon/include/hud.h>
+
 class consola_seon : public QMainWindow
 {
     Q_OBJECT
@@ -47,7 +50,6 @@ private:
 
     void comenzar_grabacion();
 
-
     // atributos
     seon::video::administrador * admin_video;
 
@@ -58,6 +60,8 @@ private:
     grabacion_opencv grabacion;
 
     comunicador comu;
+
+    gui::hud::hud *hud;
 
     QBasicTimer timer;
     void timerEvent(QTimerEvent * evento);

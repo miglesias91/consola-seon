@@ -30,7 +30,7 @@ size_t SERIAL::escribir(const std::string & tira_de_datos) {
 
     aplicacion::logger::info("escribiendo datos en puerto " + this->configuracion.serial.puerto);
 
-    size_t cantidad_de_bytes_escritos = this->comunicacion_serial.write(tira_de_datos);
+    uint32_t cantidad_de_bytes_escritos = this->comunicacion_serial.write(tira_de_datos);
 
     return cantidad_de_bytes_escritos;
 }

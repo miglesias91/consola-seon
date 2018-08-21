@@ -29,6 +29,12 @@
     <ClCompile Include="source\comunicador.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sprite.cpp">
+      <Filter>Source Files\hud</Filter>
+    </ClCompile>
+    <ClCompile Include="source\hud.cpp">
+      <Filter>Source Files\hud</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resource Files">
@@ -63,6 +69,12 @@
     <Filter Include="Source Files\grabacion">
       <UniqueIdentifier>{560dc432-5419-40ef-9a89-41bed2f54f29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\hud">
+      <UniqueIdentifier>{1e954b20-da3c-4abb-86f6-b0161ea698a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\hud">
+      <UniqueIdentifier>{0866c5e8-cf02-4d21-9f1d-7a5fe3c0ca1e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="include\consola_seon.h">
@@ -88,6 +100,12 @@
     </QtMoc>
     <QtMoc Include="include\comunicador.h">
       <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\sprite.h">
+      <Filter>Header Files\hud</Filter>
+    </QtMoc>
+    <QtMoc Include="include\hud.h">
+      <Filter>Header Files\hud</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

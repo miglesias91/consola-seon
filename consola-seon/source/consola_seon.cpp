@@ -12,6 +12,7 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
     filmacion(admin_video), 
     grabacion(admin_video),
     comu(admin_comunicacion),
+    hud(nullptr),
     QMainWindow(parent)
 {
     ui.setupUi(this);
@@ -48,6 +49,9 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
     this->ui.widget_comunicaciones->raise();
 
     this->comu.iniciar();
+
+    this->hud = new gui::hud::hud(this->config_gui.area_video.tamanio.ancho, this->config_gui.area_video.tamanio.alto, this->config_gui.area_video.posicion.x, this->config_gui.area_video.posicion.y, this->ui.panel_central);
+    this->hud->raise();
 }
 
 consola_seon::~consola_seon() {
