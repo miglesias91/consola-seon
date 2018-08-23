@@ -25,6 +25,9 @@
 
 // consola
 #include <consola-seon/include/hud.h>
+#include <consola-seon/include/tracking.h>
+#include <consola-seon/include/radar.h>
+#include <consola-seon/include/lanchas.h>
 
 class consola_seon : public QMainWindow
 {

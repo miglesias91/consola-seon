@@ -65,6 +65,19 @@ public:
         unsigned char r, g, b;
     };
 
+    struct trazo {
+        void levantar(herramientas::utiles::Json * json) {
+            herramientas::utiles::Json * json_color = json->getAtributoValorJson("color");
+            this->color.levantar(json_color);
+            delete json_color;
+
+            this->grosor = json->getAtributoValorUint("grosor");
+        }
+
+        color color;
+        uint grosor;
+    };
+
     // gui
 
     struct elemento{
@@ -143,29 +156,27 @@ public:
 
         void levantar(herramientas::utiles::Json * json) {
 
+            herramientas::utiles::Json * json_trazo = json->getAtributoValorJson("trazo");
+            this->linea.levantar(json_trazo);
+            delete json_trazo;
+
             this->tamanio.alto = json->getAtributoValorUint("alto");
             this->tamanio.ancho = json->getAtributoValorUint("ancho");
-            this->ancho_linea = json->getAtributoValorUint("ancho_linea");
-            this->id = json->getAtributoValorUint("id");
         }
 
         tamanio tamanio;
-        uint ancho_linea;
-        big_uint id;
+        trazo linea;
     };
 
-    struct testigo {
+    struct testigo : public reticula {
 
         void levantar(herramientas::utiles::Json * json) {
+            this->reticula::levantar(json);
 
-            this->reticula.tamanio.alto = json->getAtributoValorUint("alto");
-            this->reticula.tamanio.ancho = json->getAtributoValorUint("ancho");
-            this->reticula.ancho_linea = json->getAtributoValorUint("ancho_linea");
             this->por_default.x = json->getAtributoValorUint("x_default");
             this->por_default.y = json->getAtributoValorUint("y_default");
         }
 
-        reticula reticula;
         posicion por_default;
     };
 
@@ -204,6 +215,71 @@ public:
         std::string formato, carpeta;
     };
 
+    struct tracking {
+        void levantar(herramientas::utiles::Json * json) {
+            herramientas::utiles::Json * json_reticula = nullptr;
+
+            json_reticula = json->getAtributoValorJson("reticula_mayor");
+            this->mayor.levantar(json_reticula);
+            delete json_reticula;
+
+            json_reticula = json->getAtributoValorJson("reticula_media");
+            this->media.levantar(json_reticula);
+            delete json_reticula;
+
+            json_reticula = json->getAtributoValorJson("reticula_menor");
+            this->menor.levantar(json_reticula);
+            delete json_reticula;
+
+            json_reticula = json->getAtributoValorJson("testigo");
+            this->reticula_testigo.levantar(json_reticula);
+            delete json_reticula;
+        }
+
+        reticula mayor, menor, media;
+        testigo reticula_testigo;
+    };
+
+    struct radar {
+        void levantar(herramientas::utiles::Json * json) {
+            this->posicion.x = json->getAtributoValorUint("x");
+            this->posicion.y = json->getAtributoValorUint("y");
+            this->tamanio.ancho = json->getAtributoValorUint("ancho");
+            this->tamanio.alto = json->getAtributoValorUint("alto");
+
+            herramientas::utiles::Json * json_trazo = json->getAtributoValorJson("trazo");
+            this->trazo.levantar(json_trazo);
+            delete json_trazo;
+        }
+
+        posicion posicion;
+        tamanio tamanio;
+        trazo trazo;
+    };
+
+    struct lanchas {
+        void levantar(herramientas::utiles::Json * json) {
+            this->posicion.x = json->getAtributoValorUint("x");
+            this->posicion.y = json->getAtributoValorUint("y");
+            this->tamanio.ancho = json->getAtributoValorUint("ancho");
+            this->tamanio.alto = json->getAtributoValorUint("alto");
+
+            herramientas::utiles::Json * json_trazo = nullptr;
+
+            json_trazo = json->getAtributoValorJson("trazo_lancha");
+            this->trazo_lancha.levantar(json_trazo);
+            delete json_trazo;
+
+            json_trazo = json->getAtributoValorJson("trazo_orientacion");
+            this->trazo_orientacion.levantar(json_trazo);
+            delete json_trazo;
+        }
+
+        posicion posicion;
+        tamanio tamanio;
+        trazo trazo_lancha, trazo_orientacion;
+    };
+
     struct video {
 
         void levantar(const std::string & path_configuracion) {
@@ -223,34 +299,44 @@ public:
             this->canal = configuracion_json.getAtributoValorUint("canal");
             this->render = modo(configuracion_json.getAtributoValorUint("render"));
 
-            herramientas::utiles::Json * json_reticula = nullptr;
+            herramientas::utiles::Json * json_tracking = configuracion_json.getAtributoValorJson("tracking");
+            this->tracking.levantar(json_tracking);
+            delete json_tracking;
 
-            json_reticula = configuracion_json.getAtributoValorJson("reticula_mayor");
-            this->mayor.levantar(json_reticula);
-            delete json_reticula;
+            herramientas::utiles::Json * json_radar = configuracion_json.getAtributoValorJson("radar");
+            this->radar.levantar(json_radar);
+            delete json_radar;
 
-            json_reticula = configuracion_json.getAtributoValorJson("reticula_media");
-            this->media.levantar(json_reticula);
-            delete json_reticula;
+            herramientas::utiles::Json * json_lanchas = configuracion_json.getAtributoValorJson("lanchas");
+            this->lanchas.levantar(json_lanchas);
+            delete json_lanchas;
+            //json_reticula = configuracion_json.getAtributoValorJson("reticula_mayor");
+            //this->mayor.levantar(json_reticula);
+            //delete json_reticula;
 
-            json_reticula = configuracion_json.getAtributoValorJson("reticula_menor");
-            this->menor.levantar(json_reticula);
-            delete json_reticula;
+            //json_reticula = configuracion_json.getAtributoValorJson("reticula_media");
+            //this->media.levantar(json_reticula);
+            //delete json_reticula;
 
-            herramientas::utiles::Json * json_testigo = nullptr;
+            //json_reticula = configuracion_json.getAtributoValorJson("reticula_menor");
+            //this->menor.levantar(json_reticula);
+            //delete json_reticula;
 
-            json_testigo = configuracion_json.getAtributoValorJson("testigo");
-            this->testigo.levantar(json_testigo);
+            //herramientas::utiles::Json * json_testigo = nullptr;
 
-            delete json_testigo;
+            //json_testigo = configuracion_json.getAtributoValorJson("testigo");
+            //this->testigo.levantar(json_testigo);
+
+            //delete json_testigo;
         }
 
         entrada_video filmacion;
         salida_video grabacion;
         uint canal;
         modo render;
-        reticula mayor, menor, media;
-        testigo testigo;
+        tracking tracking;
+        radar radar;
+        lanchas lanchas;
 
         std::string detallado;
         std::experimental::filesystem::path path;

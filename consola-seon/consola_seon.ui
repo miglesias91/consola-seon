@@ -1853,8 +1853,8 @@ border-left: 0px;</string>
    <widget class="QWidget" name="widget_datos_radar" native="true">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>370</y>
+      <x>520</x>
+      <y>390</y>
       <width>351</width>
       <height>101</height>
      </rect>
@@ -1903,7 +1903,7 @@ border: 1px solid rgb(85, 170, 0);</string>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="lbl_azimuth">
+      <widget class="QLabel" name="lbl_azimut_radar">
        <property name="font">
         <font>
          <family>Arial</family>
@@ -1914,7 +1914,7 @@ border: 1px solid rgb(85, 170, 0);</string>
         </font>
        </property>
        <property name="text">
-        <string>AZIMUTH</string>
+        <string>AZIMUT</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -1960,7 +1960,7 @@ border: 1px solid rgb(85, 170, 0);</string>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLabel" name="lbl_azimuth_valor">
+      <widget class="QLabel" name="lbl_azimut_radar_valor">
        <property name="font">
         <font>
          <family>Arial</family>

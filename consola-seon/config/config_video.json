@@ -24,33 +24,71 @@
 
     "canal" : 0,
     "render" : 0,
-    "reticula_mayor" : 
+    "tracking" :
     {
-        "ancho" : 0,
-        "alto" : 0,
-        "ancho_linea" : 0,
-        "id" : 0
+        "reticula_mayor" : 
+        {
+            "ancho" : 400,
+            "alto" : 400,
+            "trazo" : { 
+                "color" : {"nombre": "verde", "r" : 0, "g" : 255, "b" : 0 },
+                "grosor" : 3
+            }
+        },
+        "reticula_media" : 
+        {
+            "ancho" : 400,
+            "alto" : 400,
+            "trazo" : { 
+                "color" : {"nombre": "verde", "r" : 0, "g" : 255, "b" : 0 },
+                "grosor" : 3
+            }
+        },
+        "reticula_menor" : 
+        {
+            "ancho" : 400,
+            "alto" : 400,
+            "trazo" : { 
+                "color" : {"nombre": "verde", "r" : 0, "g" : 255, "b" : 0 },
+                "grosor" : 3
+            }
+        },
+        "testigo" :
+        {
+            "ancho" : 400,
+            "alto" : 400,
+            "trazo" : { 
+                "color" : { "nombre": "rojo", "r" : 255, "g" : 0, "b" : 0 },
+                "grosor" : 3
+            },
+            "x_default" : 0,
+            "y_default" : 0
+        }
     },
-    "reticula_media" : 
+    "radar" :
     {
-        "ancho" : 0,
-        "alto" : 0,
-        "ancho_linea" : 0,
-        "id" : 0
+        "x" : 0,
+        "y" : 0,
+        "ancho" : 400,
+        "alto" : 400,
+        "trazo" : { 
+            "color" : {"nombre": "rojo", "r" : 0, "g" : 255, "b" : 0 },
+            "grosor" : 3
+        }
     },
-    "reticula_menor" : 
+    "lanchas" :
     {
-        "ancho" : 0,
-        "alto" : 0,
-        "ancho_linea" : 0,
-        "id" : 0
-    },
-    "testigo" :
-    {
-        "ancho" : 0,
-        "alto" : 0,
-        "ancho_linea" : 0,
-        "x_default" : 0,
-        "y_default" : 0
+        "x" : 0,
+        "y" : 0,
+        "ancho" : 400,
+        "alto" : 400,
+        "trazo_lancha" : { 
+            "color" : {"nombre": "rojo", "r" : 0, "g" : 255, "b" : 0 },
+            "grosor" : 3
+        },
+        "trazo_orientacion" : { 
+            "color" : {"nombre": "rojo", "r" : 255, "g" : 0, "b" : 0 },
+            "grosor" : 3
+        }
     }
 }

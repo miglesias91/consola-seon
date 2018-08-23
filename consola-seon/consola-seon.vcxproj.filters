@@ -35,6 +35,15 @@
     <ClCompile Include="source\hud.cpp">
       <Filter>Source Files\hud</Filter>
     </ClCompile>
+    <ClCompile Include="source\lanchas.cpp">
+      <Filter>Source Files\hud</Filter>
+    </ClCompile>
+    <ClCompile Include="source\radar.cpp">
+      <Filter>Source Files\hud</Filter>
+    </ClCompile>
+    <ClCompile Include="source\tracking.cpp">
+      <Filter>Source Files\hud</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resource Files">
@@ -105,6 +114,15 @@
       <Filter>Header Files\hud</Filter>
     </QtMoc>
     <QtMoc Include="include\hud.h">
+      <Filter>Header Files\hud</Filter>
+    </QtMoc>
+    <QtMoc Include="include\lanchas.h">
+      <Filter>Header Files\hud</Filter>
+    </QtMoc>
+    <QtMoc Include="include\radar.h">
+      <Filter>Header Files\hud</Filter>
+    </QtMoc>
+    <QtMoc Include="include\tracking.h">
       <Filter>Header Files\hud</Filter>
     </QtMoc>
   </ItemGroup>
