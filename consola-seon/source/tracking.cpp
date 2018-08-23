@@ -3,19 +3,16 @@
 namespace gui::hud {
 
 tracking::tracking(const seon::aplicacion::configuracion::tracking &config, QWidget *parent) :
-    config(config), mayor(config.mayor), media(config.media), menor(config.menor),
+    config(config), mayor(new reticula(config.mayor, parent)), media(new reticula(config.media, parent)), menor(new reticula(config.menor, parent)),
     QWidget(parent) {
     this->setAttribute(Qt::WA_DeleteOnClose);
 
-    this->resize(this->config.mayor.tamanio.ancho, this->config.mayor.tamanio.alto);
-
+    this->resize(this->parentWidget()->size());
+    this->mayor->raise();
+    this->media->raise();
+    this->menor->raise();
 }
 
 tracking::~tracking() {}
 
-void tracking::paintEvent(QPaintEvent * evento) {
-    QPainter painter(this);
-    painter.setPen(QPen(Qt::yellow, 12, Qt::DashDotLine, Qt::RoundCap));
-    painter.drawLine(0, 0, 640, 600);
-}
 }

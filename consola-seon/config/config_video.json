@@ -28,8 +28,8 @@
     {
         "reticula_mayor" : 
         {
-            "ancho" : 400,
-            "alto" : 400,
+            "ancho" : 200,
+            "alto" : 200,
             "trazo" : { 
                 "color" : {"nombre": "verde", "r" : 0, "g" : 255, "b" : 0 },
                 "grosor" : 3
@@ -37,28 +37,28 @@
         },
         "reticula_media" : 
         {
-            "ancho" : 400,
-            "alto" : 400,
+            "ancho" : 250,
+            "alto" : 250,
             "trazo" : { 
-                "color" : {"nombre": "verde", "r" : 0, "g" : 255, "b" : 0 },
+                "color" : {"nombre": "azul", "r" : 0, "g" : 0, "b" : 255 },
                 "grosor" : 3
             }
         },
         "reticula_menor" : 
         {
-            "ancho" : 400,
-            "alto" : 400,
+            "ancho" : 300,
+            "alto" : 300,
             "trazo" : { 
-                "color" : {"nombre": "verde", "r" : 0, "g" : 255, "b" : 0 },
+                "color" : {"nombre": "rojo", "r" : 255, "g" : 0, "b" : 0 },
                 "grosor" : 3
             }
         },
         "testigo" :
         {
-            "ancho" : 400,
-            "alto" : 400,
+            "ancho" : 50,
+            "alto" : 50,
             "trazo" : { 
-                "color" : { "nombre": "rojo", "r" : 255, "g" : 0, "b" : 0 },
+                "color" : { "nombre": "violeta", "r" : 255, "g" : 255, "b" : 0 },
                 "grosor" : 3
             },
             "x_default" : 0,
@@ -69,8 +69,8 @@
     {
         "x" : 0,
         "y" : 0,
-        "ancho" : 400,
-        "alto" : 400,
+        "ancho" : 300,
+        "alto" : 80,
         "trazo" : { 
             "color" : {"nombre": "rojo", "r" : 0, "g" : 255, "b" : 0 },
             "grosor" : 3

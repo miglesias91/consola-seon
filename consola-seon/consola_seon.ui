@@ -1855,8 +1855,8 @@ border-left: 0px;</string>
      <rect>
       <x>520</x>
       <y>390</y>
-      <width>351</width>
-      <height>101</height>
+      <width>300</width>
+      <height>80</height>
      </rect>
     </property>
     <property name="styleSheet">

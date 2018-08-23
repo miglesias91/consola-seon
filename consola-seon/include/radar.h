@@ -12,13 +12,14 @@ class radar : public QWidget {
     Q_OBJECT
 
 public:
-    radar(const seon::aplicacion::configuracion::radar &config, QWidget *tabla, QWidget *parent = nullptr);
+    radar(const seon::aplicacion::configuracion::radar &config, QLabel *distancia, QLabel *azimut, QLabel *tipo, QWidget *tabla, QWidget *parent = nullptr);
     virtual ~radar();
 
 protected:
     void paintEvent(QPaintEvent *paintEvent) override;
 
 private:
+    QLabel *distancia, *azimut, *tipo;
     QWidget *tabla;
     seon::aplicacion::configuracion::radar config;
 

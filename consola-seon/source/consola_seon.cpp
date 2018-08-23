@@ -53,13 +53,17 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
     this->hud = new gui::hud::hud(this->config_gui.area_video, this->admin_video->configuracion, this->ui.panel_central);
 
     QWidget* lancha = new gui::hud::lanchas(this->admin_video->configuracion.lanchas, this->hud);
-    QWidget* tracking = new gui::hud::tracking(this->admin_video->configuracion.tracking, this->hud);
-    QWidget* radar = new gui::hud::radar(this->admin_video->configuracion.radar, nullptr, this->hud);
+    QWidget* radar = new gui::hud::radar(this->admin_video->configuracion.radar, this->ui.lbl_dist_valor, this->ui.lbl_azimut_radar_valor, this->ui.lbl_tipo_valor, this->ui.widget_datos_radar, this->hud);
 
     this->hud->raise();
     lancha->raise();
-    tracking->raise();
     radar->raise();
+
+    QWidget* tracking = new gui::hud::tracking(this->admin_video->configuracion.tracking, this->hud);
+    tracking->raise();
+
+    this->ui.btn_filmar->raise();
+    this->ui.widget_datos_radar->raise();
 }
 
 consola_seon::~consola_seon() {

@@ -143,10 +143,10 @@ public:
     QWidget *widget_datos_radar;
     QGridLayout *layout_datos_radar;
     QLabel *lbl_dist;
-    QLabel *lbl_azimuth;
+    QLabel *lbl_azimut_radar;
     QLabel *lbl_dist_valor;
     QLabel *lbl_tipo;
-    QLabel *lbl_azimuth_valor;
+    QLabel *lbl_azimut_radar_valor;
     QLabel *lbl_tipo_valor;
 
     void setupUi(QMainWindow *consola_seonClass)
@@ -994,7 +994,7 @@ public:
 
         widget_datos_radar = new QWidget(panel_central);
         widget_datos_radar->setObjectName(QStringLiteral("widget_datos_radar"));
-        widget_datos_radar->setGeometry(QRect(510, 370, 351, 101));
+        widget_datos_radar->setGeometry(QRect(520, 390, 351, 101));
         widget_datos_radar->setStyleSheet(QLatin1String("font: 75 14pt \"Arial\";\n"
 "color: rgb(85, 170, 0);\n"
 "border: 1px solid rgb(85, 170, 0);"));
@@ -1017,12 +1017,12 @@ public:
 
         layout_datos_radar->addWidget(lbl_dist, 0, 0, 1, 1);
 
-        lbl_azimuth = new QLabel(widget_datos_radar);
-        lbl_azimuth->setObjectName(QStringLiteral("lbl_azimuth"));
-        lbl_azimuth->setFont(font5);
-        lbl_azimuth->setAlignment(Qt::AlignCenter);
+        lbl_azimut_radar = new QLabel(widget_datos_radar);
+        lbl_azimut_radar->setObjectName(QStringLiteral("lbl_azimut_radar"));
+        lbl_azimut_radar->setFont(font5);
+        lbl_azimut_radar->setAlignment(Qt::AlignCenter);
 
-        layout_datos_radar->addWidget(lbl_azimuth, 0, 1, 1, 1);
+        layout_datos_radar->addWidget(lbl_azimut_radar, 0, 1, 1, 1);
 
         lbl_dist_valor = new QLabel(widget_datos_radar);
         lbl_dist_valor->setObjectName(QStringLiteral("lbl_dist_valor"));
@@ -1038,12 +1038,12 @@ public:
 
         layout_datos_radar->addWidget(lbl_tipo, 0, 2, 1, 1);
 
-        lbl_azimuth_valor = new QLabel(widget_datos_radar);
-        lbl_azimuth_valor->setObjectName(QStringLiteral("lbl_azimuth_valor"));
-        lbl_azimuth_valor->setFont(font5);
-        lbl_azimuth_valor->setAlignment(Qt::AlignCenter);
+        lbl_azimut_radar_valor = new QLabel(widget_datos_radar);
+        lbl_azimut_radar_valor->setObjectName(QStringLiteral("lbl_azimut_radar_valor"));
+        lbl_azimut_radar_valor->setFont(font5);
+        lbl_azimut_radar_valor->setAlignment(Qt::AlignCenter);
 
-        layout_datos_radar->addWidget(lbl_azimuth_valor, 1, 1, 1, 1);
+        layout_datos_radar->addWidget(lbl_azimut_radar_valor, 1, 1, 1, 1);
 
         lbl_tipo_valor = new QLabel(widget_datos_radar);
         lbl_tipo_valor->setObjectName(QStringLiteral("lbl_tipo_valor"));
@@ -1128,10 +1128,10 @@ public:
         lbl_pulsadores->setText(QApplication::translate("consola_seonClass", "pulsadores", Q_NULLPTR));
         lbl_seon->setText(QApplication::translate("consola_seonClass", "seon", Q_NULLPTR));
         lbl_dist->setText(QApplication::translate("consola_seonClass", "DIST", Q_NULLPTR));
-        lbl_azimuth->setText(QApplication::translate("consola_seonClass", "AZIMUTH", Q_NULLPTR));
+        lbl_azimut_radar->setText(QApplication::translate("consola_seonClass", "AZIMUT", Q_NULLPTR));
         lbl_dist_valor->setText(QApplication::translate("consola_seonClass", "0.00 y", Q_NULLPTR));
         lbl_tipo->setText(QApplication::translate("consola_seonClass", "TIPO", Q_NULLPTR));
-        lbl_azimuth_valor->setText(QApplication::translate("consola_seonClass", "0.0 \302\260", Q_NULLPTR));
+        lbl_azimut_radar_valor->setText(QApplication::translate("consola_seonClass", "0.0 \302\260", Q_NULLPTR));
         lbl_tipo_valor->setText(QApplication::translate("consola_seonClass", "A", Q_NULLPTR));
     } // retranslateUi
 
