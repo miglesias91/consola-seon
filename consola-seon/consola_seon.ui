@@ -22,12 +22,22 @@
   <property name="windowOpacity">
    <double>1.000000000000000</double>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="panel_central">
    <property name="maximumSize">
     <size>
      <width>1920</width>
      <height>1080</height>
     </size>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#panel_central { background-color: rgb(0, 0, 0); }
+</string>
    </property>
    <widget class="QPushButton" name="btn_filmar">
     <property name="geometry">
@@ -997,24 +1007,30 @@ color: rgb(250, 250, 0);</string>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="layout_superior">
+     <property name="spacing">
+      <number>10</number>
+     </property>
      <property name="leftMargin">
-      <number>0</number>
+      <number>10</number>
      </property>
      <property name="topMargin">
-      <number>0</number>
+      <number>10</number>
      </property>
      <property name="rightMargin">
-      <number>0</number>
+      <number>10</number>
      </property>
      <property name="bottomMargin">
-      <number>0</number>
+      <number>10</number>
      </property>
      <item>
-      <widget class="QFrame" name="frame_datos_blanco">
+      <widget class="QFrame" name="frame_referencia_estab">
        <property name="frameShape">
-        <enum>QFrame::NoFrame</enum>
+        <enum>QFrame::Box</enum>
        </property>
-       <layout class="QGridLayout" name="layout_datos_blanco">
+       <layout class="QVBoxLayout" name="layout_referencia_estab">
+        <property name="spacing">
+         <number>0</number>
+        </property>
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -1027,16 +1043,106 @@ color: rgb(250, 250, 0);</string>
         <property name="bottomMargin">
          <number>0</number>
         </property>
+        <item>
+         <widget class="QLabel" name="lbl_referencia_estab">
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <weight>75</weight>
+            <bold>true</bold>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>REFERENCIA ESTAB</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="linea_referencia_estable">
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lbl_imu_prob">
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>IMU PROP.</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lbl_octans">
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(250, 250, 0);</string>
+          </property>
+          <property name="text">
+           <string>OCTANS</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_enganche">
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <layout class="QVBoxLayout" name="layout_enganche">
         <property name="spacing">
          <number>0</number>
         </property>
-        <item row="1" column="1">
-         <widget class="QLabel" name="lbl_velocidad">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="lbl_enganche_etiqueta">
           <property name="font">
            <font>
             <family>Arial</family>
-            <weight>75</weight>
-            <bold>true</bold>
+            <weight>50</weight>
+            <bold>false</bold>
             <stylestrategy>PreferAntialias</stylestrategy>
            </font>
           </property>
@@ -1044,83 +1150,28 @@ color: rgb(250, 250, 0);</string>
            <bool>false</bool>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid black;
-border-left: 0px;
-border-top: 0px;
-border-bottom: 0px;</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
+           <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
-           <string>VELOCIDAD</string>
+           <string>ENGANCHE</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="lbl_distancia">
-          <property name="font">
-           <font>
-            <family>Arial</family>
-            <weight>75</weight>
-            <bold>true</bold>
-            <stylestrategy>PreferAntialias</stylestrategy>
-           </font>
+        <item>
+         <widget class="Line" name="linea_enganche_prediccion">
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
           </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid black;
-border-top: 0px;
-border-bottom: 0px;
-</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
-          </property>
-          <property name="text">
-           <string>DISTANCIA</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="lbl_velocidad_valor">
-          <property name="font">
-           <font>
-            <family>Arial</family>
-            <stylestrategy>PreferAntialias</stylestrategy>
-           </font>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid black;
-border-left: 0px;</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
-          </property>
-          <property name="text">
-           <string>valor_velocidad</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="lbl_distancia_valor">
+        <item>
+         <widget class="QLabel" name="lbl_prediccion">
           <property name="font">
            <font>
             <family>Arial</family>
@@ -1133,38 +1184,8 @@ border-left: 0px;</string>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
-          <property name="frameShape">
-           <enum>QFrame::Box</enum>
-          </property>
           <property name="text">
-           <string>valor_distancia</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0" colspan="2">
-         <widget class="QLabel" name="lbl_datos_blanco">
-          <property name="font">
-           <font>
-            <family>Arial</family>
-            <weight>75</weight>
-            <bold>true</bold>
-            <stylestrategy>PreferAntialias</stylestrategy>
-           </font>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::Box</enum>
-          </property>
-          <property name="text">
-           <string>DATOS BLANCO</string>
+           <string>PREDICCIÓN</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -1539,14 +1560,11 @@ border-left: 0px;</string>
       </widget>
      </item>
      <item>
-      <widget class="QFrame" name="frame_enganche">
+      <widget class="QFrame" name="frame_datos_blanco">
        <property name="frameShape">
-        <enum>QFrame::Box</enum>
+        <enum>QFrame::NoFrame</enum>
        </property>
-       <layout class="QVBoxLayout" name="layout_enganche">
-        <property name="spacing">
-         <number>0</number>
-        </property>
+       <layout class="QGridLayout" name="layout_datos_blanco">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -1559,88 +1577,11 @@ border-left: 0px;</string>
         <property name="bottomMargin">
          <number>0</number>
         </property>
-        <item>
-         <widget class="QLabel" name="lbl_enganche_etiqueta">
-          <property name="font">
-           <font>
-            <family>Arial</family>
-            <weight>50</weight>
-            <bold>false</bold>
-            <stylestrategy>PreferAntialias</stylestrategy>
-           </font>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>ENGANCHE</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="linea_enganche_prediccion">
-          <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="lbl_prediccion">
-          <property name="font">
-           <font>
-            <family>Arial</family>
-            <stylestrategy>PreferAntialias</stylestrategy>
-           </font>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>PREDICCIÓN</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item>
-      <widget class="QFrame" name="frame_referencia_estab">
-       <property name="frameShape">
-        <enum>QFrame::Box</enum>
-       </property>
-       <layout class="QVBoxLayout" name="layout_referencia_estab">
         <property name="spacing">
          <number>0</number>
         </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="lbl_referencia_estab">
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="lbl_datos_blanco">
           <property name="font">
            <font>
             <family>Arial</family>
@@ -1649,59 +1590,131 @@ border-left: 0px;</string>
             <stylestrategy>PreferAntialias</stylestrategy>
            </font>
           </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
           <property name="text">
-           <string>REFERENCIA ESTAB</string>
+           <string>DATOS BLANCO</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="Line" name="linea_referencia_estable">
-          <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="lbl_imu_prob">
+        <item row="2" column="0">
+         <widget class="QLabel" name="lbl_distancia_valor">
           <property name="font">
            <font>
             <family>Arial</family>
             <stylestrategy>PreferAntialias</stylestrategy>
            </font>
           </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
           <property name="text">
-           <string>IMU PROP.</string>
+           <string>valor_distancia</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QLabel" name="lbl_octans">
+        <item row="1" column="1">
+         <widget class="QLabel" name="lbl_velocidad">
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <weight>75</weight>
+            <bold>true</bold>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);
+border: 1px solid black;
+border-left: 0px;
+border-top: 0px;
+border-bottom: 0px;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="text">
+           <string>VELOCIDAD</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="lbl_distancia">
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <weight>75</weight>
+            <bold>true</bold>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);
+border: 1px solid black;
+border-top: 0px;
+border-bottom: 0px;
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="text">
+           <string>DISTANCIA</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="lbl_velocidad_valor">
           <property name="font">
            <font>
             <family>Arial</family>
             <stylestrategy>PreferAntialias</stylestrategy>
            </font>
           </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(250, 250, 0);</string>
+           <string notr="true">background-color: rgb(255, 255, 255);
+border: 1px solid black;
+border-left: 0px;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
           </property>
           <property name="text">
-           <string>OCTANS</string>
+           <string>valor_velocidad</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -1860,9 +1873,9 @@ border-left: 0px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 14pt &quot;Arial&quot;;
+     <string notr="true">font: 14pt &quot;Arial&quot;;
 color: rgb(85, 170, 0);
-border: 1px solid rgb(85, 170, 0);</string>
+border: 1px solid rgb(85, 170,0);</string>
     </property>
     <layout class="QGridLayout" name="layout_datos_radar">
      <property name="leftMargin">
@@ -1886,7 +1899,7 @@ border: 1px solid rgb(85, 170, 0);</string>
         <font>
          <family>Arial</family>
          <pointsize>14</pointsize>
-         <weight>9</weight>
+         <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
         </font>
@@ -1908,7 +1921,7 @@ border: 1px solid rgb(85, 170, 0);</string>
         <font>
          <family>Arial</family>
          <pointsize>14</pointsize>
-         <weight>9</weight>
+         <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
         </font>
@@ -1927,7 +1940,7 @@ border: 1px solid rgb(85, 170, 0);</string>
         <font>
          <family>Arial</family>
          <pointsize>14</pointsize>
-         <weight>9</weight>
+         <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
         </font>
@@ -1946,7 +1959,7 @@ border: 1px solid rgb(85, 170, 0);</string>
         <font>
          <family>Arial</family>
          <pointsize>14</pointsize>
-         <weight>9</weight>
+         <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
         </font>
@@ -1965,7 +1978,7 @@ border: 1px solid rgb(85, 170, 0);</string>
         <font>
          <family>Arial</family>
          <pointsize>14</pointsize>
-         <weight>9</weight>
+         <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
         </font>
@@ -1984,7 +1997,7 @@ border: 1px solid rgb(85, 170, 0);</string>
         <font>
          <family>Arial</family>
          <pointsize>14</pointsize>
-         <weight>9</weight>
+         <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
         </font>

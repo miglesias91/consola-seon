@@ -67,19 +67,20 @@
     },
     "radar" :
     {
-        "x" : 0,
-        "y" : 0,
+        "x" : 20,
+        "y" : 500,
         "ancho" : 300,
         "alto" : 80,
+        "tipografia" : { "nombre" : "Arial", "grosor" : 14 , "color" : { "nombre": "violeta", "r" : 255, "g" : 255, "b" : 0 }},
         "trazo" : { 
             "color" : {"nombre": "rojo", "r" : 0, "g" : 255, "b" : 0 },
-            "grosor" : 3
+            "grosor" : 2
         }
     },
     "lanchas" :
     {
-        "x" : 0,
-        "y" : 0,
+        "x" : 550,
+        "y" : 450,
         "ancho" : 400,
         "alto" : 400,
         "trazo_lancha" : { 

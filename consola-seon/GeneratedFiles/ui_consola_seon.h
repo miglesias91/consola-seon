@@ -91,13 +91,17 @@ public:
     QLabel *lbl_zoom_apagado;
     QWidget *panel_superior;
     QHBoxLayout *layout_superior;
-    QFrame *frame_datos_blanco;
-    QGridLayout *layout_datos_blanco;
-    QLabel *lbl_velocidad;
-    QLabel *lbl_distancia;
-    QLabel *lbl_velocidad_valor;
-    QLabel *lbl_distancia_valor;
-    QLabel *lbl_datos_blanco;
+    QFrame *frame_referencia_estab;
+    QVBoxLayout *layout_referencia_estab;
+    QLabel *lbl_referencia_estab;
+    QFrame *linea_referencia_estable;
+    QLabel *lbl_imu_prob;
+    QLabel *lbl_octans;
+    QFrame *frame_enganche;
+    QVBoxLayout *layout_enganche;
+    QLabel *lbl_enganche_etiqueta;
+    QFrame *linea_enganche_prediccion;
+    QLabel *lbl_prediccion;
     QFrame *frame_datos_plataforma;
     QGridLayout *layout_datos_plataforma;
     QLabel *lbl_datos_plataforma;
@@ -112,17 +116,13 @@ public:
     QLabel *lbl_latitud_valor;
     QLabel *lbl_datos_gps;
     QLabel *lbl_longitud_valor;
-    QFrame *frame_enganche;
-    QVBoxLayout *layout_enganche;
-    QLabel *lbl_enganche_etiqueta;
-    QFrame *linea_enganche_prediccion;
-    QLabel *lbl_prediccion;
-    QFrame *frame_referencia_estab;
-    QVBoxLayout *layout_referencia_estab;
-    QLabel *lbl_referencia_estab;
-    QFrame *linea_referencia_estable;
-    QLabel *lbl_imu_prob;
-    QLabel *lbl_octans;
+    QFrame *frame_datos_blanco;
+    QGridLayout *layout_datos_blanco;
+    QLabel *lbl_datos_blanco;
+    QLabel *lbl_distancia_valor;
+    QLabel *lbl_velocidad;
+    QLabel *lbl_distancia;
+    QLabel *lbl_velocidad_valor;
     QWidget *widget_video;
     QVBoxLayout *layout_video;
     QPushButton *btn_grabar;
@@ -156,9 +156,13 @@ public:
         consola_seonClass->resize(887, 655);
         consola_seonClass->setMaximumSize(QSize(887, 688));
         consola_seonClass->setWindowOpacity(1);
+        consola_seonClass->setStyleSheet(QStringLiteral(""));
         panel_central = new QWidget(consola_seonClass);
         panel_central->setObjectName(QStringLiteral("panel_central"));
         panel_central->setMaximumSize(QSize(1920, 1080));
+        panel_central->setAutoFillBackground(false);
+        panel_central->setStyleSheet(QLatin1String("QWidget#panel_central { background-color: rgb(0, 0, 0); }\n"
+""));
         btn_filmar = new QPushButton(panel_central);
         btn_filmar->setObjectName(QStringLiteral("btn_filmar"));
         btn_filmar->setGeometry(QRect(210, 610, 75, 23));
@@ -600,80 +604,87 @@ public:
         panel_superior->setObjectName(QStringLiteral("panel_superior"));
         panel_superior->setGeometry(QRect(220, 10, 610, 80));
         layout_superior = new QHBoxLayout(panel_superior);
-        layout_superior->setSpacing(6);
+        layout_superior->setSpacing(10);
         layout_superior->setContentsMargins(11, 11, 11, 11);
         layout_superior->setObjectName(QStringLiteral("layout_superior"));
-        layout_superior->setContentsMargins(0, 0, 0, 0);
-        frame_datos_blanco = new QFrame(panel_superior);
-        frame_datos_blanco->setObjectName(QStringLiteral("frame_datos_blanco"));
-        frame_datos_blanco->setFrameShape(QFrame::NoFrame);
-        layout_datos_blanco = new QGridLayout(frame_datos_blanco);
-        layout_datos_blanco->setSpacing(0);
-        layout_datos_blanco->setContentsMargins(11, 11, 11, 11);
-        layout_datos_blanco->setObjectName(QStringLiteral("layout_datos_blanco"));
-        layout_datos_blanco->setContentsMargins(0, 0, 0, 0);
-        lbl_velocidad = new QLabel(frame_datos_blanco);
-        lbl_velocidad->setObjectName(QStringLiteral("lbl_velocidad"));
-        lbl_velocidad->setFont(font);
-        lbl_velocidad->setAutoFillBackground(false);
-        lbl_velocidad->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
-"border: 1px solid black;\n"
-"border-left: 0px;\n"
-"border-top: 0px;\n"
-"border-bottom: 0px;"));
-        lbl_velocidad->setFrameShape(QFrame::NoFrame);
-        lbl_velocidad->setAlignment(Qt::AlignCenter);
+        layout_superior->setContentsMargins(10, 10, 10, 10);
+        frame_referencia_estab = new QFrame(panel_superior);
+        frame_referencia_estab->setObjectName(QStringLiteral("frame_referencia_estab"));
+        frame_referencia_estab->setFrameShape(QFrame::Box);
+        layout_referencia_estab = new QVBoxLayout(frame_referencia_estab);
+        layout_referencia_estab->setSpacing(0);
+        layout_referencia_estab->setContentsMargins(11, 11, 11, 11);
+        layout_referencia_estab->setObjectName(QStringLiteral("layout_referencia_estab"));
+        layout_referencia_estab->setContentsMargins(0, 0, 0, 0);
+        lbl_referencia_estab = new QLabel(frame_referencia_estab);
+        lbl_referencia_estab->setObjectName(QStringLiteral("lbl_referencia_estab"));
+        lbl_referencia_estab->setFont(font);
+        lbl_referencia_estab->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        lbl_referencia_estab->setAlignment(Qt::AlignCenter);
 
-        layout_datos_blanco->addWidget(lbl_velocidad, 1, 1, 1, 1);
+        layout_referencia_estab->addWidget(lbl_referencia_estab);
 
-        lbl_distancia = new QLabel(frame_datos_blanco);
-        lbl_distancia->setObjectName(QStringLiteral("lbl_distancia"));
-        lbl_distancia->setFont(font);
-        lbl_distancia->setAutoFillBackground(false);
-        lbl_distancia->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
-"border: 1px solid black;\n"
-"border-top: 0px;\n"
-"border-bottom: 0px;\n"
-""));
-        lbl_distancia->setFrameShape(QFrame::NoFrame);
-        lbl_distancia->setAlignment(Qt::AlignCenter);
+        linea_referencia_estable = new QFrame(frame_referencia_estab);
+        linea_referencia_estable->setObjectName(QStringLiteral("linea_referencia_estable"));
+        linea_referencia_estable->setFrameShadow(QFrame::Plain);
+        linea_referencia_estable->setFrameShape(QFrame::HLine);
 
-        layout_datos_blanco->addWidget(lbl_distancia, 1, 0, 1, 1);
+        layout_referencia_estab->addWidget(linea_referencia_estable);
 
-        lbl_velocidad_valor = new QLabel(frame_datos_blanco);
-        lbl_velocidad_valor->setObjectName(QStringLiteral("lbl_velocidad_valor"));
-        lbl_velocidad_valor->setFont(font1);
-        lbl_velocidad_valor->setAutoFillBackground(false);
-        lbl_velocidad_valor->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
-"border: 1px solid black;\n"
-"border-left: 0px;"));
-        lbl_velocidad_valor->setFrameShape(QFrame::NoFrame);
-        lbl_velocidad_valor->setAlignment(Qt::AlignCenter);
+        lbl_imu_prob = new QLabel(frame_referencia_estab);
+        lbl_imu_prob->setObjectName(QStringLiteral("lbl_imu_prob"));
+        lbl_imu_prob->setFont(font1);
+        lbl_imu_prob->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        lbl_imu_prob->setAlignment(Qt::AlignCenter);
 
-        layout_datos_blanco->addWidget(lbl_velocidad_valor, 2, 1, 1, 1);
+        layout_referencia_estab->addWidget(lbl_imu_prob);
 
-        lbl_distancia_valor = new QLabel(frame_datos_blanco);
-        lbl_distancia_valor->setObjectName(QStringLiteral("lbl_distancia_valor"));
-        lbl_distancia_valor->setFont(font1);
-        lbl_distancia_valor->setAutoFillBackground(false);
-        lbl_distancia_valor->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
-        lbl_distancia_valor->setFrameShape(QFrame::Box);
-        lbl_distancia_valor->setAlignment(Qt::AlignCenter);
+        lbl_octans = new QLabel(frame_referencia_estab);
+        lbl_octans->setObjectName(QStringLiteral("lbl_octans"));
+        lbl_octans->setFont(font1);
+        lbl_octans->setStyleSheet(QStringLiteral("background-color: rgb(250, 250, 0);"));
+        lbl_octans->setAlignment(Qt::AlignCenter);
 
-        layout_datos_blanco->addWidget(lbl_distancia_valor, 2, 0, 1, 1);
-
-        lbl_datos_blanco = new QLabel(frame_datos_blanco);
-        lbl_datos_blanco->setObjectName(QStringLiteral("lbl_datos_blanco"));
-        lbl_datos_blanco->setFont(font);
-        lbl_datos_blanco->setAutoFillBackground(false);
-        lbl_datos_blanco->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
-        lbl_datos_blanco->setFrameShape(QFrame::Box);
-        lbl_datos_blanco->setAlignment(Qt::AlignCenter);
-
-        layout_datos_blanco->addWidget(lbl_datos_blanco, 0, 0, 1, 2);
+        layout_referencia_estab->addWidget(lbl_octans);
 
 
-        layout_superior->addWidget(frame_datos_blanco);
+        layout_superior->addWidget(frame_referencia_estab);
+
+        frame_enganche = new QFrame(panel_superior);
+        frame_enganche->setObjectName(QStringLiteral("frame_enganche"));
+        frame_enganche->setFrameShape(QFrame::Box);
+        layout_enganche = new QVBoxLayout(frame_enganche);
+        layout_enganche->setSpacing(0);
+        layout_enganche->setContentsMargins(11, 11, 11, 11);
+        layout_enganche->setObjectName(QStringLiteral("layout_enganche"));
+        layout_enganche->setContentsMargins(0, 0, 0, 0);
+        lbl_enganche_etiqueta = new QLabel(frame_enganche);
+        lbl_enganche_etiqueta->setObjectName(QStringLiteral("lbl_enganche_etiqueta"));
+        lbl_enganche_etiqueta->setFont(font2);
+        lbl_enganche_etiqueta->setAutoFillBackground(false);
+        lbl_enganche_etiqueta->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        lbl_enganche_etiqueta->setAlignment(Qt::AlignCenter);
+
+        layout_enganche->addWidget(lbl_enganche_etiqueta);
+
+        linea_enganche_prediccion = new QFrame(frame_enganche);
+        linea_enganche_prediccion->setObjectName(QStringLiteral("linea_enganche_prediccion"));
+        linea_enganche_prediccion->setFrameShadow(QFrame::Plain);
+        linea_enganche_prediccion->setFrameShape(QFrame::HLine);
+
+        layout_enganche->addWidget(linea_enganche_prediccion);
+
+        lbl_prediccion = new QLabel(frame_enganche);
+        lbl_prediccion->setObjectName(QStringLiteral("lbl_prediccion"));
+        lbl_prediccion->setFont(font1);
+        lbl_prediccion->setAutoFillBackground(false);
+        lbl_prediccion->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        lbl_prediccion->setAlignment(Qt::AlignCenter);
+
+        layout_enganche->addWidget(lbl_prediccion);
+
+
+        layout_superior->addWidget(frame_enganche);
 
         frame_datos_plataforma = new QFrame(panel_superior);
         frame_datos_plataforma->setObjectName(QStringLiteral("frame_datos_plataforma"));
@@ -827,83 +838,76 @@ public:
 
         layout_superior->addWidget(frame_datos_gps);
 
-        frame_enganche = new QFrame(panel_superior);
-        frame_enganche->setObjectName(QStringLiteral("frame_enganche"));
-        frame_enganche->setFrameShape(QFrame::Box);
-        layout_enganche = new QVBoxLayout(frame_enganche);
-        layout_enganche->setSpacing(0);
-        layout_enganche->setContentsMargins(11, 11, 11, 11);
-        layout_enganche->setObjectName(QStringLiteral("layout_enganche"));
-        layout_enganche->setContentsMargins(0, 0, 0, 0);
-        lbl_enganche_etiqueta = new QLabel(frame_enganche);
-        lbl_enganche_etiqueta->setObjectName(QStringLiteral("lbl_enganche_etiqueta"));
-        lbl_enganche_etiqueta->setFont(font2);
-        lbl_enganche_etiqueta->setAutoFillBackground(false);
-        lbl_enganche_etiqueta->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
-        lbl_enganche_etiqueta->setAlignment(Qt::AlignCenter);
+        frame_datos_blanco = new QFrame(panel_superior);
+        frame_datos_blanco->setObjectName(QStringLiteral("frame_datos_blanco"));
+        frame_datos_blanco->setFrameShape(QFrame::NoFrame);
+        layout_datos_blanco = new QGridLayout(frame_datos_blanco);
+        layout_datos_blanco->setSpacing(0);
+        layout_datos_blanco->setContentsMargins(11, 11, 11, 11);
+        layout_datos_blanco->setObjectName(QStringLiteral("layout_datos_blanco"));
+        layout_datos_blanco->setContentsMargins(0, 0, 0, 0);
+        lbl_datos_blanco = new QLabel(frame_datos_blanco);
+        lbl_datos_blanco->setObjectName(QStringLiteral("lbl_datos_blanco"));
+        lbl_datos_blanco->setFont(font);
+        lbl_datos_blanco->setAutoFillBackground(false);
+        lbl_datos_blanco->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        lbl_datos_blanco->setFrameShape(QFrame::Box);
+        lbl_datos_blanco->setAlignment(Qt::AlignCenter);
 
-        layout_enganche->addWidget(lbl_enganche_etiqueta);
+        layout_datos_blanco->addWidget(lbl_datos_blanco, 0, 0, 1, 2);
 
-        linea_enganche_prediccion = new QFrame(frame_enganche);
-        linea_enganche_prediccion->setObjectName(QStringLiteral("linea_enganche_prediccion"));
-        linea_enganche_prediccion->setFrameShadow(QFrame::Plain);
-        linea_enganche_prediccion->setFrameShape(QFrame::HLine);
+        lbl_distancia_valor = new QLabel(frame_datos_blanco);
+        lbl_distancia_valor->setObjectName(QStringLiteral("lbl_distancia_valor"));
+        lbl_distancia_valor->setFont(font1);
+        lbl_distancia_valor->setAutoFillBackground(false);
+        lbl_distancia_valor->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        lbl_distancia_valor->setFrameShape(QFrame::Box);
+        lbl_distancia_valor->setAlignment(Qt::AlignCenter);
 
-        layout_enganche->addWidget(linea_enganche_prediccion);
+        layout_datos_blanco->addWidget(lbl_distancia_valor, 2, 0, 1, 1);
 
-        lbl_prediccion = new QLabel(frame_enganche);
-        lbl_prediccion->setObjectName(QStringLiteral("lbl_prediccion"));
-        lbl_prediccion->setFont(font1);
-        lbl_prediccion->setAutoFillBackground(false);
-        lbl_prediccion->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
-        lbl_prediccion->setAlignment(Qt::AlignCenter);
+        lbl_velocidad = new QLabel(frame_datos_blanco);
+        lbl_velocidad->setObjectName(QStringLiteral("lbl_velocidad"));
+        lbl_velocidad->setFont(font);
+        lbl_velocidad->setAutoFillBackground(false);
+        lbl_velocidad->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
+"border: 1px solid black;\n"
+"border-left: 0px;\n"
+"border-top: 0px;\n"
+"border-bottom: 0px;"));
+        lbl_velocidad->setFrameShape(QFrame::NoFrame);
+        lbl_velocidad->setAlignment(Qt::AlignCenter);
 
-        layout_enganche->addWidget(lbl_prediccion);
+        layout_datos_blanco->addWidget(lbl_velocidad, 1, 1, 1, 1);
 
+        lbl_distancia = new QLabel(frame_datos_blanco);
+        lbl_distancia->setObjectName(QStringLiteral("lbl_distancia"));
+        lbl_distancia->setFont(font);
+        lbl_distancia->setAutoFillBackground(false);
+        lbl_distancia->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
+"border: 1px solid black;\n"
+"border-top: 0px;\n"
+"border-bottom: 0px;\n"
+""));
+        lbl_distancia->setFrameShape(QFrame::NoFrame);
+        lbl_distancia->setAlignment(Qt::AlignCenter);
 
-        layout_superior->addWidget(frame_enganche);
+        layout_datos_blanco->addWidget(lbl_distancia, 1, 0, 1, 1);
 
-        frame_referencia_estab = new QFrame(panel_superior);
-        frame_referencia_estab->setObjectName(QStringLiteral("frame_referencia_estab"));
-        frame_referencia_estab->setFrameShape(QFrame::Box);
-        layout_referencia_estab = new QVBoxLayout(frame_referencia_estab);
-        layout_referencia_estab->setSpacing(0);
-        layout_referencia_estab->setContentsMargins(11, 11, 11, 11);
-        layout_referencia_estab->setObjectName(QStringLiteral("layout_referencia_estab"));
-        layout_referencia_estab->setContentsMargins(0, 0, 0, 0);
-        lbl_referencia_estab = new QLabel(frame_referencia_estab);
-        lbl_referencia_estab->setObjectName(QStringLiteral("lbl_referencia_estab"));
-        lbl_referencia_estab->setFont(font);
-        lbl_referencia_estab->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
-        lbl_referencia_estab->setAlignment(Qt::AlignCenter);
+        lbl_velocidad_valor = new QLabel(frame_datos_blanco);
+        lbl_velocidad_valor->setObjectName(QStringLiteral("lbl_velocidad_valor"));
+        lbl_velocidad_valor->setFont(font1);
+        lbl_velocidad_valor->setAutoFillBackground(false);
+        lbl_velocidad_valor->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
+"border: 1px solid black;\n"
+"border-left: 0px;"));
+        lbl_velocidad_valor->setFrameShape(QFrame::NoFrame);
+        lbl_velocidad_valor->setAlignment(Qt::AlignCenter);
 
-        layout_referencia_estab->addWidget(lbl_referencia_estab);
-
-        linea_referencia_estable = new QFrame(frame_referencia_estab);
-        linea_referencia_estable->setObjectName(QStringLiteral("linea_referencia_estable"));
-        linea_referencia_estable->setFrameShadow(QFrame::Plain);
-        linea_referencia_estable->setFrameShape(QFrame::HLine);
-
-        layout_referencia_estab->addWidget(linea_referencia_estable);
-
-        lbl_imu_prob = new QLabel(frame_referencia_estab);
-        lbl_imu_prob->setObjectName(QStringLiteral("lbl_imu_prob"));
-        lbl_imu_prob->setFont(font1);
-        lbl_imu_prob->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
-        lbl_imu_prob->setAlignment(Qt::AlignCenter);
-
-        layout_referencia_estab->addWidget(lbl_imu_prob);
-
-        lbl_octans = new QLabel(frame_referencia_estab);
-        lbl_octans->setObjectName(QStringLiteral("lbl_octans"));
-        lbl_octans->setFont(font1);
-        lbl_octans->setStyleSheet(QStringLiteral("background-color: rgb(250, 250, 0);"));
-        lbl_octans->setAlignment(Qt::AlignCenter);
-
-        layout_referencia_estab->addWidget(lbl_octans);
+        layout_datos_blanco->addWidget(lbl_velocidad_valor, 2, 1, 1, 1);
 
 
-        layout_superior->addWidget(frame_referencia_estab);
+        layout_superior->addWidget(frame_datos_blanco);
 
         widget_video = new QWidget(panel_central);
         widget_video->setObjectName(QStringLiteral("widget_video"));
@@ -994,10 +998,10 @@ public:
 
         widget_datos_radar = new QWidget(panel_central);
         widget_datos_radar->setObjectName(QStringLiteral("widget_datos_radar"));
-        widget_datos_radar->setGeometry(QRect(520, 390, 351, 101));
-        widget_datos_radar->setStyleSheet(QLatin1String("font: 75 14pt \"Arial\";\n"
+        widget_datos_radar->setGeometry(QRect(520, 390, 300, 80));
+        widget_datos_radar->setStyleSheet(QLatin1String("font: 14pt \"Arial\";\n"
 "color: rgb(85, 170, 0);\n"
-"border: 1px solid rgb(85, 170, 0);"));
+"border: 1px solid rgb(85, 170,0);"));
         layout_datos_radar = new QGridLayout(widget_datos_radar);
         layout_datos_radar->setSpacing(0);
         layout_datos_radar->setContentsMargins(11, 11, 11, 11);
@@ -1010,7 +1014,7 @@ public:
         font5.setPointSize(14);
         font5.setBold(false);
         font5.setItalic(false);
-        font5.setWeight(9);
+        font5.setWeight(50);
         lbl_dist->setFont(font5);
         lbl_dist->setStyleSheet(QStringLiteral(""));
         lbl_dist->setAlignment(Qt::AlignCenter);
@@ -1102,11 +1106,11 @@ public:
         lbl_zoom_amplio->setText(QApplication::translate("consola_seonClass", "AMPLIO", Q_NULLPTR));
         lbl_zoom_estrecho->setText(QApplication::translate("consola_seonClass", "ESTRECHO", Q_NULLPTR));
         lbl_zoom_apagado->setText(QApplication::translate("consola_seonClass", "APAGADO", Q_NULLPTR));
-        lbl_velocidad->setText(QApplication::translate("consola_seonClass", "VELOCIDAD", Q_NULLPTR));
-        lbl_distancia->setText(QApplication::translate("consola_seonClass", "DISTANCIA", Q_NULLPTR));
-        lbl_velocidad_valor->setText(QApplication::translate("consola_seonClass", "valor_velocidad", Q_NULLPTR));
-        lbl_distancia_valor->setText(QApplication::translate("consola_seonClass", "valor_distancia", Q_NULLPTR));
-        lbl_datos_blanco->setText(QApplication::translate("consola_seonClass", "DATOS BLANCO", Q_NULLPTR));
+        lbl_referencia_estab->setText(QApplication::translate("consola_seonClass", "REFERENCIA ESTAB", Q_NULLPTR));
+        lbl_imu_prob->setText(QApplication::translate("consola_seonClass", "IMU PROP.", Q_NULLPTR));
+        lbl_octans->setText(QApplication::translate("consola_seonClass", "OCTANS", Q_NULLPTR));
+        lbl_enganche_etiqueta->setText(QApplication::translate("consola_seonClass", "ENGANCHE", Q_NULLPTR));
+        lbl_prediccion->setText(QApplication::translate("consola_seonClass", "PREDICCI\303\223N", Q_NULLPTR));
         lbl_datos_plataforma->setText(QApplication::translate("consola_seonClass", "DATOS PLATAFORMA", Q_NULLPTR));
         lbl_azimut_valor->setText(QApplication::translate("consola_seonClass", "valor_azimut", Q_NULLPTR));
         lbl_elevacion_valor->setText(QApplication::translate("consola_seonClass", "valor_elevacion", Q_NULLPTR));
@@ -1117,11 +1121,11 @@ public:
         lbl_latitud_valor->setText(QApplication::translate("consola_seonClass", "valor_latitud", Q_NULLPTR));
         lbl_datos_gps->setText(QApplication::translate("consola_seonClass", "DATOS GPS", Q_NULLPTR));
         lbl_longitud_valor->setText(QApplication::translate("consola_seonClass", "valor_longitud", Q_NULLPTR));
-        lbl_enganche_etiqueta->setText(QApplication::translate("consola_seonClass", "ENGANCHE", Q_NULLPTR));
-        lbl_prediccion->setText(QApplication::translate("consola_seonClass", "PREDICCI\303\223N", Q_NULLPTR));
-        lbl_referencia_estab->setText(QApplication::translate("consola_seonClass", "REFERENCIA ESTAB", Q_NULLPTR));
-        lbl_imu_prob->setText(QApplication::translate("consola_seonClass", "IMU PROP.", Q_NULLPTR));
-        lbl_octans->setText(QApplication::translate("consola_seonClass", "OCTANS", Q_NULLPTR));
+        lbl_datos_blanco->setText(QApplication::translate("consola_seonClass", "DATOS BLANCO", Q_NULLPTR));
+        lbl_distancia_valor->setText(QApplication::translate("consola_seonClass", "valor_distancia", Q_NULLPTR));
+        lbl_velocidad->setText(QApplication::translate("consola_seonClass", "VELOCIDAD", Q_NULLPTR));
+        lbl_distancia->setText(QApplication::translate("consola_seonClass", "DISTANCIA", Q_NULLPTR));
+        lbl_velocidad_valor->setText(QApplication::translate("consola_seonClass", "valor_velocidad", Q_NULLPTR));
         btn_grabar->setText(QApplication::translate("consola_seonClass", "grabar", Q_NULLPTR));
         lbl_gps->setText(QApplication::translate("consola_seonClass", "gps", Q_NULLPTR));
         lbl_pupitre->setText(QApplication::translate("consola_seonClass", "pupitre", Q_NULLPTR));

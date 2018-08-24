@@ -78,6 +78,21 @@ public:
         uint grosor;
     };
 
+    struct tipografia {
+        void levantar(herramientas::utiles::Json * json) {
+            this->nombre = json->getAtributoValorString("nombre");
+            this->grosor = json->getAtributoValorUint("grosor");
+
+            herramientas::utiles::Json * json_color = json->getAtributoValorJson("color");
+            this->color.levantar(json_color);
+            delete json_color;
+        }
+
+        std::string nombre;
+        uint32_t grosor;
+        color color;
+    };
+
     // gui
 
     struct elemento{
@@ -247,6 +262,10 @@ public:
             this->tamanio.ancho = json->getAtributoValorUint("ancho");
             this->tamanio.alto = json->getAtributoValorUint("alto");
 
+            herramientas::utiles::Json * json_tipografia = json->getAtributoValorJson("tipografia");
+            this->tipografia.levantar(json_tipografia);
+            delete json_tipografia;
+
             herramientas::utiles::Json * json_trazo = json->getAtributoValorJson("trazo");
             this->trazo.levantar(json_trazo);
             delete json_trazo;
@@ -254,6 +273,7 @@ public:
 
         posicion posicion;
         tamanio tamanio;
+        tipografia tipografia;
         trazo trazo;
     };
 
@@ -310,24 +330,6 @@ public:
             herramientas::utiles::Json * json_lanchas = configuracion_json.getAtributoValorJson("lanchas");
             this->lanchas.levantar(json_lanchas);
             delete json_lanchas;
-            //json_reticula = configuracion_json.getAtributoValorJson("reticula_mayor");
-            //this->mayor.levantar(json_reticula);
-            //delete json_reticula;
-
-            //json_reticula = configuracion_json.getAtributoValorJson("reticula_media");
-            //this->media.levantar(json_reticula);
-            //delete json_reticula;
-
-            //json_reticula = configuracion_json.getAtributoValorJson("reticula_menor");
-            //this->menor.levantar(json_reticula);
-            //delete json_reticula;
-
-            //herramientas::utiles::Json * json_testigo = nullptr;
-
-            //json_testigo = configuracion_json.getAtributoValorJson("testigo");
-            //this->testigo.levantar(json_testigo);
-
-            //delete json_testigo;
         }
 
         entrada_video filmacion;

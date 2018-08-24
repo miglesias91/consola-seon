@@ -1,24 +1,24 @@
 {
     "area_video" : 
     {
-        "ancho" : 800,
-        "alto" : 600,
+        "ancho" : 1200,
+        "alto" : 900,
         "x" : 100,
         "y" : 100
     },
     "panel_superior" : 
     {
-        "ancho" : 600,
+        "ancho" : 1000,
         "alto" : 80,
-        "x" : 100,
+        "x" : 80,
         "y" : 0
     },
     "panel_lateral" : 
     {
-        "ancho" : 100,
-        "alto" : 600,
-        "x" : 20,
-        "y" : 100
+        "ancho" : 70,
+        "alto" : 800,
+        "x" : 0,
+        "y" : 50
     },
     "elementos" :
     [

@@ -7,8 +7,8 @@ lanchas::lanchas(const seon::aplicacion::configuracion::lanchas &config, QWidget
     this->setAttribute(Qt::WA_DeleteOnClose);
 
     this->resize(this->parentWidget()->size());
-    //this->resize(this->config.tamanio.ancho, this->config.tamanio.alto);
-    //this->move(this->config.posicion.x, this->config.posicion.y);
+    this->move(this->config.posicion.x, this->config.posicion.y);
+    this->setParent(parent);
 }
 
 lanchas::~lanchas() {}

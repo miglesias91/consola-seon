@@ -15,9 +15,6 @@ public:
     radar(const seon::aplicacion::configuracion::radar &config, QLabel *distancia, QLabel *azimut, QLabel *tipo, QWidget *tabla, QWidget *parent = nullptr);
     virtual ~radar();
 
-protected:
-    void paintEvent(QPaintEvent *paintEvent) override;
-
 private:
     QLabel *distancia, *azimut, *tipo;
     QWidget *tabla;

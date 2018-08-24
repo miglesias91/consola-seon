@@ -44,8 +44,6 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
     this->ui.panel_superior->move(this->config_gui.panel_superior.posicion.x, this->config_gui.panel_superior.posicion.y);
     this->ui.panel_superior->raise();
 
-    this->ui.btn_filmar->raise();
-    this->ui.btn_grabar->raise();
     this->ui.widget_comunicaciones->raise();
 
     this->comu.iniciar();
@@ -63,6 +61,7 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
     tracking->raise();
 
     this->ui.btn_filmar->raise();
+    this->ui.btn_grabar->raise();
     this->ui.widget_datos_radar->raise();
 }
 
@@ -73,8 +72,7 @@ consola_seon::~consola_seon() {
     seon::aplicacion::logger::info("cerrando consola.");
 }
 
-void consola_seon::configurar_gui()
-{
+void consola_seon::configurar_gui() {
     // testigo pantalla
     this->ui.lbl_pantalla_barrido->hide();
     this->ui.lbl_pantalla_datos->hide();
