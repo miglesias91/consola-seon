@@ -3,11 +3,11 @@
     {
         "resolucion" : 
         {
-            "ancho" : 800,
-            "alto" : 600
+            "ancho" : 1200,
+            "alto" : 900
         },
         "fps" : 30,
-        "entrada" : ""
+        "entrada" : "video-de-prueba.mp4"
 
     },
     "grabacion" :
@@ -68,7 +68,7 @@
     "radar" :
     {
         "x" : 20,
-        "y" : 500,
+        "y" : 800,
         "ancho" : 300,
         "alto" : 80,
         "tipografia" : { "nombre" : "Arial", "grosor" : 14 , "color" : { "nombre": "violeta", "r" : 255, "g" : 255, "b" : 0 }},
@@ -79,8 +79,8 @@
     },
     "lanchas" :
     {
-        "x" : 550,
-        "y" : 450,
+        "x" : 1000,
+        "y" : 700,
         "ancho" : 400,
         "alto" : 400,
         "trazo_lancha" : { 
