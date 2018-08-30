@@ -29,10 +29,10 @@ public:
 
     virtual bool setear(const std::string & tira_de_datos);
 
-    std::string id, status, checksum;
-    coordenada latitude, longitude, magnetic_variation;
-    double_t velocity, angle;
-    herramientas::utiles::Fecha date;
+    std::string id, estado, checksum;
+    coordenada latitud, longitud, variacion_magnetica;
+    double_t velocidad, angulo;
+    herramientas::utiles::Fecha fecha;
 
 private:
     bool parsear(const std::string & tira_de_datos);

@@ -22,28 +22,28 @@ trama_gps::~trama_gps() {
 bool trama_gps::setear(const std::string & tira_de_datos) {
 
     this->trama::setear(tira_de_datos);
-
+    this->parsear(tira_de_datos);
     return true;
 }
 
 bool trama_gps::parsear(const std::string & tira_de_datos) {
     std::vector<std::string> campos = herramientas::utiles::FuncionesString::separar(tira_de_datos, ",");
 
-    if (campos.size() != 13) {
+    if (campos.size() != 12) {
         return false;
     }
 
     this->id = campos[0];
-    herramientas::utiles::Fecha::parsear(campos[9] + campos[1], "%d%m%y%H%M%S", &this->date);
-    this->status = campos[2];
-    this->latitude.angulo = std::stod(campos[3]);
-    this->latitude.cardinalidad = campos[4];
-    this->longitude.angulo = std::stod(campos[5]);
-    this->longitude.cardinalidad = campos[6];
-    this->velocity = std::stod(campos[7]);
-    this->angle = std::stod(campos[8]);
-    this->magnetic_variation.angulo = std::stod(campos[10]);
-    this->magnetic_variation.cardinalidad = campos[11];
+    herramientas::utiles::Fecha::parsear(campos[9] + campos[1], "%d%m%y%H%M%S", &this->fecha);
+    this->estado = campos[2];
+    this->latitud.angulo = std::stod(campos[3]);
+    this->latitud.cardinalidad = campos[4];
+    this->longitud.angulo = std::stod(campos[5]);
+    this->longitud.cardinalidad = campos[6];
+    this->velocidad = std::stod(campos[7]);
+    this->angulo = std::stod(campos[8]);
+    this->variacion_magnetica.angulo = std::stod(campos[10]);
+    this->variacion_magnetica.cardinalidad = campos[11];
     this->checksum = campos[12];
 
     return true;
