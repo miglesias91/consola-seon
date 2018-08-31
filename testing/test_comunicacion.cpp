@@ -10,6 +10,7 @@
 // comunicacion
 #include <comunicacion/include/administrador.h>
 #include <comunicacion/include/trama_gps.h>
+#include <comunicacion/include/trama_pulsadores.h>
 
 TEST_CASE("escribir_y_leer_datos", "comunicacion") {
 
@@ -98,10 +99,6 @@ TEST_CASE("trama_gps", "comunicacion") {
     seon::comunicacion::trama_gps trama;
 
     std::string oracion = "$GPRMC,081836,A,3751.65,S,14507.36,E,000.0,360.0,130998,011.3,E*62";
-    std::string oracion2 = "$GPRMC,225446,A,4916.45,N,12311.12,W,000.5,054.7,191194,020.3,E*68";
-    std::string oracion3 = "$GPRMC,220516,A,5133.82,N,00042.24,W,173.8,231.8,130694,004.2,W*70";
-    std::string oracion4 = "$GPRMC,hhmmss.ss,A,llll.ll,a,yyyyy.yy,a,x.x,x.x,ddmmyy,x.x,a*hh";
-
     trama.setear(oracion);
 
     REQUIRE(trama.fecha.getStringAAAAMMDDHHmmSS() == "19980913081836");
@@ -114,5 +111,24 @@ TEST_CASE("trama_gps", "comunicacion") {
     REQUIRE(trama.angulo == 360.00);
     REQUIRE(trama.variacion_magnetica.angulo == 11.3);
     REQUIRE(trama.variacion_magnetica.cardinalidad == "E");
-    REQUIRE(trama.checksum == "*62");
+    REQUIRE(trama.checksum == "62");
+}
+
+TEST_CASE("trama_pulsadores", "comunicacion") {
+    seon::comunicacion::trama_pulsadores trama;
+
+    std::vector<uint8_t> oracion = { 0xeb, 0x90, 0x00, 0x00, 0x6a };
+    trama.setear(oracion);
+
+    REQUIRE(trama.fecha.getStringAAAAMMDDHHmmSS() == "19980913081836");
+    REQUIRE(trama.estado == "A");
+    REQUIRE(trama.latitud.angulo == 3751.65);
+    REQUIRE(trama.latitud.cardinalidad == "S");
+    REQUIRE(trama.longitud.angulo == 14507.36);
+    REQUIRE(trama.longitud.cardinalidad == "E");
+    REQUIRE(trama.velocidad == 0.00);
+    REQUIRE(trama.angulo == 360.00);
+    REQUIRE(trama.variacion_magnetica.angulo == 11.3);
+    REQUIRE(trama.variacion_magnetica.cardinalidad == "E");
+    REQUIRE(trama.checksum == "62");
 }

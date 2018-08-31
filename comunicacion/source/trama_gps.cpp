@@ -34,7 +34,22 @@ bool trama_gps::parsear(const std::string & tira_de_datos) {
     }
 
     this->id = campos[0];
-    herramientas::utiles::Fecha::parsear(campos[9] + campos[1], "%d%m%y%H%M%S", &this->fecha);
+
+    std::string dia(campos[9].begin(), campos[9].begin() + 2);
+    std::string mes(campos[9].begin() + 2, campos[9].begin() + 4);
+    std::string anio(campos[9].begin() + 4, campos[9].begin() + 6);
+    herramientas::utiles::Fecha::parsear(dia + "-" + mes + "-" + anio, "%d-%m-%y", &this->fecha);
+
+    herramientas::utiles::Fecha horasminutossegundos;
+    std::string horas(campos[1].begin(), campos[1].begin() + 2);
+    std::string minutos(campos[1].begin() + 2, campos[1].begin() + 4);
+    std::string segundos(campos[1].begin() + 4, campos[1].begin() + 6);
+    herramientas::utiles::Fecha::parsear(horas + "-" + minutos + "-" + segundos, "%H-%M-%S", &horasminutossegundos);
+
+    this->fecha.setHoras(horasminutossegundos.getHoras());
+    this->fecha.setMinutos(horasminutossegundos.getMinutos());
+    this->fecha.setSegundos(horasminutossegundos.getSegundos());
+
     this->estado = campos[2];
     this->latitud.angulo = std::stod(campos[3]);
     this->latitud.cardinalidad = campos[4];
@@ -43,8 +58,8 @@ bool trama_gps::parsear(const std::string & tira_de_datos) {
     this->velocidad = std::stod(campos[7]);
     this->angulo = std::stod(campos[8]);
     this->variacion_magnetica.angulo = std::stod(campos[10]);
-    this->variacion_magnetica.cardinalidad = campos[11];
-    this->checksum = campos[12];
+    this->variacion_magnetica.cardinalidad = herramientas::utiles::FuncionesString::separar(campos[11], "*")[0];
+    this->checksum = herramientas::utiles::FuncionesString::separar(campos[11], "*")[1];
 
     return true;
 }
