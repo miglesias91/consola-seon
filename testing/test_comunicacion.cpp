@@ -117,18 +117,73 @@ TEST_CASE("trama_gps", "comunicacion") {
 TEST_CASE("trama_pulsadores", "comunicacion") {
     seon::comunicacion::trama_pulsadores trama;
 
-    std::vector<uint8_t> oracion = { 0xeb, 0x90, 0x00, 0x00, 0x6a };
-    trama.setear(oracion);
+    std::vector<uint8_t> tira_de_datos = {
+        0xeb, 0x90,  // headers
+        0x00, 0x00,  // contador
+        0x6a,  // ref_est
+        0x6a, 0x6a, 0x6a,  // pantalla
+        0x6a, 0x6a,  // ventana
+        0x6a,  // pa_ir
+        0x6a, 0x6a,  // camara
+        0x6a, 0x6a,  // zoom
+        0x6a, 0x6a,  // foco
+        0x6a, 0x6a, 0x6a,  // video
+        0x6a, 0x6a,  // engance
+        0x6a, 0x6a, 0x6a };  // modo
 
-    REQUIRE(trama.fecha.getStringAAAAMMDDHHmmSS() == "19980913081836");
-    REQUIRE(trama.estado == "A");
-    REQUIRE(trama.latitud.angulo == 3751.65);
-    REQUIRE(trama.latitud.cardinalidad == "S");
-    REQUIRE(trama.longitud.angulo == 14507.36);
-    REQUIRE(trama.longitud.cardinalidad == "E");
-    REQUIRE(trama.velocidad == 0.00);
-    REQUIRE(trama.angulo == 360.00);
-    REQUIRE(trama.variacion_magnetica.angulo == 11.3);
-    REQUIRE(trama.variacion_magnetica.cardinalidad == "E");
-    REQUIRE(trama.checksum == "62");
+    trama.setear(std::string(tira_de_datos.begin(), tira_de_datos.end()));
+
+    REQUIRE(trama.header_1 == 235);
+    REQUIRE(trama.header_2 == 144);
+    REQUIRE(trama.contador == 0);
+    REQUIRE(trama.ref_est == false);
+    REQUIRE(trama.pantalla_datos == false);
+    REQUIRE(trama.pantalla_barrido == false);
+    REQUIRE(trama.pantalla_normal == false);
+    REQUIRE(trama.ventana_optica_lava == false);
+    REQUIRE(trama.ventana_optica_limpia == false);
+    REQUIRE(trama.pa_ir == false);
+    REQUIRE(trama.camara_ir == false);
+    REQUIRE(trama.camara_diurna == false);
+    REQUIRE(trama.zoom_amplio == false);
+    REQUIRE(trama.zoom_estrecho == false);
+    REQUIRE(trama.foco_cerca == false);
+    REQUIRE(trama.foco_lejos == false);
+    REQUIRE(trama.video_cuantificado == false);
+    REQUIRE(trama.video_diferenciado == false);
+    REQUIRE(trama.video_normal == false);
+    REQUIRE(trama.enganche_cuantificado == false);
+    REQUIRE(trama.enganche_diferenciado == false);
+    REQUIRE(trama.modo_fijo == false);
+    REQUIRE(trama.modo_esclavo == false);
+    REQUIRE(trama.modo_estable == false);
+}
+
+TEST_CASE("trama_pupitre", "comunicacion") {
+    seon::comunicacion::trama_pupitre trama;
+
+    std::vector<uint8_t> tira_de_datos = {
+        0xeb, 0x90,  // headers
+        0x00,  // contador
+        0x6a,  // arrp
+        0x6a,  // enganche_desenganche_pic
+        0x6a, 0x6a,  // botones
+        0x6a, 0x6a,  // graba y acc
+        0x6a, 0x6a,  // seleccion ventana
+        0x6a };  // sen fija
+
+    trama.setear(std::string(tira_de_datos.begin(), tira_de_datos.end()));
+
+    REQUIRE(trama.header_1 == 235);
+    REQUIRE(trama.header_2 == 144);
+    REQUIRE(trama.contador == 0);
+    REQUIRE(trama.arrp == false);
+    REQUIRE(trama.enganche_desenganche_pic == false);
+    REQUIRE(trama.boton_2 == false);
+    REQUIRE(trama.boton_3 == false);
+    REQUIRE(trama.graba_pic == false);
+    REQUIRE(trama.acc_archivo_pic == false);
+    REQUIRE(trama.seleccion_ventana_1 == false);
+    REQUIRE(trama.seleccion_ventana_2 == false);
+    REQUIRE(trama.sen_fija == false);
 }

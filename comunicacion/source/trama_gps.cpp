@@ -9,21 +9,18 @@
 
 namespace seon::comunicacion {
 
-trama_gps::trama_gps() : trama() {}
+trama_gps::trama_gps() : trama(),
+id(""), estado(""), checksum(""),
+velocidad(0), angulo(0) {}
 
-trama_gps::trama_gps(const std::string & tira_de_datos) {
+trama_gps::trama_gps(const std::string & tira_de_datos) : trama(),
+id(""), estado(""), checksum(""),
+velocidad(0), angulo(0) {
     this->setear(tira_de_datos);
 }
 
 trama_gps::~trama_gps() {
 
-}
-
-bool trama_gps::setear(const std::string & tira_de_datos) {
-
-    this->trama::setear(tira_de_datos);
-    this->parsear(tira_de_datos);
-    return true;
 }
 
 bool trama_gps::parsear(const std::string & tira_de_datos) {

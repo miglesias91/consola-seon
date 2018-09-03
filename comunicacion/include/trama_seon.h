@@ -19,7 +19,8 @@ public:
     trama_seon(const std::string & tira_de_datos);
     virtual ~trama_seon();
 
-    virtual bool setear(const std::string & tira_de_datos);
+protected:
+    virtual bool parsear(const std::string & tira_de_datos) override;
 
 private:
 

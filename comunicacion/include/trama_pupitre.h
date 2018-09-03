@@ -16,10 +16,20 @@ class trama_pupitre : public trama {
 public:
 
     trama_pupitre();
-    trama_pupitre(const std::string & tira_de_datos);
+    trama_pupitre(const std::string &tira_de_datos);
     virtual ~trama_pupitre();
 
-    virtual bool setear(const std::string & tira_de_datos);
+    uint8_t header_1, header_2;
+    uint8_t contador;
+    bool arrp,
+        enganche_desenganche_pic,
+        boton_2, boton_3,
+        graba_pic, acc_archivo_pic,
+        seleccion_ventana_1, seleccion_ventana_2,
+        sen_fija;
+
+protected:
+    virtual bool parsear(const std::string &tira_de_datos) override;
 
 private:
 

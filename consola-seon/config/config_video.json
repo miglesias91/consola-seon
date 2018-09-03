@@ -4,7 +4,7 @@
         "resolucion" : 
         {
             "ancho" : 1200,
-            "alto" : 900
+            "alto" : 500
         },
         "fps" : 30,
         "entrada" : "video-de-prueba.mp4"

@@ -12,11 +12,16 @@ public:
     trama() : tira_de_datos("") {};
     virtual ~trama() {};
 
-    virtual bool setear(const std::string & tira_de_datos) { this->tira_de_datos = tira_de_datos; return true; };
+    virtual bool setear(const std::string & tira_de_datos) {
+        this->tira_de_datos = tira_de_datos;
+        return this->parsear(tira_de_datos);
+    };
 
     std::string tira_de_datos;
 
-private:
+protected:
+
+    virtual bool parsear(const std::string &tira_de_datos) = 0;
 };
 
 };

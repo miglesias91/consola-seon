@@ -18,12 +18,9 @@ trama_seon::~trama_seon() {
 
 }
 
-bool trama_seon::setear(const std::string & tira_de_datos) {
+bool trama_seon::parsear(const std::string & tira_de_datos) {
 
-    this->trama::setear(tira_de_datos);
     return true;
+
 }
-
-
-
 }
