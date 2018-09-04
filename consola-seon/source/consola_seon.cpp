@@ -121,6 +121,8 @@ void consola_seon::configurar_gui() {
 
 void consola_seon::mostrar_mensaje_gps(const seon::comunicacion::trama_gps & trama) {
 
+    this->ui.gps
+
     this->ui.lineedit_gps->setText(trama.tira_de_datos.c_str());
 }
 
