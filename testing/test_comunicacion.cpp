@@ -11,6 +11,7 @@
 #include <comunicacion/include/administrador.h>
 #include <comunicacion/include/trama_gps.h>
 #include <comunicacion/include/trama_pulsadores.h>
+#include <comunicacion/include/trama_seon.h>
 
 TEST_CASE("escribir_y_leer_datos", "comunicacion") {
 
@@ -186,4 +187,50 @@ TEST_CASE("trama_pupitre", "comunicacion") {
     REQUIRE(trama.seleccion_ventana_1 == false);
     REQUIRE(trama.seleccion_ventana_2 == false);
     REQUIRE(trama.sen_fija == false);
+}
+
+TEST_CASE("trama_seon", "comunicacion") {
+    seon::comunicacion::trama_seon trama;
+
+    std::vector<uint8_t> tira_de_datos = {
+        0xeb, 0x90,  // headers
+        0x50, 0x00,  // distancia = 80 = 0x50
+        0xdd,  // origen dato = 11 + modo prediccion/enganche = 01 + velocidad = 13
+        0x6a,  // ?
+        0x0a,  // zoom = 10 = 0x0a
+        0x83,  // radar activado = 1 + tipo de blanco = 3 = "U" -> = 1001 0100 = 0x94
+        0x5e, 0x01, 0x2d,  // azimut radar = 350,45 = 0x015e,0x2d
+        0x98, 0x3a,  // distancia radar = 15000 = 0x3a98
+        0x1e,  // azimut grafico = 30 = 0x1e
+        0x28,  // elevacion grafico = 40 = 0x28
+        0x40, 0x01, 0x2d,  // azimut absoluto = 320,45 = 0x0140,0x2d
+        0x2c, 0x01, 0x2d, // elevacion absoluta = 300,45 = 0x012c,0x2d
+        0x88, 0x13,  // centro gravedad x = 5000 = 0x1388
+        0xb8, 0x0b,  // centro gravedad y = 3000 = 0x0bb8
+        0x32,  // corrimiento x = 50
+        0x3c  // corrimeinto y = 60
+    };
+
+    trama.setear(std::string(tira_de_datos.begin(), tira_de_datos.end()));
+
+    REQUIRE(trama.header_1 == 235);
+    REQUIRE(trama.header_2 == 144);
+    REQUIRE(trama.distancia == 80);
+    REQUIRE(trama.origen == seon::comunicacion::trama_seon::origen_dato::MANUAL);
+    REQUIRE(trama.prediccion == true);
+    REQUIRE(trama.enganche == false);
+    REQUIRE(trama.velocidad == 13);
+    REQUIRE(trama.zoom == 10);
+    REQUIRE(trama.radar_activado == true);
+    REQUIRE(trama.tipo_blanco == "U");
+    REQUIRE(350.449 < trama.azimut_radar); REQUIRE(trama.azimut_radar < 350.451);
+    REQUIRE(trama.distancia_radar == 15000);
+    REQUIRE(trama.azimut_grafico == 30);
+    REQUIRE(trama.elevacion_grafico == 40);
+    REQUIRE(320.449 < trama.azimut_absoluto); REQUIRE(trama.azimut_absoluto < 320.451);
+    REQUIRE(300.449 < trama.elevacion_absoluta); REQUIRE(trama.elevacion_absoluta < 300.451);
+    REQUIRE(trama.centro_gravedad.x == 5000);
+    REQUIRE(trama.centro_gravedad.y == 3000);
+    REQUIRE(trama.corrimiento.x == 50);
+    REQUIRE(trama.corrimiento.y == 60);
 }

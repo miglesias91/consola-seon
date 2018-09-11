@@ -53,6 +53,8 @@ private:
 
     void comenzar_grabacion();
 
+    void color_fondo(QWidget *widget, const std::string &color);
+
     // atributos
     seon::video::administrador * admin_video;
 

@@ -40,5 +40,19 @@
             "color_secundario" : { "nombre" : "azul", "r" : 0, "g" : 0, "b" : 255 },
             "texto" : "FOQUEIRO"
         }
+    ],
+    "colores" :
+    [
+        { "nombre" : "rojo", "r" : 255, "g" : 0, "b" : 0 },
+        { "nombre" : "verde", "r" : 0, "g" : 255, "b" : 0 },
+        { "nombre" : "azul", "r" : 0, "g" : 0, "b" : 255 },
+        { "nombre" : "rojo_tenue", "r" : 127, "g" : 0, "b" : 0 },
+        { "nombre" : "verde_claro", "r" : 0, "g" : 127, "b" : 0 },
+        { "nombre" : "celeste", "r" : 0, "g" : 0, "b" : 127 },
+        { "nombre" : "negro", "r" : 0, "g" : 0, "b" : 0 },
+        { "nombre" : "blanco", "r" : 255, "g" : 255, "b" : 255 },
+        { "nombre" : "gris", "r" : 192, "g" : 192, "b" : 192 },
+        { "nombre" : "celeste_beta", "r" : 155, "g" : 196, "b" : 226 },
+        { "nombre" : "amarillo", "r" : 250, "g" : 250, "b" : 0 }
     ]
 }

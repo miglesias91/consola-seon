@@ -152,13 +152,26 @@ public:
                 delete json_elemento;
             });
             json_elementos.clear();
+
+            std::vector<herramientas::utiles::Json*> json_colores = configuracion_json.getAtributoArrayJson("colores");
+
+            std::for_each(json_colores.begin(), json_colores.end(),
+                [this](herramientas::utiles::Json * json_color)
+            {
+                color nuevo_color;
+                nuevo_color.levantar(json_color);
+
+                this->colores[nuevo_color.nombre] = nuevo_color;
+                delete json_color;
+            });
+            json_elementos.clear();
         }
 
         std::vector<elemento> elementos;
         ventana area_video;
         ventana panel_superior;
         ventana panel_lateral;
-
+        std::unordered_map<std::string, color> colores;
         std::string detallado;
         std::experimental::filesystem::path path;
     };

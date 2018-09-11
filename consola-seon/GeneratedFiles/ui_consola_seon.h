@@ -33,6 +33,13 @@ public:
     QPushButton *btn_filmar;
     QWidget *panel_lateral;
     QVBoxLayout *layout_lateral;
+    QFrame *frame_testigo_pantalla;
+    QVBoxLayout *layout_testigo_pantalla;
+    QLabel *lbl_pantalla;
+    QFrame *linea_testigo_pantalla;
+    QLabel *lbl_pantalla_datos;
+    QLabel *lbl_pantalla_barrido;
+    QLabel *lbl_pantalla_normal;
     QFrame *frame_testigo_ventana_optica;
     QVBoxLayout *layout_testigo_ventana_optica;
     QLabel *lbl_ventana_optica;
@@ -41,6 +48,19 @@ public:
     QLabel *lbl_optica_limpia;
     QLabel *lbl_optica_apagada_lava;
     QLabel *lbl_optica_apagada_limpia;
+    QFrame *frame_testigo_camara;
+    QVBoxLayout *layout_testigo_camara;
+    QLabel *lbl_camara;
+    QFrame *linea_testigo_camara;
+    QLabel *lbl_camara_diurna;
+    QLabel *lbl_camara_ir;
+    QFrame *frame_testigo_zoom;
+    QVBoxLayout *layout_testigo_zoom;
+    QLabel *lbl_zoom;
+    QFrame *linea_testigo_zoom;
+    QLabel *lbl_zoom_amplio;
+    QLabel *lbl_zoom_estrecho;
+    QLabel *lbl_zoom_apagado;
     QFrame *frame_testigo_video;
     QVBoxLayout *layout_testigo_video;
     QLabel *lbl_video;
@@ -55,12 +75,6 @@ public:
     QLabel *lbl_foco_cerca;
     QLabel *lbl_foco_lejos;
     QLabel *lbl_foco_apagado;
-    QFrame *frame_testigo_camara;
-    QVBoxLayout *layout_testigo_camara;
-    QLabel *lbl_camara;
-    QFrame *linea_testigo_camara;
-    QLabel *lbl_camara_diurna;
-    QLabel *lbl_camara_ir;
     QFrame *frame_testigo_enganche;
     QVBoxLayout *layout_testigo_enganche;
     QLabel *lbl_enganche;
@@ -75,20 +89,6 @@ public:
     QLabel *lbl_modo_fijo;
     QLabel *lbl_modo_esclavo;
     QLabel *lbl_modo_estable;
-    QFrame *frame_testigo_pantalla;
-    QVBoxLayout *layout_testigo_pantalla;
-    QLabel *lbl_pantalla;
-    QFrame *linea_testigo_pantalla;
-    QLabel *lbl_pantalla_datos;
-    QLabel *lbl_pantalla_barrido;
-    QLabel *lbl_pantalla_normal;
-    QFrame *frame_testigo_zoom;
-    QVBoxLayout *layout_testigo_zoom;
-    QLabel *lbl_zoom;
-    QFrame *linea_testigo_zoom;
-    QLabel *lbl_zoom_amplio;
-    QLabel *lbl_zoom_estrecho;
-    QLabel *lbl_zoom_apagado;
     QWidget *panel_superior;
     QHBoxLayout *layout_superior;
     QFrame *frame_referencia_estab;
@@ -173,7 +173,65 @@ public:
         layout_lateral->setSpacing(6);
         layout_lateral->setContentsMargins(11, 11, 11, 11);
         layout_lateral->setObjectName(QStringLiteral("layout_lateral"));
-        layout_lateral->setContentsMargins(0, 0, 0, 0);
+        layout_lateral->setContentsMargins(0, 10, 0, 0);
+        frame_testigo_pantalla = new QFrame(panel_lateral);
+        frame_testigo_pantalla->setObjectName(QStringLiteral("frame_testigo_pantalla"));
+        frame_testigo_pantalla->setFrameShape(QFrame::Box);
+        layout_testigo_pantalla = new QVBoxLayout(frame_testigo_pantalla);
+        layout_testigo_pantalla->setSpacing(0);
+        layout_testigo_pantalla->setContentsMargins(11, 11, 11, 11);
+        layout_testigo_pantalla->setObjectName(QStringLiteral("layout_testigo_pantalla"));
+        layout_testigo_pantalla->setContentsMargins(0, 0, 0, 0);
+        lbl_pantalla = new QLabel(frame_testigo_pantalla);
+        lbl_pantalla->setObjectName(QStringLiteral("lbl_pantalla"));
+        QFont font;
+        font.setFamily(QStringLiteral("Arial"));
+        font.setBold(true);
+        font.setWeight(75);
+        font.setStyleStrategy(QFont::PreferAntialias);
+        lbl_pantalla->setFont(font);
+        lbl_pantalla->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        lbl_pantalla->setAlignment(Qt::AlignCenter);
+
+        layout_testigo_pantalla->addWidget(lbl_pantalla);
+
+        linea_testigo_pantalla = new QFrame(frame_testigo_pantalla);
+        linea_testigo_pantalla->setObjectName(QStringLiteral("linea_testigo_pantalla"));
+        linea_testigo_pantalla->setFrameShadow(QFrame::Plain);
+        linea_testigo_pantalla->setFrameShape(QFrame::HLine);
+
+        layout_testigo_pantalla->addWidget(linea_testigo_pantalla);
+
+        lbl_pantalla_datos = new QLabel(frame_testigo_pantalla);
+        lbl_pantalla_datos->setObjectName(QStringLiteral("lbl_pantalla_datos"));
+        QFont font1;
+        font1.setFamily(QStringLiteral("Arial"));
+        font1.setStyleStrategy(QFont::PreferAntialias);
+        lbl_pantalla_datos->setFont(font1);
+        lbl_pantalla_datos->setStyleSheet(QStringLiteral("background-color: rgb(250, 250, 0);"));
+        lbl_pantalla_datos->setAlignment(Qt::AlignCenter);
+
+        layout_testigo_pantalla->addWidget(lbl_pantalla_datos);
+
+        lbl_pantalla_barrido = new QLabel(frame_testigo_pantalla);
+        lbl_pantalla_barrido->setObjectName(QStringLiteral("lbl_pantalla_barrido"));
+        lbl_pantalla_barrido->setFont(font1);
+        lbl_pantalla_barrido->setStyleSheet(QStringLiteral("background-color: rgb(155, 196, 226);"));
+        lbl_pantalla_barrido->setAlignment(Qt::AlignCenter);
+
+        layout_testigo_pantalla->addWidget(lbl_pantalla_barrido);
+
+        lbl_pantalla_normal = new QLabel(frame_testigo_pantalla);
+        lbl_pantalla_normal->setObjectName(QStringLiteral("lbl_pantalla_normal"));
+        lbl_pantalla_normal->setFont(font1);
+        lbl_pantalla_normal->setStyleSheet(QStringLiteral("background-color: rgb(0, 255, 0);"));
+        lbl_pantalla_normal->setAlignment(Qt::AlignCenter);
+
+        layout_testigo_pantalla->addWidget(lbl_pantalla_normal);
+
+
+        layout_lateral->addWidget(frame_testigo_pantalla);
+
         frame_testigo_ventana_optica = new QFrame(panel_lateral);
         frame_testigo_ventana_optica->setObjectName(QStringLiteral("frame_testigo_ventana_optica"));
         frame_testigo_ventana_optica->setFrameShape(QFrame::Box);
@@ -184,11 +242,6 @@ public:
         layout_testigo_ventana_optica->setContentsMargins(0, 0, 0, 0);
         lbl_ventana_optica = new QLabel(frame_testigo_ventana_optica);
         lbl_ventana_optica->setObjectName(QStringLiteral("lbl_ventana_optica"));
-        QFont font;
-        font.setFamily(QStringLiteral("Arial"));
-        font.setBold(true);
-        font.setWeight(75);
-        font.setStyleStrategy(QFont::PreferAntialias);
         lbl_ventana_optica->setFont(font);
         lbl_ventana_optica->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
         lbl_ventana_optica->setAlignment(Qt::AlignCenter);
@@ -204,9 +257,6 @@ public:
 
         lbl_optica_lava = new QLabel(frame_testigo_ventana_optica);
         lbl_optica_lava->setObjectName(QStringLiteral("lbl_optica_lava"));
-        QFont font1;
-        font1.setFamily(QStringLiteral("Arial"));
-        font1.setStyleStrategy(QFont::PreferAntialias);
         lbl_optica_lava->setFont(font1);
         lbl_optica_lava->setStyleSheet(QStringLiteral("background-color: rgb(0, 0, 255);"));
         lbl_optica_lava->setAlignment(Qt::AlignCenter);
@@ -244,6 +294,104 @@ public:
 
 
         layout_lateral->addWidget(frame_testigo_ventana_optica);
+
+        frame_testigo_camara = new QFrame(panel_lateral);
+        frame_testigo_camara->setObjectName(QStringLiteral("frame_testigo_camara"));
+        frame_testigo_camara->setFrameShape(QFrame::Box);
+        frame_testigo_camara->setMidLineWidth(1);
+        layout_testigo_camara = new QVBoxLayout(frame_testigo_camara);
+        layout_testigo_camara->setSpacing(0);
+        layout_testigo_camara->setContentsMargins(11, 11, 11, 11);
+        layout_testigo_camara->setObjectName(QStringLiteral("layout_testigo_camara"));
+        layout_testigo_camara->setContentsMargins(0, 0, 0, 0);
+        lbl_camara = new QLabel(frame_testigo_camara);
+        lbl_camara->setObjectName(QStringLiteral("lbl_camara"));
+        lbl_camara->setFont(font);
+        lbl_camara->setAutoFillBackground(false);
+        lbl_camara->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        lbl_camara->setFrameShape(QFrame::NoFrame);
+        lbl_camara->setFrameShadow(QFrame::Plain);
+        lbl_camara->setLineWidth(1);
+        lbl_camara->setAlignment(Qt::AlignCenter);
+
+        layout_testigo_camara->addWidget(lbl_camara);
+
+        linea_testigo_camara = new QFrame(frame_testigo_camara);
+        linea_testigo_camara->setObjectName(QStringLiteral("linea_testigo_camara"));
+        linea_testigo_camara->setFrameShadow(QFrame::Plain);
+        linea_testigo_camara->setFrameShape(QFrame::HLine);
+
+        layout_testigo_camara->addWidget(linea_testigo_camara);
+
+        lbl_camara_diurna = new QLabel(frame_testigo_camara);
+        lbl_camara_diurna->setObjectName(QStringLiteral("lbl_camara_diurna"));
+        lbl_camara_diurna->setEnabled(true);
+        lbl_camara_diurna->setFont(font1);
+        lbl_camara_diurna->setStyleSheet(QStringLiteral("background-color: rgb(255, 0, 0);"));
+        lbl_camara_diurna->setAlignment(Qt::AlignCenter);
+
+        layout_testigo_camara->addWidget(lbl_camara_diurna);
+
+        lbl_camara_ir = new QLabel(frame_testigo_camara);
+        lbl_camara_ir->setObjectName(QStringLiteral("lbl_camara_ir"));
+        lbl_camara_ir->setFont(font1);
+        lbl_camara_ir->setStyleSheet(QStringLiteral("background-color: rgb(155, 196, 226);"));
+        lbl_camara_ir->setAlignment(Qt::AlignCenter);
+
+        layout_testigo_camara->addWidget(lbl_camara_ir);
+
+
+        layout_lateral->addWidget(frame_testigo_camara);
+
+        frame_testigo_zoom = new QFrame(panel_lateral);
+        frame_testigo_zoom->setObjectName(QStringLiteral("frame_testigo_zoom"));
+        frame_testigo_zoom->setFrameShape(QFrame::Box);
+        layout_testigo_zoom = new QVBoxLayout(frame_testigo_zoom);
+        layout_testigo_zoom->setSpacing(0);
+        layout_testigo_zoom->setContentsMargins(11, 11, 11, 11);
+        layout_testigo_zoom->setObjectName(QStringLiteral("layout_testigo_zoom"));
+        layout_testigo_zoom->setContentsMargins(0, 0, 0, 0);
+        lbl_zoom = new QLabel(frame_testigo_zoom);
+        lbl_zoom->setObjectName(QStringLiteral("lbl_zoom"));
+        lbl_zoom->setFont(font);
+        lbl_zoom->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        lbl_zoom->setAlignment(Qt::AlignCenter);
+
+        layout_testigo_zoom->addWidget(lbl_zoom);
+
+        linea_testigo_zoom = new QFrame(frame_testigo_zoom);
+        linea_testigo_zoom->setObjectName(QStringLiteral("linea_testigo_zoom"));
+        linea_testigo_zoom->setFrameShadow(QFrame::Plain);
+        linea_testigo_zoom->setFrameShape(QFrame::HLine);
+
+        layout_testigo_zoom->addWidget(linea_testigo_zoom);
+
+        lbl_zoom_amplio = new QLabel(frame_testigo_zoom);
+        lbl_zoom_amplio->setObjectName(QStringLiteral("lbl_zoom_amplio"));
+        lbl_zoom_amplio->setFont(font1);
+        lbl_zoom_amplio->setStyleSheet(QStringLiteral("background-color: rgb(155, 196, 226);"));
+        lbl_zoom_amplio->setAlignment(Qt::AlignCenter);
+
+        layout_testigo_zoom->addWidget(lbl_zoom_amplio);
+
+        lbl_zoom_estrecho = new QLabel(frame_testigo_zoom);
+        lbl_zoom_estrecho->setObjectName(QStringLiteral("lbl_zoom_estrecho"));
+        lbl_zoom_estrecho->setFont(font1);
+        lbl_zoom_estrecho->setStyleSheet(QStringLiteral("background-color: rgb(0, 255, 0);"));
+        lbl_zoom_estrecho->setAlignment(Qt::AlignCenter);
+
+        layout_testigo_zoom->addWidget(lbl_zoom_estrecho);
+
+        lbl_zoom_apagado = new QLabel(frame_testigo_zoom);
+        lbl_zoom_apagado->setObjectName(QStringLiteral("lbl_zoom_apagado"));
+        lbl_zoom_apagado->setFont(font1);
+        lbl_zoom_apagado->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        lbl_zoom_apagado->setAlignment(Qt::AlignCenter);
+
+        layout_testigo_zoom->addWidget(lbl_zoom_apagado);
+
+
+        layout_lateral->addWidget(frame_testigo_zoom);
 
         frame_testigo_video = new QFrame(panel_lateral);
         frame_testigo_video->setObjectName(QStringLiteral("frame_testigo_video"));
@@ -344,54 +492,6 @@ public:
 
 
         layout_lateral->addWidget(frame_testigo_foco);
-
-        frame_testigo_camara = new QFrame(panel_lateral);
-        frame_testigo_camara->setObjectName(QStringLiteral("frame_testigo_camara"));
-        frame_testigo_camara->setFrameShape(QFrame::Box);
-        frame_testigo_camara->setMidLineWidth(1);
-        layout_testigo_camara = new QVBoxLayout(frame_testigo_camara);
-        layout_testigo_camara->setSpacing(0);
-        layout_testigo_camara->setContentsMargins(11, 11, 11, 11);
-        layout_testigo_camara->setObjectName(QStringLiteral("layout_testigo_camara"));
-        layout_testigo_camara->setContentsMargins(0, 0, 0, 0);
-        lbl_camara = new QLabel(frame_testigo_camara);
-        lbl_camara->setObjectName(QStringLiteral("lbl_camara"));
-        lbl_camara->setFont(font);
-        lbl_camara->setAutoFillBackground(false);
-        lbl_camara->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
-        lbl_camara->setFrameShape(QFrame::NoFrame);
-        lbl_camara->setFrameShadow(QFrame::Plain);
-        lbl_camara->setLineWidth(1);
-        lbl_camara->setAlignment(Qt::AlignCenter);
-
-        layout_testigo_camara->addWidget(lbl_camara);
-
-        linea_testigo_camara = new QFrame(frame_testigo_camara);
-        linea_testigo_camara->setObjectName(QStringLiteral("linea_testigo_camara"));
-        linea_testigo_camara->setFrameShadow(QFrame::Plain);
-        linea_testigo_camara->setFrameShape(QFrame::HLine);
-
-        layout_testigo_camara->addWidget(linea_testigo_camara);
-
-        lbl_camara_diurna = new QLabel(frame_testigo_camara);
-        lbl_camara_diurna->setObjectName(QStringLiteral("lbl_camara_diurna"));
-        lbl_camara_diurna->setEnabled(true);
-        lbl_camara_diurna->setFont(font1);
-        lbl_camara_diurna->setStyleSheet(QStringLiteral("background-color: rgb(255, 0, 0);"));
-        lbl_camara_diurna->setAlignment(Qt::AlignCenter);
-
-        layout_testigo_camara->addWidget(lbl_camara_diurna);
-
-        lbl_camara_ir = new QLabel(frame_testigo_camara);
-        lbl_camara_ir->setObjectName(QStringLiteral("lbl_camara_ir"));
-        lbl_camara_ir->setFont(font1);
-        lbl_camara_ir->setStyleSheet(QStringLiteral("background-color: rgb(155, 196, 226);"));
-        lbl_camara_ir->setAlignment(Qt::AlignCenter);
-
-        layout_testigo_camara->addWidget(lbl_camara_ir);
-
-
-        layout_lateral->addWidget(frame_testigo_camara);
 
         frame_testigo_enganche = new QFrame(panel_lateral);
         frame_testigo_enganche->setObjectName(QStringLiteral("frame_testigo_enganche"));
@@ -499,106 +599,6 @@ public:
 
 
         layout_lateral->addWidget(frame_testigo_modo);
-
-        frame_testigo_pantalla = new QFrame(panel_lateral);
-        frame_testigo_pantalla->setObjectName(QStringLiteral("frame_testigo_pantalla"));
-        frame_testigo_pantalla->setFrameShape(QFrame::Box);
-        layout_testigo_pantalla = new QVBoxLayout(frame_testigo_pantalla);
-        layout_testigo_pantalla->setSpacing(0);
-        layout_testigo_pantalla->setContentsMargins(11, 11, 11, 11);
-        layout_testigo_pantalla->setObjectName(QStringLiteral("layout_testigo_pantalla"));
-        layout_testigo_pantalla->setContentsMargins(0, 0, 0, 0);
-        lbl_pantalla = new QLabel(frame_testigo_pantalla);
-        lbl_pantalla->setObjectName(QStringLiteral("lbl_pantalla"));
-        lbl_pantalla->setFont(font);
-        lbl_pantalla->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
-        lbl_pantalla->setAlignment(Qt::AlignCenter);
-
-        layout_testigo_pantalla->addWidget(lbl_pantalla);
-
-        linea_testigo_pantalla = new QFrame(frame_testigo_pantalla);
-        linea_testigo_pantalla->setObjectName(QStringLiteral("linea_testigo_pantalla"));
-        linea_testigo_pantalla->setFrameShadow(QFrame::Plain);
-        linea_testigo_pantalla->setFrameShape(QFrame::HLine);
-
-        layout_testigo_pantalla->addWidget(linea_testigo_pantalla);
-
-        lbl_pantalla_datos = new QLabel(frame_testigo_pantalla);
-        lbl_pantalla_datos->setObjectName(QStringLiteral("lbl_pantalla_datos"));
-        lbl_pantalla_datos->setFont(font1);
-        lbl_pantalla_datos->setStyleSheet(QStringLiteral("background-color: rgb(250, 250, 0);"));
-        lbl_pantalla_datos->setAlignment(Qt::AlignCenter);
-
-        layout_testigo_pantalla->addWidget(lbl_pantalla_datos);
-
-        lbl_pantalla_barrido = new QLabel(frame_testigo_pantalla);
-        lbl_pantalla_barrido->setObjectName(QStringLiteral("lbl_pantalla_barrido"));
-        lbl_pantalla_barrido->setFont(font1);
-        lbl_pantalla_barrido->setStyleSheet(QStringLiteral("background-color: rgb(155, 196, 226);"));
-        lbl_pantalla_barrido->setAlignment(Qt::AlignCenter);
-
-        layout_testigo_pantalla->addWidget(lbl_pantalla_barrido);
-
-        lbl_pantalla_normal = new QLabel(frame_testigo_pantalla);
-        lbl_pantalla_normal->setObjectName(QStringLiteral("lbl_pantalla_normal"));
-        lbl_pantalla_normal->setFont(font1);
-        lbl_pantalla_normal->setStyleSheet(QStringLiteral("background-color: rgb(0, 255, 0);"));
-        lbl_pantalla_normal->setAlignment(Qt::AlignCenter);
-
-        layout_testigo_pantalla->addWidget(lbl_pantalla_normal);
-
-
-        layout_lateral->addWidget(frame_testigo_pantalla);
-
-        frame_testigo_zoom = new QFrame(panel_lateral);
-        frame_testigo_zoom->setObjectName(QStringLiteral("frame_testigo_zoom"));
-        frame_testigo_zoom->setFrameShape(QFrame::Box);
-        layout_testigo_zoom = new QVBoxLayout(frame_testigo_zoom);
-        layout_testigo_zoom->setSpacing(0);
-        layout_testigo_zoom->setContentsMargins(11, 11, 11, 11);
-        layout_testigo_zoom->setObjectName(QStringLiteral("layout_testigo_zoom"));
-        layout_testigo_zoom->setContentsMargins(0, 0, 0, 0);
-        lbl_zoom = new QLabel(frame_testigo_zoom);
-        lbl_zoom->setObjectName(QStringLiteral("lbl_zoom"));
-        lbl_zoom->setFont(font);
-        lbl_zoom->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
-        lbl_zoom->setAlignment(Qt::AlignCenter);
-
-        layout_testigo_zoom->addWidget(lbl_zoom);
-
-        linea_testigo_zoom = new QFrame(frame_testigo_zoom);
-        linea_testigo_zoom->setObjectName(QStringLiteral("linea_testigo_zoom"));
-        linea_testigo_zoom->setFrameShadow(QFrame::Plain);
-        linea_testigo_zoom->setFrameShape(QFrame::HLine);
-
-        layout_testigo_zoom->addWidget(linea_testigo_zoom);
-
-        lbl_zoom_amplio = new QLabel(frame_testigo_zoom);
-        lbl_zoom_amplio->setObjectName(QStringLiteral("lbl_zoom_amplio"));
-        lbl_zoom_amplio->setFont(font1);
-        lbl_zoom_amplio->setStyleSheet(QStringLiteral("background-color: rgb(155, 196, 226);"));
-        lbl_zoom_amplio->setAlignment(Qt::AlignCenter);
-
-        layout_testigo_zoom->addWidget(lbl_zoom_amplio);
-
-        lbl_zoom_estrecho = new QLabel(frame_testigo_zoom);
-        lbl_zoom_estrecho->setObjectName(QStringLiteral("lbl_zoom_estrecho"));
-        lbl_zoom_estrecho->setFont(font1);
-        lbl_zoom_estrecho->setStyleSheet(QStringLiteral("background-color: rgb(0, 255, 0);"));
-        lbl_zoom_estrecho->setAlignment(Qt::AlignCenter);
-
-        layout_testigo_zoom->addWidget(lbl_zoom_estrecho);
-
-        lbl_zoom_apagado = new QLabel(frame_testigo_zoom);
-        lbl_zoom_apagado->setObjectName(QStringLiteral("lbl_zoom_apagado"));
-        lbl_zoom_apagado->setFont(font1);
-        lbl_zoom_apagado->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
-        lbl_zoom_apagado->setAlignment(Qt::AlignCenter);
-
-        layout_testigo_zoom->addWidget(lbl_zoom_apagado);
-
-
-        layout_lateral->addWidget(frame_testigo_zoom);
 
         panel_superior = new QWidget(panel_central);
         panel_superior->setObjectName(QStringLiteral("panel_superior"));
@@ -1074,11 +1074,22 @@ public:
     {
         consola_seonClass->setWindowTitle(QApplication::translate("consola_seonClass", "consola_seon", Q_NULLPTR));
         btn_filmar->setText(QApplication::translate("consola_seonClass", "filmar", Q_NULLPTR));
+        lbl_pantalla->setText(QApplication::translate("consola_seonClass", "PANTALLA", Q_NULLPTR));
+        lbl_pantalla_datos->setText(QApplication::translate("consola_seonClass", "DATOS", Q_NULLPTR));
+        lbl_pantalla_barrido->setText(QApplication::translate("consola_seonClass", "BARRIDO", Q_NULLPTR));
+        lbl_pantalla_normal->setText(QApplication::translate("consola_seonClass", "NORMAL", Q_NULLPTR));
         lbl_ventana_optica->setText(QApplication::translate("consola_seonClass", "VENTANA \303\223PTICA", Q_NULLPTR));
         lbl_optica_lava->setText(QApplication::translate("consola_seonClass", "LAVA", Q_NULLPTR));
         lbl_optica_limpia->setText(QApplication::translate("consola_seonClass", "LIMPIA", Q_NULLPTR));
         lbl_optica_apagada_lava->setText(QApplication::translate("consola_seonClass", "APAGADA LAVA", Q_NULLPTR));
         lbl_optica_apagada_limpia->setText(QApplication::translate("consola_seonClass", "APAGADA LIMPIA", Q_NULLPTR));
+        lbl_camara->setText(QApplication::translate("consola_seonClass", "C\303\201MARA", Q_NULLPTR));
+        lbl_camara_diurna->setText(QApplication::translate("consola_seonClass", "IR", Q_NULLPTR));
+        lbl_camara_ir->setText(QApplication::translate("consola_seonClass", "DIURNA", Q_NULLPTR));
+        lbl_zoom->setText(QApplication::translate("consola_seonClass", "ZOOM", Q_NULLPTR));
+        lbl_zoom_amplio->setText(QApplication::translate("consola_seonClass", "AMPLIO", Q_NULLPTR));
+        lbl_zoom_estrecho->setText(QApplication::translate("consola_seonClass", "ESTRECHO", Q_NULLPTR));
+        lbl_zoom_apagado->setText(QApplication::translate("consola_seonClass", "APAGADO", Q_NULLPTR));
         lbl_video->setText(QApplication::translate("consola_seonClass", "VIDEO", Q_NULLPTR));
         lbl_video_cuantificado->setText(QApplication::translate("consola_seonClass", "CUANTIFICADO", Q_NULLPTR));
         lbl_video_diferenciado->setText(QApplication::translate("consola_seonClass", "DIFERENCIADO", Q_NULLPTR));
@@ -1087,9 +1098,6 @@ public:
         lbl_foco_cerca->setText(QApplication::translate("consola_seonClass", "CERCA", Q_NULLPTR));
         lbl_foco_lejos->setText(QApplication::translate("consola_seonClass", "LEJOS", Q_NULLPTR));
         lbl_foco_apagado->setText(QApplication::translate("consola_seonClass", "APAGADO", Q_NULLPTR));
-        lbl_camara->setText(QApplication::translate("consola_seonClass", "C\303\201MARA", Q_NULLPTR));
-        lbl_camara_diurna->setText(QApplication::translate("consola_seonClass", "IR", Q_NULLPTR));
-        lbl_camara_ir->setText(QApplication::translate("consola_seonClass", "DIURNA", Q_NULLPTR));
         lbl_enganche->setText(QApplication::translate("consola_seonClass", "ENGANCHE", Q_NULLPTR));
         lbl_enganche_cuantificado->setText(QApplication::translate("consola_seonClass", "CUANTIFICADO", Q_NULLPTR));
         lbl_enganche_diferenciado->setText(QApplication::translate("consola_seonClass", "DIFERENCIADO", Q_NULLPTR));
@@ -1098,14 +1106,6 @@ public:
         lbl_modo_fijo->setText(QApplication::translate("consola_seonClass", "FIJO", Q_NULLPTR));
         lbl_modo_esclavo->setText(QApplication::translate("consola_seonClass", "ESCLAVO", Q_NULLPTR));
         lbl_modo_estable->setText(QApplication::translate("consola_seonClass", "ESTABLE", Q_NULLPTR));
-        lbl_pantalla->setText(QApplication::translate("consola_seonClass", "PANTALLA", Q_NULLPTR));
-        lbl_pantalla_datos->setText(QApplication::translate("consola_seonClass", "DATOS", Q_NULLPTR));
-        lbl_pantalla_barrido->setText(QApplication::translate("consola_seonClass", "BARRIDO", Q_NULLPTR));
-        lbl_pantalla_normal->setText(QApplication::translate("consola_seonClass", "NORMAL", Q_NULLPTR));
-        lbl_zoom->setText(QApplication::translate("consola_seonClass", "ZOOM", Q_NULLPTR));
-        lbl_zoom_amplio->setText(QApplication::translate("consola_seonClass", "AMPLIO", Q_NULLPTR));
-        lbl_zoom_estrecho->setText(QApplication::translate("consola_seonClass", "ESTRECHO", Q_NULLPTR));
-        lbl_zoom_apagado->setText(QApplication::translate("consola_seonClass", "APAGADO", Q_NULLPTR));
         lbl_referencia_estab->setText(QApplication::translate("consola_seonClass", "REFERENCIA ESTAB", Q_NULLPTR));
         lbl_imu_prob->setText(QApplication::translate("consola_seonClass", "IMU PROP.", Q_NULLPTR));
         lbl_octans->setText(QApplication::translate("consola_seonClass", "OCTANS", Q_NULLPTR));

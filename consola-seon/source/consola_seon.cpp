@@ -6,6 +6,9 @@
 // qt
 #include <qpushbutton.h>
 
+// utiles
+#include <utiles/include/FuncionesString.h>
+
 consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comunicacion::administrador * admin_comunicacion, seon::aplicacion::configuracion::gui config_gui, QWidget *parent)
     : admin_video(admin_video),
     config_gui(config_gui),
@@ -121,7 +124,8 @@ void consola_seon::configurar_gui() {
 
 void consola_seon::mostrar_mensaje_gps(const seon::comunicacion::trama_gps & trama) {
 
-    this->ui.gps
+    this->ui.lbl_longitud_valor->setText((herramientas::utiles::FuncionesString::toString(trama.longitud.angulo, 2) + " " + trama.longitud.cardinalidad).c_str());
+    this->ui.lbl_latitud_valor->setText((herramientas::utiles::FuncionesString::toString(trama.latitud.angulo, 2) + " " + trama.latitud.cardinalidad).c_str());
 
     this->ui.lineedit_gps->setText(trama.tira_de_datos.c_str());
 }
@@ -138,6 +142,55 @@ void consola_seon::mostrar_mensaje_pulsadores(const seon::comunicacion::trama_pu
 
 void consola_seon::mostrar_mensaje_seon(const seon::comunicacion::trama_seon & trama) {
 
+    std::string color = "";
+    if (trama.origen == seon::comunicacion::trama_seon::origen_dato::TELEMETRO) {
+        color = "blanco";
+    }
+    if (trama.origen == seon::comunicacion::trama_seon::origen_dato::MANUAL) {
+        color = "amarillo";
+    }
+    if (trama.origen == seon::comunicacion::trama_seon::origen_dato::DEFECTO) {
+        color = "celeste";
+    }
+    this->color_fondo(this->ui.lbl_distancia, color);
+    this->color_fondo(this->ui.lbl_distancia_valor, color);
+
+    if (trama.enganche) {
+        if (trama.prediccion) {  // enganche = 1 , prediccion = 1 -> manual
+            this->color_fondo(this->ui.lbl_enganche_etiqueta, "blanco");
+            this->color_fondo(this->ui.lbl_prediccion, "blanco");
+        }
+        else {  // enganche = 1 , prediccion = 0 -> enganche
+            this->color_fondo(this->ui.lbl_enganche_etiqueta, "verde_claro");
+            this->color_fondo(this->ui.lbl_prediccion, "blanco");
+        }
+    }
+    else {
+        if (trama.prediccion) {  // enganche = 0 , prediccion = 1 -> manual
+            this->color_fondo(this->ui.lbl_enganche_etiqueta, "blanco");
+            this->color_fondo(this->ui.lbl_prediccion, "verde_claro");
+        }
+    }
+
+    this->ui.lbl_velocidad_valor->setText(("n" + std::to_string(trama.velocidad)).c_str());
+    //this->ui.zoom
+    if (trama.radar_activado) {
+        this->ui.widget_datos_radar->setVisible(true);
+        this->ui.lbl_dist_valor->setText((std::to_string(trama.distancia_radar) + " y").c_str());
+        this->ui.lbl_azimut_radar_valor->setText((herramientas::utiles::FuncionesString::toString(trama.azimut_radar, 2) + " °").c_str());
+        this->ui.lbl_tipo_valor->setText(trama.tipo_blanco.c_str());
+    }
+    else {
+        this->ui.widget_datos_radar->setVisible(false);
+    }
+
+    //this->lancha.azimut(trama.azimut_grafico);
+    //this->lancha.elevacion(trama.azimut_grafico);
+    this->ui.lbl_azimut_valor->setText((herramientas::utiles::FuncionesString::toString(trama.azimut_absoluto, 2) + " °").c_str());
+    this->ui.lbl_elevacion_valor->setText((herramientas::utiles::FuncionesString::toString(trama.elevacion_absoluta, 2) + " °").c_str());
+
+    //trama.centro_gravedad ???
+    //trama.corrimiento ???
     this->ui.lineedit_seon->setText(trama.tira_de_datos.c_str());
 }
 
@@ -153,6 +206,10 @@ void consola_seon::comenzar_grabacion() {
     this->grabacion.iniciar();
 
     this->timer.start((1000 / (this->admin_video->configuracion.grabacion.fps + 10)), this);
+}
+
+void consola_seon::color_fondo(QWidget * widget, const std::string & color) {
+    widget->setStyleSheet(("background-color: rgb(" + this->config_gui.colores[color].rgb() + ");").c_str());
 }
 
 void consola_seon::timerEvent(QTimerEvent * ev) {
