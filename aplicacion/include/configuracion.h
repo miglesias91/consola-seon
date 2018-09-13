@@ -5,6 +5,7 @@
 #include <bitset>
 #include <string>
 #include <filesystem>
+#include <unordered_map>
 
 // herramientas
 #include <utiles/include/FuncionesSistemaArchivos.h>

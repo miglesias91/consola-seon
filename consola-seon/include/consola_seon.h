@@ -24,6 +24,7 @@
 #include <consola-seon/include/comunicador.h>
 
 // consola
+#include <consola-seon/gestor_ejercicios.h>
 #include <consola-seon/include/hud.h>
 #include <consola-seon/include/tracking.h>
 #include <consola-seon/include/radar.h>
@@ -56,6 +57,8 @@ private:
 
     void color_fondo(QWidget *widget, const std::string &color);
 
+    void abrir_cerrar_gestor();
+
     // atributos
     seon::video::administrador * admin_video;
 
@@ -68,6 +71,8 @@ private:
     comunicador comu;
 
     gui::hud::hud *hud;
+
+    std::unique_ptr<gestor_ejercicios> gestor;
 
     QBasicTimer timer;
     void timerEvent(QTimerEvent * evento);

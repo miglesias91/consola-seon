@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
@@ -148,6 +149,7 @@ public:
     QLabel *lbl_tipo;
     QLabel *lbl_azimut_radar_valor;
     QLabel *lbl_tipo_valor;
+    QCheckBox *checkbox_gestor;
 
     void setupUi(QMainWindow *consola_seonClass)
     {
@@ -335,7 +337,7 @@ public:
         lbl_camara_ir = new QLabel(frame_testigo_camara);
         lbl_camara_ir->setObjectName(QStringLiteral("lbl_camara_ir"));
         lbl_camara_ir->setFont(font1);
-        lbl_camara_ir->setStyleSheet(QStringLiteral("background-color: rgb(155, 196, 226);"));
+        lbl_camara_ir->setStyleSheet(QStringLiteral("background-color: rgb(0, 255, 0);"));
         lbl_camara_ir->setAlignment(Qt::AlignCenter);
 
         layout_testigo_camara->addWidget(lbl_camara_ir);
@@ -1056,6 +1058,12 @@ public:
 
         layout_datos_radar->addWidget(lbl_tipo_valor, 1, 2, 1, 1);
 
+        checkbox_gestor = new QCheckBox(panel_central);
+        checkbox_gestor->setObjectName(QStringLiteral("checkbox_gestor"));
+        checkbox_gestor->setGeometry(QRect(320, 610, 75, 23));
+        checkbox_gestor->setTabletTracking(false);
+        checkbox_gestor->setStyleSheet(QStringLiteral("background-color: rgb(221, 221, 221);"));
+        checkbox_gestor->setTristate(false);
         consola_seonClass->setCentralWidget(panel_central);
         widget_video->raise();
         btn_filmar->raise();
@@ -1064,6 +1072,7 @@ public:
         btn_grabar->raise();
         widget_comunicaciones->raise();
         widget_datos_radar->raise();
+        checkbox_gestor->raise();
 
         retranslateUi(consola_seonClass);
 
@@ -1081,8 +1090,8 @@ public:
         lbl_ventana_optica->setText(QApplication::translate("consola_seonClass", "VENTANA \303\223PTICA", Q_NULLPTR));
         lbl_optica_lava->setText(QApplication::translate("consola_seonClass", "LAVA", Q_NULLPTR));
         lbl_optica_limpia->setText(QApplication::translate("consola_seonClass", "LIMPIA", Q_NULLPTR));
-        lbl_optica_apagada_lava->setText(QApplication::translate("consola_seonClass", "APAGADA LAVA", Q_NULLPTR));
-        lbl_optica_apagada_limpia->setText(QApplication::translate("consola_seonClass", "APAGADA LIMPIA", Q_NULLPTR));
+        lbl_optica_apagada_lava->setText(QApplication::translate("consola_seonClass", "LAVA", Q_NULLPTR));
+        lbl_optica_apagada_limpia->setText(QApplication::translate("consola_seonClass", "LIMPIA", Q_NULLPTR));
         lbl_camara->setText(QApplication::translate("consola_seonClass", "C\303\201MARA", Q_NULLPTR));
         lbl_camara_diurna->setText(QApplication::translate("consola_seonClass", "IR", Q_NULLPTR));
         lbl_camara_ir->setText(QApplication::translate("consola_seonClass", "DIURNA", Q_NULLPTR));
@@ -1137,6 +1146,7 @@ public:
         lbl_tipo->setText(QApplication::translate("consola_seonClass", "TIPO", Q_NULLPTR));
         lbl_azimut_radar_valor->setText(QApplication::translate("consola_seonClass", "0.0 \302\260", Q_NULLPTR));
         lbl_tipo_valor->setText(QApplication::translate("consola_seonClass", "A", Q_NULLPTR));
+        checkbox_gestor->setText(QApplication::translate("consola_seonClass", "gestor", Q_NULLPTR));
     } // retranslateUi
 
 };

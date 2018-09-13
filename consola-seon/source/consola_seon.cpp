@@ -16,6 +16,7 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
     grabacion(admin_video),
     comu(admin_comunicacion),
     hud(nullptr),
+    gestor(new gestor_ejercicios(admin_video->configuracion.grabacion.carpeta)),
     QMainWindow(parent)
 {
     ui.setupUi(this);
@@ -33,6 +34,8 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
     QObject::connect(&this->comu, &comunicador::nuevo_mensaje_pulsadores, this, &consola_seon::mostrar_mensaje_pulsadores);
     QObject::connect(&this->comu, &comunicador::nuevo_mensaje_pupitre, this, &consola_seon::mostrar_mensaje_pupitre);
     QObject::connect(&this->comu, &comunicador::nuevo_mensaje_seon, this, &consola_seon::mostrar_mensaje_seon);
+
+    QObject::connect(this->ui.checkbox_gestor, &QCheckBox::stateChanged, this, &consola_seon::abrir_cerrar_gestor);
 
     // seteo las propiedades de gui
     this->filmacion.hijo_de(this->ui.panel_central);
@@ -150,11 +153,11 @@ void consola_seon::mostrar_mensaje_pupitre(const seon::comunicacion::trama_pupit
         this->detener_grabacion();
     }
 
-    if (trama.acc_archivo_pic && false == this->gestor_ejercicios.abierto()) {
-        this->gestor_ejercicios.mostrar();
+    if (trama.acc_archivo_pic && false == this->gestor) {
+        this->gestor->show();
     }
-    if (false == trama.acc_archivo_pic && this->gestor_ejercicios.abierto()) {
-        this->gestor_ejercicios.cerrar();
+    if (false == trama.acc_archivo_pic && this->gestor) {
+        this->gestor->close();
     }
 
     this->ui.lineedit_pupitre->setText(trama.tira_de_datos.c_str());
@@ -274,6 +277,15 @@ void consola_seon::detener_grabacion() {
 
 void consola_seon::color_fondo(QWidget * widget, const std::string & color) {
     widget->setStyleSheet(("background-color: rgb(" + this->config_gui.colores[color].rgb() + ");").c_str());
+}
+
+void consola_seon::abrir_cerrar_gestor() {
+    if (this->ui.checkbox_gestor->isChecked()) {
+        this->gestor->show();
+    }
+    if (false == this->ui.checkbox_gestor->isChecked()) {
+        this->gestor->close();
+    }
 }
 
 void consola_seon::timerEvent(QTimerEvent * ev) {

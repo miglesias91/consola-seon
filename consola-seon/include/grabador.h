@@ -26,7 +26,7 @@ public:
 
     Q_SLOT void iniciar();
     Q_SLOT void reiniciar();
-    Q_SLOT void detener();
+    //Q_SLOT void detener();
     Q_SLOT void fotograma_listo(const cv::Mat & fotograma);
 
     void fps(uint fps_grabacion);

@@ -2012,6 +2012,28 @@ border: 1px solid rgb(85, 170,0);</string>
      </item>
     </layout>
    </widget>
+   <widget class="QCheckBox" name="checkbox_gestor">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>610</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="tabletTracking">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(221, 221, 221);</string>
+    </property>
+    <property name="text">
+     <string>gestor</string>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
+    </property>
+   </widget>
    <zorder>widget_video</zorder>
    <zorder>btn_filmar</zorder>
    <zorder>panel_lateral</zorder>
@@ -2019,6 +2041,7 @@ border: 1px solid rgb(85, 170,0);</string>
    <zorder>btn_grabar</zorder>
    <zorder>widget_comunicaciones</zorder>
    <zorder>widget_datos_radar</zorder>
+   <zorder>checkbox_gestor</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
