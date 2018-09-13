@@ -33,6 +33,15 @@ void grabador::iniciar() {
     }
 }
 
+void grabador::reiniciar() {
+
+    std::string directorio_ejecutable = std::experimental::filesystem::current_path().u8string() + "\\" + this->carpeta;
+
+    std::string id_ejercicio = herramientas::utiles::Fecha::getFechaActual().getStringAAAAMMDDHHmmSS();
+
+    this->ptr_grabador.reset(new cv::VideoWriter(directorio_ejecutable + "\\" + id_ejercicio + "." + this->formato, cv::CAP_FFMPEG, this->codec, this->fps_grabador, cv::Size(this->ancho, this->alto)));
+}
+
 void grabador::fps(uint fps_grabador) {
     this->fps_grabador = fps_grabador;
 };

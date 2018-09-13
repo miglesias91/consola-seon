@@ -56,9 +56,14 @@ public:
     tracking(const seon::aplicacion::configuracion::tracking &config, QWidget *parent = nullptr);
     virtual ~tracking();
 
+    void agrandar();
+    void achicar();
+
 private:
     seon::aplicacion::configuracion::tracking config;
     reticula *mayor, *media, *menor;
+    std::vector<reticula*> reticulas;
+    std::vector<reticula*>::iterator reticula_actual;
 };
 
 }

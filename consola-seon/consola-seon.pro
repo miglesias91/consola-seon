@@ -4,10 +4,10 @@
 
 TEMPLATE = app
 TARGET = consola-seon
-DESTDIR = ../Win32/Release
-QT += core gui multimedia widgets multimediawidgets
-CONFIG += release
-DEFINES += WIN64 QT_DLL QT_MULTIMEDIA_LIB QT_MULTIMEDIAWIDGETS_LIB QT_WIDGETS_LIB
+DESTDIR = ../Win32/Debug
+QT += core gui multimedia widgets concurrent
+CONFIG += debug
+DEFINES += _SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING WIN64 QT_CONCURRENT_LIB QT_MULTIMEDIA_LIB QT_WIDGETS_LIB
 INCLUDEPATH += ./GeneratedFiles \
     . \
     $(qt-dir)5.9.1/msvc2015/include \
@@ -19,16 +19,37 @@ INCLUDEPATH += ./GeneratedFiles \
     $(qt-dir)5.9.1/msvc2015/include/QtMultimediaWidgets \
     $(qt-dir)5.9.1/msvc2015/include/QtWidgets \
     $(SolutionDir) \
-    $(repos)spdlog/include
-LIBS += -L"$(SolutionDir)Release" \
+    $(repos-git)herramientas_desarrollo \
+    $(repos)serial/include \
+    $(repos)spdlog/include \
+    $(repos)rapidjson/include \
+    $(repos)opencv/build_msvc \
+    $(repos)opencv/sources/include \
+    $(repos)opencv/sources/modules/core/include \
+    $(repos)opencv/sources/modules/videoio/include \
+    $(repos)opencv/sources/modules/highgui/include \
+    $(repos)opencv/sources/modules/imgcodecs/include \
+    $(repos)opencv/sources/modules/imgproc/include
+LIBS += -L"$(SolutionDir)Debug" \
+    -L"$(repos-git)herramientas_desarrollo/Debug" \
+    -L"$(repos)serial/visual_studio/Debug" \
+    -L"$(repos)opencv/build_msvc/lib/Debug" \
     -L"$(qt-dir)5.9.1/msvc2015/lib" \
-    -L"$(repos-git)herramientas_desarrollo/Release" \
+    -lopencv_video341d \
+    -lopencv_videoio341d \
+    -lopencv_imgcodecs341d \
+    -lopencv_imgproc341d \
+    -lopencv_core341d \
+    -lopencv_highgui341d \
+    -lserial \
     -llog \
     -lutiles \
-    -laplicacion
+    -laplicacion \
+    -lvideo \
+    -lcomunicacion
 DEPENDPATH += .
 MOC_DIR += ./GeneratedFiles/$(ConfigurationName)
-OBJECTS_DIR += release
+OBJECTS_DIR += debug
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
 include(consola-seon.pri)

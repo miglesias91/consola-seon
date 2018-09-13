@@ -7,8 +7,37 @@
 message("You are running qmake on a generated .pro file. This may not work!")
 
 
-HEADERS += ./consola_seon.h
+HEADERS += ./include/filmacion_opencv.h \
+    ./include/consola_seon.h \
+    ./include/grabacion_opencv.h \
+    ./include/comunicador.h \
+    ./include/capturador.h \
+    ./include/convertidor_captura.h \
+    ./include/visor_filmacion.h \
+    ./include/grabador.h \
+    ./include/convertidor_grabado.h \
+    ./include/tracking.h \
+    ./include/radar.h \
+    ./include/lanchas.h \
+    ./include/hud.h \
+    ./include/sprite.h \
+    ./gestor_ejercicios.h
 SOURCES += ./main.cpp \
-    ./consola_seon.cpp
-FORMS += ./consola_seon.ui
+    ./source/comunicador.cpp \
+    ./source/consola_seon.cpp \
+    ./source/grabacion_opencv.cpp \
+    ./source/filmacion_opencv.cpp \
+    ./source/capturador.cpp \
+    ./source/convertidor_captura.cpp \
+    ./source/visor_filmacion.cpp \
+    ./source/convertidor_grabado.cpp \
+    ./source/grabador.cpp \
+    ./source/hud.cpp \
+    ./source/lanchas.cpp \
+    ./source/radar.cpp \
+    ./source/sprite.cpp \
+    ./source/tracking.cpp \
+    ./gestor_ejercicios.cpp
+FORMS += ./consola_seon.ui \
+    ./gestor_ejercicios.ui
 RESOURCES += consola_seon.qrc

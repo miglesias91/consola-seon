@@ -13,6 +13,14 @@ lanchas::lanchas(const seon::aplicacion::configuracion::lanchas &config, QWidget
 
 lanchas::~lanchas() {}
 
+void lanchas::azimut(const uint8_t &valor) {
+
+}
+
+void lanchas::elevacion(const uint8_t &valor) {
+
+}
+
 void lanchas::paintEvent(QPaintEvent *paintEvent) {
     QPainter painter(this);
     painter.setPen(QPen(QBrush(QColor(this->config.trazo_lancha.color.r, this->config.trazo_lancha.color.g, this->config.trazo_lancha.color.b)), this->config.trazo_lancha.grosor, Qt::SolidLine, Qt::RoundCap));

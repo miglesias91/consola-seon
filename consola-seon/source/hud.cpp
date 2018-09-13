@@ -12,4 +12,25 @@ hud::hud(const seon::aplicacion::configuracion::ventana &config_hud, const seon:
 
 hud::~hud() {}
 
+void hud::tabla(radar *tabla_radar) {
+
+}
+radar* hud::tabla() const {
+
+}
+
+void hud::dibujo(lanchas *dibujo_lanchas) {
+
+}
+lanchas* hud::dibujo() const {
+
+}
+
+void hud::reticulas(tracking *reticulas_tracking) {
+
+}
+tracking* hud::reticulas() const {
+
+}
+
 }

@@ -52,6 +52,7 @@ private:
     void comenzar_filmacion();
 
     void comenzar_grabacion();
+    void detener_grabacion();
 
     void color_fondo(QWidget *widget, const std::string &color);
 
