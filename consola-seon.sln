@@ -6,10 +6,21 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aplicacion", "aplicacion\aplicacion.vcxproj", "{BB6E236B-6628-4A05-B8D5-8A5F9BCB1FDB}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "video", "video\video.vcxproj", "{6CA16EC6-0C6B-4B52-B6EF-8C05FA5C9E8D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BB6E236B-6628-4A05-B8D5-8A5F9BCB1FDB} = {BB6E236B-6628-4A05-B8D5-8A5F9BCB1FDB}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "comunicacion", "comunicacion\comunicacion.vcxproj", "{CABDC781-EAC1-45AF-A303-7DB593F694DD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BB6E236B-6628-4A05-B8D5-8A5F9BCB1FDB} = {BB6E236B-6628-4A05-B8D5-8A5F9BCB1FDB}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "consola-seon", "consola-seon\consola-seon.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BB6E236B-6628-4A05-B8D5-8A5F9BCB1FDB} = {BB6E236B-6628-4A05-B8D5-8A5F9BCB1FDB}
+		{CABDC781-EAC1-45AF-A303-7DB593F694DD} = {CABDC781-EAC1-45AF-A303-7DB593F694DD}
+		{6CA16EC6-0C6B-4B52-B6EF-8C05FA5C9E8D} = {6CA16EC6-0C6B-4B52-B6EF-8C05FA5C9E8D}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "modelo", "modelo\modelo.vcxproj", "{980A954A-FD43-4862-BD9F-EDED50F0AE10}"
 EndProject

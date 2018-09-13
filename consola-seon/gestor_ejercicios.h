@@ -10,6 +10,8 @@ public:
     gestor_ejercicios(const std::string &carpeta, QWidget *parent = Q_NULLPTR);
     ~gestor_ejercicios();
 
+    void actualizar();
+
 private:
     Ui::gestor_ejercicios *ui;
 

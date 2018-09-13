@@ -281,6 +281,7 @@ void consola_seon::color_fondo(QWidget * widget, const std::string & color) {
 
 void consola_seon::abrir_cerrar_gestor() {
     if (this->ui.checkbox_gestor->isChecked()) {
+        this->gestor->actualizar();
         this->gestor->show();
     }
     if (false == this->ui.checkbox_gestor->isChecked()) {
