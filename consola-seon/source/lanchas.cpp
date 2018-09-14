@@ -1,9 +1,13 @@
 #include <consola-seon/include/lanchas.h>
 
+// qt
+#include <qvector2d.h>
+#include <qmatrix4x4.h>
+
 namespace gui::hud {
 
 lanchas::lanchas(const seon::aplicacion::configuracion::lanchas &config, QWidget *parent) :
-    config(config), QWidget(parent) {
+    config(config), azimut_lancha(0), elevacion_lancha(0), QWidget(parent) {
     this->setAttribute(Qt::WA_DeleteOnClose);
 
     this->resize(this->parentWidget()->size());
@@ -14,11 +18,11 @@ lanchas::lanchas(const seon::aplicacion::configuracion::lanchas &config, QWidget
 lanchas::~lanchas() {}
 
 void lanchas::azimut(const uint8_t &valor) {
-
+    this->azimut_lancha = valor;
 }
 
 void lanchas::elevacion(const uint8_t &valor) {
-
+    this->elevacion_lancha = valor;
 }
 
 void lanchas::paintEvent(QPaintEvent *paintEvent) {
@@ -51,5 +55,23 @@ void lanchas::paintEvent(QPaintEvent *paintEvent) {
     QPolygon lancha_perfil_sombrero(vertices);
     painter.drawConvexPolygon(lancha_perfil_sombrero);
     vertices.clear();
+
+    // dibujo orientacion azimut
+    uint32_t orientacion_azimut_x = 0, orientacion_azimut_y = this->config.largo_trazo_orientacion;
+    this->rotar(this->azimut_lancha, &orientacion_azimut_x, &orientacion_azimut_y);
+    painter.drawLine(21, 44, 21 + orientacion_azimut_x, 44 + orientacion_azimut_y);
+
+    // dibujo orientacion elevacion
+    uint32_t orientacion_elevacion_x = this->config.largo_trazo_orientacion, orientacion_elevacion_y = 0;
+    this->rotar(this->elevacion_lancha, &orientacion_elevacion_x, &orientacion_elevacion_y);
+    painter.drawLine(41, 77, 41 + orientacion_elevacion_x, 77 + orientacion_elevacion_y);
+}
+
+void lanchas::rotar(const uint8_t & angulo, uint32_t * x, uint32_t * y) const {
+    double_t seno = std::sin(angulo);
+    double_t coseno = std::cos(angulo);
+
+    *x = *x * coseno - *y * seno;
+    *y = *x * seno + *y * coseno;
 }
 }

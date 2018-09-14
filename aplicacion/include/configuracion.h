@@ -307,11 +307,14 @@ public:
             json_trazo = json->getAtributoValorJson("trazo_orientacion");
             this->trazo_orientacion.levantar(json_trazo);
             delete json_trazo;
+
+            this->largo_trazo_orientacion = json->getAtributoValorUint("largo_trazo_orientacion");
         }
 
         posicion posicion;
         tamanio tamanio;
         trazo trazo_lancha, trazo_orientacion;
+        uint32_t largo_trazo_orientacion;
     };
 
     struct video {

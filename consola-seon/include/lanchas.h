@@ -22,7 +22,13 @@ protected:
     void paintEvent(QPaintEvent *paintEvent) override;
 
 private:
+
+    // rota el punto (x, y) ASUMIENDO que el pivot esta en el origen.
+    void rotar(const uint8_t &angulo, uint32_t *x, uint32_t *y) const;
+
     seon::aplicacion::configuracion::lanchas config;
+
+    uint8_t azimut_lancha, elevacion_lancha;  // angulos
 
 };
 
