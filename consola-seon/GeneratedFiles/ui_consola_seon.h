@@ -175,7 +175,7 @@ public:
         layout_lateral->setSpacing(6);
         layout_lateral->setContentsMargins(11, 11, 11, 11);
         layout_lateral->setObjectName(QStringLiteral("layout_lateral"));
-        layout_lateral->setContentsMargins(0, 10, 0, 0);
+        layout_lateral->setContentsMargins(0, 0, 0, 0);
         frame_testigo_pantalla = new QFrame(panel_lateral);
         frame_testigo_pantalla->setObjectName(QStringLiteral("frame_testigo_pantalla"));
         frame_testigo_pantalla->setFrameShape(QFrame::Box);
@@ -606,10 +606,10 @@ public:
         panel_superior->setObjectName(QStringLiteral("panel_superior"));
         panel_superior->setGeometry(QRect(220, 10, 610, 80));
         layout_superior = new QHBoxLayout(panel_superior);
-        layout_superior->setSpacing(10);
+        layout_superior->setSpacing(6);
         layout_superior->setContentsMargins(11, 11, 11, 11);
         layout_superior->setObjectName(QStringLiteral("layout_superior"));
-        layout_superior->setContentsMargins(10, 10, 10, 10);
+        layout_superior->setContentsMargins(0, 0, 0, 0);
         frame_referencia_estab = new QFrame(panel_superior);
         frame_referencia_estab->setObjectName(QStringLiteral("frame_referencia_estab"));
         frame_referencia_estab->setFrameShape(QFrame::Box);

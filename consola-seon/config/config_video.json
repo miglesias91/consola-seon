@@ -91,6 +91,6 @@
             "color" : {"nombre": "rojo", "r" : 255, "g" : 0, "b" : 0 },
             "grosor" : 3
         },
-        "largo_trazo_orientacion" : 10
+        "largo_trazo_orientacion" : 30
     }
 }

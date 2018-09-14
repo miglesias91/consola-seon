@@ -1,44 +1,32 @@
 {
     "area_video" : 
     {
-        "ancho" : 1200,
-        "alto" : 500,
+        "ancho" : 1800,
+        "alto" : 1000,
         "x" : 100,
-        "y" : 100
+        "y" : 80
     },
     "panel_superior" : 
     {
-        "ancho" : 1000,
+        "ancho" : 1800,
         "alto" : 80,
         "x" : 80,
         "y" : 0
     },
     "panel_lateral" : 
     {
-        "ancho" : 70,
-        "alto" : 800,
+        "ancho" : 100,
+        "alto" : 1000,
         "x" : 0,
-        "y" : 50
+        "y" : 80
     },
     "elementos" :
     [
         {
             "id" : "lbl_video",
-            "color_primario" : { "nombre" : "rojo", "r" : 255, "g" : 0, "b" : 0 },
+            "color_primario" : { "nombre" : "blanc", "r" : 255, "g" : 255, "b" : 255 },
             "color_secundario" : { "nombre" : "azul", "r" : 0, "g" : 0, "b" : 255 },
-            "texto" : "VIDEILLO"
-        },
-        {
-            "id" : "lbl_zoom",
-            "color_primario" : { "nombre" : "azul", "r" : 0, "g" : 0, "b" : 255 },
-            "color_secundario" : { "nombre" : "azul", "r" : 0, "g" : 0, "b" : 255 },
-            "texto" : "ZOOMAKIO"
-        },
-        {
-            "id" : "lbl_foco",
-            "color_primario" : { "nombre" : "verde", "r" : 0, "g" : 255, "b" : 0 },
-            "color_secundario" : { "nombre" : "azul", "r" : 0, "g" : 0, "b" : 255 },
-            "texto" : "FOQUEIRO"
+            "texto" : "VIDEO"
         }
     ],
     "colores" :

@@ -56,18 +56,20 @@ void lanchas::paintEvent(QPaintEvent *paintEvent) {
     painter.drawConvexPolygon(lancha_perfil_sombrero);
     vertices.clear();
 
+    painter.setPen(QPen(QBrush(QColor(this->config.trazo_orientacion.color.r, this->config.trazo_orientacion.color.g, this->config.trazo_orientacion.color.b)), this->config.trazo_orientacion.grosor, Qt::SolidLine, Qt::RoundCap));
+
     // dibujo orientacion azimut
-    uint32_t orientacion_azimut_x = 0, orientacion_azimut_y = this->config.largo_trazo_orientacion;
+    int32_t orientacion_azimut_x = 0, orientacion_azimut_y = this->config.largo_trazo_orientacion;
     this->rotar(this->azimut_lancha, &orientacion_azimut_x, &orientacion_azimut_y);
-    painter.drawLine(21, 44, 21 + orientacion_azimut_x, 44 + orientacion_azimut_y);
+    painter.drawLine(21, 44, 21 + orientacion_azimut_x, 44 - orientacion_azimut_y);
 
     // dibujo orientacion elevacion
-    uint32_t orientacion_elevacion_x = this->config.largo_trazo_orientacion, orientacion_elevacion_y = 0;
+    int32_t orientacion_elevacion_x = this->config.largo_trazo_orientacion, orientacion_elevacion_y = 0;
     this->rotar(this->elevacion_lancha, &orientacion_elevacion_x, &orientacion_elevacion_y);
     painter.drawLine(41, 77, 41 + orientacion_elevacion_x, 77 + orientacion_elevacion_y);
 }
 
-void lanchas::rotar(const uint8_t & angulo, uint32_t * x, uint32_t * y) const {
+void lanchas::rotar(const uint8_t & angulo, int32_t * x, int32_t * y) const {
     double_t seno = std::sin(angulo);
     double_t coseno = std::cos(angulo);
 

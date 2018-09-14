@@ -45,10 +45,12 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
     this->ui.panel_lateral->resize(this->config_gui.panel_lateral.tamanio.ancho, this->config_gui.panel_lateral.tamanio.alto);
     this->ui.panel_lateral->move(this->config_gui.panel_lateral.posicion.x, this->config_gui.panel_lateral.posicion.y);
     this->ui.panel_lateral->raise();
+    this->ui.layout_lateral->setSpacing(30);
 
     this->ui.panel_superior->resize(this->config_gui.panel_superior.tamanio.ancho, this->config_gui.panel_superior.tamanio.alto);
     this->ui.panel_superior->move(this->config_gui.panel_superior.posicion.x, this->config_gui.panel_superior.posicion.y);
     this->ui.panel_superior->raise();
+    this->ui.layout_superior->setSpacing(80);
 
     this->ui.widget_comunicaciones->raise();
 

@@ -66,7 +66,7 @@
       <number>0</number>
      </property>
      <property name="topMargin">
-      <number>10</number>
+      <number>0</number>
      </property>
      <property name="rightMargin">
       <number>0</number>
@@ -930,6 +930,9 @@ color: rgb(250, 250, 0);</string>
           <property name="frameShadow">
            <enum>QFrame::Plain</enum>
           </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -1008,19 +1011,19 @@ color: rgb(250, 250, 0);</string>
     </property>
     <layout class="QHBoxLayout" name="layout_superior">
      <property name="spacing">
-      <number>10</number>
+      <number>6</number>
      </property>
      <property name="leftMargin">
-      <number>10</number>
+      <number>0</number>
      </property>
      <property name="topMargin">
-      <number>10</number>
+      <number>0</number>
      </property>
      <property name="rightMargin">
-      <number>10</number>
+      <number>0</number>
      </property>
      <property name="bottomMargin">
-      <number>10</number>
+      <number>0</number>
      </property>
      <item>
       <widget class="QFrame" name="frame_referencia_estab">
