@@ -114,8 +114,8 @@ void consola_seon::configurar_gui() {
     this->ui.lbl_optica_lava->hide();
 
     // testigo zoom
-    this->ui.lbl_zoom_apagado->hide();
-    this->ui.lbl_zoom_estrecho->hide();
+    //this->ui.lbl_zoom_apagado->hide();
+    //this->ui.lbl_zoom_estrecho->hide();
 
     std::for_each(this->config_gui.elementos.begin(), this->config_gui.elementos.end(),
         [this](seon::aplicacion::configuracion::elemento elemento)
@@ -182,9 +182,17 @@ void consola_seon::mostrar_mensaje_pulsadores(const seon::comunicacion::trama_pu
     this->ui.lbl_camara_ir->setVisible(trama.camara_ir);
     this->ui.lbl_camara_diurna->setVisible(trama.camara_diurna);
 
-    this->ui.lbl_zoom_amplio->setVisible(trama.zoom_amplio);
-    this->ui.lbl_zoom_estrecho->setVisible(trama.zoom_estrecho);
-    this->ui.lbl_zoom_apagado->setVisible(trama.zoom_estrecho == false && trama.zoom_amplio == false);
+    this->color_fondo(this->ui.lbl_zoom_valor, "blanco");
+    if (trama.zoom_amplio) {
+        this->color_fondo(this->ui.lbl_zoom_valor, "celeste");
+    }
+    if (trama.zoom_estrecho) {
+        this->color_fondo(this->ui.lbl_zoom_valor, "verde_claro");
+    }
+
+    //this->ui.lbl_zoom_amplio->setVisible(trama.zoom_amplio);
+    //this->ui.lbl_zoom_estrecho->setVisible(trama.zoom_estrecho);
+    //this->ui.lbl_zoom_apagado->setVisible(trama.zoom_estrecho == false && trama.zoom_amplio == false);
 
     this->ui.lbl_foco_cerca->setVisible(trama.foco_cerca);
     this->ui.lbl_foco_lejos->setVisible(trama.foco_lejos);
@@ -238,7 +246,7 @@ void consola_seon::mostrar_mensaje_seon(const seon::comunicacion::trama_seon & t
     }
 
     this->ui.lbl_velocidad_valor->setText(("n" + std::to_string(trama.velocidad)).c_str());
-    //this->ui.zoom
+    this->ui.lbl_zoom_valor->setText(((std::to_string(trama.velocidad) + " °").c_str()));
     if (trama.radar_activado) {
         this->ui.widget_datos_radar->setVisible(true);
         this->ui.lbl_dist_valor->setText((std::to_string(trama.distancia_radar) + " y").c_str());
@@ -254,6 +262,8 @@ void consola_seon::mostrar_mensaje_seon(const seon::comunicacion::trama_seon & t
     this->ui.lbl_azimut_valor->setText((herramientas::utiles::FuncionesString::toString(trama.azimut_absoluto, 2) + " °").c_str());
     this->ui.lbl_elevacion_valor->setText((herramientas::utiles::FuncionesString::toString(trama.elevacion_absoluta, 2) + " °").c_str());
 
+    this->hud->reticulas()->corrimiento(trama.corrimiento);
+    this->hud->reticulas()->centro_de_gravedad(trama.centro_gravedad);
     //trama.centro_gravedad ???
     //trama.corrimiento ???
     this->ui.lineedit_seon->setText(trama.tira_de_datos.c_str());

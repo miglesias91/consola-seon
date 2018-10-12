@@ -37,8 +37,8 @@
         },
         "reticula_media" : 
         {
-            "ancho" : 250,
-            "alto" : 250,
+            "ancho" : 500,
+            "alto" : 500,
             "trazo" : { 
                 "color" : {"nombre": "azul", "r" : 0, "g" : 0, "b" : 255 },
                 "grosor" : 3
@@ -46,8 +46,8 @@
         },
         "reticula_menor" : 
         {
-            "ancho" : 300,
-            "alto" : 300,
+            "ancho" : 700,
+            "alto" : 700,
             "trazo" : { 
                 "color" : {"nombre": "rojo", "r" : 255, "g" : 0, "b" : 0 },
                 "grosor" : 3
@@ -57,12 +57,13 @@
         {
             "ancho" : 50,
             "alto" : 50,
+            "espacio_entre_lineas" : 20,
             "trazo" : { 
-                "color" : { "nombre": "violeta", "r" : 255, "g" : 255, "b" : 0 },
+                "color" : { "nombre": "violeta", "r" : 255, "g" : 0, "b" : 0 },
                 "grosor" : 3
             },
-            "x_default" : 0,
-            "y_default" : 0
+            "x_default" : 100,
+            "y_default" : 200
         }
     },
     "radar" :

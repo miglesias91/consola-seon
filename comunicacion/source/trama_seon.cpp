@@ -27,12 +27,12 @@ bool trama_seon::parsear(const std::string & tira_de_datos) {
     this->header_2 = tira_de_datos[1];
 
     std::bitset<16> distancia(std::bitset<8>(tira_de_datos[3]).to_string() + std::bitset<8>(tira_de_datos[2]).to_string());
-    this->distancia = distancia.to_ulong();
+    this->distancia = distancia.to_ulong() * 1.094;  // 1 metro = 1.094 yardas
 
-    std::bitset<8> byte_cuatro(tira_de_datos[4]);
     this->reconocer_origen_dato(tira_de_datos[4]);
     this->reconocer_modo_prediccion_enganche(tira_de_datos[4]);
-    this->reconocer_velocidad(tira_de_datos[4]);
+    std::bitset<16> byte_cuatro(std::bitset<8>(tira_de_datos[4]).to_string() + std::bitset<8>(tira_de_datos[5]).to_string());
+    this->reconocer_velocidad(tira_de_datos[4], tira_de_datos[5]);
     this->zoom = tira_de_datos[6];
     this->reconocer_radar_activado(tira_de_datos[7]);
     this->reconocer_tipo_blanco(tira_de_datos[7]);
@@ -102,12 +102,12 @@ void trama_seon::reconocer_modo_prediccion_enganche(const uint8_t &byte) {
     this->enganche = false;
 }
 
-void trama_seon::reconocer_velocidad(const uint8_t &byte) {
-    std::bitset<16> bits(byte);
+void trama_seon::reconocer_velocidad(const uint8_t &byte_primero, const uint8_t &byte_segundo) {
+    std::bitset<16> bits(std::bitset<8>(byte_segundo).to_string() + std::bitset<8>(byte_primero).to_string());
 
-    bits[7] = 0; bits[6] = 0; bits[5] = 0; bits[4] = 0;
+    bits[15] = 0; bits[14] = 0; bits[13] = 0; bits[12] = 0;
 
-    this->velocidad = bits.to_ulong();
+    this->velocidad = bits.to_ulong() * 1.944;  // 1 m/s = 1.944 nudos
 }
 
 void trama_seon::reconocer_radar_activado(const uint8_t &byte) {

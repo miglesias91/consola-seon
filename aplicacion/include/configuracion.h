@@ -202,10 +202,12 @@ public:
         void levantar(herramientas::utiles::Json * json) {
             this->reticula::levantar(json);
 
+            this->espacio_entre_lineas = json->getAtributoValorUint("espacio_entre_lineas");
             this->por_default.x = json->getAtributoValorUint("x_default");
             this->por_default.y = json->getAtributoValorUint("y_default");
         }
 
+        uint32_t espacio_entre_lineas;
         posicion por_default;
     };
 

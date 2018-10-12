@@ -39,7 +39,7 @@ private:
 
     void reconocer_origen_dato(const uint8_t &byte);
     void reconocer_modo_prediccion_enganche(const uint8_t &byte);
-    void reconocer_velocidad(const uint8_t &byte);
+    void reconocer_velocidad(const uint8_t &byte_primero, const uint8_t &byte_segundo);
     void reconocer_radar_activado(const uint8_t &byte);
     void reconocer_tipo_blanco(const uint8_t &byte);
 
