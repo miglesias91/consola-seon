@@ -571,6 +571,7 @@ public:
         linea_testigo_modo = new QFrame(frame_testigo_modo);
         linea_testigo_modo->setObjectName(QStringLiteral("linea_testigo_modo"));
         linea_testigo_modo->setFrameShadow(QFrame::Plain);
+        linea_testigo_modo->setLineWidth(1);
         linea_testigo_modo->setFrameShape(QFrame::HLine);
 
         layout_testigo_modo->addWidget(linea_testigo_modo);
