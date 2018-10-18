@@ -6,448 +6,1052 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>561</height>
+    <width>1112</width>
+    <height>751</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>simuladorcomu</string>
   </property>
-  <widget class="QWidget" name="formLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>160</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <layout class="QFormLayout" name="from_seon"/>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>179</x>
-     <y>9</y>
-     <width>209</width>
-     <height>473</height>
-    </rect>
-   </property>
-   <layout class="QFormLayout" name="form_botonera">
-    <item row="0" column="0">
-     <widget class="QLabel" name="lbl_header1">
-      <property name="text">
-       <string>header1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="lineedit_header1"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="lbl_header2">
-      <property name="text">
-       <string>header2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="lineedit_header2"/>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="lbl_contador">
-      <property name="text">
-       <string>contador</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="lineedit_contador"/>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="lbl_ref_est">
-      <property name="text">
-       <string>ref_est</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QCheckBox" name="checkbox_ref_est"/>
-    </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="lbl_pant_datos">
-      <property name="text">
-       <string>pant_datos</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QCheckBox" name="checkbox_pant_datos"/>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="lbl_pant_barrido">
-      <property name="text">
-       <string>pant_barrido</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QCheckBox" name="checkbox_pant_barrido"/>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="lbl_pant_normal">
-      <property name="text">
-       <string>pant_normal</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="0">
-     <widget class="QLabel" name="lbl_vent_opt_lav">
-      <property name="text">
-       <string>vent_opt_lav</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="1">
-     <widget class="QCheckBox" name="checkbox_vent_opt_lav"/>
-    </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="lbl_vent_opt_llimp">
-      <property name="text">
-       <string>vent_opt_limp</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="1">
-     <widget class="QCheckBox" name="checkbox_vent_opt_limp"/>
-    </item>
-    <item row="9" column="0">
-     <widget class="QLabel" name="lbl_pa_ir">
-      <property name="text">
-       <string>pa_ir</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="1">
-     <widget class="QCheckBox" name="checkbox_pa_ir"/>
-    </item>
-    <item row="10" column="0">
-     <widget class="QLabel" name="lbl_cam_ir">
-      <property name="text">
-       <string>cam_ir</string>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="1">
-     <widget class="QCheckBox" name="checkbox_cam_ir"/>
-    </item>
-    <item row="11" column="0">
-     <widget class="QLabel" name="lbl_cam_diu">
-      <property name="text">
-       <string>cam_diu</string>
-      </property>
-     </widget>
-    </item>
-    <item row="11" column="1">
-     <widget class="QCheckBox" name="checkbox_cam_diu"/>
-    </item>
-    <item row="12" column="0">
-     <widget class="QLabel" name="lbl_zoom_amp">
-      <property name="text">
-       <string>zoom_amp</string>
-      </property>
-     </widget>
-    </item>
-    <item row="12" column="1">
-     <widget class="QCheckBox" name="checkbox_zoom_amp"/>
-    </item>
-    <item row="13" column="0">
-     <widget class="QLabel" name="lbl_zoom_est">
-      <property name="text">
-       <string>zoom_est</string>
-      </property>
-     </widget>
-    </item>
-    <item row="13" column="1">
-     <widget class="QCheckBox" name="checkbox_zoom_est"/>
-    </item>
-    <item row="14" column="0">
-     <widget class="QLabel" name="lbl_foco_cerca">
-      <property name="text">
-       <string>foco_cerca</string>
-      </property>
-     </widget>
-    </item>
-    <item row="14" column="1">
-     <widget class="QCheckBox" name="checkbox_foco_cerca"/>
-    </item>
-    <item row="15" column="0">
-     <widget class="QLabel" name="lbl_foco_lejos">
-      <property name="text">
-       <string>foco_lejos</string>
-      </property>
-     </widget>
-    </item>
-    <item row="15" column="1">
-     <widget class="QCheckBox" name="checkbox_foco_lejos"/>
-    </item>
-    <item row="16" column="0">
-     <widget class="QLabel" name="lbl_video_cuant">
-      <property name="text">
-       <string>video_cuant</string>
-      </property>
-     </widget>
-    </item>
-    <item row="17" column="0">
-     <widget class="QLabel" name="lbl_video_dif">
-      <property name="text">
-       <string>video_dif</string>
-      </property>
-     </widget>
-    </item>
-    <item row="18" column="0">
-     <widget class="QLabel" name="lbl_video_nor">
-      <property name="text">
-       <string>video_nor</string>
-      </property>
-     </widget>
-    </item>
-    <item row="19" column="0">
-     <widget class="QLabel" name="lbl_eng_cuant">
-      <property name="text">
-       <string>eng_cuant</string>
-      </property>
-     </widget>
-    </item>
-    <item row="20" column="0">
-     <widget class="QLabel" name="lbl_eng_dif">
-      <property name="text">
-       <string>eng_dif</string>
-      </property>
-     </widget>
-    </item>
-    <item row="21" column="0">
-     <widget class="QLabel" name="lbl_mod_fij">
-      <property name="text">
-       <string>mod_fij</string>
-      </property>
-     </widget>
-    </item>
-    <item row="22" column="0">
-     <widget class="QLabel" name="lbl_mod_esc">
-      <property name="text">
-       <string>mod_esc</string>
-      </property>
-     </widget>
-    </item>
-    <item row="23" column="0">
-     <widget class="QLabel" name="lbl_mod_est">
-      <property name="text">
-       <string>mod_est</string>
-      </property>
-     </widget>
-    </item>
-    <item row="16" column="1">
-     <widget class="QCheckBox" name="checkbox_video_cuant"/>
-    </item>
-    <item row="17" column="1">
-     <widget class="QCheckBox" name="checkbox_video_dif"/>
-    </item>
-    <item row="18" column="1">
-     <widget class="QCheckBox" name="checkbox_video_nor"/>
-    </item>
-    <item row="19" column="1">
-     <widget class="QCheckBox" name="checkbox_eng_cuant"/>
-    </item>
-    <item row="20" column="1">
-     <widget class="QCheckBox" name="checkbox_eng_dif"/>
-    </item>
-    <item row="21" column="1">
-     <widget class="QCheckBox" name="checkbox_mod_fij"/>
-    </item>
-    <item row="22" column="1">
-     <widget class="QCheckBox" name="checkbox_mod_esc"/>
-    </item>
-    <item row="23" column="1">
-     <widget class="QCheckBox" name="checkbox_mod_est"/>
-    </item>
-    <item row="6" column="1">
-     <widget class="QCheckBox" name="checkbox_pant_normal">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>400</x>
-     <y>9</y>
-     <width>181</width>
-     <height>471</height>
-    </rect>
-   </property>
-   <layout class="QFormLayout" name="from_pupitre">
-    <item row="0" column="0">
-     <widget class="QLabel" name="lbl_header1_pupitre">
-      <property name="text">
-       <string>header1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="lineedit_header1_pupitre"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="lbl_header2_2">
-      <property name="text">
-       <string>header2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="lbl_contador1">
-      <property name="text">
-       <string>contador1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="lbl_arrp">
-      <property name="text">
-       <string>arrp</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="lbl_eng_desen_pic">
-      <property name="text">
-       <string>eng_desen_pic </string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="lbl_boton2">
-      <property name="text">
-       <string>boton2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="lbl_boton3">
-      <property name="text">
-       <string>boton3</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="0">
-     <widget class="QLabel" name="lbl_graba_pic">
-      <property name="text">
-       <string>graba_pic</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="lbl_acc_arch">
-      <property name="text">
-       <string>acc_arch</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="0">
-     <widget class="QLabel" name="lbl_sel_vent1">
-      <property name="text">
-       <string>sel_vent1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="0">
-     <widget class="QLabel" name="lbl_sel_vent2">
-      <property name="text">
-       <string>sel_vent2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="11" column="0">
-     <widget class="QLabel" name="lbl_sen_fija">
-      <property name="text">
-       <string>sen_fija</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="lineedit_header2_2"/>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="lineedit_contador1"/>
-    </item>
-    <item row="3" column="1">
-     <widget class="QCheckBox" name="checkbox_arrp">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QCheckBox" name="checkbox_eng_desen_pic">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QCheckBox" name="checkbox_boton2">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="1">
-     <widget class="QCheckBox" name="checkbox_boton3">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="1">
-     <widget class="QCheckBox" name="checkbox_graba_pic">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="1">
-     <widget class="QCheckBox" name="checkbox_acc_arch">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="1">
-     <widget class="QCheckBox" name="checkbox_sel_vent1">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="1">
-     <widget class="QCheckBox" name="checkbox_sel_vent2">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="11" column="1">
-     <widget class="QCheckBox" name="checkbox_sen_fija">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+  <layout class="QHBoxLayout" name="horizontalLayout_11">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QWidget" name="widget_puerto_seon" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>puerto</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineedit_puerto_seon"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_conectar_seon">
+          <property name="text">
+           <string>conectar</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="form_seon" native="true">
+       <layout class="QFormLayout" name="from_seon">
+        <item row="1" column="0">
+         <widget class="QLabel" name="lbl_header1_seon">
+          <property name="text">
+           <string>header1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineedit_header1_seon"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="lbl_header_seon">
+          <property name="text">
+           <string>header2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="lineedit_header2_seon"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="lbl_distancia">
+          <property name="text">
+           <string>distancia</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="lbl_origen_dato">
+          <property name="text">
+           <string>origen dato</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="lbl_modo_pred">
+          <property name="text">
+           <string>modo pred</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="lbl_velocidad">
+          <property name="text">
+           <string>velocidad</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="lbl_zoom">
+          <property name="text">
+           <string>zoom</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="lbl_header2_seon">
+          <property name="text">
+           <string>tipo blanco</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0">
+         <widget class="QLabel" name="lbl_azimut_radar">
+          <property name="text">
+           <string>azimut radar</string>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="0">
+         <widget class="QLabel" name="lbl_dist_radar">
+          <property name="text">
+           <string>distancia radar</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="0">
+         <widget class="QLabel" name="lbl_azimut_graf">
+          <property name="text">
+           <string>azimut graf</string>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="0">
+         <widget class="QLabel" name="lbl_elevacion_graf">
+          <property name="text">
+           <string>elevacion graf</string>
+          </property>
+         </widget>
+        </item>
+        <item row="14" column="0">
+         <widget class="QLabel" name="lbl_azimut_abs">
+          <property name="text">
+           <string>azimut abs</string>
+          </property>
+         </widget>
+        </item>
+        <item row="15" column="0">
+         <widget class="QLabel" name="lbl_elevacion_abs">
+          <property name="text">
+           <string>elevacion abs</string>
+          </property>
+         </widget>
+        </item>
+        <item row="16" column="0">
+         <widget class="QLabel" name="lbl_centro_grav">
+          <property name="text">
+           <string>centro gravedad</string>
+          </property>
+         </widget>
+        </item>
+        <item row="17" column="0">
+         <widget class="QLabel" name="lbl_corrimiento">
+          <property name="text">
+           <string>corrimiento</string>
+          </property>
+         </widget>
+        </item>
+        <item row="15" column="1">
+         <widget class="QWidget" name="horizontalWidget_3" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QSpinBox" name="spin_elevacion_abs_entero">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>,</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spin_elevacion_abs_decimal">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="16" column="1">
+         <widget class="QWidget" name="horizontalWidget_2" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <property name="topMargin">
+            <number>1</number>
+           </property>
+           <property name="rightMargin">
+            <number>1</number>
+           </property>
+           <item>
+            <widget class="QSpinBox" name="spin_centro_gravedad_x">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spin_centro_gravedad_y">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="17" column="1">
+         <widget class="QWidget" name="horizontalWidget" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="topMargin">
+            <number>1</number>
+           </property>
+           <property name="rightMargin">
+            <number>1</number>
+           </property>
+           <item>
+            <widget class="QSpinBox" name="spin_corrimiento_x">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spin_corrimiento_y">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="14" column="1">
+         <widget class="QWidget" name="horizontalWidget_4" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QSpinBox" name="spin_azimut_abs_entero">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>,</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spin_azimut_abs_decimal">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="10" column="1">
+         <widget class="QWidget" name="horizontalWidget_6" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QSpinBox" name="spin_azimut_radar_entero">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>,</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spin_azimut_radar_decimal">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="11" column="1">
+         <widget class="QSpinBox" name="spin_distancia_radar">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="1">
+         <widget class="QSpinBox" name="spin_azimut_graf">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="1">
+         <widget class="QSpinBox" name="spin_elevacion_graf">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QSpinBox" name="spin_tipo_blanco">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="lbl_radar_act">
+          <property name="text">
+           <string>radar acti</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QCheckBox" name="checkbox_radar_acti">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QSpinBox" name="spin_zoom">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QSpinBox" name="spin_velocidad">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QRadioButton" name="radiobut_modo_pred_0">
+            <property name="text">
+             <string>pred = true, eng = false</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radiobut_modo_pred_1">
+            <property name="text">
+             <string>pred = false, eng = true</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="4" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <widget class="QRadioButton" name="radiobut_origen_dato_0">
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radiobut_origen_dato_1">
+            <property name="text">
+             <string>1</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radiobut_origen_dato_2">
+            <property name="text">
+             <string>2</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="3" column="1">
+         <widget class="QSpinBox" name="spin_distancia">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_enviar_seon">
+       <property name="text">
+        <string>enviar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QWidget" name="widget_puerto_botonera" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>puerto</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineedit_puerto_botonera"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_conectar_botonera">
+          <property name="text">
+           <string>conectar</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="from_botonera" native="true">
+       <layout class="QFormLayout" name="form_botonera">
+        <item row="0" column="0">
+         <widget class="QLabel" name="lbl_header1">
+          <property name="text">
+           <string>header1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="lineedit_header1_botonera"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="lbl_header2">
+          <property name="text">
+           <string>header2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineedit_header2_botonera"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="lbl_contador">
+          <property name="text">
+           <string>contador</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="lineedit_contador"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="lbl_ref_est">
+          <property name="text">
+           <string>ref_est</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QCheckBox" name="checkbox_ref_est"/>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="lbl_pant_datos">
+          <property name="text">
+           <string>pant_datos</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QCheckBox" name="checkbox_pant_datos"/>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="lbl_pant_barrido">
+          <property name="text">
+           <string>pant_barrido</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QCheckBox" name="checkbox_pant_barrido"/>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="lbl_pant_normal">
+          <property name="text">
+           <string>pant_normal</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="lbl_vent_opt_lav">
+          <property name="text">
+           <string>vent_opt_lav</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QCheckBox" name="checkbox_vent_opt_lav"/>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="lbl_vent_opt_llimp">
+          <property name="text">
+           <string>vent_opt_limp</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QCheckBox" name="checkbox_vent_opt_limp"/>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="lbl_pa_ir">
+          <property name="text">
+           <string>pa_ir</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QCheckBox" name="checkbox_pa_ir"/>
+        </item>
+        <item row="10" column="0">
+         <widget class="QLabel" name="lbl_cam_ir">
+          <property name="text">
+           <string>cam_ir</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="1">
+         <widget class="QCheckBox" name="checkbox_cam_ir"/>
+        </item>
+        <item row="11" column="0">
+         <widget class="QLabel" name="lbl_cam_diu">
+          <property name="text">
+           <string>cam_diu</string>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="1">
+         <widget class="QCheckBox" name="checkbox_cam_diu"/>
+        </item>
+        <item row="12" column="0">
+         <widget class="QLabel" name="lbl_zoom_amp">
+          <property name="text">
+           <string>zoom_amp</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="1">
+         <widget class="QCheckBox" name="checkbox_zoom_amp"/>
+        </item>
+        <item row="13" column="0">
+         <widget class="QLabel" name="lbl_zoom_est">
+          <property name="text">
+           <string>zoom_est</string>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="1">
+         <widget class="QCheckBox" name="checkbox_zoom_est"/>
+        </item>
+        <item row="14" column="0">
+         <widget class="QLabel" name="lbl_foco_cerca">
+          <property name="text">
+           <string>foco_cerca</string>
+          </property>
+         </widget>
+        </item>
+        <item row="14" column="1">
+         <widget class="QCheckBox" name="checkbox_foco_cerca"/>
+        </item>
+        <item row="15" column="0">
+         <widget class="QLabel" name="lbl_foco_lejos">
+          <property name="text">
+           <string>foco_lejos</string>
+          </property>
+         </widget>
+        </item>
+        <item row="15" column="1">
+         <widget class="QCheckBox" name="checkbox_foco_lejos"/>
+        </item>
+        <item row="16" column="0">
+         <widget class="QLabel" name="lbl_video_cuant">
+          <property name="text">
+           <string>video_cuant</string>
+          </property>
+         </widget>
+        </item>
+        <item row="17" column="0">
+         <widget class="QLabel" name="lbl_video_dif">
+          <property name="text">
+           <string>video_dif</string>
+          </property>
+         </widget>
+        </item>
+        <item row="18" column="0">
+         <widget class="QLabel" name="lbl_video_nor">
+          <property name="text">
+           <string>video_nor</string>
+          </property>
+         </widget>
+        </item>
+        <item row="19" column="0">
+         <widget class="QLabel" name="lbl_eng_cuant">
+          <property name="text">
+           <string>eng_cuant</string>
+          </property>
+         </widget>
+        </item>
+        <item row="20" column="0">
+         <widget class="QLabel" name="lbl_eng_dif">
+          <property name="text">
+           <string>eng_dif</string>
+          </property>
+         </widget>
+        </item>
+        <item row="21" column="0">
+         <widget class="QLabel" name="lbl_mod_fij">
+          <property name="text">
+           <string>mod_fij</string>
+          </property>
+         </widget>
+        </item>
+        <item row="22" column="0">
+         <widget class="QLabel" name="lbl_mod_esc">
+          <property name="text">
+           <string>mod_esc</string>
+          </property>
+         </widget>
+        </item>
+        <item row="23" column="0">
+         <widget class="QLabel" name="lbl_mod_est">
+          <property name="text">
+           <string>mod_est</string>
+          </property>
+         </widget>
+        </item>
+        <item row="16" column="1">
+         <widget class="QCheckBox" name="checkbox_video_cuant"/>
+        </item>
+        <item row="17" column="1">
+         <widget class="QCheckBox" name="checkbox_video_dif"/>
+        </item>
+        <item row="18" column="1">
+         <widget class="QCheckBox" name="checkbox_video_nor"/>
+        </item>
+        <item row="19" column="1">
+         <widget class="QCheckBox" name="checkbox_eng_cuant"/>
+        </item>
+        <item row="20" column="1">
+         <widget class="QCheckBox" name="checkbox_eng_dif"/>
+        </item>
+        <item row="21" column="1">
+         <widget class="QCheckBox" name="checkbox_mod_fij"/>
+        </item>
+        <item row="22" column="1">
+         <widget class="QCheckBox" name="checkbox_mod_esc"/>
+        </item>
+        <item row="23" column="1">
+         <widget class="QCheckBox" name="checkbox_mod_est"/>
+        </item>
+        <item row="6" column="1">
+         <widget class="QCheckBox" name="checkbox_pant_normal">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_enviar_botonera">
+       <property name="text">
+        <string>enviar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QWidget" name="widget_puerto_pupitre" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>puerto</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineedit_puerto_pupitre"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_conectar_pupitre">
+          <property name="text">
+           <string>conectar</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="from_pupitre_2" native="true">
+       <layout class="QFormLayout" name="from_pupitre">
+        <item row="0" column="0">
+         <widget class="QLabel" name="lbl_header1_pupitre">
+          <property name="text">
+           <string>header1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="lineedit_header1_pupitre"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="lbl_header2_2">
+          <property name="text">
+           <string>header2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="lbl_contador1">
+          <property name="text">
+           <string>contador1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="lbl_arrp">
+          <property name="text">
+           <string>arrp</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="lbl_eng_desen_pic">
+          <property name="text">
+           <string>eng_desen_pic </string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="lbl_boton2">
+          <property name="text">
+           <string>boton2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="lbl_boton3">
+          <property name="text">
+           <string>boton3</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="lbl_graba_pic">
+          <property name="text">
+           <string>graba_pic</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="lbl_acc_arch">
+          <property name="text">
+           <string>acc_arch</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="lbl_sel_vent1">
+          <property name="text">
+           <string>sel_vent1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0">
+         <widget class="QLabel" name="lbl_sel_vent2">
+          <property name="text">
+           <string>sel_vent2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="0">
+         <widget class="QLabel" name="lbl_sen_fija">
+          <property name="text">
+           <string>sen_fija</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineedit_header2_2"/>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="lineedit_contador1"/>
+        </item>
+        <item row="3" column="1">
+         <widget class="QCheckBox" name="checkbox_arrp">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QCheckBox" name="checkbox_eng_desen_pic">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QCheckBox" name="checkbox_boton2">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QCheckBox" name="checkbox_boton3">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QCheckBox" name="checkbox_graba_pic">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QCheckBox" name="checkbox_acc_arch">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QCheckBox" name="checkbox_sel_vent1">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="1">
+         <widget class="QCheckBox" name="checkbox_sel_vent2">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="1">
+         <widget class="QCheckBox" name="checkbox_sen_fija">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_enviar_pupitre">
+       <property name="text">
+        <string>enviar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>label_6</zorder>
+  <zorder>verticalLayoutWidget_2</zorder>
+  <zorder>verticalLayoutWidget_3</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
