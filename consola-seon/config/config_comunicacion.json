@@ -3,7 +3,7 @@
     {
         "serial" : 
         {
-            "puerto" : "COM1",
+            "puerto" : "COM9",
             "baudrate" : 56700,
             "paridad" : "",
             "bit" : "0"
@@ -28,7 +28,7 @@
         },
         "busqueda" : "0",
         "bidireccional" : false,
-        "largo" : 10,
+        "largo" : 12,
         "sincro" : 
         {
             "encabezado" : 1,
@@ -46,7 +46,7 @@
         },
         "busqueda" : "0",
         "bidireccional" : false,
-        "largo" : 15,
+        "largo" : 25,
         "sincro" : 
         {
             "encabezado" : 1,
@@ -64,7 +64,7 @@
         },
         "busqueda" : "0",
         "bidireccional" : false,
-        "largo" : 20,
+        "largo" : 27,
         "sincro" : 
         {
             "encabezado" : 1,

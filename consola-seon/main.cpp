@@ -27,9 +27,9 @@ int main(int argc, char *argv[])
     seon::video::administrador admin_video(admin_aplicacion.configuracion.config_video);
 
     // inicio admin comunicacion
-    //seon::comunicacion::administrador admin_comunicacion(admin_aplicacion.configuracion.config_comunicacion);
-    seon::aplicacion::configuracion::comunicacion comu_vacia;
-    seon::comunicacion::administrador admin_comunicacion(comu_vacia);
+    seon::comunicacion::administrador admin_comunicacion(admin_aplicacion.configuracion.config_comunicacion);
+    //seon::aplicacion::configuracion::comunicacion comu_vacia;
+    //seon::comunicacion::administrador admin_comunicacion(admin_comunicacion);
 
     QApplication app(argc, argv);
     consola_seon ventana_principal(&admin_video, &admin_comunicacion, admin_aplicacion.configuracion.config_gui);

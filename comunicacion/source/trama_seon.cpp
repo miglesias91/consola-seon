@@ -29,10 +29,10 @@ bool trama_seon::parsear(const std::string & tira_de_datos) {
     std::bitset<16> distancia(std::bitset<8>(tira_de_datos[3]).to_string() + std::bitset<8>(tira_de_datos[2]).to_string());
     this->distancia = distancia.to_ulong() * 1.094;  // 1 metro = 1.094 yardas
 
-    this->reconocer_origen_dato(tira_de_datos[4]);
-    this->reconocer_modo_prediccion_enganche(tira_de_datos[4]);
-    std::bitset<16> byte_cuatro(std::bitset<8>(tira_de_datos[4]).to_string() + std::bitset<8>(tira_de_datos[5]).to_string());
-    this->reconocer_velocidad(tira_de_datos[4], tira_de_datos[5]);
+    this->reconocer_origen_dato(tira_de_datos[5]);
+    this->reconocer_modo_prediccion_enganche(tira_de_datos[5]);
+    std::bitset<16> byte_cuatro(std::bitset<8>(tira_de_datos[5]).to_string() + std::bitset<8>(tira_de_datos[4]).to_string());
+    this->reconocer_velocidad(tira_de_datos[5], tira_de_datos[4]);
     this->zoom = tira_de_datos[6];
     this->reconocer_radar_activado(tira_de_datos[7]);
     this->reconocer_tipo_blanco(tira_de_datos[7]);

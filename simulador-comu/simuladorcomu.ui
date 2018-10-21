@@ -21,6 +21,12 @@
      </property>
      <item>
       <widget class="QWidget" name="widget_puerto_seon" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <property name="leftMargin">
          <number>0</number>
@@ -127,6 +133,19 @@
           </property>
          </widget>
         </item>
+        <item row="3" column="1">
+         <widget class="QSpinBox" name="spin_distancia">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximum">
+           <number>65535</number>
+          </property>
+         </widget>
+        </item>
         <item row="4" column="0">
          <widget class="QLabel" name="lbl_origen_dato">
           <property name="text">
@@ -141,10 +160,52 @@
           </property>
          </widget>
         </item>
+        <item row="5" column="1">
+         <widget class="QGroupBox" name="groupbox_modo_pred">
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QRadioButton" name="radiobut_modo_pred_0">
+             <property name="text">
+              <string>pred = true, eng = false</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radiobut_modo_pred_1">
+             <property name="text">
+              <string>pred = false, eng = true</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
         <item row="6" column="0">
          <widget class="QLabel" name="lbl_velocidad">
           <property name="text">
            <string>velocidad</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QSpinBox" name="spin_velocidad">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximum">
+           <number>4095</number>
           </property>
          </widget>
         </item>
@@ -155,10 +216,50 @@
           </property>
          </widget>
         </item>
+        <item row="7" column="1">
+         <widget class="QSpinBox" name="spin_zoom">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximum">
+           <number>255</number>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="lbl_radar_act">
+          <property name="text">
+           <string>radar acti</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QCheckBox" name="checkbox_radar_acti">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
         <item row="9" column="0">
          <widget class="QLabel" name="lbl_header2_seon">
           <property name="text">
            <string>tipo blanco</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QSpinBox" name="spin_tipo_blanco">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximum">
+           <number>127</number>
           </property>
          </widget>
         </item>
@@ -169,10 +270,89 @@
           </property>
          </widget>
         </item>
+        <item row="10" column="1">
+         <widget class="QWidget" name="horizontalWidget_6" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QSpinBox" name="spin_azimut_radar_entero">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximum">
+              <number>65535</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>,</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spin_azimut_radar_decimal">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximum">
+              <number>99</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
         <item row="11" column="0">
          <widget class="QLabel" name="lbl_dist_radar">
           <property name="text">
            <string>distancia radar</string>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="1">
+         <widget class="QSpinBox" name="spin_distancia_radar">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximum">
+           <number>65535</number>
           </property>
          </widget>
         </item>
@@ -183,10 +363,36 @@
           </property>
          </widget>
         </item>
+        <item row="12" column="1">
+         <widget class="QSpinBox" name="spin_azimut_graf">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximum">
+           <number>255</number>
+          </property>
+         </widget>
+        </item>
         <item row="13" column="0">
          <widget class="QLabel" name="lbl_elevacion_graf">
           <property name="text">
            <string>elevacion graf</string>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="1">
+         <widget class="QSpinBox" name="spin_elevacion_graf">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximum">
+           <number>255</number>
           </property>
          </widget>
         </item>
@@ -197,24 +403,76 @@
           </property>
          </widget>
         </item>
+        <item row="14" column="1">
+         <widget class="QWidget" name="horizontalWidget_4" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QSpinBox" name="spin_azimut_abs_entero">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximum">
+              <number>65535</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>,</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spin_azimut_abs_decimal">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximum">
+              <number>99</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
         <item row="15" column="0">
          <widget class="QLabel" name="lbl_elevacion_abs">
           <property name="text">
            <string>elevacion abs</string>
-          </property>
-         </widget>
-        </item>
-        <item row="16" column="0">
-         <widget class="QLabel" name="lbl_centro_grav">
-          <property name="text">
-           <string>centro gravedad</string>
-          </property>
-         </widget>
-        </item>
-        <item row="17" column="0">
-         <widget class="QLabel" name="lbl_corrimiento">
-          <property name="text">
-           <string>corrimiento</string>
           </property>
          </widget>
         </item>
@@ -250,6 +508,9 @@
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="maximum">
+              <number>65535</number>
+             </property>
             </widget>
            </item>
            <item>
@@ -273,9 +534,19 @@
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="maximum">
+              <number>99</number>
+             </property>
             </widget>
            </item>
           </layout>
+         </widget>
+        </item>
+        <item row="16" column="0">
+         <widget class="QLabel" name="lbl_centro_grav">
+          <property name="text">
+           <string>centro gravedad</string>
+          </property>
          </widget>
         </item>
         <item row="16" column="1">
@@ -287,12 +558,25 @@
            </sizepolicy>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
            <property name="topMargin">
-            <number>1</number>
+            <number>0</number>
            </property>
            <property name="rightMargin">
-            <number>1</number>
+            <number>0</number>
            </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>x</string>
+             </property>
+            </widget>
+           </item>
            <item>
             <widget class="QSpinBox" name="spin_centro_gravedad_x">
              <property name="sizePolicy">
@@ -300,6 +584,16 @@
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="maximum">
+              <number>65535</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_11">
+             <property name="text">
+              <string>y</string>
              </property>
             </widget>
            </item>
@@ -311,9 +605,19 @@
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="maximum">
+              <number>65535</number>
+             </property>
             </widget>
            </item>
           </layout>
+         </widget>
+        </item>
+        <item row="17" column="0">
+         <widget class="QLabel" name="lbl_corrimiento">
+          <property name="text">
+           <string>corrimiento</string>
+          </property>
          </widget>
         </item>
         <item row="17" column="1">
@@ -325,11 +629,17 @@
            </sizepolicy>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
            <property name="topMargin">
-            <number>1</number>
+            <number>0</number>
            </property>
            <property name="rightMargin">
-            <number>1</number>
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
            </property>
            <item>
             <widget class="QSpinBox" name="spin_corrimiento_x">
@@ -338,6 +648,9 @@
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="maximum">
+              <number>255</number>
              </property>
             </widget>
            </item>
@@ -349,256 +662,54 @@
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="14" column="1">
-         <widget class="QWidget" name="horizontalWidget_4" native="true">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="layoutDirection">
-           <enum>Qt::LeftToRight</enum>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item>
-            <widget class="QSpinBox" name="spin_azimut_abs_entero">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_2">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>,</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QSpinBox" name="spin_azimut_abs_decimal">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
+             <property name="maximum">
+              <number>255</number>
              </property>
             </widget>
            </item>
           </layout>
          </widget>
-        </item>
-        <item row="10" column="1">
-         <widget class="QWidget" name="horizontalWidget_6" native="true">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="layoutDirection">
-           <enum>Qt::LeftToRight</enum>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item>
-            <widget class="QSpinBox" name="spin_azimut_radar_entero">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_4">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>,</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QSpinBox" name="spin_azimut_radar_decimal">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="11" column="1">
-         <widget class="QSpinBox" name="spin_distancia_radar">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-         </widget>
-        </item>
-        <item row="12" column="1">
-         <widget class="QSpinBox" name="spin_azimut_graf">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-         </widget>
-        </item>
-        <item row="13" column="1">
-         <widget class="QSpinBox" name="spin_elevacion_graf">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-         </widget>
-        </item>
-        <item row="9" column="1">
-         <widget class="QSpinBox" name="spin_tipo_blanco">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-         </widget>
-        </item>
-        <item row="8" column="0">
-         <widget class="QLabel" name="lbl_radar_act">
-          <property name="text">
-           <string>radar acti</string>
-          </property>
-         </widget>
-        </item>
-        <item row="8" column="1">
-         <widget class="QCheckBox" name="checkbox_radar_acti">
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="1">
-         <widget class="QSpinBox" name="spin_zoom">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="1">
-         <widget class="QSpinBox" name="spin_velocidad">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="1">
-         <layout class="QHBoxLayout" name="horizontalLayout_5">
-          <item>
-           <widget class="QRadioButton" name="radiobut_modo_pred_0">
-            <property name="text">
-             <string>pred = true, eng = false</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="radiobut_modo_pred_1">
-            <property name="text">
-             <string>pred = false, eng = true</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
         </item>
         <item row="4" column="1">
-         <layout class="QHBoxLayout" name="horizontalLayout_7">
-          <item>
-           <widget class="QRadioButton" name="radiobut_origen_dato_0">
-            <property name="text">
-             <string>0</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="radiobut_origen_dato_1">
-            <property name="text">
-             <string>1</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="radiobut_origen_dato_2">
-            <property name="text">
-             <string>2</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="3" column="1">
-         <widget class="QSpinBox" name="spin_distancia">
+         <widget class="QGroupBox" name="groupbox_origen_dato">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QRadioButton" name="radiobut_origen_dato_0">
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radiobut_origen_dato_1">
+             <property name="text">
+              <string>1</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radiobut_origen_dato_2">
+             <property name="text">
+              <string>2</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
        </layout>
@@ -679,8 +790,8 @@
       </widget>
      </item>
      <item>
-      <widget class="QWidget" name="from_botonera" native="true">
-       <layout class="QFormLayout" name="form_botonera">
+      <widget class="QWidget" name="form_botonera" native="true">
+       <layout class="QFormLayout" name="layout_botonera">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -719,9 +830,6 @@
            <string>contador</string>
           </property>
          </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="lineedit_contador"/>
         </item>
         <item row="3" column="0">
          <widget class="QLabel" name="lbl_ref_est">
@@ -937,6 +1045,19 @@
           </property>
          </widget>
         </item>
+        <item row="2" column="1">
+         <widget class="QSpinBox" name="spin_contador_botonera">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximum">
+           <number>65535</number>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </item>
@@ -1012,8 +1133,8 @@
       </widget>
      </item>
      <item>
-      <widget class="QWidget" name="from_pupitre_2" native="true">
-       <layout class="QFormLayout" name="from_pupitre">
+      <widget class="QWidget" name="form_pupitre" native="true">
+       <layout class="QFormLayout" name="layout_pupitre">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -1046,7 +1167,7 @@
         <item row="2" column="0">
          <widget class="QLabel" name="lbl_contador1">
           <property name="text">
-           <string>contador1</string>
+           <string>contador</string>
           </property>
          </widget>
         </item>
@@ -1116,9 +1237,6 @@
         <item row="1" column="1">
          <widget class="QLineEdit" name="lineedit_header2_2"/>
         </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="lineedit_contador1"/>
-        </item>
         <item row="3" column="1">
          <widget class="QCheckBox" name="checkbox_arrp">
           <property name="text">
@@ -1179,6 +1297,19 @@
          <widget class="QCheckBox" name="checkbox_sen_fija">
           <property name="text">
            <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QSpinBox" name="spin_contador_pupitre">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximum">
+           <number>255</number>
           </property>
          </widget>
         </item>
