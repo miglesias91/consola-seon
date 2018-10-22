@@ -138,8 +138,26 @@ bool simuladorcomu::enviar_seon() {
     trama[6] = this->ui.spin_zoom->value();
 
     // radar activado, tipo blanco
-    std::bitset<8> tipo_blanco(this->ui.spin_tipo_blanco->value());
-    tipo_blanco.set(0, this->ui.checkbox_radar_acti->isChecked());
+    std::bitset<8> tipo_blanco;
+    
+    if (this->ui.radiobut_tipo_s->isChecked()) {
+        tipo_blanco = 0;
+    }
+    if (this->ui.radiobut_tipo_a->isChecked()) {
+        tipo_blanco = 1;
+    }
+    if (this->ui.radiobut_tipo_y->isChecked()) {
+        tipo_blanco = 2;
+    }
+    if (this->ui.radiobut_tipo_u->isChecked()) {
+        tipo_blanco = 3;
+    }
+    if (this->ui.radiobut_tipo_t->isChecked()) {
+        tipo_blanco = 4;
+    }
+
+    tipo_blanco.set(7, this->ui.checkbox_radar_acti->isChecked());
+    trama[7] = tipo_blanco.to_ulong();
 
     // azimut radar
     std::string bits_azimut_radar_entero = std::bitset<16>(this->ui.spin_azimut_radar_entero->value()).to_string();
@@ -169,18 +187,18 @@ bool simuladorcomu::enviar_seon() {
     std::bitset<8> azimut_absoluto_entero_1(bits_azimut_absoluto_entero.substr(0, 7));
     std::bitset<8> azimut_absoluto_entero_2(bits_azimut_absoluto_entero.substr(8, 15));
 
-    trama[17] = azimut_absoluto_entero_1.to_ulong();
-    trama[16] = azimut_absoluto_entero_2.to_ulong();
-    trama[15] = this->ui.spin_azimut_abs_decimal->value();
+    trama[16] = azimut_absoluto_entero_1.to_ulong();
+    trama[15] = azimut_absoluto_entero_2.to_ulong();
+    trama[17] = this->ui.spin_azimut_abs_decimal->value();
 
     // elevacion absoluta
     std::string bits_elevacion_absoluta_entero = std::bitset<16>(this->ui.spin_elevacion_abs_entero->value()).to_string();
     std::bitset<8> elevacion_absoluta_entero_1(bits_elevacion_absoluta_entero.substr(0, 7));
     std::bitset<8> elevacion_absoluta_entero_2(bits_elevacion_absoluta_entero.substr(8, 15));
 
-    trama[20] = elevacion_absoluta_entero_1.to_ulong();
-    trama[19] = elevacion_absoluta_entero_2.to_ulong();
-    trama[18] = this->ui.spin_elevacion_abs_decimal->value();
+    trama[19] = elevacion_absoluta_entero_1.to_ulong();
+    trama[18] = elevacion_absoluta_entero_2.to_ulong();
+    trama[20] = this->ui.spin_elevacion_abs_decimal->value();
 
     // centro gravedad
     std::string bits_centro_gravedad_x = std::bitset<16>(this->ui.spin_centro_gravedad_x->value()).to_string();

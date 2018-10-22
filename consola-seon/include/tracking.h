@@ -39,7 +39,9 @@ protected:
         int32_t centro_x = ((esquina_der_abajo_x - esquina_izq_arriba_x) / 2) + this->corrimiento_lineas.x;
         int32_t centro_y = ((esquina_der_abajo_y - esquina_izq_arriba_y) / 2) + this->corrimiento_lineas.y;
 
+        this->QWidget::paintEvent(paintEvent);
         QPainter painter(this);
+        //painter.eraseRect(this->rect());
         painter.setPen(QPen(QBrush(QColor(this->config.linea.color.r, this->config.linea.color.g, this->config.linea.color.b)), this->config.linea.grosor));
 
         uint32_t mitad_alto = this->config.tamanio.alto / 2;
@@ -85,7 +87,9 @@ protected:
         int32_t centro_x = ((esquina_der_abajo_x - esquina_izq_arriba_x) / 2) + x;
         int32_t centro_y = ((esquina_der_abajo_y - esquina_izq_arriba_y) / 2) + y;
 
+        this->QWidget::paintEvent(paintEvent);
         QPainter painter(this);
+        //painter.eraseRect(this->rect());
         painter.setPen(QPen(QBrush(QColor(this->config.linea.color.r, this->config.linea.color.g, this->config.linea.color.b)), this->config.linea.grosor));
 
         uint32_t espacio_alto = this->config.espacio_entre_lineas / 2;

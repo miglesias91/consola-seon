@@ -153,6 +153,48 @@
           </property>
          </widget>
         </item>
+        <item row="4" column="1">
+         <widget class="QGroupBox" name="groupbox_origen_dato">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QRadioButton" name="radiobut_origen_dato_0">
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radiobut_origen_dato_1">
+             <property name="text">
+              <string>1</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radiobut_origen_dato_2">
+             <property name="text">
+              <string>2</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
         <item row="5" column="0">
          <widget class="QLabel" name="lbl_modo_pred">
           <property name="text">
@@ -247,19 +289,6 @@
          <widget class="QLabel" name="lbl_header2_seon">
           <property name="text">
            <string>tipo blanco</string>
-          </property>
-         </widget>
-        </item>
-        <item row="9" column="1">
-         <widget class="QSpinBox" name="spin_tipo_blanco">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="maximum">
-           <number>127</number>
           </property>
          </widget>
         </item>
@@ -585,6 +614,9 @@
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="suffix">
+              <string/>
+             </property>
              <property name="maximum">
               <number>65535</number>
              </property>
@@ -670,15 +702,12 @@
           </layout>
          </widget>
         </item>
-        <item row="4" column="1">
-         <widget class="QGroupBox" name="groupbox_origen_dato">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item row="9" column="1">
+         <widget class="QGroupBox" name="groupbox_tipo_blanco">
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
            <property name="topMargin">
             <number>0</number>
            </property>
@@ -689,23 +718,37 @@
             <number>0</number>
            </property>
            <item>
-            <widget class="QRadioButton" name="radiobut_origen_dato_0">
+            <widget class="QRadioButton" name="radiobut_tipo_s">
              <property name="text">
-              <string>0</string>
+              <string>S</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radiobut_origen_dato_1">
+            <widget class="QRadioButton" name="radiobut_tipo_a">
              <property name="text">
-              <string>1</string>
+              <string>A</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radiobut_origen_dato_2">
+            <widget class="QRadioButton" name="radiobut_tipo_y">
              <property name="text">
-              <string>2</string>
+              <string>Y</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radiobut_tipo_t">
+             <property name="text">
+              <string>T</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radiobut_tipo_u">
+             <property name="text">
+              <string>U</string>
              </property>
             </widget>
            </item>

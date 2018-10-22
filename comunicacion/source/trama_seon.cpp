@@ -57,8 +57,8 @@ bool trama_seon::parsear(const std::string & tira_de_datos) {
     std::bitset<16> cgy(std::bitset<8>(tira_de_datos[24]).to_string() + std::bitset<8>(tira_de_datos[23]).to_string());
     this->centro_gravedad.y = cgy.to_ulong();
 
-    this->corrimiento.x = static_cast<uint32_t>(tira_de_datos[25]);
-    this->corrimiento.y = static_cast<uint32_t>(tira_de_datos[26]);
+    this->corrimiento.x = static_cast<int8_t>(tira_de_datos[25]);
+    this->corrimiento.y = static_cast<int8_t>(tira_de_datos[26]);
 
     return true;
 }
@@ -85,25 +85,15 @@ void trama_seon::reconocer_modo_prediccion_enganche(const uint8_t &byte) {
 
     if (bits[4] == 1 && bits[5] == 1) {
         this->prediccion = true;
-        this->enganche = true;
-        return;
-    }
-    if (bits[4] == 1 && bits[5] == 0) {
-        this->prediccion = true;
         this->enganche = false;
         return;
     }
-    if (bits[4] == 0 && bits[5] == 1) {
-        this->prediccion = false;
-        this->enganche = true;
-        return;
-    }
     this->prediccion = false;
-    this->enganche = false;
+    this->enganche = true;
 }
 
 void trama_seon::reconocer_velocidad(const uint8_t &byte_primero, const uint8_t &byte_segundo) {
-    std::bitset<16> bits(std::bitset<8>(byte_segundo).to_string() + std::bitset<8>(byte_primero).to_string());
+    std::bitset<16> bits(std::bitset<8>(byte_primero).to_string() + std::bitset<8>(byte_segundo).to_string());
 
     bits[15] = 0; bits[14] = 0; bits[13] = 0; bits[12] = 0;
 

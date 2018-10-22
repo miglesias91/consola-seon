@@ -50,6 +50,11 @@ public:
     QLabel *lbl_distancia;
     QSpinBox *spin_distancia;
     QLabel *lbl_origen_dato;
+    QGroupBox *groupbox_origen_dato;
+    QHBoxLayout *horizontalLayout_7;
+    QRadioButton *radiobut_origen_dato_0;
+    QRadioButton *radiobut_origen_dato_1;
+    QRadioButton *radiobut_origen_dato_2;
     QLabel *lbl_modo_pred;
     QGroupBox *groupbox_modo_pred;
     QHBoxLayout *horizontalLayout_5;
@@ -62,7 +67,6 @@ public:
     QLabel *lbl_radar_act;
     QCheckBox *checkbox_radar_acti;
     QLabel *lbl_header2_seon;
-    QSpinBox *spin_tipo_blanco;
     QLabel *lbl_azimut_radar;
     QWidget *horizontalWidget_6;
     QHBoxLayout *horizontalLayout_6;
@@ -99,11 +103,13 @@ public:
     QHBoxLayout *horizontalLayout;
     QSpinBox *spin_corrimiento_x;
     QSpinBox *spin_corrimiento_y;
-    QGroupBox *groupbox_origen_dato;
-    QHBoxLayout *horizontalLayout_7;
-    QRadioButton *radiobut_origen_dato_0;
-    QRadioButton *radiobut_origen_dato_1;
-    QRadioButton *radiobut_origen_dato_2;
+    QGroupBox *groupbox_tipo_blanco;
+    QHBoxLayout *horizontalLayout_12;
+    QRadioButton *radiobut_tipo_s;
+    QRadioButton *radiobut_tipo_a;
+    QRadioButton *radiobut_tipo_y;
+    QRadioButton *radiobut_tipo_t;
+    QRadioButton *radiobut_tipo_u;
     QPushButton *btn_enviar_seon;
     QVBoxLayout *verticalLayout_2;
     QWidget *widget_puerto_botonera;
@@ -313,6 +319,33 @@ public:
 
         from_seon->setWidget(4, QFormLayout::LabelRole, lbl_origen_dato);
 
+        groupbox_origen_dato = new QGroupBox(form_seon);
+        groupbox_origen_dato->setObjectName(QStringLiteral("groupbox_origen_dato"));
+        sizePolicy.setHeightForWidth(groupbox_origen_dato->sizePolicy().hasHeightForWidth());
+        groupbox_origen_dato->setSizePolicy(sizePolicy);
+        horizontalLayout_7 = new QHBoxLayout(groupbox_origen_dato);
+        horizontalLayout_7->setSpacing(6);
+        horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        horizontalLayout_7->setContentsMargins(-1, 0, 0, 0);
+        radiobut_origen_dato_0 = new QRadioButton(groupbox_origen_dato);
+        radiobut_origen_dato_0->setObjectName(QStringLiteral("radiobut_origen_dato_0"));
+
+        horizontalLayout_7->addWidget(radiobut_origen_dato_0);
+
+        radiobut_origen_dato_1 = new QRadioButton(groupbox_origen_dato);
+        radiobut_origen_dato_1->setObjectName(QStringLiteral("radiobut_origen_dato_1"));
+
+        horizontalLayout_7->addWidget(radiobut_origen_dato_1);
+
+        radiobut_origen_dato_2 = new QRadioButton(groupbox_origen_dato);
+        radiobut_origen_dato_2->setObjectName(QStringLiteral("radiobut_origen_dato_2"));
+
+        horizontalLayout_7->addWidget(radiobut_origen_dato_2);
+
+
+        from_seon->setWidget(4, QFormLayout::FieldRole, groupbox_origen_dato);
+
         lbl_modo_pred = new QLabel(form_seon);
         lbl_modo_pred->setObjectName(QStringLiteral("lbl_modo_pred"));
 
@@ -378,14 +411,6 @@ public:
         lbl_header2_seon->setObjectName(QStringLiteral("lbl_header2_seon"));
 
         from_seon->setWidget(9, QFormLayout::LabelRole, lbl_header2_seon);
-
-        spin_tipo_blanco = new QSpinBox(form_seon);
-        spin_tipo_blanco->setObjectName(QStringLiteral("spin_tipo_blanco"));
-        sizePolicy2.setHeightForWidth(spin_tipo_blanco->sizePolicy().hasHeightForWidth());
-        spin_tipo_blanco->setSizePolicy(sizePolicy2);
-        spin_tipo_blanco->setMaximum(127);
-
-        from_seon->setWidget(9, QFormLayout::FieldRole, spin_tipo_blanco);
 
         lbl_azimut_radar = new QLabel(form_seon);
         lbl_azimut_radar->setObjectName(QStringLiteral("lbl_azimut_radar"));
@@ -628,32 +653,40 @@ public:
 
         from_seon->setWidget(17, QFormLayout::FieldRole, horizontalWidget);
 
-        groupbox_origen_dato = new QGroupBox(form_seon);
-        groupbox_origen_dato->setObjectName(QStringLiteral("groupbox_origen_dato"));
-        sizePolicy.setHeightForWidth(groupbox_origen_dato->sizePolicy().hasHeightForWidth());
-        groupbox_origen_dato->setSizePolicy(sizePolicy);
-        horizontalLayout_7 = new QHBoxLayout(groupbox_origen_dato);
-        horizontalLayout_7->setSpacing(6);
-        horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-        horizontalLayout_7->setContentsMargins(-1, 0, 0, 0);
-        radiobut_origen_dato_0 = new QRadioButton(groupbox_origen_dato);
-        radiobut_origen_dato_0->setObjectName(QStringLiteral("radiobut_origen_dato_0"));
+        groupbox_tipo_blanco = new QGroupBox(form_seon);
+        groupbox_tipo_blanco->setObjectName(QStringLiteral("groupbox_tipo_blanco"));
+        horizontalLayout_12 = new QHBoxLayout(groupbox_tipo_blanco);
+        horizontalLayout_12->setSpacing(6);
+        horizontalLayout_12->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
+        horizontalLayout_12->setContentsMargins(0, 0, 0, 0);
+        radiobut_tipo_s = new QRadioButton(groupbox_tipo_blanco);
+        radiobut_tipo_s->setObjectName(QStringLiteral("radiobut_tipo_s"));
 
-        horizontalLayout_7->addWidget(radiobut_origen_dato_0);
+        horizontalLayout_12->addWidget(radiobut_tipo_s);
 
-        radiobut_origen_dato_1 = new QRadioButton(groupbox_origen_dato);
-        radiobut_origen_dato_1->setObjectName(QStringLiteral("radiobut_origen_dato_1"));
+        radiobut_tipo_a = new QRadioButton(groupbox_tipo_blanco);
+        radiobut_tipo_a->setObjectName(QStringLiteral("radiobut_tipo_a"));
 
-        horizontalLayout_7->addWidget(radiobut_origen_dato_1);
+        horizontalLayout_12->addWidget(radiobut_tipo_a);
 
-        radiobut_origen_dato_2 = new QRadioButton(groupbox_origen_dato);
-        radiobut_origen_dato_2->setObjectName(QStringLiteral("radiobut_origen_dato_2"));
+        radiobut_tipo_y = new QRadioButton(groupbox_tipo_blanco);
+        radiobut_tipo_y->setObjectName(QStringLiteral("radiobut_tipo_y"));
 
-        horizontalLayout_7->addWidget(radiobut_origen_dato_2);
+        horizontalLayout_12->addWidget(radiobut_tipo_y);
+
+        radiobut_tipo_t = new QRadioButton(groupbox_tipo_blanco);
+        radiobut_tipo_t->setObjectName(QStringLiteral("radiobut_tipo_t"));
+
+        horizontalLayout_12->addWidget(radiobut_tipo_t);
+
+        radiobut_tipo_u = new QRadioButton(groupbox_tipo_blanco);
+        radiobut_tipo_u->setObjectName(QStringLiteral("radiobut_tipo_u"));
+
+        horizontalLayout_12->addWidget(radiobut_tipo_u);
 
 
-        from_seon->setWidget(4, QFormLayout::FieldRole, groupbox_origen_dato);
+        from_seon->setWidget(9, QFormLayout::FieldRole, groupbox_tipo_blanco);
 
 
         verticalLayout->addWidget(form_seon);
@@ -1170,6 +1203,9 @@ public:
         lbl_header_seon->setText(QApplication::translate("simuladorcomuClass", "header2", Q_NULLPTR));
         lbl_distancia->setText(QApplication::translate("simuladorcomuClass", "distancia", Q_NULLPTR));
         lbl_origen_dato->setText(QApplication::translate("simuladorcomuClass", "origen dato", Q_NULLPTR));
+        radiobut_origen_dato_0->setText(QApplication::translate("simuladorcomuClass", "0", Q_NULLPTR));
+        radiobut_origen_dato_1->setText(QApplication::translate("simuladorcomuClass", "1", Q_NULLPTR));
+        radiobut_origen_dato_2->setText(QApplication::translate("simuladorcomuClass", "2", Q_NULLPTR));
         lbl_modo_pred->setText(QApplication::translate("simuladorcomuClass", "modo pred", Q_NULLPTR));
         radiobut_modo_pred_0->setText(QApplication::translate("simuladorcomuClass", "pred = true, eng = false", Q_NULLPTR));
         radiobut_modo_pred_1->setText(QApplication::translate("simuladorcomuClass", "pred = false, eng = true", Q_NULLPTR));
@@ -1189,11 +1225,14 @@ public:
         label->setText(QApplication::translate("simuladorcomuClass", ",", Q_NULLPTR));
         lbl_centro_grav->setText(QApplication::translate("simuladorcomuClass", "centro gravedad", Q_NULLPTR));
         label_10->setText(QApplication::translate("simuladorcomuClass", "x", Q_NULLPTR));
+        spin_centro_gravedad_x->setSuffix(QString());
         label_11->setText(QApplication::translate("simuladorcomuClass", "y", Q_NULLPTR));
         lbl_corrimiento->setText(QApplication::translate("simuladorcomuClass", "corrimiento", Q_NULLPTR));
-        radiobut_origen_dato_0->setText(QApplication::translate("simuladorcomuClass", "0", Q_NULLPTR));
-        radiobut_origen_dato_1->setText(QApplication::translate("simuladorcomuClass", "1", Q_NULLPTR));
-        radiobut_origen_dato_2->setText(QApplication::translate("simuladorcomuClass", "2", Q_NULLPTR));
+        radiobut_tipo_s->setText(QApplication::translate("simuladorcomuClass", "S", Q_NULLPTR));
+        radiobut_tipo_a->setText(QApplication::translate("simuladorcomuClass", "A", Q_NULLPTR));
+        radiobut_tipo_y->setText(QApplication::translate("simuladorcomuClass", "Y", Q_NULLPTR));
+        radiobut_tipo_t->setText(QApplication::translate("simuladorcomuClass", "T", Q_NULLPTR));
+        radiobut_tipo_u->setText(QApplication::translate("simuladorcomuClass", "U", Q_NULLPTR));
         btn_enviar_seon->setText(QApplication::translate("simuladorcomuClass", "enviar", Q_NULLPTR));
         label_8->setText(QApplication::translate("simuladorcomuClass", "BOTONERA", Q_NULLPTR));
         label_6->setText(QApplication::translate("simuladorcomuClass", "puerto", Q_NULLPTR));

@@ -22,4 +22,8 @@ radar::radar(const seon::aplicacion::configuracion::radar &config, QLabel *dista
 
 radar::~radar() {}
 
+void radar::paintEvent(QPaintEvent *paintEvent) {
+    this->QWidget::paintEvent(paintEvent);
+}
+
 }
