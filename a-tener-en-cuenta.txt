@@ -1,7 +1,5 @@
 ## PARA QUE CORRA "test_video.cpp" y lea cualquier formato de video (en Windows 10 + Visual Studio 17) ##
 
-0- previo a la compilacion de "opencv", hay que tener instalado "ffmpeg".
-
 1- tener compilado "opencv", ubicado en los directorios donde el proyecto "testing" va a buscar los archivos. (tanto los .hpp (/include) como los .lib (/Debug))
 2- agregar la variable de entorno de sistema "OPENCV_FFMPEG_DLL_DIR" = "{directorio-opencv}opencv\build\bin" -> en esta carpeta es donde va a buscar "opencv_ffmpeg341.dll"
 3- a cv::VideoCapture hay que pasarle rutas ABSOLUTAS -> 'C:esto/es/una/ruta/absoluta/video_a_reproducir.mp4'

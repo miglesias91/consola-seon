@@ -1001,7 +1001,8 @@ public:
         widget_datos_radar->setGeometry(QRect(520, 390, 300, 80));
         widget_datos_radar->setStyleSheet(QLatin1String("font: 14pt \"Arial\";\n"
 "color: rgb(85, 170, 0);\n"
-"border: 1px solid rgb(85, 170,0);"));
+"border: 1px solid rgb(85, 170,0);\n"
+"background-color: rgb(0, 0, 0);"));
         layout_datos_radar = new QGridLayout(widget_datos_radar);
         layout_datos_radar->setSpacing(0);
         layout_datos_radar->setContentsMargins(11, 11, 11, 11);
