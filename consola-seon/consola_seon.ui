@@ -1863,10 +1863,7 @@ border-left: 0px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 14pt &quot;Arial&quot;;
-color: rgb(85, 170, 0);
-border: 1px solid rgb(85, 170,0);
-background-color: rgb(0, 0, 0);</string>
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
     <layout class="QGridLayout" name="layout_datos_radar">
      <property name="leftMargin">
