@@ -999,7 +999,35 @@ public:
         widget_datos_radar = new QWidget(panel_central);
         widget_datos_radar->setObjectName(QStringLiteral("widget_datos_radar"));
         widget_datos_radar->setGeometry(QRect(520, 390, 300, 80));
-        widget_datos_radar->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        QPalette palette;
+        QBrush brush(QColor(85, 170, 0, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        QBrush brush1(QColor(0, 0, 0, 255));
+        brush1.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette.setBrush(QPalette::Active, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        widget_datos_radar->setPalette(palette);
+        widget_datos_radar->setAutoFillBackground(false);
+        widget_datos_radar->setStyleSheet(QLatin1String("font: 14pt \"Arial\";\n"
+"color: rgb(85, 170, 0);\n"
+"border: 1px solid rgb(85, 170, 0);\n"
+"background-color: rgb(0, 0, 0);"));
         layout_datos_radar = new QGridLayout(widget_datos_radar);
         layout_datos_radar->setSpacing(0);
         layout_datos_radar->setContentsMargins(11, 11, 11, 11);
@@ -1022,6 +1050,7 @@ public:
         lbl_azimut_radar = new QLabel(widget_datos_radar);
         lbl_azimut_radar->setObjectName(QStringLiteral("lbl_azimut_radar"));
         lbl_azimut_radar->setFont(font5);
+        lbl_azimut_radar->setStyleSheet(QStringLiteral(""));
         lbl_azimut_radar->setAlignment(Qt::AlignCenter);
 
         layout_datos_radar->addWidget(lbl_azimut_radar, 0, 1, 1, 1);
