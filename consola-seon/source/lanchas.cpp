@@ -9,8 +9,7 @@ namespace gui::hud {
 lanchas::lanchas(const seon::aplicacion::configuracion::lanchas &config, QWidget *parent) :
     config(config), azimut_lancha(0), elevacion_lancha(0), QWidget(parent) {
     this->setAttribute(Qt::WA_DeleteOnClose);
-    this->setAttribute(Qt::WA_TranslucentBackground, true);
-    this->setWindowFlag(Qt::FramelessWindowHint);
+    this->setAttribute(Qt::WA_OpaquePaintEvent, false);
 
     this->resize(this->parentWidget()->size());
     this->move(this->config.posicion.x, this->config.posicion.y);
@@ -63,7 +62,7 @@ void lanchas::paintEvent(QPaintEvent *paintEvent) {
     // dibujo orientacion azimut
     int32_t orientacion_azimut_x = 0, orientacion_azimut_y = this->config.largo_trazo_orientacion;
     this->rotar(this->azimut_lancha, &orientacion_azimut_x, &orientacion_azimut_y);
-    painter.drawLine(21, 44, 21 + orientacion_azimut_x, 44 + orientacion_azimut_y);
+    painter.drawLine(21, 44, 21 + orientacion_azimut_x, 44 - orientacion_azimut_y);
 
     // dibujo orientacion elevacion
     int32_t orientacion_elevacion_x = this->config.largo_trazo_orientacion, orientacion_elevacion_y = 0;
@@ -72,8 +71,8 @@ void lanchas::paintEvent(QPaintEvent *paintEvent) {
 }
 
 void lanchas::rotar(const uint8_t & angulo, int32_t * x, int32_t * y) const {
-    double_t seno = std::sin(angulo);
-    double_t coseno = std::cos(angulo);
+    double_t seno = std::sin(angulo * 0.0174533);  // paso a radianes
+    double_t coseno = std::cos(angulo * 0.0174533);  // paso a radianes
 
     *x = *x * coseno - *y * seno;
     *y = *x * seno + *y * coseno;

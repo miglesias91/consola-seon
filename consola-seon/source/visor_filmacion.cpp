@@ -3,7 +3,7 @@
 namespace gui {
 
 visor_filmacion::visor_filmacion(QWidget * parent) : QWidget(parent) {
-    setAttribute(Qt::WA_OpaquePaintEvent);
+    //setAttribute(Qt::WA_OpaquePaintEvent);
     setAttribute(Qt::WA_DeleteOnClose);
 }
 
