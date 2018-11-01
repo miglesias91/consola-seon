@@ -74,7 +74,10 @@ void lanchas::rotar(const uint8_t & angulo, int32_t * x, int32_t * y) const {
     double_t seno = std::sin(angulo * 0.0174533);  // paso a radianes
     double_t coseno = std::cos(angulo * 0.0174533);  // paso a radianes
 
-    *x = *x * coseno - *y * seno;
-    *y = *x * seno + *y * coseno;
+    int32_t nuevo_x = *x * coseno - *y * seno;
+    int32_t nuevo_y = *x * seno + *y * coseno;
+
+    *x = nuevo_x;
+    *y = nuevo_y;
 }
 }
