@@ -1716,17 +1716,6 @@ border-left: 0px;</string>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="widget_video" native="true">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>500</width>
-      <height>500</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="layout_video"/>
-   </widget>
    <widget class="QPushButton" name="btn_grabar">
     <property name="geometry">
      <rect>
@@ -2202,14 +2191,6 @@ border: 1px solid rgb(85, 170, 0);</string>
      <bool>false</bool>
     </property>
    </widget>
-   <zorder>widget_video</zorder>
-   <zorder>btn_filmar</zorder>
-   <zorder>panel_lateral</zorder>
-   <zorder>panel_superior</zorder>
-   <zorder>btn_grabar</zorder>
-   <zorder>widget_comunicaciones</zorder>
-   <zorder>widget_datos_radar</zorder>
-   <zorder>checkbox_gestor</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
