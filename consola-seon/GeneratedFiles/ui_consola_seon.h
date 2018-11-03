@@ -123,8 +123,6 @@ public:
     QLabel *lbl_velocidad;
     QLabel *lbl_distancia;
     QLabel *lbl_velocidad_valor;
-    QWidget *widget_video;
-    QVBoxLayout *layout_video;
     QPushButton *btn_grabar;
     QWidget *widget_comunicaciones;
     QVBoxLayout *layout_comunicaciones;
@@ -909,13 +907,6 @@ public:
 
         layout_superior->addWidget(frame_datos_blanco);
 
-        widget_video = new QWidget(panel_central);
-        widget_video->setObjectName(QStringLiteral("widget_video"));
-        widget_video->setGeometry(QRect(0, 0, 500, 500));
-        layout_video = new QVBoxLayout(widget_video);
-        layout_video->setSpacing(6);
-        layout_video->setContentsMargins(11, 11, 11, 11);
-        layout_video->setObjectName(QStringLiteral("layout_video"));
         btn_grabar = new QPushButton(panel_central);
         btn_grabar->setObjectName(QStringLiteral("btn_grabar"));
         btn_grabar->setGeometry(QRect(60, 610, 75, 23));
@@ -1089,14 +1080,6 @@ public:
         checkbox_gestor->setStyleSheet(QStringLiteral("background-color: rgb(221, 221, 221);"));
         checkbox_gestor->setTristate(false);
         consola_seonClass->setCentralWidget(panel_central);
-        widget_video->raise();
-        btn_filmar->raise();
-        panel_lateral->raise();
-        panel_superior->raise();
-        btn_grabar->raise();
-        widget_comunicaciones->raise();
-        widget_datos_radar->raise();
-        checkbox_gestor->raise();
 
         retranslateUi(consola_seonClass);
 

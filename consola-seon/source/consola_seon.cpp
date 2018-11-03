@@ -129,6 +129,8 @@ void consola_seon::configurar_gui() {
             seon::aplicacion::logger::advertencia("El elemento con id '" + elemento.id + "' no existe.");
         }
     });
+
+    this->gestor->showMaximized();
 }
 
 void consola_seon::mostrar_mensaje_gps(const seon::comunicacion::trama_gps & trama) {
@@ -155,11 +157,11 @@ void consola_seon::mostrar_mensaje_pupitre(const seon::comunicacion::trama_pupit
         this->detener_grabacion();
     }
 
-    if (trama.acc_archivo_pic && false == this->gestor) {
-        this->gestor->show();
+    if (trama.acc_archivo_pic) {
+        this->gestor->setVisible(true);
     }
-    if (false == trama.acc_archivo_pic && this->gestor) {
-        this->gestor->close();
+    if (false == trama.acc_archivo_pic) {
+        this->gestor->setVisible(false);
     }
 
     this->ui.lineedit_pupitre->setText(trama.tira_de_datos.c_str());

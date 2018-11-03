@@ -38,7 +38,7 @@ public:
     {
         if (gestor_ejercicios->objectName().isEmpty())
             gestor_ejercicios->setObjectName(QStringLiteral("gestor_ejercicios"));
-        gestor_ejercicios->resize(606, 417);
+        gestor_ejercicios->resize(592, 360);
         layout_gestor = new QVBoxLayout(gestor_ejercicios);
         layout_gestor->setSpacing(0);
         layout_gestor->setContentsMargins(11, 11, 11, 11);
@@ -92,6 +92,15 @@ public:
 
         tabla_ejercicios = new QTableWidget(gestor_ejercicios);
         tabla_ejercicios->setObjectName(QStringLiteral("tabla_ejercicios"));
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(tabla_ejercicios->sizePolicy().hasHeightForWidth());
+        tabla_ejercicios->setSizePolicy(sizePolicy1);
+        tabla_ejercicios->setEditTriggers(QAbstractItemView::DoubleClicked);
+        tabla_ejercicios->setAlternatingRowColors(true);
+        tabla_ejercicios->setSelectionMode(QAbstractItemView::SingleSelection);
+        tabla_ejercicios->setSelectionBehavior(QAbstractItemView::SelectRows);
 
         layout_gestor->addWidget(tabla_ejercicios);
 
