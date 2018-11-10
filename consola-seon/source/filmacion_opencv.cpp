@@ -53,3 +53,7 @@ void filmacion_opencv::fps(uint fps_video) {
     this->capturador_video.fps(fps_video);
     this->fps_video = fps_video;
 }
+
+void filmacion_opencv::visible(const bool &valor) {
+    this->vista.setVisible(valor);
+}

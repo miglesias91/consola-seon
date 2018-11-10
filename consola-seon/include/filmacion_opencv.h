@@ -42,6 +42,7 @@ public:
     void tamanio(uint ancho, uint alto);
     void posicion(uint x, uint y);
     void fps(uint fps_video);
+    void visible(const bool &valor);
 
 private:
 

@@ -151,6 +151,27 @@
     </layout>
    </item>
    <item>
+    <widget class="QWidget" name="widget_visualizacion" native="true">
+     <layout class="QVBoxLayout" name="layout_visualizacion">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <widget class="QTableWidget" name="tabla_ejercicios">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
