@@ -130,7 +130,7 @@ void consola_seon::configurar_gui() {
         }
     });
 
-    this->gestor->showMaximized();
+    //this->gestor->showFullScreen();
 }
 
 void consola_seon::mostrar_mensaje_gps(const seon::comunicacion::trama_gps & trama) {
@@ -158,10 +158,11 @@ void consola_seon::mostrar_mensaje_pupitre(const seon::comunicacion::trama_pupit
     }
 
     if (trama.acc_archivo_pic) {
-        this->gestor->setVisible(true);
+        this->gestor->showFullScreen();
+        //this->gestor->setVisible(true);
     }
     if (false == trama.acc_archivo_pic) {
-        this->gestor->setVisible(false);
+        this->gestor->close();
     }
 
     this->ui.lineedit_pupitre->setText(trama.tira_de_datos.c_str());

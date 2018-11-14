@@ -36,6 +36,8 @@ public:
     virtual ~filmacion_opencv();
     
     void iniciar();
+    void pausar();
+    void detener();
 
     void hijo_de(QWidget * padre);
 
@@ -43,6 +45,7 @@ public:
     void posicion(uint x, uint y);
     void fps(uint fps_video);
     void visible(const bool &valor);
+    gui::visor_filmacion* visor();
 
 private:
 

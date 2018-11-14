@@ -17,8 +17,11 @@ gestor_ejercicios::gestor_ejercicios(const std::string &carpeta, QWidget *parent
 
     //this->setAttribute(Qt::WA_DeleteOnClose);
 
-    QObject::connect(this->ui->tabla_ejercicios, &QTableWidget::itemSelectionChanged, this, &gestor_ejercicios::previsualizar);
-    QObject::connect(this->ui->btn_ver, &QPushButton::released, this, &gestor_ejercicios::reproducir);
+    QObject::connect(this->ui->tabla_ejercicios, &QTableWidget::itemSelectionChanged, this, &gestor_ejercicios::previsualizar_ejercicio);
+    QObject::connect(this->ui->btn_ver, &QPushButton::released, this, &gestor_ejercicios::reproducir_ejercicio);
+    QObject::connect(this->ui->btn_pausar, &QPushButton::released, this, &gestor_ejercicios::pausar_ejercicio);
+    QObject::connect(this->ui->btn_detener, &QPushButton::released, this, &gestor_ejercicios::detener_ejercicio);
+    QObject::connect(this->ui->btn_eliminar, &QPushButton::released, this, &gestor_ejercicios::eliminar_ejercicio);
 
     this->actualizar();
 }
@@ -35,7 +38,8 @@ void gestor_ejercicios::actualizar() {
     uint16_t fila = 0;
     for (auto ejercicio : std::experimental::filesystem::directory_iterator(this->carpeta_ejercicios)) {
 
-        this->ejercicios.push_back(std::make_shared<ejercicio>(ejercicio.path().string(), this->ui->widget_visualizacion));
+        std::shared_ptr<gestor_ejercicios::ejercicio> ej = std::make_shared<gestor_ejercicios::ejercicio>(ejercicio.path().string(), this->ui->widget_visualizacion);
+        this->ejercicios.push_back(ej);
 
         std::string nombre = ejercicio.path().filename().string();
 
@@ -72,14 +76,38 @@ void gestor_ejercicios::actualizar() {
     }
 }
 
-void gestor_ejercicios::previsualizar() {
+void gestor_ejercicios::previsualizar_ejercicio() {
     if (this->ejercicios.empty()) { return; }
+
+    this->ejercicio_actual->detener();
 
     QItemSelectionModel * modelo = this->ui->tabla_ejercicios->selectionModel();
 
     this->ejercicio_actual->previsualizar(false);
     this->ejercicio_actual = this->ejercicios.at(modelo->currentIndex().row());
     this->ejercicio_actual->previsualizar(true);
+}
+
+void gestor_ejercicios::reproducir_ejercicio() {
+    this->ejercicio_actual->reproducir();
+}
+
+void gestor_ejercicios::pausar_ejercicio() {
+    this->ejercicio_actual->pausar();
+}
+
+void gestor_ejercicios::detener_ejercicio() {
+    this->ejercicio_actual->detener();
+}
+
+void gestor_ejercicios::eliminar_ejercicio() {
+    if (this->ejercicios.empty()) { return; }
+
+    this->ejercicio_actual->detener();
+
+    QItemSelectionModel * modelo = this->ui->tabla_ejercicios->selectionModel();
+    this->ejercicios.erase(this->ejercicios.begin() + modelo->currentIndex().row());
+    this->ejercicio_actual = this->ejercicios.at(0);
 }
 
 gestor_ejercicios::~gestor_ejercicios() {

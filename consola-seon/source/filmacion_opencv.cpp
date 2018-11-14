@@ -29,8 +29,15 @@ filmacion_opencv::~filmacion_opencv() {
 }
 
 void filmacion_opencv::iniciar() {
-
     QMetaObject::invokeMethod(&this->capturador_video, "iniciar");
+}
+
+void filmacion_opencv::pausar() {
+    QMetaObject::invokeMethod(&this->capturador_video, "pausar");
+}
+
+void filmacion_opencv::detener() {
+    QMetaObject::invokeMethod(&this->capturador_video, "detener");
 }
 
 void filmacion_opencv::hijo_de(QWidget * padre) {
@@ -56,4 +63,8 @@ void filmacion_opencv::fps(uint fps_video) {
 
 void filmacion_opencv::visible(const bool &valor) {
     this->vista.setVisible(valor);
+}
+
+gui::visor_filmacion* filmacion_opencv::visor() {
+    return &(this->vista);
 }

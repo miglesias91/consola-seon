@@ -30,6 +30,7 @@ public:
     Q_SIGNAL void mat_lista(const cv::Mat &);
 
     Q_SLOT void iniciar(int cam = {});
+    Q_SLOT void pausar();
     Q_SLOT void detener();
 
     void fps(uint fps_captura);

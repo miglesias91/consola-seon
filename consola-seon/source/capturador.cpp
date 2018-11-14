@@ -31,8 +31,14 @@ void capturador::iniciar(int cam) {
     }
 }
 
-void capturador::detener() {
+void capturador::pausar() {
     m_timer.stop();
+}
+
+void capturador::detener() {
+    if (!this->ptr_capturador) { return; }
+    m_timer.stop();
+    ptr_capturador->set(CV_CAP_PROP_POS_FRAMES, 0);
 }
 
 void capturador::fps(uint fps_captura) {
