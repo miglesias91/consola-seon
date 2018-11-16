@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'gestor_ejercicios.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.11.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,9 +10,7 @@
 #define UI_GESTOR_EJERCICIOS_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -142,13 +140,13 @@ public:
 
     void retranslateUi(QWidget *gestor_ejercicios)
     {
-        gestor_ejercicios->setWindowTitle(QApplication::translate("gestor_ejercicios", "gestor_ejercicios", Q_NULLPTR));
-        lbl_ejercicios->setText(QApplication::translate("gestor_ejercicios", "Ejercicios", Q_NULLPTR));
-        btn_detener->setText(QApplication::translate("gestor_ejercicios", "Detener", Q_NULLPTR));
-        btn_pausar->setText(QApplication::translate("gestor_ejercicios", "Pausar", Q_NULLPTR));
-        btn_ver->setText(QApplication::translate("gestor_ejercicios", "Reproducir", Q_NULLPTR));
-        btn_eliminar->setText(QApplication::translate("gestor_ejercicios", "Eliminar", Q_NULLPTR));
-        btn_cerrar->setText(QApplication::translate("gestor_ejercicios", "Cerrar", Q_NULLPTR));
+        gestor_ejercicios->setWindowTitle(QApplication::translate("gestor_ejercicios", "gestor_ejercicios", nullptr));
+        lbl_ejercicios->setText(QApplication::translate("gestor_ejercicios", "Ejercicios", nullptr));
+        btn_detener->setText(QApplication::translate("gestor_ejercicios", "Detener", nullptr));
+        btn_pausar->setText(QApplication::translate("gestor_ejercicios", "Pausar", nullptr));
+        btn_ver->setText(QApplication::translate("gestor_ejercicios", "Reproducir", nullptr));
+        btn_eliminar->setText(QApplication::translate("gestor_ejercicios", "Eliminar", nullptr));
+        btn_cerrar->setText(QApplication::translate("gestor_ejercicios", "Cerrar", nullptr));
     } // retranslateUi
 
 };

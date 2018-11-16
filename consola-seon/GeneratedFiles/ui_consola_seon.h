@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'consola_seon.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.11.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,14 +10,11 @@
 #define UI_CONSOLA_SEON_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -1088,70 +1085,70 @@ public:
 
     void retranslateUi(QMainWindow *consola_seonClass)
     {
-        consola_seonClass->setWindowTitle(QApplication::translate("consola_seonClass", "consola_seon", Q_NULLPTR));
-        btn_filmar->setText(QApplication::translate("consola_seonClass", "filmar", Q_NULLPTR));
-        lbl_pantalla->setText(QApplication::translate("consola_seonClass", "PANTALLA", Q_NULLPTR));
-        lbl_pantalla_datos->setText(QApplication::translate("consola_seonClass", "DATOS", Q_NULLPTR));
-        lbl_pantalla_barrido->setText(QApplication::translate("consola_seonClass", "BARRIDO", Q_NULLPTR));
-        lbl_pantalla_normal->setText(QApplication::translate("consola_seonClass", "NORMAL", Q_NULLPTR));
-        lbl_ventana_optica->setText(QApplication::translate("consola_seonClass", "VENTANA \303\223PTICA", Q_NULLPTR));
-        lbl_optica_apagada_lava->setText(QApplication::translate("consola_seonClass", "LAVA", Q_NULLPTR));
-        lbl_optica_lava->setText(QApplication::translate("consola_seonClass", "LAVA", Q_NULLPTR));
-        lbl_optica_apagada_limpia->setText(QApplication::translate("consola_seonClass", "LIMPIA", Q_NULLPTR));
-        lbl_optica_limpia->setText(QApplication::translate("consola_seonClass", "LIMPIA", Q_NULLPTR));
-        lbl_camara->setText(QApplication::translate("consola_seonClass", "C\303\201MARA", Q_NULLPTR));
-        lbl_camara_diurna->setText(QApplication::translate("consola_seonClass", "IR", Q_NULLPTR));
-        lbl_camara_ir->setText(QApplication::translate("consola_seonClass", "DIURNA", Q_NULLPTR));
-        lbl_zoom->setText(QApplication::translate("consola_seonClass", "ZOOM", Q_NULLPTR));
-        lbl_zoom_valor->setText(QApplication::translate("consola_seonClass", "APAGADO", Q_NULLPTR));
-        lbl_foco->setText(QApplication::translate("consola_seonClass", "FOCO", Q_NULLPTR));
-        lbl_foco_cerca->setText(QApplication::translate("consola_seonClass", "CERCA", Q_NULLPTR));
-        lbl_foco_lejos->setText(QApplication::translate("consola_seonClass", "LEJOS", Q_NULLPTR));
-        lbl_foco_apagado->setText(QApplication::translate("consola_seonClass", "APAGADO", Q_NULLPTR));
-        lbl_video->setText(QApplication::translate("consola_seonClass", "VIDEO", Q_NULLPTR));
-        lbl_video_cuantificado->setText(QApplication::translate("consola_seonClass", "CUANTIFICADO", Q_NULLPTR));
-        lbl_video_diferenciado->setText(QApplication::translate("consola_seonClass", "DIFERENCIADO", Q_NULLPTR));
-        lbl_video_normal->setText(QApplication::translate("consola_seonClass", "NORMAL", Q_NULLPTR));
-        lbl_enganche->setText(QApplication::translate("consola_seonClass", "ENGANCHE", Q_NULLPTR));
-        lbl_enganche_cuantificado->setText(QApplication::translate("consola_seonClass", "CUANTIFICADO", Q_NULLPTR));
-        lbl_enganche_diferenciado->setText(QApplication::translate("consola_seonClass", "DIFERENCIADO", Q_NULLPTR));
-        lbl_enganche_cuantificado_inv->setText(QApplication::translate("consola_seonClass", "CUANTIFICADO INV.", Q_NULLPTR));
-        lbl_modo->setText(QApplication::translate("consola_seonClass", "MODO", Q_NULLPTR));
-        lbl_modo_fijo->setText(QApplication::translate("consola_seonClass", "FIJO", Q_NULLPTR));
-        lbl_modo_esclavo->setText(QApplication::translate("consola_seonClass", "ESCLAVO", Q_NULLPTR));
-        lbl_modo_estable->setText(QApplication::translate("consola_seonClass", "ESTABLE", Q_NULLPTR));
-        lbl_referencia_estab->setText(QApplication::translate("consola_seonClass", "REFERENCIA ESTAB", Q_NULLPTR));
-        lbl_imu_prob->setText(QApplication::translate("consola_seonClass", "IMU PROP.", Q_NULLPTR));
-        lbl_octans->setText(QApplication::translate("consola_seonClass", "OCTANS", Q_NULLPTR));
-        lbl_enganche_etiqueta->setText(QApplication::translate("consola_seonClass", "ENGANCHE", Q_NULLPTR));
-        lbl_prediccion->setText(QApplication::translate("consola_seonClass", "PREDICCI\303\223N", Q_NULLPTR));
-        lbl_datos_plataforma->setText(QApplication::translate("consola_seonClass", "DATOS PLATAFORMA", Q_NULLPTR));
-        lbl_azimut_valor->setText(QApplication::translate("consola_seonClass", "valor_azimut", Q_NULLPTR));
-        lbl_elevacion_valor->setText(QApplication::translate("consola_seonClass", "valor_elevacion", Q_NULLPTR));
-        lbl_elevacion->setText(QApplication::translate("consola_seonClass", "ELEVACI\303\223N", Q_NULLPTR));
-        lbl_azimut->setText(QApplication::translate("consola_seonClass", "AZIMUT", Q_NULLPTR));
-        lbl_longitud->setText(QApplication::translate("consola_seonClass", "LONGITUD", Q_NULLPTR));
-        lbl_latitud->setText(QApplication::translate("consola_seonClass", "LATITUD", Q_NULLPTR));
-        lbl_latitud_valor->setText(QApplication::translate("consola_seonClass", "valor_latitud", Q_NULLPTR));
-        lbl_datos_gps->setText(QApplication::translate("consola_seonClass", "DATOS GPS", Q_NULLPTR));
-        lbl_longitud_valor->setText(QApplication::translate("consola_seonClass", "valor_longitud", Q_NULLPTR));
-        lbl_datos_blanco->setText(QApplication::translate("consola_seonClass", "DATOS BLANCO", Q_NULLPTR));
-        lbl_distancia_valor->setText(QApplication::translate("consola_seonClass", "valor_distancia", Q_NULLPTR));
-        lbl_velocidad->setText(QApplication::translate("consola_seonClass", "VELOCIDAD", Q_NULLPTR));
-        lbl_distancia->setText(QApplication::translate("consola_seonClass", "DISTANCIA", Q_NULLPTR));
-        lbl_velocidad_valor->setText(QApplication::translate("consola_seonClass", "valor_velocidad", Q_NULLPTR));
-        btn_grabar->setText(QApplication::translate("consola_seonClass", "grabar", Q_NULLPTR));
-        lbl_gps->setText(QApplication::translate("consola_seonClass", "gps", Q_NULLPTR));
-        lbl_pupitre->setText(QApplication::translate("consola_seonClass", "pupitre", Q_NULLPTR));
-        lbl_pulsadores->setText(QApplication::translate("consola_seonClass", "pulsadores", Q_NULLPTR));
-        lbl_seon->setText(QApplication::translate("consola_seonClass", "seon", Q_NULLPTR));
-        lbl_dist->setText(QApplication::translate("consola_seonClass", "DIST", Q_NULLPTR));
-        lbl_azimut_radar->setText(QApplication::translate("consola_seonClass", "AZIMUT", Q_NULLPTR));
-        lbl_dist_valor->setText(QApplication::translate("consola_seonClass", "0.00 y", Q_NULLPTR));
-        lbl_tipo->setText(QApplication::translate("consola_seonClass", "TIPO", Q_NULLPTR));
-        lbl_azimut_radar_valor->setText(QApplication::translate("consola_seonClass", "0.0 \302\260", Q_NULLPTR));
-        lbl_tipo_valor->setText(QApplication::translate("consola_seonClass", "A", Q_NULLPTR));
-        checkbox_gestor->setText(QApplication::translate("consola_seonClass", "gestor", Q_NULLPTR));
+        consola_seonClass->setWindowTitle(QApplication::translate("consola_seonClass", "consola_seon", nullptr));
+        btn_filmar->setText(QApplication::translate("consola_seonClass", "filmar", nullptr));
+        lbl_pantalla->setText(QApplication::translate("consola_seonClass", "PANTALLA", nullptr));
+        lbl_pantalla_datos->setText(QApplication::translate("consola_seonClass", "DATOS", nullptr));
+        lbl_pantalla_barrido->setText(QApplication::translate("consola_seonClass", "BARRIDO", nullptr));
+        lbl_pantalla_normal->setText(QApplication::translate("consola_seonClass", "NORMAL", nullptr));
+        lbl_ventana_optica->setText(QApplication::translate("consola_seonClass", "VENTANA \303\223PTICA", nullptr));
+        lbl_optica_apagada_lava->setText(QApplication::translate("consola_seonClass", "LAVA", nullptr));
+        lbl_optica_lava->setText(QApplication::translate("consola_seonClass", "LAVA", nullptr));
+        lbl_optica_apagada_limpia->setText(QApplication::translate("consola_seonClass", "LIMPIA", nullptr));
+        lbl_optica_limpia->setText(QApplication::translate("consola_seonClass", "LIMPIA", nullptr));
+        lbl_camara->setText(QApplication::translate("consola_seonClass", "C\303\201MARA", nullptr));
+        lbl_camara_diurna->setText(QApplication::translate("consola_seonClass", "IR", nullptr));
+        lbl_camara_ir->setText(QApplication::translate("consola_seonClass", "DIURNA", nullptr));
+        lbl_zoom->setText(QApplication::translate("consola_seonClass", "ZOOM", nullptr));
+        lbl_zoom_valor->setText(QApplication::translate("consola_seonClass", "APAGADO", nullptr));
+        lbl_foco->setText(QApplication::translate("consola_seonClass", "FOCO", nullptr));
+        lbl_foco_cerca->setText(QApplication::translate("consola_seonClass", "CERCA", nullptr));
+        lbl_foco_lejos->setText(QApplication::translate("consola_seonClass", "LEJOS", nullptr));
+        lbl_foco_apagado->setText(QApplication::translate("consola_seonClass", "APAGADO", nullptr));
+        lbl_video->setText(QApplication::translate("consola_seonClass", "VIDEO", nullptr));
+        lbl_video_cuantificado->setText(QApplication::translate("consola_seonClass", "CUANTIFICADO", nullptr));
+        lbl_video_diferenciado->setText(QApplication::translate("consola_seonClass", "DIFERENCIADO", nullptr));
+        lbl_video_normal->setText(QApplication::translate("consola_seonClass", "NORMAL", nullptr));
+        lbl_enganche->setText(QApplication::translate("consola_seonClass", "ENGANCHE", nullptr));
+        lbl_enganche_cuantificado->setText(QApplication::translate("consola_seonClass", "CUANTIFICADO", nullptr));
+        lbl_enganche_diferenciado->setText(QApplication::translate("consola_seonClass", "DIFERENCIADO", nullptr));
+        lbl_enganche_cuantificado_inv->setText(QApplication::translate("consola_seonClass", "CUANTIFICADO INV.", nullptr));
+        lbl_modo->setText(QApplication::translate("consola_seonClass", "MODO", nullptr));
+        lbl_modo_fijo->setText(QApplication::translate("consola_seonClass", "FIJO", nullptr));
+        lbl_modo_esclavo->setText(QApplication::translate("consola_seonClass", "ESCLAVO", nullptr));
+        lbl_modo_estable->setText(QApplication::translate("consola_seonClass", "ESTABLE", nullptr));
+        lbl_referencia_estab->setText(QApplication::translate("consola_seonClass", "REFERENCIA ESTAB", nullptr));
+        lbl_imu_prob->setText(QApplication::translate("consola_seonClass", "IMU PROP.", nullptr));
+        lbl_octans->setText(QApplication::translate("consola_seonClass", "OCTANS", nullptr));
+        lbl_enganche_etiqueta->setText(QApplication::translate("consola_seonClass", "ENGANCHE", nullptr));
+        lbl_prediccion->setText(QApplication::translate("consola_seonClass", "PREDICCI\303\223N", nullptr));
+        lbl_datos_plataforma->setText(QApplication::translate("consola_seonClass", "DATOS PLATAFORMA", nullptr));
+        lbl_azimut_valor->setText(QApplication::translate("consola_seonClass", "valor_azimut", nullptr));
+        lbl_elevacion_valor->setText(QApplication::translate("consola_seonClass", "valor_elevacion", nullptr));
+        lbl_elevacion->setText(QApplication::translate("consola_seonClass", "ELEVACI\303\223N", nullptr));
+        lbl_azimut->setText(QApplication::translate("consola_seonClass", "AZIMUT", nullptr));
+        lbl_longitud->setText(QApplication::translate("consola_seonClass", "LONGITUD", nullptr));
+        lbl_latitud->setText(QApplication::translate("consola_seonClass", "LATITUD", nullptr));
+        lbl_latitud_valor->setText(QApplication::translate("consola_seonClass", "valor_latitud", nullptr));
+        lbl_datos_gps->setText(QApplication::translate("consola_seonClass", "DATOS GPS", nullptr));
+        lbl_longitud_valor->setText(QApplication::translate("consola_seonClass", "valor_longitud", nullptr));
+        lbl_datos_blanco->setText(QApplication::translate("consola_seonClass", "DATOS BLANCO", nullptr));
+        lbl_distancia_valor->setText(QApplication::translate("consola_seonClass", "valor_distancia", nullptr));
+        lbl_velocidad->setText(QApplication::translate("consola_seonClass", "VELOCIDAD", nullptr));
+        lbl_distancia->setText(QApplication::translate("consola_seonClass", "DISTANCIA", nullptr));
+        lbl_velocidad_valor->setText(QApplication::translate("consola_seonClass", "valor_velocidad", nullptr));
+        btn_grabar->setText(QApplication::translate("consola_seonClass", "grabar", nullptr));
+        lbl_gps->setText(QApplication::translate("consola_seonClass", "gps", nullptr));
+        lbl_pupitre->setText(QApplication::translate("consola_seonClass", "pupitre", nullptr));
+        lbl_pulsadores->setText(QApplication::translate("consola_seonClass", "pulsadores", nullptr));
+        lbl_seon->setText(QApplication::translate("consola_seonClass", "seon", nullptr));
+        lbl_dist->setText(QApplication::translate("consola_seonClass", "DIST", nullptr));
+        lbl_azimut_radar->setText(QApplication::translate("consola_seonClass", "AZIMUT", nullptr));
+        lbl_dist_valor->setText(QApplication::translate("consola_seonClass", "0.00 y", nullptr));
+        lbl_tipo->setText(QApplication::translate("consola_seonClass", "TIPO", nullptr));
+        lbl_azimut_radar_valor->setText(QApplication::translate("consola_seonClass", "0.0 \302\260", nullptr));
+        lbl_tipo_valor->setText(QApplication::translate("consola_seonClass", "A", nullptr));
+        checkbox_gestor->setText(QApplication::translate("consola_seonClass", "gestor", nullptr));
     } // retranslateUi
 
 };
