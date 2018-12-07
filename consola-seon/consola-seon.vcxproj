@@ -19,10 +19,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
@@ -53,7 +55,7 @@
     <ClCompile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;DEBUG;UNICODE;WIN32;WIN64;QT_CONCURRENT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName);$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir);$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName);$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir);$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;C:\Users\compgraf45\Downloads\Blackmagic DeckLink SDK 10.11.4\Win\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -71,9 +73,9 @@
     <QtMoc>
       <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
       <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
-      <IncludePath>.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName);$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir);$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;%(AdditionalIncludeDirectories)</IncludePath>
+      <IncludePath>.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;C:\Users\compgraf45\Downloads\Blackmagic DeckLink SDK 10.11.4\Win\include;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
       <Define>_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;DEBUG;UNICODE;WIN32;WIN64;QT_CONCURRENT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
-      <QTDIR>$(qt-dir)5.9.1\msvc2015</QTDIR>
+      <QTDIR>$(QTDIR)</QTDIR>
     </QtMoc>
     <QtUic>
       <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
@@ -107,9 +109,9 @@
     <QtMoc>
       <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
       <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
-      <IncludePath>.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName);$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir);$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</IncludePath>
+      <IncludePath>.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
       <Define>_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CONCURRENT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
-      <QTDIR>$(qt-dir)5.9.1\msvc2015</QTDIR>
+      <QTDIR>$(QTDIR)</QTDIR>
     </QtMoc>
     <QtUic>
       <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
@@ -124,24 +126,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="gestor_ejercicios.cpp" />
-    <ClCompile Include="source\capturador.cpp" />
     <ClCompile Include="source\comunicador.cpp" />
     <ClCompile Include="source\consola_seon.cpp" />
-    <ClCompile Include="source\convertidor_captura.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="source\convertidor_grabado.cpp" />
-    <ClCompile Include="source\grabacion_opencv.cpp" />
-    <ClCompile Include="source\grabador.cpp" />
-    <ClCompile Include="source\filmacion_opencv.cpp" />
     <ClCompile Include="source\hud.cpp" />
     <ClCompile Include="source\lanchas.cpp" />
     <ClCompile Include="source\radar.cpp" />
     <ClCompile Include="source\sprite.cpp" />
     <ClCompile Include="source\tracking.cpp" />
-    <ClCompile Include="source\visor_filmacion.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="include\consola_seon.h" />
+    <QtMoc Include="include\consola_seon.h">
+      <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../include/%(Filename)%(Extension)</ForceInclude>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="consola_seon.ui" />
@@ -155,55 +152,26 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="include\tracking.h">
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
-      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;DEBUG;UNICODE;WIN32;WIN64;QT_CONCURRENT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB</Define>
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
-      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CONCURRENT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB</Define>
+      <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../include/%(Filename)%(Extension)</ForceInclude>
     </QtMoc>
     <QtMoc Include="include\radar.h">
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
-      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;DEBUG;UNICODE;WIN32;WIN64;QT_CONCURRENT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB</Define>
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
-      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CONCURRENT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB</Define>
+      <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../include/%(Filename)%(Extension)</ForceInclude>
     </QtMoc>
     <QtMoc Include="include\lanchas.h">
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
-      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;DEBUG;UNICODE;WIN32;WIN64;QT_CONCURRENT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB</Define>
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
-      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CONCURRENT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB</Define>
+      <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../include/%(Filename)%(Extension)</ForceInclude>
     </QtMoc>
     <QtMoc Include="include\hud.h">
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
-      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;DEBUG;UNICODE;WIN32;WIN64;QT_CONCURRENT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB</Define>
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
-      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CONCURRENT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB</Define>
+      <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../include/%(Filename)%(Extension)</ForceInclude>
     </QtMoc>
-    <QtMoc Include="include\sprite.h" />
-    <QtMoc Include="include\grabacion_opencv.h" />
-    <QtMoc Include="include\grabador.h" />
-    <QtMoc Include="include\convertidor_grabado.h" />
-    <QtMoc Include="include\comunicador.h" />
+    <QtMoc Include="include\sprite.h">
+      <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../include/%(Filename)%(Extension)</ForceInclude>
+    </QtMoc>
+    <QtMoc Include="include\comunicador.h">
+      <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../include/%(Filename)%(Extension)</ForceInclude>
+    </QtMoc>
     <QtMoc Include="gestor_ejercicios.h">
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
-      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;DEBUG;UNICODE;WIN32;WIN64;QT_CONCURRENT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB</Define>
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
-      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CONCURRENT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB</Define>
+      <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../%(Filename)%(Extension)</ForceInclude>
     </QtMoc>
-    <ClInclude Include="include\filmacion_opencv.h">
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
-      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DEBUG;UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_MULTIMEDIAWIDGETS_LIB;QT_WIDGETS_LIB</Define>
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName)\.;$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir)\.;$(repos-git)herramientas_desarrollo;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
-      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_MULTIMEDIAWIDGETS_LIB;QT_WIDGETS_LIB</Define>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="include\capturador.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="include\convertidor_captura.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="include\visor_filmacion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

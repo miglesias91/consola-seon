@@ -32,9 +32,10 @@ public:
     QPushButton *btn_ver;
     QPushButton *btn_eliminar;
     QPushButton *btn_cerrar;
+    QHBoxLayout *layout_visu;
+    QTableWidget *tabla_ejercicios;
     QWidget *widget_visualizacion;
     QVBoxLayout *layout_visualizacion;
-    QTableWidget *tabla_ejercicios;
 
     void setupUi(QWidget *gestor_ejercicios)
     {
@@ -61,6 +62,7 @@ public:
 
         btn_detener = new QPushButton(gestor_ejercicios);
         btn_detener->setObjectName(QStringLiteral("btn_detener"));
+        btn_detener->setEnabled(false);
         QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -75,6 +77,7 @@ public:
 
         btn_pausar = new QPushButton(gestor_ejercicios);
         btn_pausar->setObjectName(QStringLiteral("btn_pausar"));
+        btn_pausar->setEnabled(false);
         sizePolicy.setHeightForWidth(btn_pausar->sizePolicy().hasHeightForWidth());
         btn_pausar->setSizePolicy(sizePolicy);
         btn_pausar->setFont(font1);
@@ -99,6 +102,7 @@ public:
 
         btn_cerrar = new QPushButton(gestor_ejercicios);
         btn_cerrar->setObjectName(QStringLiteral("btn_cerrar"));
+        btn_cerrar->setEnabled(false);
         sizePolicy.setHeightForWidth(btn_cerrar->sizePolicy().hasHeightForWidth());
         btn_cerrar->setSizePolicy(sizePolicy);
         btn_cerrar->setFont(font1);
@@ -108,16 +112,10 @@ public:
 
         layout_gestor->addLayout(layout_botones);
 
-        widget_visualizacion = new QWidget(gestor_ejercicios);
-        widget_visualizacion->setObjectName(QStringLiteral("widget_visualizacion"));
-        layout_visualizacion = new QVBoxLayout(widget_visualizacion);
-        layout_visualizacion->setSpacing(0);
-        layout_visualizacion->setContentsMargins(11, 11, 11, 11);
-        layout_visualizacion->setObjectName(QStringLiteral("layout_visualizacion"));
-        layout_visualizacion->setContentsMargins(0, 0, 0, 0);
-
-        layout_gestor->addWidget(widget_visualizacion);
-
+        layout_visu = new QHBoxLayout();
+        layout_visu->setSpacing(5);
+        layout_visu->setObjectName(QStringLiteral("layout_visu"));
+        layout_visu->setContentsMargins(-1, 0, 0, -1);
         tabla_ejercicios = new QTableWidget(gestor_ejercicios);
         tabla_ejercicios->setObjectName(QStringLiteral("tabla_ejercicios"));
         QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -130,7 +128,20 @@ public:
         tabla_ejercicios->setSelectionMode(QAbstractItemView::SingleSelection);
         tabla_ejercicios->setSelectionBehavior(QAbstractItemView::SelectRows);
 
-        layout_gestor->addWidget(tabla_ejercicios);
+        layout_visu->addWidget(tabla_ejercicios);
+
+        widget_visualizacion = new QWidget(gestor_ejercicios);
+        widget_visualizacion->setObjectName(QStringLiteral("widget_visualizacion"));
+        layout_visualizacion = new QVBoxLayout(widget_visualizacion);
+        layout_visualizacion->setSpacing(0);
+        layout_visualizacion->setContentsMargins(11, 11, 11, 11);
+        layout_visualizacion->setObjectName(QStringLiteral("layout_visualizacion"));
+        layout_visualizacion->setContentsMargins(0, 0, 0, 0);
+
+        layout_visu->addWidget(widget_visualizacion);
+
+
+        layout_gestor->addLayout(layout_visu);
 
 
         retranslateUi(gestor_ejercicios);

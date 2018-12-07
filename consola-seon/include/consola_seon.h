@@ -16,11 +16,10 @@
 
 // video
 #include <video/include/administrador.h>
-#include <video/include/vista.h>
+#include <video/include/capturador_pantalla.h>
+#include <video/include/camara.h>
 
 // consola seon
-#include <consola-seon/include/filmacion_opencv.h>
-#include <consola-seon/include/grabacion_opencv.h>
 #include <consola-seon/include/comunicador.h>
 
 // consola
@@ -64,16 +63,9 @@ private:
 
     seon::aplicacion::configuracion::gui config_gui;
 
-    filmacion_opencv filmacion;
-
-    grabacion_opencv grabacion;
-
     comunicador comu;
 
     gui::hud::hud *hud;
 
     std::unique_ptr<gestor_ejercicios> gestor;
-
-    QBasicTimer timer;
-    void timerEvent(QTimerEvent * evento);
 };

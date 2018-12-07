@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 
     // inicio admin video
     seon::video::administrador admin_video(admin_aplicacion.configuracion.config_video);
-
+    admin_video.comenzar_filmacion();
     // inicio admin comunicacion
     seon::comunicacion::administrador admin_comunicacion(admin_aplicacion.configuracion.config_comunicacion);
     //seon::aplicacion::configuracion::comunicacion comu_vacia;

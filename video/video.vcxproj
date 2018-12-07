@@ -127,12 +127,12 @@
   <ItemGroup>
     <ClInclude Include="include\administrador.h" />
     <ClInclude Include="include\camara.h" />
-    <ClInclude Include="include\vista.h" />
+    <ClInclude Include="include\capturador_pantalla.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\administrador.cpp" />
     <ClCompile Include="source\camara.cpp" />
-    <ClCompile Include="source\vista.cpp" />
+    <ClCompile Include="source\capturador_pantalla.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

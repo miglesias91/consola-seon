@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'simuladorcomu.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.11.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,15 +10,12 @@
 #define UI_SIMULADORCOMU_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -1195,89 +1192,89 @@ public:
 
     void retranslateUi(QWidget *simuladorcomuClass)
     {
-        simuladorcomuClass->setWindowTitle(QApplication::translate("simuladorcomuClass", "simuladorcomu", Q_NULLPTR));
-        label_7->setText(QApplication::translate("simuladorcomuClass", "SEON", Q_NULLPTR));
-        label_3->setText(QApplication::translate("simuladorcomuClass", "puerto", Q_NULLPTR));
-        btn_conectar_seon->setText(QApplication::translate("simuladorcomuClass", "conectar", Q_NULLPTR));
-        lbl_header1_seon->setText(QApplication::translate("simuladorcomuClass", "header1", Q_NULLPTR));
-        lbl_header_seon->setText(QApplication::translate("simuladorcomuClass", "header2", Q_NULLPTR));
-        lbl_distancia->setText(QApplication::translate("simuladorcomuClass", "distancia", Q_NULLPTR));
-        lbl_origen_dato->setText(QApplication::translate("simuladorcomuClass", "origen dato", Q_NULLPTR));
-        radiobut_origen_dato_0->setText(QApplication::translate("simuladorcomuClass", "0", Q_NULLPTR));
-        radiobut_origen_dato_1->setText(QApplication::translate("simuladorcomuClass", "1", Q_NULLPTR));
-        radiobut_origen_dato_2->setText(QApplication::translate("simuladorcomuClass", "2", Q_NULLPTR));
-        lbl_modo_pred->setText(QApplication::translate("simuladorcomuClass", "modo pred", Q_NULLPTR));
-        radiobut_modo_pred_0->setText(QApplication::translate("simuladorcomuClass", "pred = true, eng = false", Q_NULLPTR));
-        radiobut_modo_pred_1->setText(QApplication::translate("simuladorcomuClass", "pred = false, eng = true", Q_NULLPTR));
-        lbl_velocidad->setText(QApplication::translate("simuladorcomuClass", "velocidad", Q_NULLPTR));
-        lbl_zoom->setText(QApplication::translate("simuladorcomuClass", "zoom", Q_NULLPTR));
-        lbl_radar_act->setText(QApplication::translate("simuladorcomuClass", "radar acti", Q_NULLPTR));
+        simuladorcomuClass->setWindowTitle(QApplication::translate("simuladorcomuClass", "simuladorcomu", nullptr));
+        label_7->setText(QApplication::translate("simuladorcomuClass", "SEON", nullptr));
+        label_3->setText(QApplication::translate("simuladorcomuClass", "puerto", nullptr));
+        btn_conectar_seon->setText(QApplication::translate("simuladorcomuClass", "conectar", nullptr));
+        lbl_header1_seon->setText(QApplication::translate("simuladorcomuClass", "header1", nullptr));
+        lbl_header_seon->setText(QApplication::translate("simuladorcomuClass", "header2", nullptr));
+        lbl_distancia->setText(QApplication::translate("simuladorcomuClass", "distancia", nullptr));
+        lbl_origen_dato->setText(QApplication::translate("simuladorcomuClass", "origen dato", nullptr));
+        radiobut_origen_dato_0->setText(QApplication::translate("simuladorcomuClass", "0", nullptr));
+        radiobut_origen_dato_1->setText(QApplication::translate("simuladorcomuClass", "1", nullptr));
+        radiobut_origen_dato_2->setText(QApplication::translate("simuladorcomuClass", "2", nullptr));
+        lbl_modo_pred->setText(QApplication::translate("simuladorcomuClass", "modo pred", nullptr));
+        radiobut_modo_pred_0->setText(QApplication::translate("simuladorcomuClass", "pred = true, eng = false", nullptr));
+        radiobut_modo_pred_1->setText(QApplication::translate("simuladorcomuClass", "pred = false, eng = true", nullptr));
+        lbl_velocidad->setText(QApplication::translate("simuladorcomuClass", "velocidad", nullptr));
+        lbl_zoom->setText(QApplication::translate("simuladorcomuClass", "zoom", nullptr));
+        lbl_radar_act->setText(QApplication::translate("simuladorcomuClass", "radar acti", nullptr));
         checkbox_radar_acti->setText(QString());
-        lbl_header2_seon->setText(QApplication::translate("simuladorcomuClass", "tipo blanco", Q_NULLPTR));
-        lbl_azimut_radar->setText(QApplication::translate("simuladorcomuClass", "azimut radar", Q_NULLPTR));
-        label_4->setText(QApplication::translate("simuladorcomuClass", ",", Q_NULLPTR));
-        lbl_dist_radar->setText(QApplication::translate("simuladorcomuClass", "distancia radar", Q_NULLPTR));
-        lbl_azimut_graf->setText(QApplication::translate("simuladorcomuClass", "azimut graf", Q_NULLPTR));
-        lbl_elevacion_graf->setText(QApplication::translate("simuladorcomuClass", "elevacion graf", Q_NULLPTR));
-        lbl_azimut_abs->setText(QApplication::translate("simuladorcomuClass", "azimut abs", Q_NULLPTR));
-        label_2->setText(QApplication::translate("simuladorcomuClass", ",", Q_NULLPTR));
-        lbl_elevacion_abs->setText(QApplication::translate("simuladorcomuClass", "elevacion abs", Q_NULLPTR));
-        label->setText(QApplication::translate("simuladorcomuClass", ",", Q_NULLPTR));
-        lbl_centro_grav->setText(QApplication::translate("simuladorcomuClass", "centro gravedad", Q_NULLPTR));
-        label_10->setText(QApplication::translate("simuladorcomuClass", "x", Q_NULLPTR));
+        lbl_header2_seon->setText(QApplication::translate("simuladorcomuClass", "tipo blanco", nullptr));
+        lbl_azimut_radar->setText(QApplication::translate("simuladorcomuClass", "azimut radar", nullptr));
+        label_4->setText(QApplication::translate("simuladorcomuClass", ",", nullptr));
+        lbl_dist_radar->setText(QApplication::translate("simuladorcomuClass", "distancia radar", nullptr));
+        lbl_azimut_graf->setText(QApplication::translate("simuladorcomuClass", "azimut graf", nullptr));
+        lbl_elevacion_graf->setText(QApplication::translate("simuladorcomuClass", "elevacion graf", nullptr));
+        lbl_azimut_abs->setText(QApplication::translate("simuladorcomuClass", "azimut abs", nullptr));
+        label_2->setText(QApplication::translate("simuladorcomuClass", ",", nullptr));
+        lbl_elevacion_abs->setText(QApplication::translate("simuladorcomuClass", "elevacion abs", nullptr));
+        label->setText(QApplication::translate("simuladorcomuClass", ",", nullptr));
+        lbl_centro_grav->setText(QApplication::translate("simuladorcomuClass", "centro gravedad", nullptr));
+        label_10->setText(QApplication::translate("simuladorcomuClass", "x", nullptr));
         spin_centro_gravedad_x->setSuffix(QString());
-        label_11->setText(QApplication::translate("simuladorcomuClass", "y", Q_NULLPTR));
-        lbl_corrimiento->setText(QApplication::translate("simuladorcomuClass", "corrimiento", Q_NULLPTR));
-        radiobut_tipo_s->setText(QApplication::translate("simuladorcomuClass", "S", Q_NULLPTR));
-        radiobut_tipo_a->setText(QApplication::translate("simuladorcomuClass", "A", Q_NULLPTR));
-        radiobut_tipo_y->setText(QApplication::translate("simuladorcomuClass", "Y", Q_NULLPTR));
-        radiobut_tipo_t->setText(QApplication::translate("simuladorcomuClass", "T", Q_NULLPTR));
-        radiobut_tipo_u->setText(QApplication::translate("simuladorcomuClass", "U", Q_NULLPTR));
-        btn_enviar_seon->setText(QApplication::translate("simuladorcomuClass", "enviar", Q_NULLPTR));
-        label_8->setText(QApplication::translate("simuladorcomuClass", "BOTONERA", Q_NULLPTR));
-        label_6->setText(QApplication::translate("simuladorcomuClass", "puerto", Q_NULLPTR));
-        btn_conectar_botonera->setText(QApplication::translate("simuladorcomuClass", "conectar", Q_NULLPTR));
-        lbl_header1->setText(QApplication::translate("simuladorcomuClass", "header1", Q_NULLPTR));
-        lbl_header2->setText(QApplication::translate("simuladorcomuClass", "header2", Q_NULLPTR));
-        lbl_contador->setText(QApplication::translate("simuladorcomuClass", "contador", Q_NULLPTR));
-        lbl_ref_est->setText(QApplication::translate("simuladorcomuClass", "ref_est", Q_NULLPTR));
-        lbl_pant_datos->setText(QApplication::translate("simuladorcomuClass", "pant_datos", Q_NULLPTR));
-        lbl_pant_barrido->setText(QApplication::translate("simuladorcomuClass", "pant_barrido", Q_NULLPTR));
-        lbl_pant_normal->setText(QApplication::translate("simuladorcomuClass", "pant_normal", Q_NULLPTR));
-        lbl_vent_opt_lav->setText(QApplication::translate("simuladorcomuClass", "vent_opt_lav", Q_NULLPTR));
-        lbl_vent_opt_llimp->setText(QApplication::translate("simuladorcomuClass", "vent_opt_limp", Q_NULLPTR));
-        lbl_pa_ir->setText(QApplication::translate("simuladorcomuClass", "pa_ir", Q_NULLPTR));
-        lbl_cam_ir->setText(QApplication::translate("simuladorcomuClass", "cam_ir", Q_NULLPTR));
-        lbl_cam_diu->setText(QApplication::translate("simuladorcomuClass", "cam_diu", Q_NULLPTR));
-        lbl_zoom_amp->setText(QApplication::translate("simuladorcomuClass", "zoom_amp", Q_NULLPTR));
-        lbl_zoom_est->setText(QApplication::translate("simuladorcomuClass", "zoom_est", Q_NULLPTR));
-        lbl_foco_cerca->setText(QApplication::translate("simuladorcomuClass", "foco_cerca", Q_NULLPTR));
-        lbl_foco_lejos->setText(QApplication::translate("simuladorcomuClass", "foco_lejos", Q_NULLPTR));
-        lbl_video_cuant->setText(QApplication::translate("simuladorcomuClass", "video_cuant", Q_NULLPTR));
-        lbl_video_dif->setText(QApplication::translate("simuladorcomuClass", "video_dif", Q_NULLPTR));
-        lbl_video_nor->setText(QApplication::translate("simuladorcomuClass", "video_nor", Q_NULLPTR));
-        lbl_eng_cuant->setText(QApplication::translate("simuladorcomuClass", "eng_cuant", Q_NULLPTR));
-        lbl_eng_dif->setText(QApplication::translate("simuladorcomuClass", "eng_dif", Q_NULLPTR));
-        lbl_mod_fij->setText(QApplication::translate("simuladorcomuClass", "mod_fij", Q_NULLPTR));
-        lbl_mod_esc->setText(QApplication::translate("simuladorcomuClass", "mod_esc", Q_NULLPTR));
-        lbl_mod_est->setText(QApplication::translate("simuladorcomuClass", "mod_est", Q_NULLPTR));
+        label_11->setText(QApplication::translate("simuladorcomuClass", "y", nullptr));
+        lbl_corrimiento->setText(QApplication::translate("simuladorcomuClass", "corrimiento", nullptr));
+        radiobut_tipo_s->setText(QApplication::translate("simuladorcomuClass", "S", nullptr));
+        radiobut_tipo_a->setText(QApplication::translate("simuladorcomuClass", "A", nullptr));
+        radiobut_tipo_y->setText(QApplication::translate("simuladorcomuClass", "Y", nullptr));
+        radiobut_tipo_t->setText(QApplication::translate("simuladorcomuClass", "T", nullptr));
+        radiobut_tipo_u->setText(QApplication::translate("simuladorcomuClass", "U", nullptr));
+        btn_enviar_seon->setText(QApplication::translate("simuladorcomuClass", "enviar", nullptr));
+        label_8->setText(QApplication::translate("simuladorcomuClass", "BOTONERA", nullptr));
+        label_6->setText(QApplication::translate("simuladorcomuClass", "puerto", nullptr));
+        btn_conectar_botonera->setText(QApplication::translate("simuladorcomuClass", "conectar", nullptr));
+        lbl_header1->setText(QApplication::translate("simuladorcomuClass", "header1", nullptr));
+        lbl_header2->setText(QApplication::translate("simuladorcomuClass", "header2", nullptr));
+        lbl_contador->setText(QApplication::translate("simuladorcomuClass", "contador", nullptr));
+        lbl_ref_est->setText(QApplication::translate("simuladorcomuClass", "ref_est", nullptr));
+        lbl_pant_datos->setText(QApplication::translate("simuladorcomuClass", "pant_datos", nullptr));
+        lbl_pant_barrido->setText(QApplication::translate("simuladorcomuClass", "pant_barrido", nullptr));
+        lbl_pant_normal->setText(QApplication::translate("simuladorcomuClass", "pant_normal", nullptr));
+        lbl_vent_opt_lav->setText(QApplication::translate("simuladorcomuClass", "vent_opt_lav", nullptr));
+        lbl_vent_opt_llimp->setText(QApplication::translate("simuladorcomuClass", "vent_opt_limp", nullptr));
+        lbl_pa_ir->setText(QApplication::translate("simuladorcomuClass", "pa_ir", nullptr));
+        lbl_cam_ir->setText(QApplication::translate("simuladorcomuClass", "cam_ir", nullptr));
+        lbl_cam_diu->setText(QApplication::translate("simuladorcomuClass", "cam_diu", nullptr));
+        lbl_zoom_amp->setText(QApplication::translate("simuladorcomuClass", "zoom_amp", nullptr));
+        lbl_zoom_est->setText(QApplication::translate("simuladorcomuClass", "zoom_est", nullptr));
+        lbl_foco_cerca->setText(QApplication::translate("simuladorcomuClass", "foco_cerca", nullptr));
+        lbl_foco_lejos->setText(QApplication::translate("simuladorcomuClass", "foco_lejos", nullptr));
+        lbl_video_cuant->setText(QApplication::translate("simuladorcomuClass", "video_cuant", nullptr));
+        lbl_video_dif->setText(QApplication::translate("simuladorcomuClass", "video_dif", nullptr));
+        lbl_video_nor->setText(QApplication::translate("simuladorcomuClass", "video_nor", nullptr));
+        lbl_eng_cuant->setText(QApplication::translate("simuladorcomuClass", "eng_cuant", nullptr));
+        lbl_eng_dif->setText(QApplication::translate("simuladorcomuClass", "eng_dif", nullptr));
+        lbl_mod_fij->setText(QApplication::translate("simuladorcomuClass", "mod_fij", nullptr));
+        lbl_mod_esc->setText(QApplication::translate("simuladorcomuClass", "mod_esc", nullptr));
+        lbl_mod_est->setText(QApplication::translate("simuladorcomuClass", "mod_est", nullptr));
         checkbox_pant_normal->setText(QString());
-        btn_enviar_botonera->setText(QApplication::translate("simuladorcomuClass", "enviar", Q_NULLPTR));
-        label_9->setText(QApplication::translate("simuladorcomuClass", "PUPITRE", Q_NULLPTR));
-        label_5->setText(QApplication::translate("simuladorcomuClass", "puerto", Q_NULLPTR));
-        btn_conectar_pupitre->setText(QApplication::translate("simuladorcomuClass", "conectar", Q_NULLPTR));
-        lbl_header1_pupitre->setText(QApplication::translate("simuladorcomuClass", "header1", Q_NULLPTR));
-        lbl_header2_2->setText(QApplication::translate("simuladorcomuClass", "header2", Q_NULLPTR));
-        lbl_contador1->setText(QApplication::translate("simuladorcomuClass", "contador", Q_NULLPTR));
-        lbl_arrp->setText(QApplication::translate("simuladorcomuClass", "arrp", Q_NULLPTR));
-        lbl_eng_desen_pic->setText(QApplication::translate("simuladorcomuClass", "eng_desen_pic ", Q_NULLPTR));
-        lbl_boton2->setText(QApplication::translate("simuladorcomuClass", "boton2", Q_NULLPTR));
-        lbl_boton3->setText(QApplication::translate("simuladorcomuClass", "boton3", Q_NULLPTR));
-        lbl_graba_pic->setText(QApplication::translate("simuladorcomuClass", "graba_pic", Q_NULLPTR));
-        lbl_acc_arch->setText(QApplication::translate("simuladorcomuClass", "acc_arch", Q_NULLPTR));
-        lbl_sel_vent1->setText(QApplication::translate("simuladorcomuClass", "sel_vent1", Q_NULLPTR));
-        lbl_sel_vent2->setText(QApplication::translate("simuladorcomuClass", "sel_vent2", Q_NULLPTR));
-        lbl_sen_fija->setText(QApplication::translate("simuladorcomuClass", "sen_fija", Q_NULLPTR));
+        btn_enviar_botonera->setText(QApplication::translate("simuladorcomuClass", "enviar", nullptr));
+        label_9->setText(QApplication::translate("simuladorcomuClass", "PUPITRE", nullptr));
+        label_5->setText(QApplication::translate("simuladorcomuClass", "puerto", nullptr));
+        btn_conectar_pupitre->setText(QApplication::translate("simuladorcomuClass", "conectar", nullptr));
+        lbl_header1_pupitre->setText(QApplication::translate("simuladorcomuClass", "header1", nullptr));
+        lbl_header2_2->setText(QApplication::translate("simuladorcomuClass", "header2", nullptr));
+        lbl_contador1->setText(QApplication::translate("simuladorcomuClass", "contador", nullptr));
+        lbl_arrp->setText(QApplication::translate("simuladorcomuClass", "arrp", nullptr));
+        lbl_eng_desen_pic->setText(QApplication::translate("simuladorcomuClass", "eng_desen_pic ", nullptr));
+        lbl_boton2->setText(QApplication::translate("simuladorcomuClass", "boton2", nullptr));
+        lbl_boton3->setText(QApplication::translate("simuladorcomuClass", "boton3", nullptr));
+        lbl_graba_pic->setText(QApplication::translate("simuladorcomuClass", "graba_pic", nullptr));
+        lbl_acc_arch->setText(QApplication::translate("simuladorcomuClass", "acc_arch", nullptr));
+        lbl_sel_vent1->setText(QApplication::translate("simuladorcomuClass", "sel_vent1", nullptr));
+        lbl_sel_vent2->setText(QApplication::translate("simuladorcomuClass", "sel_vent2", nullptr));
+        lbl_sen_fija->setText(QApplication::translate("simuladorcomuClass", "sen_fija", nullptr));
         checkbox_arrp->setText(QString());
         checkbox_eng_desen_pic->setText(QString());
         checkbox_boton2->setText(QString());
@@ -1287,7 +1284,7 @@ public:
         checkbox_sel_vent1->setText(QString());
         checkbox_sel_vent2->setText(QString());
         checkbox_sen_fija->setText(QString());
-        btn_enviar_pupitre->setText(QApplication::translate("simuladorcomuClass", "enviar", Q_NULLPTR));
+        btn_enviar_pupitre->setText(QApplication::translate("simuladorcomuClass", "enviar", nullptr));
     } // retranslateUi
 
 };

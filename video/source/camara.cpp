@@ -14,75 +14,51 @@
 
 namespace seon::video {
 
-camara::camara(big_uint ancho, big_uint alto, uint fps) : alto(alto), ancho(ancho), fps(fps) {
+camara::camara(seon::aplicacion::configuracion::video configuracion) : configuracion(configuracion) {
 
     std::stringstream mensaje;
     
-    mensaje << "camara iniciada:\n ancho: " << this->ancho << " - alto: " << this->alto << " - fps: " << this->fps << ".";
+    //mensaje << "camara iniciada:\n ancho: " << this->ancho << " - alto: " << this->alto << " - fps: " << this->fps << ".";
 
     aplicacion::logger::info(mensaje.str());
 }
 
 camara::~camara() {
 
-    if (this->hilo_filmacion.joinable()) {
-        this->hilo_filmacion.join();
-    }
-
     aplicacion::logger::info("cierre camara");
 }
 
-void camara::filmar(const std::string & path_video, vista * vista_video) {
+void camara::filmar() {
 
-    aplicacion::logger::info("inicio filmacion: " + path_video);
+    aplicacion::logger::info("inicio filmacion");
 
-    cv::VideoCapture cap(path_video);
+    // Get a handle to the desktop window
+    const HWND hDesktop = GetDesktopWindow();
+    // Get the size of screen to the variable desktop
+    RECT desktop;
+    GetWindowRect(hDesktop, &desktop);
 
-    // Check if camera opened successfully
-    if (!cap.isOpened()) {
-        std::cout << "Error opening video stream or file" << std::endl;
-        return;
-    }
+    // si la resolucion de config es 0x0, entonces uso la resolucion de pantalla.
+    std::wstring ancho = this->configuracion.filmacion.resolucion.ancho == 0 ? std::to_wstring(desktop.right) : std::to_wstring(this->configuracion.filmacion.resolucion.ancho);
+    std::wstring alto = this->configuracion.filmacion.resolucion.alto == 0 ? std::to_wstring(desktop.bottom) : std::to_wstring(this->configuracion.filmacion.resolucion.alto);
 
-    while (1) {
+    this->info_cam = { sizeof(this->info_cam) };
 
-        cv::Mat frame;
-        // Capture frame-by-frame
-        cap >> frame;
-
-        // If the frame is empty, break immediately
-        if (frame.empty())
-            break;
-
-        // Display the resulting frame
-        //cv::imshow("Frame", frame);
-        
-        big_uint tamanio = frame.total() * frame.elemSize();
-
-        if (3 == frame.channels()) {
-            cv::Mat RGBframe;
-            cv::cvtColor(frame, RGBframe, CV_BGR2RGB);
-            vista_video->mostrar(RGBframe.data, RGBframe.cols, RGBframe.rows, RGBframe.channels(), tamanio);
-        }
-        else {
-            vista_video->mostrar(frame.data, frame.cols, frame.rows, frame.channels(), tamanio);
-        }
-
-        // Press ESC on keyboard to exit
-        char c = (char)cv::waitKey(25);
-        if (c == 27)
-            break;
-    }
-
-    // When everything done, release the video capture object
-    cap.release();
-
-    // Closes all the frames
-    cv::destroyAllWindows();
-
-
+    std::wstring str_comando_cam = this->configuracion.carpeta_utiles.wstring() + L"\\ffplay.exe -video_size 720x576 -f dshow -vf scale=" + ancho + L":" + alto + L":force_original_aspect_ratio=decrease,pad=" + ancho + L":" + alto + L":(ow-iw)/2:(oh-ih)/2,setsar=1 -i video=\"Decklink Video Capture\"";
+    wchar_t * comando_cam = &str_comando_cam[0];
+    ::CreateProcess(NULL, comando_cam, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &this->info_cam, &this->processInfo_cam);
 }
 
+void camara::detener() {
+    aplicacion::logger::info("detener filmacion");
 
+    STARTUPINFO info_kill = { sizeof(info_kill) };
+    PROCESS_INFORMATION processInfo_kill;
+
+    std::wstring str_comando_kill = this->configuracion.carpeta_utiles.wstring() + L"\\windows-kill.exe -SIGINT " + std::to_wstring(this->processInfo_cam.dwProcessId);
+
+    wchar_t *comando_kill = &str_comando_kill[0];
+    ::CreateProcess(NULL, comando_kill, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &info_kill, &processInfo_kill);
+}
 
 }

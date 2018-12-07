@@ -218,14 +218,9 @@ public:
             herramientas::utiles::Json * json_resolucion = json->getAtributoValorJson("resolucion");
             this->resolucion.levantar(json_resolucion);
             delete json_resolucion;
-
-            this->fps = json->getAtributoValorUint("fps");
-            this->path = json->getAtributoValorString("entrada");
         }
 
         tamanio resolucion;
-        uint32_t fps;
-        std::string path;
     };
 
     struct salida_video {
@@ -349,6 +344,8 @@ public:
             herramientas::utiles::Json * json_lanchas = configuracion_json.getAtributoValorJson("lanchas");
             this->lanchas.levantar(json_lanchas);
             delete json_lanchas;
+
+            this->carpeta_utiles = configuracion_json.getAtributoValorString("carpeta_utiles");
         }
 
         entrada_video filmacion;
@@ -358,6 +355,7 @@ public:
         tracking tracking;
         radar radar;
         lanchas lanchas;
+        std::filesystem::path carpeta_utiles;
 
         std::string detallado;
         std::experimental::filesystem::path path;

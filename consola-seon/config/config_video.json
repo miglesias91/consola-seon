@@ -3,21 +3,18 @@
     {
         "resolucion" : 
         {
-            "ancho" : 1200,
-            "alto" : 500
-        },
-        "fps" : 30,
-        "entrada" : ""
-
+            "ancho" : 0,
+            "alto" : 0
+        }
     },
     "grabacion" :
     {
         "resolucion" : 
         {
-            "ancho" : 1920,
-            "alto" : 1080
+            "ancho" : 0,
+            "alto" : 0
         },
-        "fps" : 30,
+        "fps" : 60,
         "carpeta" : "ejercicios",
         "formato" : "mp4"
     },
@@ -93,5 +90,6 @@
             "grosor" : 3
         },
         "largo_trazo_orientacion" : 30
-    }
+    },
+    "carpeta_utiles" : "C:/Users/manu/repos/consola-seon/consola-seon/utiles/"
 }

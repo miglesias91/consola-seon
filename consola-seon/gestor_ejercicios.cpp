@@ -10,8 +10,8 @@
 // utiles
 #include <utiles/include/Fecha.h>
 
-gestor_ejercicios::gestor_ejercicios(const std::string &carpeta, QWidget *parent) : 
-    carpeta_ejercicios(carpeta), QWidget(parent) {
+gestor_ejercicios::gestor_ejercicios(const seon::aplicacion::configuracion::video &config, QWidget *parent) :
+    configuracion(config), QWidget(parent) {
     this->ui = new Ui::gestor_ejercicios();
     this->ui->setupUi(this);
 
@@ -22,6 +22,7 @@ gestor_ejercicios::gestor_ejercicios(const std::string &carpeta, QWidget *parent
     QObject::connect(this->ui->btn_pausar, &QPushButton::released, this, &gestor_ejercicios::pausar_ejercicio);
     QObject::connect(this->ui->btn_detener, &QPushButton::released, this, &gestor_ejercicios::detener_ejercicio);
     QObject::connect(this->ui->btn_eliminar, &QPushButton::released, this, &gestor_ejercicios::eliminar_ejercicio);
+    QObject::connect(this->ui->btn_cerrar, &QPushButton::released, this, &QWidget::close);
 
     this->actualizar();
 }
@@ -29,24 +30,26 @@ gestor_ejercicios::gestor_ejercicios(const std::string &carpeta, QWidget *parent
 void gestor_ejercicios::actualizar() {
     //this->ui->tabla_ejercicios->reset();
 
-    uint16_t cantidad_de_ejercicios = std::distance(std::experimental::filesystem::directory_iterator(this->carpeta_ejercicios),
+    uint16_t cantidad_de_ejercicios = std::distance(std::experimental::filesystem::directory_iterator(this->configuracion.grabacion.carpeta),
         std::experimental::filesystem::directory_iterator{});
 
     this->ui->tabla_ejercicios->setColumnCount(3);
     this->ui->tabla_ejercicios->setRowCount(cantidad_de_ejercicios);
 
     uint16_t fila = 0;
-    for (auto ejercicio : std::experimental::filesystem::directory_iterator(this->carpeta_ejercicios)) {
+    for (auto ejercicio : std::filesystem::directory_iterator(this->configuracion.grabacion.carpeta)) {
+
+        if (this->esta_en_lista(ejercicio.path())) { fila++; continue; }
 
         std::shared_ptr<gestor_ejercicios::ejercicio> ej = std::make_shared<gestor_ejercicios::ejercicio>(ejercicio.path().string(), this->ui->widget_visualizacion);
         this->ejercicios.push_back(ej);
 
         std::string nombre = ejercicio.path().filename().string();
 
-        std::chrono::system_clock::time_point tp(std::experimental::filesystem::last_write_time(ejercicio.path()).time_since_epoch());
+        std::chrono::system_clock::time_point tp(std::filesystem::last_write_time(ejercicio.path()).time_since_epoch());
         herramientas::utiles::Fecha fecha = herramientas::utiles::Fecha::parsear(tp);
 
-        uintmax_t tamanio_kb = std::experimental::filesystem::file_size(ejercicio.path()) / 1000;
+        uintmax_t tamanio_kb = std::filesystem::file_size(ejercicio.path()) / 1000;
 
         QTableWidgetItem* item_nombre = new QTableWidgetItem(nombre.c_str());
         item_nombre->setTextAlignment(Qt::AlignmentFlag::AlignLeft);
@@ -89,7 +92,14 @@ void gestor_ejercicios::previsualizar_ejercicio() {
 }
 
 void gestor_ejercicios::reproducir_ejercicio() {
-    this->ejercicio_actual->reproducir();
+    //this->ejercicio_actual->reproducir();
+
+    STARTUPINFO info = { sizeof(info) };
+    PROCESS_INFORMATION processInfo;
+
+    std::wstring str_comando_cam = this->configuracion.carpeta_utiles.wstring() + L"\\ffplay.exe " + this->ejercicio_actual->path().wstring();
+    wchar_t * comando_cam = &str_comando_cam[0];
+    ::CreateProcess(NULL, comando_cam, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &info, &processInfo);
 }
 
 void gestor_ejercicios::pausar_ejercicio() {
@@ -108,6 +118,15 @@ void gestor_ejercicios::eliminar_ejercicio() {
     QItemSelectionModel * modelo = this->ui->tabla_ejercicios->selectionModel();
     this->ejercicios.erase(this->ejercicios.begin() + modelo->currentIndex().row());
     this->ejercicio_actual = this->ejercicios.at(0);
+}
+
+bool gestor_ejercicios::esta_en_lista(const std::filesystem::path &path) const {
+    for (std::shared_ptr<ejercicio> ej : this->ejercicios) {
+        if (path == ej->path()) {
+            return true;
+        }
+    }
+    return false;
 }
 
 gestor_ejercicios::~gestor_ejercicios() {

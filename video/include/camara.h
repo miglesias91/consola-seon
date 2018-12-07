@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Windows.h>
+
 // stl
 #include <string>
 #include <thread>
@@ -8,25 +10,21 @@
 // aplicacion
 #include <aplicacion/include/configuracion.h>
 
-// video
-#include <video/include/vista.h>
-
 namespace seon::video {
 
 class camara {
 
 public:
-    camara(big_uint ancho, big_uint alto, uint fps);
+    camara(seon::aplicacion::configuracion::video configuracion);
     virtual ~camara();
 
-    void filmar(const std::string & path_video, vista * vista_video);
+    void filmar();
+    void detener();
 
 private:
-
-    big_uint ancho, alto;
-    uint fps;
-    std::thread hilo_filmacion;
-    std::vector<unsigned char*> buffer_cuadros;
+    seon::aplicacion::configuracion::video configuracion;
+    STARTUPINFO info_cam;
+    PROCESS_INFORMATION processInfo_cam;
 };
 
 };

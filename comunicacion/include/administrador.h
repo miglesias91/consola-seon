@@ -22,7 +22,7 @@ public:
     administrador(const seon::aplicacion::configuracion::comunicacion & configuracion);
     virtual ~administrador();
 
-    void iniciar();
+    bool iniciar();
 
     void recibir(trama_gps & trama);
     void recibir(trama_pulsadores & trama);

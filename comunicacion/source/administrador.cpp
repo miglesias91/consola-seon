@@ -20,18 +20,30 @@ administrador::~administrador() {
     aplicacion::logger::info("CIERRE ADMIN COMUNICACION");
 }
 
-void administrador::iniciar() {
+bool administrador::iniciar() {
+
+    SERIAL * comunicacion_gps = nullptr;
+    SERIAL * comunicacion_pulsadores = nullptr;
+    SERIAL * comunicacion_pupitre = nullptr;
+    SERIAL * comunicacion_seon = nullptr;
 
     // creo un serial por cada comunicacion.
-    SERIAL * comunicacion_gps = new SERIAL(this->configuracion.gps);
-    SERIAL * comunicacion_pulsadores = new SERIAL(this->configuracion.pulsadores);
-    SERIAL * comunicacion_pupitre = new SERIAL(this->configuracion.pupitre);
-    SERIAL * comunicacion_seon = new SERIAL(this->configuracion.seon);
+    try {
+        comunicacion_gps = new SERIAL(this->configuracion.gps);
+        comunicacion_pulsadores = new SERIAL(this->configuracion.pulsadores);
+        comunicacion_pupitre = new SERIAL(this->configuracion.pupitre);
+        comunicacion_seon = new SERIAL(this->configuracion.seon);
+    }
+    catch (std::exception &e) {
+        return false;
+    }
 
     this->comunicaciones["gps"] = comunicacion_gps;
     this->comunicaciones["pulsadores"] = comunicacion_pulsadores;
     this->comunicaciones["pupitre"] = comunicacion_pupitre;
     this->comunicaciones["seon"] = comunicacion_seon;
+
+    return true;
 }
 
 void administrador::recibir(trama_gps & trama) {

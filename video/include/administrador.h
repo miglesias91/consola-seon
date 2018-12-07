@@ -8,7 +8,7 @@
 
 // video
 #include <video/include/camara.h>
-#include <video/include/vista.h>
+#include <video/include/capturador_pantalla.h>
 
 namespace seon::video {
 
@@ -18,24 +18,17 @@ public:
     administrador(seon::aplicacion::configuracion::video configuracion);
     virtual ~administrador();
 
-    void iniciar();
+    void comenzar_captura();
+    void detener_captura();
 
-    void entrada(const std::string & path_video);
-
-    std::string entrada();
-
-    std::string salida();
-
-    void salida(const std::string & path_salida);
+    void comenzar_filmacion();
+    void detener_filmacion();
 
     seon::aplicacion::configuracion::video configuracion;
 
 private:
-
-    camara camara_video;
-    vista * vista_video;
-    std::string path_video;
-    std::string path_salida;
+    seon::video::camara cam;
+    seon::video::capturador_pantalla capturador;
 };
 
 };

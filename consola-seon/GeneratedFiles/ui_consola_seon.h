@@ -11,14 +11,11 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -28,7 +25,6 @@ class Ui_consola_seonClass
 {
 public:
     QWidget *panel_central;
-    QPushButton *btn_filmar;
     QWidget *panel_lateral;
     QVBoxLayout *layout_lateral;
     QFrame *frame_testigo_pantalla;
@@ -41,12 +37,12 @@ public:
     QFrame *frame_testigo_ventana_optica;
     QVBoxLayout *layout_testigo_ventana_optica;
     QLabel *lbl_ventana_optica;
+    QFrame *linea_testigo_optica;
     QHBoxLayout *horizontalLayout;
     QLabel *lbl_optica_apagada_lava;
     QLabel *lbl_optica_lava;
     QLabel *lbl_optica_apagada_limpia;
     QLabel *lbl_optica_limpia;
-    QFrame *linea_testigo_optica;
     QFrame *frame_testigo_camara;
     QVBoxLayout *layout_testigo_camara;
     QLabel *lbl_camara;
@@ -120,21 +116,6 @@ public:
     QLabel *lbl_velocidad;
     QLabel *lbl_distancia;
     QLabel *lbl_velocidad_valor;
-    QPushButton *btn_grabar;
-    QWidget *widget_comunicaciones;
-    QVBoxLayout *layout_comunicaciones;
-    QHBoxLayout *layout_gps;
-    QLabel *lbl_gps;
-    QLineEdit *lineedit_gps;
-    QHBoxLayout *layout_pupitre;
-    QLabel *lbl_pupitre;
-    QLineEdit *lineedit_pupitre;
-    QHBoxLayout *layout_pulsadores;
-    QLabel *lbl_pulsadores;
-    QLineEdit *lineedit_pulsadores;
-    QHBoxLayout *layout_seon;
-    QLabel *lbl_seon;
-    QLineEdit *lineedit_seon;
     QWidget *widget_datos_radar;
     QGridLayout *layout_datos_radar;
     QLabel *lbl_dist;
@@ -143,7 +124,6 @@ public:
     QLabel *lbl_tipo;
     QLabel *lbl_azimut_radar_valor;
     QLabel *lbl_tipo_valor;
-    QCheckBox *checkbox_gestor;
 
     void setupUi(QMainWindow *consola_seonClass)
     {
@@ -152,16 +132,13 @@ public:
         consola_seonClass->resize(887, 655);
         consola_seonClass->setMaximumSize(QSize(887, 688));
         consola_seonClass->setWindowOpacity(1);
-        consola_seonClass->setStyleSheet(QStringLiteral(""));
+        consola_seonClass->setStyleSheet(QStringLiteral("QMainWindow { background-color: none; }"));
         panel_central = new QWidget(consola_seonClass);
         panel_central->setObjectName(QStringLiteral("panel_central"));
         panel_central->setMaximumSize(QSize(1920, 1080));
         panel_central->setAutoFillBackground(false);
-        panel_central->setStyleSheet(QLatin1String("QWidget#panel_central { background-color: rgb(0, 0, 0); }\n"
+        panel_central->setStyleSheet(QLatin1String("QWidget#panel_central { background-color: rgb(0, 0, 0, 0); }\n"
 ""));
-        btn_filmar = new QPushButton(panel_central);
-        btn_filmar->setObjectName(QStringLiteral("btn_filmar"));
-        btn_filmar->setGeometry(QRect(210, 610, 75, 23));
         panel_lateral = new QWidget(panel_central);
         panel_lateral->setObjectName(QStringLiteral("panel_lateral"));
         panel_lateral->setGeometry(QRect(10, 30, 160, 532));
@@ -249,6 +226,13 @@ public:
 
         layout_testigo_ventana_optica->addWidget(lbl_ventana_optica);
 
+        linea_testigo_optica = new QFrame(frame_testigo_ventana_optica);
+        linea_testigo_optica->setObjectName(QStringLiteral("linea_testigo_optica"));
+        linea_testigo_optica->setFrameShadow(QFrame::Plain);
+        linea_testigo_optica->setFrameShape(QFrame::HLine);
+
+        layout_testigo_ventana_optica->addWidget(linea_testigo_optica);
+
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -292,13 +276,6 @@ public:
 
 
         layout_testigo_ventana_optica->addLayout(horizontalLayout);
-
-        linea_testigo_optica = new QFrame(frame_testigo_ventana_optica);
-        linea_testigo_optica->setObjectName(QStringLiteral("linea_testigo_optica"));
-        linea_testigo_optica->setFrameShadow(QFrame::Plain);
-        linea_testigo_optica->setFrameShape(QFrame::HLine);
-
-        layout_testigo_ventana_optica->addWidget(linea_testigo_optica);
 
 
         layout_lateral->addWidget(frame_testigo_ventana_optica);
@@ -904,86 +881,6 @@ public:
 
         layout_superior->addWidget(frame_datos_blanco);
 
-        btn_grabar = new QPushButton(panel_central);
-        btn_grabar->setObjectName(QStringLiteral("btn_grabar"));
-        btn_grabar->setGeometry(QRect(60, 610, 75, 23));
-        widget_comunicaciones = new QWidget(panel_central);
-        widget_comunicaciones->setObjectName(QStringLiteral("widget_comunicaciones"));
-        widget_comunicaciones->setGeometry(QRect(670, 240, 141, 88));
-        widget_comunicaciones->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
-        layout_comunicaciones = new QVBoxLayout(widget_comunicaciones);
-        layout_comunicaciones->setSpacing(0);
-        layout_comunicaciones->setContentsMargins(11, 11, 11, 11);
-        layout_comunicaciones->setObjectName(QStringLiteral("layout_comunicaciones"));
-        layout_comunicaciones->setContentsMargins(0, 0, 0, 0);
-        layout_gps = new QHBoxLayout();
-        layout_gps->setSpacing(0);
-        layout_gps->setObjectName(QStringLiteral("layout_gps"));
-        layout_gps->setContentsMargins(-1, 0, 0, -1);
-        lbl_gps = new QLabel(widget_comunicaciones);
-        lbl_gps->setObjectName(QStringLiteral("lbl_gps"));
-
-        layout_gps->addWidget(lbl_gps);
-
-        lineedit_gps = new QLineEdit(widget_comunicaciones);
-        lineedit_gps->setObjectName(QStringLiteral("lineedit_gps"));
-
-        layout_gps->addWidget(lineedit_gps);
-
-
-        layout_comunicaciones->addLayout(layout_gps);
-
-        layout_pupitre = new QHBoxLayout();
-        layout_pupitre->setSpacing(0);
-        layout_pupitre->setObjectName(QStringLiteral("layout_pupitre"));
-        layout_pupitre->setContentsMargins(-1, -1, -1, 0);
-        lbl_pupitre = new QLabel(widget_comunicaciones);
-        lbl_pupitre->setObjectName(QStringLiteral("lbl_pupitre"));
-
-        layout_pupitre->addWidget(lbl_pupitre);
-
-        lineedit_pupitre = new QLineEdit(widget_comunicaciones);
-        lineedit_pupitre->setObjectName(QStringLiteral("lineedit_pupitre"));
-
-        layout_pupitre->addWidget(lineedit_pupitre);
-
-
-        layout_comunicaciones->addLayout(layout_pupitre);
-
-        layout_pulsadores = new QHBoxLayout();
-        layout_pulsadores->setSpacing(0);
-        layout_pulsadores->setObjectName(QStringLiteral("layout_pulsadores"));
-        layout_pulsadores->setContentsMargins(-1, -1, -1, 0);
-        lbl_pulsadores = new QLabel(widget_comunicaciones);
-        lbl_pulsadores->setObjectName(QStringLiteral("lbl_pulsadores"));
-
-        layout_pulsadores->addWidget(lbl_pulsadores);
-
-        lineedit_pulsadores = new QLineEdit(widget_comunicaciones);
-        lineedit_pulsadores->setObjectName(QStringLiteral("lineedit_pulsadores"));
-
-        layout_pulsadores->addWidget(lineedit_pulsadores);
-
-
-        layout_comunicaciones->addLayout(layout_pulsadores);
-
-        layout_seon = new QHBoxLayout();
-        layout_seon->setSpacing(0);
-        layout_seon->setObjectName(QStringLiteral("layout_seon"));
-        layout_seon->setContentsMargins(-1, -1, -1, 0);
-        lbl_seon = new QLabel(widget_comunicaciones);
-        lbl_seon->setObjectName(QStringLiteral("lbl_seon"));
-
-        layout_seon->addWidget(lbl_seon);
-
-        lineedit_seon = new QLineEdit(widget_comunicaciones);
-        lineedit_seon->setObjectName(QStringLiteral("lineedit_seon"));
-
-        layout_seon->addWidget(lineedit_seon);
-
-
-        layout_comunicaciones->addLayout(layout_seon);
-
         widget_datos_radar = new QWidget(panel_central);
         widget_datos_radar->setObjectName(QStringLiteral("widget_datos_radar"));
         widget_datos_radar->setGeometry(QRect(520, 390, 300, 80));
@@ -1070,12 +967,6 @@ public:
 
         layout_datos_radar->addWidget(lbl_tipo_valor, 1, 2, 1, 1);
 
-        checkbox_gestor = new QCheckBox(panel_central);
-        checkbox_gestor->setObjectName(QStringLiteral("checkbox_gestor"));
-        checkbox_gestor->setGeometry(QRect(320, 610, 75, 23));
-        checkbox_gestor->setTabletTracking(false);
-        checkbox_gestor->setStyleSheet(QStringLiteral("background-color: rgb(221, 221, 221);"));
-        checkbox_gestor->setTristate(false);
         consola_seonClass->setCentralWidget(panel_central);
 
         retranslateUi(consola_seonClass);
@@ -1086,7 +977,6 @@ public:
     void retranslateUi(QMainWindow *consola_seonClass)
     {
         consola_seonClass->setWindowTitle(QApplication::translate("consola_seonClass", "consola_seon", nullptr));
-        btn_filmar->setText(QApplication::translate("consola_seonClass", "filmar", nullptr));
         lbl_pantalla->setText(QApplication::translate("consola_seonClass", "PANTALLA", nullptr));
         lbl_pantalla_datos->setText(QApplication::translate("consola_seonClass", "DATOS", nullptr));
         lbl_pantalla_barrido->setText(QApplication::translate("consola_seonClass", "BARRIDO", nullptr));
@@ -1137,18 +1027,12 @@ public:
         lbl_velocidad->setText(QApplication::translate("consola_seonClass", "VELOCIDAD", nullptr));
         lbl_distancia->setText(QApplication::translate("consola_seonClass", "DISTANCIA", nullptr));
         lbl_velocidad_valor->setText(QApplication::translate("consola_seonClass", "valor_velocidad", nullptr));
-        btn_grabar->setText(QApplication::translate("consola_seonClass", "grabar", nullptr));
-        lbl_gps->setText(QApplication::translate("consola_seonClass", "gps", nullptr));
-        lbl_pupitre->setText(QApplication::translate("consola_seonClass", "pupitre", nullptr));
-        lbl_pulsadores->setText(QApplication::translate("consola_seonClass", "pulsadores", nullptr));
-        lbl_seon->setText(QApplication::translate("consola_seonClass", "seon", nullptr));
         lbl_dist->setText(QApplication::translate("consola_seonClass", "DIST", nullptr));
         lbl_azimut_radar->setText(QApplication::translate("consola_seonClass", "AZIMUT", nullptr));
         lbl_dist_valor->setText(QApplication::translate("consola_seonClass", "0.00 y", nullptr));
         lbl_tipo->setText(QApplication::translate("consola_seonClass", "TIPO", nullptr));
         lbl_azimut_radar_valor->setText(QApplication::translate("consola_seonClass", "0.0 \302\260", nullptr));
         lbl_tipo_valor->setText(QApplication::translate("consola_seonClass", "A", nullptr));
-        checkbox_gestor->setText(QApplication::translate("consola_seonClass", "gestor", nullptr));
     } // retranslateUi
 
 };

@@ -23,7 +23,7 @@
    <double>1.000000000000000</double>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QMainWindow { background-color: none; }</string>
   </property>
   <widget class="QWidget" name="panel_central">
    <property name="maximumSize">
@@ -36,22 +36,9 @@
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget#panel_central { background-color: rgb(0, 0, 0); }
+    <string notr="true">QWidget#panel_central { background-color: rgb(0, 0, 0, 0); }
 </string>
    </property>
-   <widget class="QPushButton" name="btn_filmar">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>610</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>filmar</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="panel_lateral" native="true">
     <property name="geometry">
      <rect>
@@ -235,6 +222,16 @@
          </widget>
         </item>
         <item>
+         <widget class="Line" name="linea_testigo_optica">
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <property name="spacing">
            <number>0</number>
@@ -324,16 +321,6 @@
            </widget>
           </item>
          </layout>
-        </item>
-        <item>
-         <widget class="Line" name="linea_testigo_optica">
-          <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
         </item>
        </layout>
       </widget>
@@ -1716,132 +1703,6 @@ border-left: 0px;</string>
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="btn_grabar">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>610</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>grabar</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="widget_comunicaciones" native="true">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>240</y>
-      <width>141</width>
-      <height>88</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
-    </property>
-    <layout class="QVBoxLayout" name="layout_comunicaciones">
-     <property name="spacing">
-      <number>0</number>
-     </property>
-     <property name="leftMargin">
-      <number>0</number>
-     </property>
-     <property name="topMargin">
-      <number>0</number>
-     </property>
-     <property name="rightMargin">
-      <number>0</number>
-     </property>
-     <property name="bottomMargin">
-      <number>0</number>
-     </property>
-     <item>
-      <layout class="QHBoxLayout" name="layout_gps">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="lbl_gps">
-         <property name="text">
-          <string>gps</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineedit_gps"/>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="layout_pupitre">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="lbl_pupitre">
-         <property name="text">
-          <string>pupitre</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineedit_pupitre"/>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="layout_pulsadores">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="lbl_pulsadores">
-         <property name="text">
-          <string>pulsadores</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineedit_pulsadores"/>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="layout_seon">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="lbl_seon">
-         <property name="text">
-          <string>seon</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineedit_seon"/>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
    <widget class="QWidget" name="widget_datos_radar" native="true">
     <property name="geometry">
      <rect>
@@ -2168,28 +2029,6 @@ border: 1px solid rgb(85, 170, 0);</string>
       </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QCheckBox" name="checkbox_gestor">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>610</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="tabletTracking">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(221, 221, 221);</string>
-    </property>
-    <property name="text">
-     <string>gestor</string>
-    </property>
-    <property name="tristate">
-     <bool>false</bool>
-    </property>
    </widget>
   </widget>
  </widget>

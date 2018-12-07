@@ -21,7 +21,7 @@
     <ClInclude Include="include\camara.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="include\vista.h">
+    <ClInclude Include="include\capturador_pantalla.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,7 +32,7 @@
     <ClCompile Include="source\camara.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="source\vista.cpp">
+    <ClCompile Include="source\capturador_pantalla.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

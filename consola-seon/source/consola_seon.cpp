@@ -12,35 +12,24 @@
 consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comunicacion::administrador * admin_comunicacion, seon::aplicacion::configuracion::gui config_gui, QWidget *parent)
     : admin_video(admin_video),
     config_gui(config_gui),
-    filmacion(admin_video), 
-    grabacion(admin_video),
     comu(admin_comunicacion),
     hud(nullptr),
-    gestor(new gestor_ejercicios(admin_video->configuracion.grabacion.carpeta)),
+    gestor(new gestor_ejercicios(admin_video->configuracion)),
     QMainWindow(parent)
 {
     ui.setupUi(this);
+
+    this->setWindowFlag(Qt::FramelessWindowHint);
+    this->setAttribute(Qt::WA_TranslucentBackground);
 
     // seteo incio
     this->configurar_gui();
 
     // conecto signals con slots
-    QObject::connect(this->ui.btn_filmar, &QPushButton::released, this, &consola_seon::comenzar_filmacion);
-    QObject::connect(this->ui.btn_grabar, &QPushButton::released, this, &consola_seon::comenzar_grabacion);
-
-    QObject::connect(this, &consola_seon::screenshot_listo, &this->grabacion, &grabacion_opencv::imagen_lista);
-
     QObject::connect(&this->comu, &comunicador::nuevo_mensaje_gps, this, &consola_seon::mostrar_mensaje_gps);
     QObject::connect(&this->comu, &comunicador::nuevo_mensaje_pulsadores, this, &consola_seon::mostrar_mensaje_pulsadores);
     QObject::connect(&this->comu, &comunicador::nuevo_mensaje_pupitre, this, &consola_seon::mostrar_mensaje_pupitre);
     QObject::connect(&this->comu, &comunicador::nuevo_mensaje_seon, this, &consola_seon::mostrar_mensaje_seon);
-
-    QObject::connect(this->ui.checkbox_gestor, &QCheckBox::stateChanged, this, &consola_seon::abrir_cerrar_gestor);
-
-    // seteo las propiedades de gui
-    this->filmacion.hijo_de(this->ui.panel_central);
-    this->filmacion.tamanio(this->config_gui.area_video.tamanio.ancho, this->config_gui.area_video.tamanio.alto);
-    this->filmacion.posicion(this->config_gui.area_video.posicion.x, this->config_gui.area_video.posicion.y);
 
     this->ui.panel_lateral->resize(this->config_gui.panel_lateral.tamanio.ancho, this->config_gui.panel_lateral.tamanio.alto);
     this->ui.panel_lateral->move(this->config_gui.panel_lateral.posicion.x, this->config_gui.panel_lateral.posicion.y);
@@ -51,8 +40,6 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
     this->ui.panel_superior->move(this->config_gui.panel_superior.posicion.x, this->config_gui.panel_superior.posicion.y);
     this->ui.panel_superior->raise();
     this->ui.layout_superior->setSpacing(80);
-
-    this->ui.widget_comunicaciones->raise();
 
     this->comu.iniciar();
 
@@ -72,15 +59,11 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
     this->hud->dibujo(lancha);
     this->hud->reticulas(tracking);
 
-    this->ui.btn_filmar->raise();
-    this->ui.btn_grabar->raise();
     this->ui.widget_datos_radar->raise();
 }
 
 consola_seon::~consola_seon() {
-
     this->comu.cortar();
-    this->timer.stop();
     seon::aplicacion::logger::info("cerrando consola.");
 }
 
@@ -137,8 +120,6 @@ void consola_seon::mostrar_mensaje_gps(const seon::comunicacion::trama_gps & tra
 
     this->ui.lbl_longitud_valor->setText((herramientas::utiles::FuncionesString::toString(trama.longitud.angulo, 2) + " " + trama.longitud.cardinalidad).c_str());
     this->ui.lbl_latitud_valor->setText((herramientas::utiles::FuncionesString::toString(trama.latitud.angulo, 2) + " " + trama.latitud.cardinalidad).c_str());
-
-    this->ui.lineedit_gps->setText(trama.tira_de_datos.c_str());
 }
 
 void consola_seon::mostrar_mensaje_pupitre(const seon::comunicacion::trama_pupitre & trama) {
@@ -158,14 +139,13 @@ void consola_seon::mostrar_mensaje_pupitre(const seon::comunicacion::trama_pupit
     }
 
     if (trama.acc_archivo_pic) {
+        this->gestor->actualizar();
         this->gestor->showFullScreen();
         //this->gestor->setVisible(true);
     }
     if (false == trama.acc_archivo_pic) {
         this->gestor->close();
     }
-
-    this->ui.lineedit_pupitre->setText(trama.tira_de_datos.c_str());
 }
 
 void consola_seon::mostrar_mensaje_pulsadores(const seon::comunicacion::trama_pulsadores & trama) {
@@ -212,8 +192,6 @@ void consola_seon::mostrar_mensaje_pulsadores(const seon::comunicacion::trama_pu
     this->ui.lbl_modo_fijo->setVisible(trama.modo_fijo);
     this->ui.lbl_modo_esclavo->setVisible(trama.modo_esclavo);
     this->ui.lbl_modo_estable->setVisible(trama.modo_estable);
-
-    this->ui.lineedit_pulsadores->setText(trama.tira_de_datos.c_str());
 }
 
 void consola_seon::mostrar_mensaje_seon(const seon::comunicacion::trama_seon & trama) {
@@ -269,25 +247,21 @@ void consola_seon::mostrar_mensaje_seon(const seon::comunicacion::trama_seon & t
     this->hud->reticulas()->centro_de_gravedad(trama.centro_gravedad);
     //trama.centro_gravedad ???
     //trama.corrimiento ???
-    this->ui.lineedit_seon->setText(trama.tira_de_datos.c_str());
 }
 
-void consola_seon::comenzar_filmacion()
-{
+void consola_seon::comenzar_filmacion() {
     seon::aplicacion::logger::info("filmacion iniciada.");
-    this->filmacion.iniciar();
+    this->admin_video->comenzar_filmacion();
 }
 
 void consola_seon::comenzar_grabacion() {
 
     seon::aplicacion::logger::info("grabacion iniciada.");
-    this->grabacion.iniciar();
-
-    this->timer.start((1000 / (this->admin_video->configuracion.grabacion.fps + 10)), this);
+    this->admin_video->comenzar_captura();
 }
 
 void consola_seon::detener_grabacion() {
-    this->timer.stop();
+    this->admin_video->detener_captura();
 }
 
 void consola_seon::color_fondo(QWidget * widget, const std::string & color) {
@@ -295,25 +269,5 @@ void consola_seon::color_fondo(QWidget * widget, const std::string & color) {
 }
 
 void consola_seon::abrir_cerrar_gestor() {
-    if (this->ui.checkbox_gestor->isChecked()) {
-        this->gestor->actualizar();
-        this->gestor->show();
-    }
-    if (false == this->ui.checkbox_gestor->isChecked()) {
-        this->gestor->close();
-    }
-}
-
-void consola_seon::timerEvent(QTimerEvent * ev) {
-
-    if (ev->timerId() != this->timer.timerId()) return;
-
-    QScreen * screen = QGuiApplication::primaryScreen();
-    if (const QWindow *window = windowHandle())
-        screen = window->screen();
-    if (!screen)
-        return;
-    
-    emit screenshot_listo(screen->grabWindow(this->ui.panel_central->winId()).toImage());
 }
 

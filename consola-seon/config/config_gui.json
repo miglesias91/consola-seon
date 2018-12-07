@@ -8,7 +8,7 @@
     },
     "panel_superior" : 
     {
-        "ancho" : 1800,
+        "ancho" : 1000,
         "alto" : 80,
         "x" : 80,
         "y" : 0
@@ -16,7 +16,7 @@
     "panel_lateral" : 
     {
         "ancho" : 100,
-        "alto" : 1000,
+        "alto" : 600,
         "x" : 0,
         "y" : 80
     },
@@ -24,7 +24,7 @@
     [
         {
             "id" : "lbl_video",
-            "color_primario" : { "nombre" : "blanc", "r" : 255, "g" : 255, "b" : 255 },
+            "color_primario" : { "nombre" : "blanco", "r" : 255, "g" : 255, "b" : 255 },
             "color_secundario" : { "nombre" : "azul", "r" : 0, "g" : 0, "b" : 255 },
             "texto" : "VIDEO"
         }

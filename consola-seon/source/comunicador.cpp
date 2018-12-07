@@ -15,9 +15,9 @@ comunicador::~comunicador() {}
 
 void comunicador::iniciar() {
 
-    this->admin_comunicacion->iniciar();
+    this->hay_comunicacion = this->admin_comunicacion->iniciar();
 
-    this->hay_comunicacion = true;
+    if (false == this->hay_comunicacion) { return; }
 
     // inicio comunicacion con gps
     QtConcurrent::run(this, &comunicador::iniciar_comunicacion_gps);
