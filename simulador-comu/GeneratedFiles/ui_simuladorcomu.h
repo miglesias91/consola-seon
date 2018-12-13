@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
@@ -202,6 +203,51 @@ public:
     QCheckBox *checkbox_sen_fija;
     QSpinBox *spin_contador_pupitre;
     QPushButton *btn_enviar_pupitre;
+    QVBoxLayout *verticalLayout_4;
+    QWidget *widget_puerto_gps;
+    QHBoxLayout *layout_puerto_gps;
+    QLabel *lbl_gps;
+    QFrame *line_4;
+    QLabel *lbl_puerto_gps;
+    QLineEdit *lineedit_puerto_gps;
+    QPushButton *btn_conectar_gps;
+    QWidget *form_gps;
+    QFormLayout *formLayout;
+    QLabel *lbl_hora;
+    QLabel *lbl_estado_gps;
+    QGroupBox *groupbox_estado_gps;
+    QHBoxLayout *horizontalLayout_13;
+    QRadioButton *radiobut_active_gps;
+    QRadioButton *radiobut_void_gps;
+    QLabel *lbl_latitud;
+    QHBoxLayout *horizontalLayout_14;
+    QSpinBox *spinbox_latitud_gps;
+    QDoubleSpinBox *spinbox_latitud_deg_gps;
+    QGroupBox *groupbox_latitud_gps;
+    QHBoxLayout *horizontalLayout_15;
+    QRadioButton *radiobut_latidud_gps_n;
+    QRadioButton *radiobut_latidud_gps_s;
+    QLabel *lbl_longitud;
+    QHBoxLayout *horizontalLayout_16;
+    QSpinBox *spinbox_longitud_gps;
+    QDoubleSpinBox *spinbox_longitud_deg_gps;
+    QGroupBox *groupbox_longitud_gps;
+    QHBoxLayout *horizontalLayout_18;
+    QRadioButton *radiobut_longitud_gps_w;
+    QRadioButton *radiobut_longitud_gps_e;
+    QLabel *lbl_nudos_gps;
+    QLabel *label_13;
+    QLabel *lbl_grados_gps;
+    QLabel *label_14;
+    QLabel *lbl_fecha_gps;
+    QLabel *label_15;
+    QLabel *label_12;
+    QLabel *label_16;
+    QHBoxLayout *horizontalLayout_19;
+    QSpinBox *spinbox_horas_gps;
+    QSpinBox *spinbox_minutos_gps;
+    QSpinBox *spinbox_segundos_gps;
+    QPushButton *btn_enviar_gps;
 
     void setupUi(QWidget *simuladorcomuClass)
     {
@@ -282,6 +328,7 @@ public:
 
         lineedit_header1_seon = new QLineEdit(form_seon);
         lineedit_header1_seon->setObjectName(QStringLiteral("lineedit_header1_seon"));
+        lineedit_header1_seon->setEnabled(false);
 
         from_seon->setWidget(1, QFormLayout::FieldRole, lineedit_header1_seon);
 
@@ -292,6 +339,7 @@ public:
 
         lineedit_header2_seon = new QLineEdit(form_seon);
         lineedit_header2_seon->setObjectName(QStringLiteral("lineedit_header2_seon"));
+        lineedit_header2_seon->setEnabled(false);
 
         from_seon->setWidget(2, QFormLayout::FieldRole, lineedit_header2_seon);
 
@@ -302,6 +350,7 @@ public:
 
         spin_distancia = new QSpinBox(form_seon);
         spin_distancia->setObjectName(QStringLiteral("spin_distancia"));
+        spin_distancia->setEnabled(true);
         QSizePolicy sizePolicy2(QSizePolicy::Maximum, QSizePolicy::Fixed);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
@@ -753,6 +802,7 @@ public:
 
         lineedit_header1_botonera = new QLineEdit(form_botonera);
         lineedit_header1_botonera->setObjectName(QStringLiteral("lineedit_header1_botonera"));
+        lineedit_header1_botonera->setEnabled(false);
 
         layout_botonera->setWidget(0, QFormLayout::FieldRole, lineedit_header1_botonera);
 
@@ -763,6 +813,7 @@ public:
 
         lineedit_header2_botonera = new QLineEdit(form_botonera);
         lineedit_header2_botonera->setObjectName(QStringLiteral("lineedit_header2_botonera"));
+        lineedit_header2_botonera->setEnabled(false);
 
         layout_botonera->setWidget(1, QFormLayout::FieldRole, lineedit_header2_botonera);
 
@@ -983,6 +1034,7 @@ public:
 
         spin_contador_botonera = new QSpinBox(form_botonera);
         spin_contador_botonera->setObjectName(QStringLiteral("spin_contador_botonera"));
+        spin_contador_botonera->setEnabled(false);
         sizePolicy2.setHeightForWidth(spin_contador_botonera->sizePolicy().hasHeightForWidth());
         spin_contador_botonera->setSizePolicy(sizePolicy2);
         spin_contador_botonera->setMaximum(65535);
@@ -1057,6 +1109,7 @@ public:
 
         lineedit_header1_pupitre = new QLineEdit(form_pupitre);
         lineedit_header1_pupitre->setObjectName(QStringLiteral("lineedit_header1_pupitre"));
+        lineedit_header1_pupitre->setEnabled(false);
 
         layout_pupitre->setWidget(0, QFormLayout::FieldRole, lineedit_header1_pupitre);
 
@@ -1117,6 +1170,7 @@ public:
 
         lineedit_header2_2 = new QLineEdit(form_pupitre);
         lineedit_header2_2->setObjectName(QStringLiteral("lineedit_header2_2"));
+        lineedit_header2_2->setEnabled(false);
 
         layout_pupitre->setWidget(1, QFormLayout::FieldRole, lineedit_header2_2);
 
@@ -1167,6 +1221,7 @@ public:
 
         spin_contador_pupitre = new QSpinBox(form_pupitre);
         spin_contador_pupitre->setObjectName(QStringLiteral("spin_contador_pupitre"));
+        spin_contador_pupitre->setEnabled(false);
         sizePolicy2.setHeightForWidth(spin_contador_pupitre->sizePolicy().hasHeightForWidth());
         spin_contador_pupitre->setSizePolicy(sizePolicy2);
         spin_contador_pupitre->setMaximum(255);
@@ -1184,6 +1239,273 @@ public:
 
         horizontalLayout_11->addLayout(verticalLayout_3);
 
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(-1, -1, 0, -1);
+        widget_puerto_gps = new QWidget(simuladorcomuClass);
+        widget_puerto_gps->setObjectName(QStringLiteral("widget_puerto_gps"));
+        sizePolicy.setHeightForWidth(widget_puerto_gps->sizePolicy().hasHeightForWidth());
+        widget_puerto_gps->setSizePolicy(sizePolicy);
+        layout_puerto_gps = new QHBoxLayout(widget_puerto_gps);
+        layout_puerto_gps->setSpacing(6);
+        layout_puerto_gps->setContentsMargins(11, 11, 11, 11);
+        layout_puerto_gps->setObjectName(QStringLiteral("layout_puerto_gps"));
+        layout_puerto_gps->setContentsMargins(0, 0, 0, 0);
+        lbl_gps = new QLabel(widget_puerto_gps);
+        lbl_gps->setObjectName(QStringLiteral("lbl_gps"));
+        lbl_gps->setFont(font);
+
+        layout_puerto_gps->addWidget(lbl_gps);
+
+        line_4 = new QFrame(widget_puerto_gps);
+        line_4->setObjectName(QStringLiteral("line_4"));
+        line_4->setFrameShape(QFrame::VLine);
+        line_4->setFrameShadow(QFrame::Sunken);
+
+        layout_puerto_gps->addWidget(line_4);
+
+        lbl_puerto_gps = new QLabel(widget_puerto_gps);
+        lbl_puerto_gps->setObjectName(QStringLiteral("lbl_puerto_gps"));
+
+        layout_puerto_gps->addWidget(lbl_puerto_gps);
+
+        lineedit_puerto_gps = new QLineEdit(widget_puerto_gps);
+        lineedit_puerto_gps->setObjectName(QStringLiteral("lineedit_puerto_gps"));
+
+        layout_puerto_gps->addWidget(lineedit_puerto_gps);
+
+        btn_conectar_gps = new QPushButton(widget_puerto_gps);
+        btn_conectar_gps->setObjectName(QStringLiteral("btn_conectar_gps"));
+
+        layout_puerto_gps->addWidget(btn_conectar_gps);
+
+
+        verticalLayout_4->addWidget(widget_puerto_gps, 0, Qt::AlignTop);
+
+        form_gps = new QWidget(simuladorcomuClass);
+        form_gps->setObjectName(QStringLiteral("form_gps"));
+        QSizePolicy sizePolicy4(QSizePolicy::Preferred, QSizePolicy::Expanding);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(form_gps->sizePolicy().hasHeightForWidth());
+        form_gps->setSizePolicy(sizePolicy4);
+        formLayout = new QFormLayout(form_gps);
+        formLayout->setSpacing(6);
+        formLayout->setContentsMargins(11, 11, 11, 11);
+        formLayout->setObjectName(QStringLiteral("formLayout"));
+        formLayout->setContentsMargins(0, 0, 0, 0);
+        lbl_hora = new QLabel(form_gps);
+        lbl_hora->setObjectName(QStringLiteral("lbl_hora"));
+
+        formLayout->setWidget(0, QFormLayout::LabelRole, lbl_hora);
+
+        lbl_estado_gps = new QLabel(form_gps);
+        lbl_estado_gps->setObjectName(QStringLiteral("lbl_estado_gps"));
+
+        formLayout->setWidget(1, QFormLayout::LabelRole, lbl_estado_gps);
+
+        groupbox_estado_gps = new QGroupBox(form_gps);
+        groupbox_estado_gps->setObjectName(QStringLiteral("groupbox_estado_gps"));
+        groupbox_estado_gps->setEnabled(false);
+        groupbox_estado_gps->setCheckable(false);
+        horizontalLayout_13 = new QHBoxLayout(groupbox_estado_gps);
+        horizontalLayout_13->setSpacing(6);
+        horizontalLayout_13->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
+        horizontalLayout_13->setContentsMargins(9, 0, 0, 0);
+        radiobut_active_gps = new QRadioButton(groupbox_estado_gps);
+        radiobut_active_gps->setObjectName(QStringLiteral("radiobut_active_gps"));
+
+        horizontalLayout_13->addWidget(radiobut_active_gps);
+
+        radiobut_void_gps = new QRadioButton(groupbox_estado_gps);
+        radiobut_void_gps->setObjectName(QStringLiteral("radiobut_void_gps"));
+
+        horizontalLayout_13->addWidget(radiobut_void_gps);
+
+
+        formLayout->setWidget(1, QFormLayout::FieldRole, groupbox_estado_gps);
+
+        lbl_latitud = new QLabel(form_gps);
+        lbl_latitud->setObjectName(QStringLiteral("lbl_latitud"));
+
+        formLayout->setWidget(2, QFormLayout::LabelRole, lbl_latitud);
+
+        horizontalLayout_14 = new QHBoxLayout();
+        horizontalLayout_14->setSpacing(6);
+        horizontalLayout_14->setObjectName(QStringLiteral("horizontalLayout_14"));
+        spinbox_latitud_gps = new QSpinBox(form_gps);
+        spinbox_latitud_gps->setObjectName(QStringLiteral("spinbox_latitud_gps"));
+        sizePolicy2.setHeightForWidth(spinbox_latitud_gps->sizePolicy().hasHeightForWidth());
+        spinbox_latitud_gps->setSizePolicy(sizePolicy2);
+        spinbox_latitud_gps->setMinimum(-90);
+        spinbox_latitud_gps->setMaximum(90);
+
+        horizontalLayout_14->addWidget(spinbox_latitud_gps);
+
+        spinbox_latitud_deg_gps = new QDoubleSpinBox(form_gps);
+        spinbox_latitud_deg_gps->setObjectName(QStringLiteral("spinbox_latitud_deg_gps"));
+        sizePolicy1.setHeightForWidth(spinbox_latitud_deg_gps->sizePolicy().hasHeightForWidth());
+        spinbox_latitud_deg_gps->setSizePolicy(sizePolicy1);
+        spinbox_latitud_deg_gps->setDecimals(3);
+
+        horizontalLayout_14->addWidget(spinbox_latitud_deg_gps);
+
+        groupbox_latitud_gps = new QGroupBox(form_gps);
+        groupbox_latitud_gps->setObjectName(QStringLiteral("groupbox_latitud_gps"));
+        horizontalLayout_15 = new QHBoxLayout(groupbox_latitud_gps);
+        horizontalLayout_15->setSpacing(0);
+        horizontalLayout_15->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_15->setObjectName(QStringLiteral("horizontalLayout_15"));
+        horizontalLayout_15->setContentsMargins(0, 0, 0, 0);
+        radiobut_latidud_gps_n = new QRadioButton(groupbox_latitud_gps);
+        radiobut_latidud_gps_n->setObjectName(QStringLiteral("radiobut_latidud_gps_n"));
+
+        horizontalLayout_15->addWidget(radiobut_latidud_gps_n);
+
+        radiobut_latidud_gps_s = new QRadioButton(groupbox_latitud_gps);
+        radiobut_latidud_gps_s->setObjectName(QStringLiteral("radiobut_latidud_gps_s"));
+
+        horizontalLayout_15->addWidget(radiobut_latidud_gps_s);
+
+
+        horizontalLayout_14->addWidget(groupbox_latitud_gps);
+
+
+        formLayout->setLayout(2, QFormLayout::FieldRole, horizontalLayout_14);
+
+        lbl_longitud = new QLabel(form_gps);
+        lbl_longitud->setObjectName(QStringLiteral("lbl_longitud"));
+
+        formLayout->setWidget(3, QFormLayout::LabelRole, lbl_longitud);
+
+        horizontalLayout_16 = new QHBoxLayout();
+        horizontalLayout_16->setSpacing(6);
+        horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
+        spinbox_longitud_gps = new QSpinBox(form_gps);
+        spinbox_longitud_gps->setObjectName(QStringLiteral("spinbox_longitud_gps"));
+        sizePolicy2.setHeightForWidth(spinbox_longitud_gps->sizePolicy().hasHeightForWidth());
+        spinbox_longitud_gps->setSizePolicy(sizePolicy2);
+        spinbox_longitud_gps->setMinimum(-180);
+        spinbox_longitud_gps->setMaximum(180);
+
+        horizontalLayout_16->addWidget(spinbox_longitud_gps);
+
+        spinbox_longitud_deg_gps = new QDoubleSpinBox(form_gps);
+        spinbox_longitud_deg_gps->setObjectName(QStringLiteral("spinbox_longitud_deg_gps"));
+        sizePolicy1.setHeightForWidth(spinbox_longitud_deg_gps->sizePolicy().hasHeightForWidth());
+        spinbox_longitud_deg_gps->setSizePolicy(sizePolicy1);
+        spinbox_longitud_deg_gps->setDecimals(3);
+
+        horizontalLayout_16->addWidget(spinbox_longitud_deg_gps);
+
+        groupbox_longitud_gps = new QGroupBox(form_gps);
+        groupbox_longitud_gps->setObjectName(QStringLiteral("groupbox_longitud_gps"));
+        horizontalLayout_18 = new QHBoxLayout(groupbox_longitud_gps);
+        horizontalLayout_18->setSpacing(0);
+        horizontalLayout_18->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_18->setObjectName(QStringLiteral("horizontalLayout_18"));
+        horizontalLayout_18->setContentsMargins(0, 0, 0, 0);
+        radiobut_longitud_gps_w = new QRadioButton(groupbox_longitud_gps);
+        radiobut_longitud_gps_w->setObjectName(QStringLiteral("radiobut_longitud_gps_w"));
+
+        horizontalLayout_18->addWidget(radiobut_longitud_gps_w);
+
+        radiobut_longitud_gps_e = new QRadioButton(groupbox_longitud_gps);
+        radiobut_longitud_gps_e->setObjectName(QStringLiteral("radiobut_longitud_gps_e"));
+
+        horizontalLayout_18->addWidget(radiobut_longitud_gps_e);
+
+
+        horizontalLayout_16->addWidget(groupbox_longitud_gps);
+
+
+        formLayout->setLayout(3, QFormLayout::FieldRole, horizontalLayout_16);
+
+        lbl_nudos_gps = new QLabel(form_gps);
+        lbl_nudos_gps->setObjectName(QStringLiteral("lbl_nudos_gps"));
+
+        formLayout->setWidget(4, QFormLayout::LabelRole, lbl_nudos_gps);
+
+        label_13 = new QLabel(form_gps);
+        label_13->setObjectName(QStringLiteral("label_13"));
+        QFont font2;
+        font2.setBold(true);
+        font2.setItalic(true);
+        font2.setWeight(75);
+        label_13->setFont(font2);
+
+        formLayout->setWidget(4, QFormLayout::FieldRole, label_13);
+
+        lbl_grados_gps = new QLabel(form_gps);
+        lbl_grados_gps->setObjectName(QStringLiteral("lbl_grados_gps"));
+
+        formLayout->setWidget(5, QFormLayout::LabelRole, lbl_grados_gps);
+
+        label_14 = new QLabel(form_gps);
+        label_14->setObjectName(QStringLiteral("label_14"));
+        label_14->setFont(font2);
+
+        formLayout->setWidget(5, QFormLayout::FieldRole, label_14);
+
+        lbl_fecha_gps = new QLabel(form_gps);
+        lbl_fecha_gps->setObjectName(QStringLiteral("lbl_fecha_gps"));
+
+        formLayout->setWidget(6, QFormLayout::LabelRole, lbl_fecha_gps);
+
+        label_15 = new QLabel(form_gps);
+        label_15->setObjectName(QStringLiteral("label_15"));
+        label_15->setFont(font2);
+
+        formLayout->setWidget(6, QFormLayout::FieldRole, label_15);
+
+        label_12 = new QLabel(form_gps);
+        label_12->setObjectName(QStringLiteral("label_12"));
+
+        formLayout->setWidget(7, QFormLayout::LabelRole, label_12);
+
+        label_16 = new QLabel(form_gps);
+        label_16->setObjectName(QStringLiteral("label_16"));
+        label_16->setFont(font2);
+
+        formLayout->setWidget(7, QFormLayout::FieldRole, label_16);
+
+        horizontalLayout_19 = new QHBoxLayout();
+        horizontalLayout_19->setSpacing(6);
+        horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
+        spinbox_horas_gps = new QSpinBox(form_gps);
+        spinbox_horas_gps->setObjectName(QStringLiteral("spinbox_horas_gps"));
+        spinbox_horas_gps->setMaximum(23);
+
+        horizontalLayout_19->addWidget(spinbox_horas_gps);
+
+        spinbox_minutos_gps = new QSpinBox(form_gps);
+        spinbox_minutos_gps->setObjectName(QStringLiteral("spinbox_minutos_gps"));
+        spinbox_minutos_gps->setMaximum(59);
+
+        horizontalLayout_19->addWidget(spinbox_minutos_gps);
+
+        spinbox_segundos_gps = new QSpinBox(form_gps);
+        spinbox_segundos_gps->setObjectName(QStringLiteral("spinbox_segundos_gps"));
+        spinbox_segundos_gps->setMaximum(59);
+
+        horizontalLayout_19->addWidget(spinbox_segundos_gps);
+
+
+        formLayout->setLayout(0, QFormLayout::FieldRole, horizontalLayout_19);
+
+
+        verticalLayout_4->addWidget(form_gps);
+
+        btn_enviar_gps = new QPushButton(simuladorcomuClass);
+        btn_enviar_gps->setObjectName(QStringLiteral("btn_enviar_gps"));
+
+        verticalLayout_4->addWidget(btn_enviar_gps);
+
+
+        horizontalLayout_11->addLayout(verticalLayout_4);
+
 
         retranslateUi(simuladorcomuClass);
 
@@ -1195,6 +1517,12 @@ public:
         simuladorcomuClass->setWindowTitle(QApplication::translate("simuladorcomuClass", "simuladorcomu", nullptr));
         label_7->setText(QApplication::translate("simuladorcomuClass", "SEON", nullptr));
         label_3->setText(QApplication::translate("simuladorcomuClass", "puerto", nullptr));
+#ifndef QT_NO_TOOLTIP
+        lineedit_puerto_seon->setToolTip(QString());
+#endif // QT_NO_TOOLTIP
+        lineedit_puerto_seon->setInputMask(QString());
+        lineedit_puerto_seon->setText(QApplication::translate("simuladorcomuClass", "COM8", nullptr));
+        lineedit_puerto_seon->setPlaceholderText(QApplication::translate("simuladorcomuClass", "COM8", nullptr));
         btn_conectar_seon->setText(QApplication::translate("simuladorcomuClass", "conectar", nullptr));
         lbl_header1_seon->setText(QApplication::translate("simuladorcomuClass", "header1", nullptr));
         lbl_header_seon->setText(QApplication::translate("simuladorcomuClass", "header2", nullptr));
@@ -1233,6 +1561,9 @@ public:
         btn_enviar_seon->setText(QApplication::translate("simuladorcomuClass", "enviar", nullptr));
         label_8->setText(QApplication::translate("simuladorcomuClass", "BOTONERA", nullptr));
         label_6->setText(QApplication::translate("simuladorcomuClass", "puerto", nullptr));
+        lineedit_puerto_botonera->setInputMask(QString());
+        lineedit_puerto_botonera->setText(QApplication::translate("simuladorcomuClass", "COM6", nullptr));
+        lineedit_puerto_botonera->setPlaceholderText(QApplication::translate("simuladorcomuClass", "COM6", nullptr));
         btn_conectar_botonera->setText(QApplication::translate("simuladorcomuClass", "conectar", nullptr));
         lbl_header1->setText(QApplication::translate("simuladorcomuClass", "header1", nullptr));
         lbl_header2->setText(QApplication::translate("simuladorcomuClass", "header2", nullptr));
@@ -1262,6 +1593,9 @@ public:
         btn_enviar_botonera->setText(QApplication::translate("simuladorcomuClass", "enviar", nullptr));
         label_9->setText(QApplication::translate("simuladorcomuClass", "PUPITRE", nullptr));
         label_5->setText(QApplication::translate("simuladorcomuClass", "puerto", nullptr));
+        lineedit_puerto_pupitre->setInputMask(QString());
+        lineedit_puerto_pupitre->setText(QApplication::translate("simuladorcomuClass", "COM4", nullptr));
+        lineedit_puerto_pupitre->setPlaceholderText(QApplication::translate("simuladorcomuClass", "COM4", nullptr));
         btn_conectar_pupitre->setText(QApplication::translate("simuladorcomuClass", "conectar", nullptr));
         lbl_header1_pupitre->setText(QApplication::translate("simuladorcomuClass", "header1", nullptr));
         lbl_header2_2->setText(QApplication::translate("simuladorcomuClass", "header2", nullptr));
@@ -1285,6 +1619,39 @@ public:
         checkbox_sel_vent2->setText(QString());
         checkbox_sen_fija->setText(QString());
         btn_enviar_pupitre->setText(QApplication::translate("simuladorcomuClass", "enviar", nullptr));
+        lbl_gps->setText(QApplication::translate("simuladorcomuClass", "GPS", nullptr));
+        lbl_puerto_gps->setText(QApplication::translate("simuladorcomuClass", "puerto", nullptr));
+        lineedit_puerto_gps->setText(QApplication::translate("simuladorcomuClass", "COM10", nullptr));
+        lineedit_puerto_gps->setPlaceholderText(QApplication::translate("simuladorcomuClass", "COM10", nullptr));
+        btn_conectar_gps->setText(QApplication::translate("simuladorcomuClass", "conectar", nullptr));
+        lbl_hora->setText(QApplication::translate("simuladorcomuClass", "hora", nullptr));
+        lbl_estado_gps->setText(QApplication::translate("simuladorcomuClass", "estado", nullptr));
+        groupbox_estado_gps->setTitle(QString());
+        radiobut_active_gps->setText(QApplication::translate("simuladorcomuClass", "active", nullptr));
+        radiobut_void_gps->setText(QApplication::translate("simuladorcomuClass", "void", nullptr));
+        lbl_latitud->setText(QApplication::translate("simuladorcomuClass", "latitud", nullptr));
+        spinbox_latitud_deg_gps->setPrefix(QApplication::translate("simuladorcomuClass", "deg ", nullptr));
+        groupbox_latitud_gps->setTitle(QString());
+        radiobut_latidud_gps_n->setText(QApplication::translate("simuladorcomuClass", "N", nullptr));
+        radiobut_latidud_gps_s->setText(QApplication::translate("simuladorcomuClass", "S", nullptr));
+        lbl_longitud->setText(QApplication::translate("simuladorcomuClass", "longitud", nullptr));
+        spinbox_longitud_deg_gps->setPrefix(QApplication::translate("simuladorcomuClass", "deg ", nullptr));
+        groupbox_longitud_gps->setTitle(QString());
+        radiobut_longitud_gps_w->setText(QApplication::translate("simuladorcomuClass", "W", nullptr));
+        radiobut_longitud_gps_e->setText(QApplication::translate("simuladorcomuClass", "E", nullptr));
+        lbl_nudos_gps->setText(QApplication::translate("simuladorcomuClass", "nudos", nullptr));
+        label_13->setText(QApplication::translate("simuladorcomuClass", "no necesario", nullptr));
+        lbl_grados_gps->setText(QApplication::translate("simuladorcomuClass", "grados", nullptr));
+        label_14->setText(QApplication::translate("simuladorcomuClass", "no necesario", nullptr));
+        lbl_fecha_gps->setText(QApplication::translate("simuladorcomuClass", "fecha", nullptr));
+        label_15->setText(QApplication::translate("simuladorcomuClass", "no necesario", nullptr));
+        label_12->setText(QApplication::translate("simuladorcomuClass", "variacion mag", nullptr));
+        label_16->setText(QApplication::translate("simuladorcomuClass", "no necesario", nullptr));
+        spinbox_horas_gps->setSuffix(QApplication::translate("simuladorcomuClass", " hr", nullptr));
+        spinbox_horas_gps->setPrefix(QString());
+        spinbox_minutos_gps->setSuffix(QApplication::translate("simuladorcomuClass", " min", nullptr));
+        spinbox_segundos_gps->setSuffix(QApplication::translate("simuladorcomuClass", " seg", nullptr));
+        btn_enviar_gps->setText(QApplication::translate("simuladorcomuClass", "enviar", nullptr));
     } // retranslateUi
 
 };

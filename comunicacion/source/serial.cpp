@@ -101,7 +101,25 @@ bool SERIAL::esperar_y_recibir(trama * trama_recibida) {
     return false;
 }
 
+bool SERIAL::recibir_hasta(trama * trama_recibida, const std::string &valor_de_corte) {
+    std::string tira_de_datos = "";
+    std::string caracter = "";
 
+    aplicacion::logger::info("recibiendo trama en puerto " + this->configuracion.serial.puerto);
+
+    while (this->comunicacion_serial.read(caracter, 1)) {
+        tira_de_datos += caracter;
+        if (std::string::npos != tira_de_datos.rfind(valor_de_corte)) {
+            tira_de_datos = tira_de_datos.erase(tira_de_datos.size() - valor_de_corte.size());
+            break;
+        }
+        caracter = "";
+    }
+
+    aplicacion::logger::info("trama en puerto " + this->configuracion.serial.puerto + " recibida con largo " + std::to_string(tira_de_datos.size()) + ".");
+
+    return trama_recibida->setear(tira_de_datos);
+}
 
 
 }

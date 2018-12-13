@@ -53,7 +53,7 @@
     <ClCompile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName);$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir);$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName);$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir);$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -69,7 +69,7 @@
     <QtMoc>
       <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
       <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
-      <IncludePath>.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName);$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir);$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;$(repos)opencv\build_msvc;$(repos)opencv\sources\include;$(repos)opencv\sources\modules\core\include;$(repos)opencv\sources\modules\videoio\include;$(repos)opencv\sources\modules\highgui\include;$(repos)opencv\sources\modules\imgcodecs\include;$(repos)opencv\sources\modules\imgproc\include;%(AdditionalIncludeDirectories)</IncludePath>
+      <IncludePath>.\GeneratedFiles;.;$(qt-dir)5.9.1\msvc2015\include;.\GeneratedFiles\$(ConfigurationName);$(qt-dir)5.9.1\msvc2015\include\QtCore;$(qt-dir)5.9.1\msvc2015\include\QtGui;$(qt-dir)5.9.1\msvc2015\include\QtANGLE;$(qt-dir)5.9.1\msvc2015\include\QtMultimedia;$(qt-dir)5.9.1\msvc2015\include\QtMultimediaWidgets;$(qt-dir)5.9.1\msvc2015\include\QtWidgets;$(SolutionDir);$(repos-git)herramientas_desarrollo;$(repos)serial\include;$(repos)spdlog\include;$(repos)rapidjson\include;%(AdditionalIncludeDirectories)</IncludePath>
       <Define>UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
       <QTDIR>$(qt-dir)5.9.1\msvc2015</QTDIR>
     </QtMoc>

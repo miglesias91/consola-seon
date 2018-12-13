@@ -33,7 +33,7 @@ public:
 
     bool recibir(trama * trama_recibida);
     bool esperar_y_recibir(trama * trama_recibida);
-
+    bool recibir_hasta(trama * trama_recibida, const std::string &valor_de_corte);
 private:
 
     seon::aplicacion::configuracion::trama configuracion;

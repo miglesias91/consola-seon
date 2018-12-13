@@ -245,8 +245,6 @@ void consola_seon::mostrar_mensaje_seon(const seon::comunicacion::trama_seon & t
 
     this->hud->reticulas()->corrimiento(trama.corrimiento);
     this->hud->reticulas()->centro_de_gravedad(trama.centro_gravedad);
-    //trama.centro_gravedad ???
-    //trama.corrimiento ???
 }
 
 void consola_seon::comenzar_filmacion() {

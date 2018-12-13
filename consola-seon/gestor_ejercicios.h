@@ -8,12 +8,6 @@
 #include <qlayout.h>
 #include <qbasictimer.h>
 
-// opencv
-#include <opencv2/core.hpp>
-#include <opencv2/highgui.hpp>
-#include <opencv2/imgproc.hpp>
-#include <opencv2/videoio.hpp>
-
 // seon
 #include <aplicacion/include/configuracion.h>
 
@@ -24,18 +18,11 @@ class gestor_ejercicios : public QWidget {
 
     struct ejercicio {
     public:
-        ejercicio(const std::string &path, QWidget * padre) : path_video(path) {
-
-            cv::VideoCapture video_cv(path);
-            double_t cantidad_de_frames = video_cv.get(CV_CAP_PROP_FRAME_COUNT);
-            video_cv.set(CV_CAP_PROP_POS_FRAMES, cantidad_de_frames / 2);
-            cv::Mat frame;
-            video_cv.read(frame);
-            cv::resize(frame, frame, cv::Size(640, 480), 1.0, 1.0, cv::INTER_LINEAR);
-            cv::cvtColor(frame, frame, CV_BGR2RGB);
+        ejercicio(const std::filesystem::path &path, const std::filesystem::path &path_thumbnail, QWidget * padre) : path_video(path) {
 
             this->previsualizacion_video = std::make_unique<QLabel>(padre);
-            this->previsualizacion_video->setPixmap(QPixmap::fromImage(QImage(frame.data, frame.cols, frame.rows, frame.step, QImage::Format_RGB888)));
+            QPixmap pm = QPixmap(QString(path_thumbnail.string().c_str()));
+            this->previsualizacion_video->setPixmap(pm.scaled(640, 480, Qt::AspectRatioMode::KeepAspectRatio, Qt::TransformationMode::SmoothTransformation));
             padre->layout()->addWidget(this->previsualizacion_video.get());
             this->previsualizacion_video->setVisible(false);
 
@@ -88,6 +75,7 @@ public:
     void eliminar_ejercicio();
 
 private:
+    bool crear_thumbnail(const std::filesystem::path &path, std::filesystem::path *path_thumbnail) const;
     bool esta_en_lista(const std::filesystem::path &path) const;
 
     Ui::gestor_ejercicios *ui;

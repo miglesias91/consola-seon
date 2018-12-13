@@ -48,7 +48,8 @@ bool administrador::iniciar() {
 
 void administrador::recibir(trama_gps & trama) {
 
-    this->comunicaciones["gps"]->recibir(&trama);
+    //this->comunicaciones["gps"]->recibir(&trama);
+    this->comunicaciones["gps"]->recibir_hasta(&trama, "$");
 }
 
 void administrador::recibir(trama_pulsadores & trama) {

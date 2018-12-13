@@ -27,7 +27,7 @@ void capturador_pantalla::capturar() {
     std::string alto = this->configuracion.grabacion.resolucion.alto == 0 ? std::to_string(desktop.bottom) : std::to_string(this->configuracion.grabacion.resolucion.alto);
 
     std::string str_comando = this->configuracion.carpeta_utiles.string() + "\\ffmpeg.exe -f gdigrab "
-        "-framerate " + std::to_string(configuracion.grabacion.fps) + " -i desktop -vf scale=" + ancho + ":" + alto + " " + path;
+        "-framerate " + std::to_string(configuracion.grabacion.fps) + " -i desktop -vf scale=" + ancho + ":" + alto + " -f dshow -i audio=\"Micrófono (Realtek High Definition Audio)\"" + path;
 
     std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
     std::wstring comando_wstring = converter.from_bytes(str_comando);

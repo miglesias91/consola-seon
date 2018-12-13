@@ -6,6 +6,7 @@
 
 // stl
 #include <filesystem>
+#include <cstdio>
 
 // utiles
 #include <utiles/include/Fecha.h>
@@ -41,7 +42,10 @@ void gestor_ejercicios::actualizar() {
 
         if (this->esta_en_lista(ejercicio.path())) { fila++; continue; }
 
-        std::shared_ptr<gestor_ejercicios::ejercicio> ej = std::make_shared<gestor_ejercicios::ejercicio>(ejercicio.path().string(), this->ui->widget_visualizacion);
+        std::filesystem::path path_thumbnail = "";
+        this->crear_thumbnail(ejercicio.path(), &path_thumbnail);
+
+        std::shared_ptr<gestor_ejercicios::ejercicio> ej = std::make_shared<gestor_ejercicios::ejercicio>(ejercicio.path(), path_thumbnail, this->ui->widget_visualizacion);
         this->ejercicios.push_back(ej);
 
         std::string nombre = ejercicio.path().filename().string();
@@ -116,8 +120,13 @@ void gestor_ejercicios::eliminar_ejercicio() {
     this->ejercicio_actual->detener();
 
     QItemSelectionModel * modelo = this->ui->tabla_ejercicios->selectionModel();
-    this->ejercicios.erase(this->ejercicios.begin() + modelo->currentIndex().row());
-    this->ejercicio_actual = this->ejercicios.at(0);
+    if (std::remove(this->ejercicio_actual->path().string().c_str())) {
+        this->ejercicios.erase(this->ejercicios.begin() + modelo->currentIndex().row());
+        this->ui->tabla_ejercicios->blockSignals(true);
+        this->ui->tabla_ejercicios->removeRow(modelo->currentIndex().row());
+        this->ui->tabla_ejercicios->blockSignals(false);
+        this->ejercicio_actual = this->ejercicios.at(0);
+    }
 }
 
 bool gestor_ejercicios::esta_en_lista(const std::filesystem::path &path) const {
@@ -127,6 +136,20 @@ bool gestor_ejercicios::esta_en_lista(const std::filesystem::path &path) const {
         }
     }
     return false;
+}
+
+bool gestor_ejercicios::crear_thumbnail(const std::filesystem::path &path, std::filesystem::path *path_thumbnail) const {
+
+    *path_thumbnail = this->configuracion.carpeta_utiles.string() + "\\" + path.filename().string() + ".png";
+
+    STARTUPINFO info = { sizeof(info) };
+    PROCESS_INFORMATION processInfo;
+
+    std::wstring str_comando_cam = this->configuracion.carpeta_utiles.wstring() + L"\\ffmpeg.exe -ss 0 -i " + path.wstring() + L" -frames:v 1 " + path_thumbnail->wstring();
+    wchar_t * comando_cam = &str_comando_cam[0];
+    ::CreateProcess(NULL, comando_cam, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &info, &processInfo);
+
+    return true;
 }
 
 gestor_ejercicios::~gestor_ejercicios() {

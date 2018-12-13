@@ -9,10 +9,12 @@ simuladorcomu::simuladorcomu(QWidget *parent)
     this->ui.form_seon->setDisabled(true);
     this->ui.form_botonera->setDisabled(true);
     this->ui.form_pupitre->setDisabled(true);
+    this->ui.form_gps->setDisabled(true);
 
     this->ui.btn_enviar_seon->setDisabled(true);
     this->ui.btn_enviar_botonera->setDisabled(true);
     this->ui.btn_enviar_pupitre->setDisabled(true);
+    this->ui.btn_enviar_gps->setDisabled(true);
 
     this->setear_conexiones();
 }
@@ -85,6 +87,28 @@ bool simuladorcomu::conectar_pupitre() {
 
     this->ui.form_pupitre->setDisabled(false);
     this->ui.btn_enviar_pupitre->setDisabled(false);
+
+    return true;
+}
+
+bool simuladorcomu::conectar_gps() {
+    std::string puerto = this->ui.lineedit_puerto_gps->text().toStdString();
+    try {
+        this->com_gps.setPort(puerto);
+        this->com_gps.open();
+    }
+    catch (std::invalid_argument &e) {
+        return false;
+    }
+    catch (serial::SerialException &e) {
+        return false;
+    }
+    catch (serial::IOException &e) {
+        return false;
+    }
+
+    this->ui.form_gps->setDisabled(false);
+    this->ui.btn_enviar_gps->setDisabled(false);
 
     return true;
 }
@@ -168,7 +192,7 @@ bool simuladorcomu::enviar_seon() {
     trama[8] = azimut_radar_entero_2.to_ulong();
     trama[10] = this->ui.spin_azimut_radar_decimal->value();
 
-    // distanacia radar
+    // distancia radar
     std::string bits_distancia_radar = std::bitset<16>(this->ui.spin_distancia_radar->value()).to_string();
     std::bitset<8> distancia_radar_1(bits_distancia_radar.substr(0, 7));
     std::bitset<8> distancia_radar_2(bits_distancia_radar.substr(8, 15));
@@ -326,12 +350,60 @@ bool simuladorcomu::enviar_pupitre() {
     return true;
 }
 
+bool simuladorcomu::enviar_gps() {
+
+    std::string hora = std::to_string(this->ui.spinbox_horas_gps->value());
+    if (hora.size() == 1) {
+        hora.insert(0, "0");
+    }
+
+    std::string min = std::to_string(this->ui.spinbox_minutos_gps->value());
+    if (min.size() == 1) {
+        min.insert(0, "0");
+    }
+
+    std::string seg = std::to_string(this->ui.spinbox_segundos_gps->value());
+    if (seg.size() == 1) {
+        seg.insert(0, "0");
+    }
+
+    std::string latitud = std::to_string(this->ui.spinbox_latitud_gps->value());  
+    std::string latitud_deg = std::to_string(this->ui.spinbox_latitud_deg_gps->value()).erase(6);  // elimino a partir de la posicion 6 del string.
+    std::string latitud_cardinalidad = this->ui.radiobut_latidud_gps_n->isChecked() ? "N" : "S";
+    
+    std::string longitud = std::to_string(this->ui.spinbox_longitud_gps->value());
+    std::string longitud_deg = std::to_string(this->ui.spinbox_longitud_deg_gps->value()).erase(6);  // elimino a partir de la posicion 6 del string.
+    std::string longitud_cardinalidad = this->ui.radiobut_longitud_gps_e->isChecked() ? "E" : "W";
+
+    std::string trama = "$GPRMC," + hora + min + seg + ",A," +
+        latitud + latitud_deg + "," + latitud_cardinalidad + "," +
+        longitud + longitud_deg + "," + longitud_cardinalidad + "," +
+        "000.0,360.0,130998,011.3,E*62";
+
+    try {
+        this->com_gps.write(trama);
+    }
+    catch (serial::PortNotOpenedException &e) {
+        return false;
+    }
+    catch (serial::SerialException &e) {
+        return false;
+    }
+    catch (serial::IOException &e) {
+        return false;
+    }
+
+    return true;
+}
+
 void simuladorcomu::setear_conexiones() {
     QObject::connect(this->ui.btn_conectar_botonera, &QPushButton::released, this, &simuladorcomu::conectar_botonera);
     QObject::connect(this->ui.btn_conectar_seon, &QPushButton::released, this, &simuladorcomu::conectar_seon);
     QObject::connect(this->ui.btn_conectar_pupitre, &QPushButton::released, this, &simuladorcomu::conectar_pupitre);
+    QObject::connect(this->ui.btn_conectar_gps, &QPushButton::released, this, &simuladorcomu::conectar_gps);
 
     QObject::connect(this->ui.btn_enviar_botonera, &QPushButton::released, this, &simuladorcomu::enviar_botonera);
     QObject::connect(this->ui.btn_enviar_seon, &QPushButton::released, this, &simuladorcomu::enviar_seon);
     QObject::connect(this->ui.btn_enviar_pupitre, &QPushButton::released, this, &simuladorcomu::enviar_pupitre);
+    QObject::connect(this->ui.btn_enviar_gps, &QPushButton::released, this, &simuladorcomu::enviar_gps);
 }

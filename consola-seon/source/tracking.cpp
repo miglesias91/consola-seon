@@ -49,7 +49,7 @@ void tracking::corrimiento(const seon::aplicacion::configuracion::posicion &corr
 }
 
 void tracking::centro_de_gravedad(const seon::aplicacion::configuracion::posicion &posicion_centro) {
-
+    this->centro->move(posicion_centro.x, posicion_centro.y);
 }
 
 }

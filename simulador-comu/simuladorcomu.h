@@ -17,15 +17,17 @@ public:
     bool conectar_seon();
     bool conectar_botonera();
     bool conectar_pupitre();
+    bool conectar_gps();
 
     bool enviar_seon();
     bool enviar_botonera();
     bool enviar_pupitre();
+    bool enviar_gps();
 
     void setear_conexiones();
 
 private:
     Ui::simuladorcomuClass ui;
 
-    serial::Serial com_seon, com_botonera, com_pupitre;
+    serial::Serial com_seon, com_botonera, com_pupitre, com_gps;
 };
