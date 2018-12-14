@@ -33,12 +33,10 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
 
     this->ui.panel_lateral->resize(this->config_gui.panel_lateral.tamanio.ancho, this->config_gui.panel_lateral.tamanio.alto);
     this->ui.panel_lateral->move(this->config_gui.panel_lateral.posicion.x, this->config_gui.panel_lateral.posicion.y);
-    this->ui.panel_lateral->raise();
     this->ui.layout_lateral->setSpacing(30);
 
     this->ui.panel_superior->resize(this->config_gui.panel_superior.tamanio.ancho, this->config_gui.panel_superior.tamanio.alto);
     this->ui.panel_superior->move(this->config_gui.panel_superior.posicion.x, this->config_gui.panel_superior.posicion.y);
-    this->ui.panel_superior->raise();
     this->ui.layout_superior->setSpacing(80);
 
     this->comu.iniciar();
@@ -60,6 +58,9 @@ consola_seon::consola_seon(seon::video::administrador * admin_video, seon::comun
     this->hud->reticulas(tracking);
 
     this->ui.widget_datos_radar->raise();
+
+    this->ui.panel_lateral->raise();
+    this->ui.panel_superior->raise();
 }
 
 consola_seon::~consola_seon() {
@@ -112,14 +113,14 @@ void consola_seon::configurar_gui() {
             seon::aplicacion::logger::advertencia("El elemento con id '" + elemento.id + "' no existe.");
         }
     });
-
-    //this->gestor->showFullScreen();
 }
 
 void consola_seon::mostrar_mensaje_gps(const seon::comunicacion::trama_gps & trama) {
 
-    this->ui.lbl_longitud_valor->setText((herramientas::utiles::FuncionesString::toString(trama.longitud.angulo, 2) + " " + trama.longitud.cardinalidad).c_str());
-    this->ui.lbl_latitud_valor->setText((herramientas::utiles::FuncionesString::toString(trama.latitud.angulo, 2) + " " + trama.latitud.cardinalidad).c_str());
+    std::string longitud_str = trama.longitud.cardinalidad + " " + std::to_string(trama.longitud.grados) + u8"° " + herramientas::utiles::FuncionesString::toString(trama.longitud.minutos) + "'";
+    std::string latitud_str = trama.latitud.cardinalidad + " " + std::to_string(trama.latitud.grados) + u8"° " + herramientas::utiles::FuncionesString::toString(trama.latitud.minutos) + "'";
+    this->ui.lbl_longitud_valor->setText(longitud_str.c_str());
+    this->ui.lbl_latitud_valor->setText(latitud_str.c_str());
 }
 
 void consola_seon::mostrar_mensaje_pupitre(const seon::comunicacion::trama_pupitre & trama) {
@@ -227,11 +228,11 @@ void consola_seon::mostrar_mensaje_seon(const seon::comunicacion::trama_seon & t
     }
 
     this->ui.lbl_velocidad_valor->setText(("n" + std::to_string(trama.velocidad)).c_str());
-    this->ui.lbl_zoom_valor->setText(((std::to_string(trama.velocidad) + " °").c_str()));
+    this->ui.lbl_zoom_valor->setText(((std::to_string(trama.velocidad) + u8" °").c_str()));
     if (trama.radar_activado) {
         this->ui.widget_datos_radar->setVisible(true);
         this->ui.lbl_dist_valor->setText((std::to_string(trama.distancia_radar) + " y").c_str());
-        this->ui.lbl_azimut_radar_valor->setText((herramientas::utiles::FuncionesString::toString(trama.azimut_radar, 2) + " °").c_str());
+        this->ui.lbl_azimut_radar_valor->setText((herramientas::utiles::FuncionesString::toString(trama.azimut_radar, 2) + u8" °").c_str());
         this->ui.lbl_tipo_valor->setText(trama.tipo_blanco.c_str());
     }
     else {
@@ -240,8 +241,8 @@ void consola_seon::mostrar_mensaje_seon(const seon::comunicacion::trama_seon & t
 
     this->hud->dibujo()->azimut(trama.azimut_grafico);
     this->hud->dibujo()->elevacion(trama.elevacion_grafico);
-    this->ui.lbl_azimut_valor->setText((herramientas::utiles::FuncionesString::toString(trama.azimut_absoluto, 2) + " °").c_str());
-    this->ui.lbl_elevacion_valor->setText((herramientas::utiles::FuncionesString::toString(trama.elevacion_absoluta, 2) + " °").c_str());
+    this->ui.lbl_azimut_valor->setText((herramientas::utiles::FuncionesString::toString(trama.azimut_absoluto, 2) + u8" °").c_str());
+    this->ui.lbl_elevacion_valor->setText((herramientas::utiles::FuncionesString::toString(trama.elevacion_absoluta, 2) + u8" °").c_str());
 
     this->hud->reticulas()->corrimiento(trama.corrimiento);
     this->hud->reticulas()->centro_de_gravedad(trama.centro_gravedad);

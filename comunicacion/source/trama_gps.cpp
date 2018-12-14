@@ -48,15 +48,20 @@ bool trama_gps::parsear(const std::string & tira_de_datos) {
     this->fecha.setSegundos(horasminutossegundos.getSegundos());
 
     this->estado = campos[2];
-    this->latitud.angulo = std::stod(campos[3]);
+
+    std::string latitud_grados(campos[3].begin(), campos[3].begin() + 2);
+    std::string latitud_minutos(campos[3].begin() + 2, campos[3].end());
+    this->latitud.grados = std::stoi(latitud_grados);
+    this->latitud.minutos = std::stod(latitud_minutos);
     this->latitud.cardinalidad = campos[4];
-    this->longitud.angulo = std::stod(campos[5]);
+
+    std::string longitud_grados(campos[5].begin(), campos[5].begin() + 3);
+    std::string longitud_minutos(campos[5].begin() + 3, campos[5].end());
+    this->longitud.grados = std::stod(longitud_grados);
+    this->longitud.minutos = std::stod(longitud_minutos);
     this->longitud.cardinalidad = campos[6];
     this->velocidad = std::stod(campos[7]);
     this->angulo = std::stod(campos[8]);
-    this->variacion_magnetica.angulo = std::stod(campos[10]);
-    this->variacion_magnetica.cardinalidad = herramientas::utiles::FuncionesString::separar(campos[11], "*")[0];
-    this->checksum = herramientas::utiles::FuncionesString::separar(campos[11], "*")[1];
 
     return true;
 }

@@ -17,7 +17,8 @@ namespace seon::comunicacion {
 class trama_gps : public trama {
 
     struct coordenada {
-        double_t angulo = 0;
+        uint16_t grados = 0;
+        double_t minutos = 0.000f;
         std::string cardinalidad = "";
     };
 

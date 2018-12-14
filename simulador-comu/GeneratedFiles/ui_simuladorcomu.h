@@ -1348,6 +1348,7 @@ public:
         spinbox_latitud_deg_gps->setObjectName(QStringLiteral("spinbox_latitud_deg_gps"));
         sizePolicy1.setHeightForWidth(spinbox_latitud_deg_gps->sizePolicy().hasHeightForWidth());
         spinbox_latitud_deg_gps->setSizePolicy(sizePolicy1);
+        spinbox_latitud_deg_gps->setProperty("showGroupSeparator", QVariant(false));
         spinbox_latitud_deg_gps->setDecimals(3);
 
         horizontalLayout_14->addWidget(spinbox_latitud_deg_gps);
@@ -1476,6 +1477,7 @@ public:
         horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
         spinbox_horas_gps = new QSpinBox(form_gps);
         spinbox_horas_gps->setObjectName(QStringLiteral("spinbox_horas_gps"));
+        spinbox_horas_gps->setWrapping(false);
         spinbox_horas_gps->setMaximum(23);
 
         horizontalLayout_19->addWidget(spinbox_horas_gps);

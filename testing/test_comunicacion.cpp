@@ -104,14 +104,14 @@ TEST_CASE("trama_gps", "comunicacion") {
 
     REQUIRE(trama.fecha.getStringAAAAMMDDHHmmSS() == "19980913081836");
     REQUIRE(trama.estado == "A");
-    REQUIRE(trama.latitud.angulo == 3751.65);
+    REQUIRE(trama.latitud.grados == 37);
+    REQUIRE(trama.latitud.minutos == 51.65);
     REQUIRE(trama.latitud.cardinalidad == "S");
-    REQUIRE(trama.longitud.angulo == 14507.36);
+    REQUIRE(trama.longitud.grados == 145);
+    REQUIRE(trama.longitud.minutos == 07.36);
     REQUIRE(trama.longitud.cardinalidad == "E");
     REQUIRE(trama.velocidad == 0.00);
     REQUIRE(trama.angulo == 360.00);
-    REQUIRE(trama.variacion_magnetica.angulo == 11.3);
-    REQUIRE(trama.variacion_magnetica.cardinalidad == "E");
     REQUIRE(trama.checksum == "62");
 }
 

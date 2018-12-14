@@ -367,12 +367,30 @@ bool simuladorcomu::enviar_gps() {
         seg.insert(0, "0");
     }
 
-    std::string latitud = std::to_string(this->ui.spinbox_latitud_gps->value());  
-    std::string latitud_deg = std::to_string(this->ui.spinbox_latitud_deg_gps->value()).erase(6);  // elimino a partir de la posicion 6 del string.
+    std::string latitud = std::to_string(this->ui.spinbox_latitud_gps->value());
+    if (latitud.size() == 1) {
+        latitud.insert(0, "0");
+    }
+    std::string latitud_deg = std::to_string(this->ui.spinbox_latitud_deg_gps->value());
+    if (latitud_deg.find(".") == 1) {
+        latitud_deg.insert(0, "0");
+    }
+    latitud_deg = latitud_deg.erase(6);  // elimino a partir de la posicion 6 del string.
     std::string latitud_cardinalidad = this->ui.radiobut_latidud_gps_n->isChecked() ? "N" : "S";
     
     std::string longitud = std::to_string(this->ui.spinbox_longitud_gps->value());
-    std::string longitud_deg = std::to_string(this->ui.spinbox_longitud_deg_gps->value()).erase(6);  // elimino a partir de la posicion 6 del string.
+    if (longitud.size() == 1) {
+        longitud.insert(0, "00");
+    }
+    else if (longitud.size() == 2) {
+        longitud.insert(0, "0");
+    }
+
+    std::string longitud_deg = std::to_string(this->ui.spinbox_longitud_deg_gps->value());
+    if (longitud_deg.find(".") == 1) {
+        longitud_deg.insert(0, "0");
+    }
+    longitud_deg = longitud_deg.erase(6);  // elimino a partir de la posicion 6 del string.
     std::string longitud_cardinalidad = this->ui.radiobut_longitud_gps_e->isChecked() ? "E" : "W";
 
     std::string trama = "$GPRMC," + hora + min + seg + ",A," +
