@@ -44,7 +44,7 @@ void camara::filmar() {
 
     this->info_cam = { sizeof(this->info_cam) };
 
-    std::wstring str_comando_cam = this->configuracion.carpeta_utiles.wstring() + L"\\ffplay.exe -video_size 720x576 -f dshow -vf scale=" + ancho + L":" + alto + L":force_original_aspect_ratio=decrease,pad=" + ancho + L":" + alto + L":(ow-iw)/2:(oh-ih)/2,setsar=1 -i video=\"Decklink Video Capture\"";
+    std::wstring str_comando_cam = this->configuracion.carpeta_utiles.wstring() + L"\\ffplay.exe -video_size 720x576 -noborder -f dshow -vf scale=" + ancho + L":" + alto + L":force_original_aspect_ratio=decrease,pad=" + ancho + L":" + alto + L":(ow-iw)/2:(oh-ih)/2,setsar=1 -i video=\"Decklink Video Capture\"";
     wchar_t * comando_cam = &str_comando_cam[0];
     ::CreateProcess(NULL, comando_cam, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &this->info_cam, &this->processInfo_cam);
 }
