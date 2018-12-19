@@ -18,7 +18,7 @@ class gestor_ejercicios : public QWidget {
 
     struct ejercicio {
     public:
-        ejercicio(const std::filesystem::path &path, const std::filesystem::path &path_thumbnail, QWidget * padre) : path_video(path) {
+        ejercicio(const std::experimental::filesystem::path &path, const std::filesystem::path &path_thumbnail, QWidget * padre) : path_video(path) {
 
             this->previsualizacion_video = std::make_unique<QLabel>(padre);
             QPixmap pm = QPixmap(QString(path_thumbnail.string().c_str()));
@@ -29,7 +29,7 @@ class gestor_ejercicios : public QWidget {
         }
         ~ejercicio() {}
 
-        std::filesystem::path path() const {
+        std::experimental::filesystem::path path() const {
             return this->path_video;
         }
 
@@ -58,7 +58,7 @@ class gestor_ejercicios : public QWidget {
         }
 
     private:
-        std::filesystem::path path_video;
+        std::experimental::filesystem::path path_video;
         std::unique_ptr<QLabel> previsualizacion_video;
     };
 
@@ -75,8 +75,8 @@ public:
     void eliminar_ejercicio();
 
 private:
-    bool crear_thumbnail(const std::filesystem::path &path, std::filesystem::path *path_thumbnail) const;
-    bool esta_en_lista(const std::filesystem::path &path) const;
+    bool crear_thumbnail(const std::experimental::filesystem::path &path, std::filesystem::path *path_thumbnail) const;
+    bool esta_en_lista(const std::experimental::filesystem::path &path) const;
 
     Ui::gestor_ejercicios *ui;
 

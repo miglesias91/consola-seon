@@ -38,7 +38,7 @@ void gestor_ejercicios::actualizar() {
     this->ui->tabla_ejercicios->setRowCount(cantidad_de_ejercicios);
 
     uint16_t fila = 0;
-    for (auto ejercicio : std::filesystem::directory_iterator(this->configuracion.grabacion.carpeta)) {
+    for (auto ejercicio : std::experimental::filesystem::directory_iterator(this->configuracion.grabacion.carpeta)) {
 
         if (this->esta_en_lista(ejercicio.path())) { fila++; continue; }
 
@@ -50,10 +50,10 @@ void gestor_ejercicios::actualizar() {
 
         std::string nombre = ejercicio.path().filename().string();
 
-        std::chrono::system_clock::time_point tp(std::filesystem::last_write_time(ejercicio.path()).time_since_epoch());
+        std::chrono::system_clock::time_point tp(std::experimental::filesystem::last_write_time(ejercicio.path()).time_since_epoch());
         herramientas::utiles::Fecha fecha = herramientas::utiles::Fecha::parsear(tp);
 
-        uintmax_t tamanio_kb = std::filesystem::file_size(ejercicio.path()) / 1000;
+        uintmax_t tamanio_kb = std::experimental::filesystem::file_size(ejercicio.path()) / 1000;
 
         QTableWidgetItem* item_nombre = new QTableWidgetItem(nombre.c_str());
         item_nombre->setTextAlignment(Qt::AlignmentFlag::AlignLeft);
@@ -129,7 +129,7 @@ void gestor_ejercicios::eliminar_ejercicio() {
     }
 }
 
-bool gestor_ejercicios::esta_en_lista(const std::filesystem::path &path) const {
+bool gestor_ejercicios::esta_en_lista(const std::experimental::filesystem::path &path) const {
     for (std::shared_ptr<ejercicio> ej : this->ejercicios) {
         if (path == ej->path()) {
             return true;
@@ -138,7 +138,7 @@ bool gestor_ejercicios::esta_en_lista(const std::filesystem::path &path) const {
     return false;
 }
 
-bool gestor_ejercicios::crear_thumbnail(const std::filesystem::path &path, std::filesystem::path *path_thumbnail) const {
+bool gestor_ejercicios::crear_thumbnail(const std::experimental::filesystem::path &path, std::filesystem::path *path_thumbnail) const {
 
     *path_thumbnail = this->configuracion.carpeta_utiles.string() + "\\" + path.filename().string() + ".png";
 
