@@ -138,7 +138,6 @@
   <ItemGroup>
     <ClCompile Include="main_testing.cpp" />
     <ClCompile Include="test_comunicacion.cpp" />
-    <ClCompile Include="test_video.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
